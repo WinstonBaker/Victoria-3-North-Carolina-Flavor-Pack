@@ -1,0 +1,11 @@
+BUILDINGS={
+	s:STATE_NORTH_CAROLINA={
+		region_state:USA={
+			create_building={
+				building="building_unc_chapel_hill"
+				level=1
+				activate_production_methods={ "pm_unc_active" }
+			}
+		}
+	}
+}

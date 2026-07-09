@@ -1,0 +1,313 @@
+namespace = nc_flavor_events
+
+# Reed's Gold Mine — first documented gold find in the United States
+nc_flavor_events.1 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.1.t
+	desc = nc_flavor_events.1.d
+	flavor = nc_flavor_events.1.f
+
+	event_image = {
+		video = "ip4_mining_scene"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+	duration = 3
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	trigger = {
+		NOT = { has_variable = nc_gold_rush_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	immediate = {
+		set_variable = nc_gold_rush_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = {
+					owner = ROOT
+					is_incorporated = yes
+				}
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.1.a
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_gold_rush_excitement
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.1.b
+		default_option = yes
+		add_treasury = 25000
+	}
+}
+
+# Brightleaf tobacco curing — transforms the Carolina tobacco trade
+nc_flavor_events.2 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.2.t
+	desc = nc_flavor_events.2.d
+	flavor = nc_flavor_events.2.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/goods_icons/tobacco.dds"
+
+	duration = 3
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	trigger = {
+		NOT = { has_variable = nc_brightleaf_event_fired }
+		has_technology_researched = intensive_agriculture
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 2
+			}
+		}
+	}
+
+	immediate = {
+		set_variable = nc_brightleaf_event_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = {
+					owner = ROOT
+					is_incorporated = yes
+				}
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.2.a
+		add_modifier = {
+			name = nc_brightleaf_success
+			days = normal_modifier_time
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.2.b
+		default_option = yes
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = nc_brightleaf_success
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+# Wilmington & Weldon Railroad — ties the coast to the Piedmont
+nc_flavor_events.3 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.3.t
+	desc = nc_flavor_events.3.d
+	flavor = nc_flavor_events.3.f
+
+	event_image = {
+		video = "unspecific_trains"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	duration = 3
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	trigger = {
+		NOT = { has_variable = nc_railroad_event_fired }
+		has_technology_researched = railways
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 1
+			}
+		}
+	}
+
+	immediate = {
+		set_variable = nc_railroad_event_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = {
+					owner = ROOT
+					is_incorporated = yes
+				}
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.3.a
+		add_modifier = {
+			name = nc_iron_horse_boom
+			days = normal_modifier_time
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.3.b
+		default_option = yes
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_iron_horse_boom
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+# Tar Heel Legacy complete
+nc_flavor_events.4 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.4.t
+	desc = nc_flavor_events.4.d
+	flavor = nc_flavor_events.4.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = {
+					owner = ROOT
+				}
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.4.a
+		add_modifier = {
+			name = nc_tar_heel_pride
+			days = long_modifier_time
+		}
+		add_modifier = {
+			name = nc_piedmont_industrialized
+			days = long_modifier_time
+		}
+	}
+}
+
+# Research Triangle — journal entry begins
+nc_flavor_events.5 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.5.t
+	desc = nc_flavor_events.5.d
+	flavor = nc_flavor_events.5.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/building_icons/unc.dds"
+
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = {
+					owner = ROOT
+				}
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.5.a
+		default_option = yes
+	}
+
+	option = {
+		name = nc_flavor_events.5.b
+	}
+}
+
+# Research Triangle — all three universities united
+nc_flavor_events.6 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.6.t
+	desc = nc_flavor_events.6.d
+	flavor = nc_flavor_events.6.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/building_icons/ncsu.dds"
+
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = {
+					owner = ROOT
+				}
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.6.a
+		default_option = yes
+	}
+}

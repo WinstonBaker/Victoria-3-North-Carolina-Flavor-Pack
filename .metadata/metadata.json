@@ -1,0 +1,12 @@
+{
+  "name": "North Carolina Flavor Pack",
+  "id": "nc_flavor_pack",
+  "version": "1.0.0",
+  "supported_game_version": "1.13.*",
+  "short_description": "Historical flavor for the Tar Heel State: tobacco, Piedmont industry, Wilmington trade, and journal entries for North Carolina.",
+  "tags": ["Flavor", "Historical", "United States"],
+  "relationships": [],
+  "game_custom_data": {
+    "multiplayer_synchronized": true
+  }
+}

@@ -1,0 +1,195 @@
+je_nc_tar_heel_legacy = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = nc_tar_heel_legacy_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	is_shown_in_lobby = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = {
+					owner = ROOT
+				}
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	complete = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 5
+			}
+			any_scope_building = {
+				is_building_type = building_textile_mills
+				level >= 3
+			}
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 3
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_tar_heel_legacy_complete
+		trigger_event = { id = nc_flavor_events.4 popup = yes }
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				is_incorporated = yes
+			}
+		}
+	}
+
+	on_monthly_pulse = {
+		random_events = {
+			200 = 0
+			10 = nc_flavor_events.1
+			10 = nc_flavor_events.2
+			10 = nc_flavor_events.3
+		}
+	}
+
+	weight = 75
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+je_nc_brightleaf_revolution = {
+	icon = "gfx/interface/icons/goods_icons/tobacco.dds"
+
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = nc_brightleaf_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+		has_technology_researched = intensive_agriculture
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 3
+			}
+		}
+	}
+
+	complete = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 8
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_brightleaf_complete
+		add_modifier = {
+			name = nc_brightleaf_success
+			days = long_modifier_time
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				is_incorporated = yes
+			}
+		}
+	}
+
+	weight = 50
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+je_nc_iron_horse = {
+	icon = "gfx/interface/icons/building_icons/building_railway.dds"
+
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = nc_iron_horse_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+		has_technology_researched = railways
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	complete = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 5
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_iron_horse_complete
+		add_modifier = {
+			name = nc_iron_horse_boom
+			days = long_modifier_time
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				is_incorporated = yes
+			}
+		}
+	}
+
+	weight = 50
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

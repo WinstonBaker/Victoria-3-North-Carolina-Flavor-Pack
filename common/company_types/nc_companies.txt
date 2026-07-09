@@ -1,0 +1,167 @@
+# W. Duke, Sons & Co. — Durham tobacco dynasty
+company_w_duke_sons = {
+	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_2.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_tobacco_plantation
+		building_food_industry
+	}
+
+	extension_building_types = {
+		building_cotton_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_tobacco_plantation_throughput_add = 0.1
+		interest_group_ig_landowners_approval_add = 2
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+# R.J. Reynolds Tobacco Company — Winston-Salem
+company_rj_reynolds = {
+	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_1.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_tobacco_plantation
+		building_textile_mills
+		building_food_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				OR = {
+					is_building_type = building_tobacco_plantation
+					is_building_type = building_textile_mills
+				}
+				level >= 3
+			}
+			count >= 2
+		}
+	}
+
+	prosperity_modifier = {
+		building_tobacco_plantation_throughput_add = 0.05
+		building_textile_mills_throughput_add = 0.1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+# Cannon Mills — Concord textile manufacturer
+company_cannon_mills = {
+	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_textile_mills
+		building_cotton_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mills
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_textile_mills_throughput_add = 0.15
+		state_lower_strata_standard_of_living_add = 0.5
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
