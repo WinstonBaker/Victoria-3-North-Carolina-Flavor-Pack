@@ -43,10 +43,7 @@ je_nc_tar_heel_legacy = {
 				is_building_type = building_tobacco_plantation
 				level >= 5
 			}
-			any_scope_building = {
-				is_building_type = building_textile_mills
-				level >= 3
-			}
+			
 			any_scope_building = {
 				is_building_type = building_railway
 				level >= 3
@@ -82,114 +79,55 @@ je_nc_tar_heel_legacy = {
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
-je_nc_brightleaf_revolution = {
-	icon = "gfx/interface/icons/goods_icons/tobacco.dds"
-
+je_nc_research_triangle = {
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	group = je_group_nc_flavor
 
 	is_shown_when_inactive = {
-		NOT = { has_variable = nc_brightleaf_complete }
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
-			is_incorporated = yes
 		}
-		has_technology_researched = intensive_agriculture
 	}
 
 	possible = {
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
-			is_incorporated = yes
-			any_scope_building = {
-				is_building_type = building_tobacco_plantation
-				level >= 3
-			}
 		}
 	}
 
+	immediate = {
+		# Safely triggers your introductory event instantly without the broken days param
+		trigger_event = { id = nc_flavor_events.5 popup = yes }
+	}
+
+	# Three separate condition blocks to force three independent checkmarks in the UI
 	complete = {
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			is_incorporated = yes
-			any_scope_building = {
-				is_building_type = building_tobacco_plantation
-				level >= 8
-			}
+		s:STATE_NORTH_CAROLINA = {
+			has_building = building_nc_state_university
+		}
+		s:STATE_NORTH_CAROLINA = {
+			has_building = building_duke_university
+		}
+		s:STATE_NORTH_CAROLINA = {
+			has_building = building_unc_chapel_hill
 		}
 	}
 
 	on_complete = {
-		set_variable = nc_brightleaf_complete
+		trigger_event = { id = nc_flavor_events.6 popup = yes } 
 		add_modifier = {
-			name = nc_brightleaf_success
-			days = long_modifier_time
+			name = nc_research_triangle_country_bonus
 		}
-	}
-
-	invalid = {
-		NOT = {
-			any_scope_state = {
+		every_scope_state = {
+			limit = {
 				state_region = s:STATE_NORTH_CAROLINA
-				is_incorporated = yes
+			}
+			add_modifier = {
+				name = modifier_research_triangle_established
 			}
 		}
 	}
 
-	weight = 50
-
-	should_be_pinned_by_default_uninvolved_or_context = yes
-}
-
-je_nc_iron_horse = {
-	icon = "gfx/interface/icons/building_icons/building_railway.dds"
-
-	group = je_group_nc_flavor
-
-	is_shown_when_inactive = {
-		NOT = { has_variable = nc_iron_horse_complete }
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			is_incorporated = yes
-		}
-		has_technology_researched = railways
-	}
-
-	possible = {
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			is_incorporated = yes
-		}
-	}
-
-	complete = {
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			is_incorporated = yes
-			any_scope_building = {
-				is_building_type = building_railway
-				level >= 5
-			}
-		}
-	}
-
-	on_complete = {
-		set_variable = nc_iron_horse_complete
-		add_modifier = {
-			name = nc_iron_horse_boom
-			days = long_modifier_time
-		}
-	}
-
-	invalid = {
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				is_incorporated = yes
-			}
-		}
-	}
-
-	weight = 50
-
+	weight = 100
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }

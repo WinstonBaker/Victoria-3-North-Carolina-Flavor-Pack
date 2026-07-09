@@ -16,11 +16,21 @@
 
  je_nc_research_triangle: "Found the Research Triangle"
  je_nc_research_triangle_desc: "With the University of North Carolina already standing at Chapel Hill, planners envision a triangle of learning linking Raleigh and Durham. Found NC State University and Duke University in North Carolina to bind the Piedmont into America's next great research hub."
+ je_nc_research_triangle_reason: "With the University of North Carolina already standing at Chapel Hill, planners envision a triangle of learning linking Raleigh and Durham."
+ je_nc_research_triangle_goal: "Found NC State University and Duke University in North Carolina to complete the Research Triangle."
  je_nc_research_triangle_progress_status_loc: "UNC stands at Chapel Hill. Build NC State University and Duke University in North Carolina to complete the Research Triangle."
  je_nc_research_triangle_nc_state_only_status_loc: "NC State University has been founded in Raleigh. Duke University in Durham remains to be built."
  je_nc_research_triangle_duke_only_status_loc: "Duke University has been founded in Durham. NC State University in Raleigh remains to be built."
  je_nc_research_triangle_complete_status_loc: "All three universities stand ready. The Research Triangle can now be formally united."
  je_nc_research_triangle_complete_tt: "NC State University and Duke University have been built in North Carolina."
+
+ rt_universities_unlocked_tt: "Construction of #b North Carolina State University#! and #b Duke University#! is now available in North Carolina."
+ rt_universities_established_tt: "The Research Triangle has been established, granting a lasting boost to education across North Carolina."
+
+ # Buildings
+ building_nc_state_university: "North Carolina State University"
+ building_duke_university: "Duke University"
+ building_unc_chapel_hill: "University of North Carolina at Chapel Hill"
 
  # State Traits
  state_trait_tobacco_belt: "Tobacco Belt"
@@ -38,32 +48,10 @@
  state_trait_great_dismal_swamp: "Great Dismal Swamp"
  state_trait_great_dismal_swamp_desc: "A vast and ancient wetland of cypress and juniper, worked by canal and timber crews for generations, its dense stands feeding sawmills up and down the coast."
 
-# Companies
+ # Companies
  company_w_duke_sons: "W. Duke, Sons & Co."
  company_rj_reynolds: "R.J. Reynolds Tobacco Company"
  company_cannon_mills: "Cannon Mills"
-
- # UNC Monument
- building_unc_chapel_hill: "University of North Carolina"
- building_unc_chapel_hill_lens_option: "University of North Carolina"
- pmg_monument_unc: "University Operations"
- pmg_monument_unc_desc: "How the nation's first public university serves the state."
- pm_unc_active: "First in the Nation's Heart"
- pm_unc_active_desc: "Founded in 1789, the University of North Carolina at Chapel Hill raises education access, qualifications, and national innovation."
-
- # Research Triangle Universities
- building_nc_state_university: "NC State University"
- building_nc_state_university_lens_option: "NC State University"
- building_duke_university: "Duke University"
- building_duke_university_lens_option: "Duke University"
- pmg_monument_nc_state: "Wolfpack Operations"
- pmg_monument_nc_state_desc: "How North Carolina's land-grant university drives engineering and industry."
- pm_nc_state_active: "Think and Do"
- pm_nc_state_active_desc: "NC State's engineers and agricultural scientists lift qualifications and industrial throughput across the Piedmont."
- pmg_monument_duke: "Blue Devil Operations"
- pmg_monument_duke_desc: "How Duke's private research university advances medicine and the liberal arts."
- pm_duke_active: "Eruditio et Religio"
- pm_duke_active_desc: "Duke University's scholars and physicians expand education access, qualifications, and national prestige."
 
  # Modifiers
  nc_brightleaf_success: "Brightleaf Boom"
@@ -71,7 +59,18 @@
  nc_piedmont_industrialized: "Piedmont Industrialization"
  nc_tar_heel_pride: "Tar Heel Pride"
  nc_gold_rush_excitement: "Carolina Gold Rush"
- nc_research_triangle_hub: "Research Triangle"
+ nc_research_triangle_country_bonus_name: "Research Triangle"
+ nc_research_triangle_country_bonus_desc: "A national reputation for research and innovation, radiating outward from North Carolina's universities."
+ modifier_research_triangle_established_name: "Research Triangle Established"
+ modifier_research_triangle_established_desc: "The universities of North Carolina have formed a thriving center of research and education."
+
+ # Production Method Groups / Production Methods
+ pmg_monument_nc_state: "NC State University"
+ pm_nc_state_active: "Active University"
+ pmg_monument_duke: "Duke University"
+ pm_duke_active: "Active University"
+ pmg_monument_unc: "University of North Carolina"
+ pm_unc_active: "Active University"
 
  # Events
  nc_flavor_events.1.t: "Gold in Cabarrus County"
@@ -97,13 +96,13 @@
  nc_flavor_events.4.f: "'From Murphy to Manteo, Carolina leads the way.'"
  nc_flavor_events.4.a: "A proud day for the Old North State."
 
- nc_flavor_events.5.t: "A Triangle of Learning"
- nc_flavor_events.5.d: "Carolina leaders have proposed uniting the state's great universities into a single research corridor. Chapel Hill already hosts the nation's first public university. Now Raleigh and Durham must rise to match it — NC State for engineering and agriculture, Duke for medicine and the sciences."
- nc_flavor_events.5.f: "'From Chapel Hill to Raleigh to Durham — three points, one ambition.'"
- nc_flavor_events.5.a: "Fund the expansion of higher education."
- nc_flavor_events.5.b: "Let private endowments and state grants share the burden."
+ nc_flavor_events.5.t: "Blueprints for a Triangle"
+ nc_flavor_events.5.d: "With the University of North Carolina already standing at Chapel Hill, a group of planners, professors, and Piedmont businessmen have begun sketching a bolder vision: sister institutions at Raleigh and Durham, drawing scholars and industry alike into a single corridor of learning."
+ nc_flavor_events.5.f: "'One university builds a town. Three universities build a region.'"
+ nc_flavor_events.5.a: "Back the plan with state funds and land grants."
+ nc_flavor_events.5.b: "Let private philanthropy and church charters lead the way."
 
- nc_flavor_events.6.t: "The Research Triangle"
- nc_flavor_events.6.d: "NC State University in Raleigh, Duke University in Durham, and the University of North Carolina at Chapel Hill now form a triangle of laboratories, lecture halls, and libraries. Scientists, engineers, and physicians collaborate across the Piedmont, drawing talent and industry to the Old North State."
- nc_flavor_events.6.f: "'Three campuses, one frontier of knowledge.'"
- nc_flavor_events.6.a: "Carolina leads the nation in learning."
+ nc_flavor_events.6.t: "The Research Triangle United"
+ nc_flavor_events.6.d: "North Carolina State University and Duke University now stand alongside the University of North Carolina at Chapel Hill, their three campuses anchoring what newspapers have already taken to calling the 'Research Triangle.' Scholars, engineers, and scientists are drawn to the region, and officials expect the effects on education and industry to be felt for generations."
+ nc_flavor_events.6.f: "Where once there were only scattered lecture halls and modest campuses, there now stands a corridor of laboratories, libraries, and lecture theaters, humming with the ambitions of a new generation of scholars."
+ nc_flavor_events.6.a: "A new era of learning for the Old North State."

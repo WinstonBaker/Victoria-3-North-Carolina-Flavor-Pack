@@ -26,9 +26,16 @@ nc_gold_rush_excitement = {
 	building_gold_mine_throughput_add = 0.2
 }
 
-nc_research_triangle_hub = {
+# Applied to the country (root) on completion of je_nc_research_triangle
+nc_research_triangle_country_bonus = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	country_weekly_innovation_add = 10
 	country_prestige_add = 25
+}
+
+# Applied to each North Carolina state on completion of je_nc_research_triangle
+modifier_research_triangle_established = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	state_pop_qualifications_mult = 0.15
+	state_education_access_add = 0.25
 }

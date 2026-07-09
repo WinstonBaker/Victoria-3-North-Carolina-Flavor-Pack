@@ -1,0 +1,28 @@
+pm_unc_active = {
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+
+	is_hidden_when_unavailable = yes
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_weekly_innovation_add = 10
+			country_weekly_innovation_mult = .01
+			country_prestige_mult = .015
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_pop_qualifications_mult = 1
+			state_education_access_add = 0.3
+			state_migration_attraction_mult = 0.2
+		}
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_academics_add = 600
+			building_employment_clerks_add = 200
+		}
+	}
+}
