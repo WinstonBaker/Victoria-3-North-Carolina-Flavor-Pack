@@ -1,11 +1,16 @@
-BUILDINGS={
-	s:STATE_NORTH_CAROLINA={
-		region_state:USA={
-			create_building={
-				building="building_unc_chapel_hill"
-				level=1
-				activate_production_methods={ "pm_unc_active" }
+BUILDINGS = {
+	s:STATE_NORTH_CAROLINA = {
+		region_state:USA = {
+			# University of North Carolina at Chapel Hill (founded 1789)
+			create_building = {
+				building = "building_unc_chapel_hill"
+				level = 1
+				activate_production_methods = { "pm_unc_active" }
 			}
+
+			# North Carolina State Capitol — historically under construction 1833–1840.
+			# Queued at game start so it appears as an active construction project.
+			# Completion is tracked by je_nc_state_capitol.
 		}
 	}
 }

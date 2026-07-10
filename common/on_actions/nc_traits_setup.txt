@@ -1,5 +1,10 @@
 on_game_started = {
 	effect = {
+		# Unlock capitol construction before queuing it
+		c:USA ?= {
+			set_variable = nc_capitol_construction_active
+		}
+
 		s:STATE_NORTH_CAROLINA = {
 			add_state_trait = state_trait_tobacco_belt
 			add_state_trait = state_trait_piedmont_fall_line
@@ -8,6 +13,31 @@ on_game_started = {
 			add_state_trait = state_trait_mount_mitchell
 			add_state_trait = state_trait_outer_banks
 			add_state_trait = state_trait_great_dismal_swamp
+
+			# Queue the State Capitol as under construction at game start (1836).
+			# Historically completed in 1840; tracked by je_nc_state_capitol.
+			random_scope_state = {
+				limit = {
+					owner = c:USA
+				}
+				if = {
+					limit = {
+						NOT = { has_building = building_nc_state_capitol }
+					}
+					start_building_construction = building_nc_state_capitol
+					add_modifier = {
+						name = nc_capitol_under_construction
+						days = long_modifier_time
+					}
+				}
+			}
 		}
+	}
+}
+
+on_monthly_pulse_country = {
+	events = {
+		nc_flavor_events.7	# Charlotte Mint — July 27, 1837
+		nc_flavor_events.9	# Outer Banks Lighthouses — from 1840
 	}
 }

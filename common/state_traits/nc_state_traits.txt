@@ -31,7 +31,9 @@ state_trait_sandhills = {
 	icon = "gfx/interface/icons/state_trait_icons/resources_lumber.dds"
 
 	modifier = {
-		building_group_bg_logging_throughput_add = 0.25
+		# Longleaf pine naval stores — tar, pitch, turpentine, timber
+		building_group_bg_logging_throughput_add = 0.30
+		goods_output_hardwood_mult = 0.10
 	}
 }
 
@@ -47,7 +49,12 @@ state_trait_outer_banks = {
 	icon = "gfx/interface/icons/state_trait_icons/natural_harbors.dds"
 
 	modifier = {
-		building_group_bg_fishing_throughput_add = 0.2
+		# Graveyard of the Atlantic — fishing wealth, but dangerous shoals
+		building_group_bg_fishing_throughput_add = 0.20
+		# Baseline lighthouse / shipping benefit (expanded by nc_outer_banks_lighthouses)
+		building_port_throughput_add = 0.05
+		state_trade_capacity_mult = 0.05
+		state_infrastructure_add = 5
 	}
 }
 

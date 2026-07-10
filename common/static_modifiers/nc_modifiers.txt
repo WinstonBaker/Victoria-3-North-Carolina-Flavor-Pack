@@ -1,0 +1,228 @@
+########################################
+# North Carolina Flavor — Static Modifiers
+########################################
+
+# --- Brightleaf tobacco ---
+# High-funding (state promotion)
+nc_brightleaf_success = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_tobacco_plantation_throughput_add = 0.30
+}
+
+# Low-funding (planter-led)
+nc_brightleaf_success_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_tobacco_plantation_throughput_add = 0.10
+}
+
+# --- Railroad boom variants ---
+nc_iron_horse_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.25
+	state_infrastructure_add = 30
+	state_construction_mult = 0.10
+}
+
+nc_iron_horse_boom_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.10
+	state_infrastructure_add = 10
+}
+
+# Wilmington & Weldon — historically the world's longest railroad
+nc_wilmington_weldon = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.20
+	building_port_throughput_add = 0.15
+	state_infrastructure_add = 25
+	state_trade_capacity_mult = 0.10
+}
+
+nc_wilmington_weldon_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.08
+	building_port_throughput_add = 0.05
+	state_infrastructure_add = 10
+}
+
+# Raleigh and Gaston Railroad
+nc_raleigh_gaston = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.15
+	state_infrastructure_add = 20
+	state_construction_mult = 0.10
+}
+
+nc_raleigh_gaston_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.05
+	state_infrastructure_add = 8
+}
+
+# North Carolina Railroad trunk line
+nc_ncr_trunk = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.25
+	state_infrastructure_add = 35
+	state_migration_pull_mult = 0.15
+	building_group_bg_light_industry_throughput_add = 0.10
+}
+
+nc_ncr_trunk_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.10
+	state_infrastructure_add = 12
+	state_migration_pull_mult = 0.05
+}
+
+# Permanent reward for completing the NC Railroad JE
+nc_carolina_rail_network = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.20
+	state_infrastructure_add = 40
+	state_construction_mult = 0.10
+	state_migration_pull_mult = 0.10
+}
+
+# --- Tar Heel State (reworked from broken Piedmont Industrialization) ---
+# Fixed: old key used building_textile_mills_throughput_add (invalid plural).
+# Now leans into naval stores / timber / pine tar identity.
+nc_tar_heel_state = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_group_bg_logging_throughput_add = 0.35
+	goods_output_hardwood_mult = 0.20
+	building_port_throughput_add = 0.10
+	state_trade_capacity_mult = 0.10
+}
+
+nc_tar_heel_pride = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 40
+}
+
+nc_tar_heel_migration = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_migration_pull_mult = 0.15
+}
+
+# --- Gold Rush ---
+nc_gold_rush_excitement = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	state_migration_pull_add = 25
+	building_gold_mine_throughput_add = 0.35
+}
+
+nc_gold_rush_excitement_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	state_migration_pull_add = 10
+	building_gold_mine_throughput_add = 0.15
+}
+
+# --- Charlotte Mint ---
+nc_charlotte_mint = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_gold_mine_throughput_add = 0.40
+	state_migration_pull_add = 20
+	state_tax_collection_mult = 0.10
+}
+
+nc_charlotte_mint_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_gold_mine_throughput_add = 0.15
+	state_migration_pull_add = 5
+	state_tax_collection_mult = 0.03
+}
+
+nc_charlotte_mint_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 30
+}
+
+# --- Research Triangle planning (timed) ---
+nc_research_triangle_state_grants = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_construction_mult = 0.25
+	state_education_access_add = 0.20
+	building_university_throughput_add = 0.15
+}
+
+nc_research_triangle_state_grants_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_construction_mult = 0.08
+	state_education_access_add = 0.05
+}
+
+nc_ig_patronage = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	interest_group_approval_add = 5
+	interest_group_pol_str_mult = 0.15
+}
+
+nc_ig_patronage_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	interest_group_approval_add = 2
+	interest_group_pol_str_mult = 0.05
+}
+
+# Unified permanent Research Triangle — state package (university focus)
+nc_research_triangle = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	building_university_throughput_add = 0.40
+	state_pop_qualifications_mult = 0.20
+	state_education_access_add = 0.25
+	state_migration_pull_mult = 0.10
+}
+
+# Country-level companion applied alongside the state package
+nc_research_triangle_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_weekly_innovation_add = 15
+	country_prestige_add = 35
+}
+
+# --- Outer Banks Lighthouses (state-scoped shipping / port buffs) ---
+nc_outer_banks_lighthouses = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_port_throughput_add = 0.25
+	state_trade_capacity_mult = 0.20
+	state_infrastructure_add = 15
+	state_market_access_price_impact = 0.08
+}
+
+# Country-level companion when the full lighthouse program is funded
+nc_outer_banks_lighthouses_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	country_port_connection_cost_mult = -0.15
+}
+
+# --- Biltmore House ---
+nc_biltmore_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 50
+}
+
+nc_biltmore_attraction = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_migration_pull_mult = 0.25
+	state_migration_pull_add = 20
+}
+
+# High-funding construction subsidy for Biltmore
+nc_biltmore_construction_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_construction_mult = 0.20
+	state_infrastructure_add = 15
+}
+
+# --- State Capitol under construction / completed ---
+nc_capitol_under_construction = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_construction_mult = 0.05
+	country_prestige_add = 5
+}
+
+nc_capitol_completed = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 20
+	country_authority_add = 10
+}

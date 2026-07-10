@@ -1,6 +1,9 @@
+########################################
+# Tar Heel Legacy
+########################################
+
 je_nc_tar_heel_legacy = {
 	icon = "gfx/interface/icons/event_icons/event_map.dds"
-
 	group = je_group_nc_flavor
 
 	is_shown_when_inactive = {
@@ -18,6 +21,7 @@ je_nc_tar_heel_legacy = {
 	}
 
 	possible = {
+		NOT = { has_variable = nc_tar_heel_legacy_complete }
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			is_incorporated = yes
@@ -27,9 +31,7 @@ je_nc_tar_heel_legacy = {
 	immediate = {
 		s:STATE_NORTH_CAROLINA = {
 			random_scope_state = {
-				limit = {
-					owner = ROOT
-				}
+				limit = { owner = ROOT }
 				save_scope_as = nc_state_scope
 			}
 		}
@@ -43,9 +45,8 @@ je_nc_tar_heel_legacy = {
 				is_building_type = building_tobacco_plantation
 				level >= 5
 			}
-			
 			any_scope_building = {
-				is_building_type = building_railway
+				is_building_type = building_logging_camp
 				level >= 3
 			}
 		}
@@ -70,64 +71,436 @@ je_nc_tar_heel_legacy = {
 			200 = 0
 			10 = nc_flavor_events.1
 			10 = nc_flavor_events.2
-			10 = nc_flavor_events.3
 		}
 	}
 
 	weight = 75
-
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }
+
+########################################
+# Complete the North Carolina Railroad
+# Milestones: Wilmington & Weldon, Raleigh & Gaston, NCR trunk
+########################################
+
+je_nc_railroad = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = nc_railroad_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		NOT = { has_variable = nc_railroad_complete }
+		has_technology_researched = railways
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		# Kick off the Wilmington & Weldon milestone
+		trigger_event = { id = nc_flavor_events.10 popup = yes }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_railroad_complete_status_loc
+				trigger = {
+					has_variable = nc_wilmington_weldon_done
+					has_variable = nc_raleigh_gaston_done
+					has_variable = nc_ncr_trunk_done
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						any_scope_building = {
+							is_building_type = building_railway
+							level >= 5
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_railroad_ncr_status_loc
+				trigger = {
+					has_variable = nc_wilmington_weldon_done
+					has_variable = nc_raleigh_gaston_done
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_railroad_gaston_status_loc
+				trigger = {
+					has_variable = nc_wilmington_weldon_done
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_railroad_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_railroad_ww_tt
+			has_variable = nc_wilmington_weldon_done
+		}
+		custom_tooltip = {
+			text = je_nc_railroad_rg_tt
+			has_variable = nc_raleigh_gaston_done
+		}
+		custom_tooltip = {
+			text = je_nc_railroad_ncr_tt
+			has_variable = nc_ncr_trunk_done
+		}
+		custom_tooltip = {
+			text = je_nc_railroad_rails_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				any_scope_building = {
+					is_building_type = building_railway
+					level >= 5
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_railroad_complete
+		trigger_event = { id = nc_flavor_events.13 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_railroad.13_tt
+			}
+		}
+	}
+
+	# Pulse the next milestone events once prior ones are done
+	on_monthly_pulse = {
+		random_events = {
+			100 = 0
+			50 = nc_flavor_events.11
+			50 = nc_flavor_events.12
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 100
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# Research Triangle
+########################################
 
 je_nc_research_triangle = {
 	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	group = je_group_nc_flavor
 
 	is_shown_when_inactive = {
+		NOT = { has_variable = nc_research_triangle_complete }
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
 		}
 	}
 
 	possible = {
+		NOT = { has_variable = nc_research_triangle_complete }
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
 		}
 	}
 
 	immediate = {
-		# Safely triggers your introductory event instantly without the broken days param
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
 		trigger_event = { id = nc_flavor_events.5 popup = yes }
 	}
 
-	# Three separate condition blocks to force three independent checkmarks in the UI
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_research_triangle_complete_status_loc
+				trigger = {
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_nc_state_university
+					}
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_duke_university
+					}
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_unc_chapel_hill
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_research_triangle_nc_state_only_status_loc
+				trigger = {
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_nc_state_university
+					}
+					NOT = {
+						any_scope_state = {
+							state_region = s:STATE_NORTH_CAROLINA
+							has_building = building_duke_university
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_research_triangle_duke_only_status_loc
+				trigger = {
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_duke_university
+					}
+					NOT = {
+						any_scope_state = {
+							state_region = s:STATE_NORTH_CAROLINA
+							has_building = building_nc_state_university
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_research_triangle_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
 	complete = {
-		s:STATE_NORTH_CAROLINA = {
-			has_building = building_nc_state_university
+		custom_tooltip = {
+			text = je_nc_research_triangle_unc_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_unc_chapel_hill
+			}
 		}
-		s:STATE_NORTH_CAROLINA = {
-			has_building = building_duke_university
+		custom_tooltip = {
+			text = je_nc_research_triangle_ncsu_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_state_university
+			}
 		}
-		s:STATE_NORTH_CAROLINA = {
-			has_building = building_unc_chapel_hill
+		custom_tooltip = {
+			text = je_nc_research_triangle_duke_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_duke_university
+			}
 		}
 	}
 
 	on_complete = {
-		trigger_event = { id = nc_flavor_events.6 popup = yes } 
-		add_modifier = {
-			name = nc_research_triangle_country_bonus
-		}
-		every_scope_state = {
-			limit = {
-				state_region = s:STATE_NORTH_CAROLINA
+		set_variable = nc_research_triangle_complete
+		trigger_event = { id = nc_flavor_events.6 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_research_triangle.6_tt
 			}
-			add_modifier = {
-				name = modifier_research_triangle_established
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
 			}
 		}
 	}
 
 	weight = 100
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# North Carolina State Capitol (finish by ~1840)
+########################################
+
+je_nc_state_capitol = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = nc_capitol_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		NOT = { has_variable = nc_capitol_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_capitol_construction_active
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+				# Construction is already queued at game start via on_game_started.
+				# Only re-queue if somehow missing (e.g. non-USA owner mid-game).
+				if = {
+					limit = {
+						NOR = {
+							has_building = building_nc_state_capitol
+							# Avoid double-queue when already building from 1836 start
+							has_modifier = nc_capitol_under_construction
+						}
+					}
+					start_building_construction = building_nc_state_capitol
+					add_modifier = {
+						name = nc_capitol_under_construction
+						days = long_modifier_time
+					}
+				}
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_state_capitol_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_state_capitol
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_capitol_complete
+		remove_variable = nc_capitol_construction_active
+		trigger_event = { id = nc_flavor_events.8 popup = yes }
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 90
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# Biltmore House (late game, ~1895)
+########################################
+
+je_nc_biltmore = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = nc_biltmore_complete }
+		game_date >= 1889.1.1
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		NOT = { has_variable = nc_biltmore_complete }
+		has_technology_researched = steel_frame_buildings
+		game_date >= 1889.1.1
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_biltmore_unlocked
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		trigger_event = { id = nc_flavor_events.20 popup = yes }
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_biltmore_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_biltmore_house
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_biltmore_complete
+		trigger_event = { id = nc_flavor_events.21 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_biltmore.21_tt
+			}
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 80
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }
