@@ -1,0 +1,199 @@
+########################################
+# Lighthouse fuel methods
+# Vic3 has no separate whale-oil / kerosene goods:
+# early oil = whale oil, mid oil + pumpjacks = kerosene era, late = electricity.
+########################################
+
+pm_nc_lighthouse_whale_oil = {
+	texture = "gfx/interface/icons/production_method_icons/simple_whaling.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_oil_add = 1
+		}
+		level_scaled = {
+			building_employment_bureaucrats_add = 10
+			building_employment_soldiers_add = 10
+		}
+	}
+}
+
+pm_nc_lighthouse_kerosene = {
+	texture = "gfx/interface/icons/production_method_icons/steam_donkey.dds"
+
+	unlocking_technologies = {
+		pumpjacks
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_oil_add = 2
+		}
+		level_scaled = {
+			building_employment_bureaucrats_add = 10
+			building_employment_soldiers_add = 10
+		}
+	}
+}
+
+pm_nc_lighthouse_electric = {
+	texture = "gfx/interface/icons/production_method_icons/electric_streetlights.dds"
+
+	unlocking_technologies = {
+		electrical_generation
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_electricity_add = 1
+		}
+		level_scaled = {
+			building_employment_bureaucrats_add = 10
+			building_employment_soldiers_add = 10
+		}
+	}
+}
+
+########################################
+# Per-lighthouse effect methods
+# Mapped to closest real Vic3 modifiers:
+#  Shipping Lane Efficiency → port throughput + cheaper port connections
+#  Trade competitiveness → trade advantage
+#  Port/Coastal defense → naval fortification defense
+#  Convoy capacity → cheaper merchant-marine port connections
+#  Enlistment → conscription rate
+########################################
+
+pm_nc_old_baldy_active = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	is_hidden_when_unavailable = yes
+
+	# Cape Fear River navigation
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_mult = 0.05
+			building_port_throughput_add = 0.02
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_port_connection_cost_mult = -0.02
+		}
+	}
+}
+
+pm_nc_ocracoke_active = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	is_hidden_when_unavailable = yes
+
+	# Inlet trade
+	state_modifiers = {
+		workforce_scaled = {
+			state_trade_advantage_mult = 0.05
+			building_port_throughput_add = 0.02
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_port_connection_cost_mult = -0.02
+		}
+	}
+}
+
+pm_nc_cape_hatteras_active = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	is_hidden_when_unavailable = yes
+
+	# Original 1803 sandstone tower — port defense
+	# naval_invasion_add is a flat defense value (vanilla forts use 100/250/500)
+	state_modifiers = {
+		workforce_scaled = {
+			state_fortification_naval_invasion_add = 50
+			building_port_throughput_add = 0.02
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_port_connection_cost_mult = -0.02
+		}
+	}
+}
+
+pm_nc_cape_lookout_active = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	is_hidden_when_unavailable = yes
+
+	state_modifiers = {
+		workforce_scaled = {
+			building_port_throughput_add = 0.03
+			state_fortification_naval_battle_mult = 0.10
+			state_fortification_naval_invasion_add = 100
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_port_connection_cost_mult = -0.03
+		}
+	}
+}
+
+pm_nc_bodie_island_active = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	is_hidden_when_unavailable = yes
+
+	state_modifiers = {
+		workforce_scaled = {
+			building_port_throughput_add = 0.03
+			state_trade_capacity_mult = 0.05
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			# Cheaper merchant-marine demand ≈ more convoy capacity
+			country_port_connection_cost_mult = -0.05
+		}
+	}
+}
+
+pm_nc_currituck_beach_active = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	is_hidden_when_unavailable = yes
+
+	state_modifiers = {
+		workforce_scaled = {
+			building_port_throughput_add = 0.03
+			state_conscription_rate_mult = 0.05
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_port_connection_cost_mult = -0.03
+		}
+	}
+}
+
+pm_nc_cape_fear_active = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	is_hidden_when_unavailable = yes
+
+	state_modifiers = {
+		workforce_scaled = {
+			building_port_throughput_add = 0.05
+			state_fortification_naval_battle_mult = 0.15
+			state_fortification_naval_invasion_add = 150
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_prestige_add = 10
+			country_port_connection_cost_mult = -0.05
+		}
+	}
+}

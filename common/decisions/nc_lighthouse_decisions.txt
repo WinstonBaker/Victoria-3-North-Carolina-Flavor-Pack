@@ -1,0 +1,144 @@
+########################################
+# Decisions to authorize later Outer Banks lighthouses
+# Sets unlock variables so the unique monuments become buildable.
+########################################
+
+nc_authorize_cape_lookout_lighthouse = {
+	is_shown = {
+		NOT = { has_variable = nc_unlocked_cape_lookout }
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_cape_lookout_lighthouse
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+		has_technology_researched = lathe
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		set_variable = nc_unlocked_cape_lookout
+		add_treasury = -25000
+		custom_tooltip = nc_authorize_cape_lookout_tt
+	}
+
+	ai_chance = {
+		value = 25
+	}
+}
+
+nc_authorize_bodie_island_lighthouse = {
+	is_shown = {
+		NOT = { has_variable = nc_unlocked_bodie_island }
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_bodie_island_lighthouse
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+		has_technology_researched = pumpjacks
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		set_variable = nc_unlocked_bodie_island
+		add_treasury = -35000
+		custom_tooltip = nc_authorize_bodie_island_tt
+	}
+
+	ai_chance = {
+		value = 20
+	}
+}
+
+nc_authorize_currituck_beach_lighthouse = {
+	is_shown = {
+		NOT = { has_variable = nc_unlocked_currituck_beach }
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_currituck_beach_lighthouse
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+		has_technology_researched = railways
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		set_variable = nc_unlocked_currituck_beach
+		add_treasury = -35000
+		custom_tooltip = nc_authorize_currituck_beach_tt
+	}
+
+	ai_chance = {
+		value = 20
+	}
+}
+
+nc_authorize_cape_fear_lighthouse = {
+	is_shown = {
+		NOT = { has_variable = nc_unlocked_cape_fear }
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_cape_fear_lighthouse
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+		has_technology_researched = electrical_generation
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		set_variable = nc_unlocked_cape_fear
+		add_treasury = -50000
+		custom_tooltip = nc_authorize_cape_fear_tt
+	}
+
+	ai_chance = {
+		value = 15
+	}
+}

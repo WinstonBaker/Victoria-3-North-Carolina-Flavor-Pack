@@ -56,6 +56,24 @@
  building_nc_state_capitol: "North Carolina State Capitol"
  building_biltmore_house: "Biltmore House"
 
+ # Lighthouses — 1836 starting
+ building_nc_old_baldy_lighthouse: "Old Baldy Lighthouse"
+ building_nc_old_baldy_lighthouse_desc: "The Bald Head Island light guides shipping into the Cape Fear River toward Wilmington."
+ building_nc_ocracoke_lighthouse: "Ocracoke Lighthouse"
+ building_nc_ocracoke_lighthouse_desc: "A short white tower watching Ocracoke Inlet, vital to Outer Banks trade."
+ building_nc_cape_hatteras_lighthouse: "Cape Hatteras Lighthouse"
+ building_nc_cape_hatteras_lighthouse_desc: "The original 1803 sandstone tower on the Graveyard of the Atlantic. May later be rebuilt as a taller brick light."
+
+ # Lighthouses — unlockable
+ building_nc_cape_lookout_lighthouse: "Cape Lookout Lighthouse"
+ building_nc_cape_lookout_lighthouse_desc: "A diamond-patterned tower marking Lookout Shoals (historically completed 1859)."
+ building_nc_bodie_island_lighthouse: "Bodie Island Lighthouse"
+ building_nc_bodie_island_lighthouse_desc: "A black-and-white banded light on the Outer Banks (historically completed 1872)."
+ building_nc_currituck_beach_lighthouse: "Currituck Beach Lighthouse"
+ building_nc_currituck_beach_lighthouse_desc: "An unpainted brick tower closing the last dark stretch of the northern Banks (historically 1875)."
+ building_nc_cape_fear_lighthouse: "Cape Fear Lighthouse"
+ building_nc_cape_fear_lighthouse_desc: "A modern steel-skeleton light for Frying Pan Shoals (historically completed 1903)."
+
  # State Traits
  state_trait_tobacco_belt: "Tobacco Belt"
  state_trait_tobacco_belt_desc: "The rich soils of the Carolina Piedmont and coastal plain produce exceptional tobacco and cotton crops."
@@ -128,12 +146,46 @@
  pmg_monument_biltmore: "Biltmore House"
  pm_biltmore_active: "Gilded Age Estate"
 
+ # Lighthouse PMs / PMGs
+ pmg_nc_lighthouse_fuel: "Lighthouse Fuel"
+ pm_nc_lighthouse_whale_oil: "Whale Oil Lamp"
+ pm_nc_lighthouse_kerosene: "Kerosene Lamp"
+ pm_nc_lighthouse_electric: "Electric Arc Light"
+ pmg_nc_old_baldy: "Old Baldy"
+ pm_nc_old_baldy_active: "Cape Fear River Light"
+ pmg_nc_ocracoke: "Ocracoke Light"
+ pm_nc_ocracoke_active: "Inlet Trade Light"
+ pmg_nc_cape_hatteras: "Hatteras Light"
+ pm_nc_cape_hatteras_active: "Graveyard Beacon"
+ pmg_nc_cape_lookout: "Lookout Light"
+ pm_nc_cape_lookout_active: "Lookout Shoals Beacon"
+ pmg_nc_bodie_island: "Bodie Island Light"
+ pm_nc_bodie_island_active: "Banks Channel Beacon"
+ pmg_nc_currituck_beach: "Currituck Light"
+ pm_nc_currituck_beach_active: "Northern Banks Beacon"
+ pmg_nc_cape_fear: "Cape Fear Light"
+ pm_nc_cape_fear_active: "Frying Pan Shoals Beacon"
+
+ # Lighthouse decisions
+ nc_authorize_cape_lookout_lighthouse: "Authorize Cape Lookout Lighthouse"
+ nc_authorize_cape_lookout_lighthouse_desc: "Commission a new light on Lookout Shoals to guide coastal shipping past the southern Outer Banks."
+ nc_authorize_cape_lookout_tt: "Construction of #b Cape Lookout Lighthouse#! is now available in North Carolina."
+ nc_authorize_bodie_island_lighthouse: "Authorize Bodie Island Lighthouse"
+ nc_authorize_bodie_island_lighthouse_desc: "Fund a modern kerosene-era light on Bodie Island to close a dark gap in the Banks."
+ nc_authorize_bodie_island_tt: "Construction of #b Bodie Island Lighthouse#! is now available in North Carolina."
+ nc_authorize_currituck_beach_lighthouse: "Authorize Currituck Beach Lighthouse"
+ nc_authorize_currituck_beach_lighthouse_desc: "Raise an unpainted brick tower at Currituck Beach, completing the northern Outer Banks light chain."
+ nc_authorize_currituck_beach_tt: "Construction of #b Currituck Beach Lighthouse#! is now available in North Carolina."
+ nc_authorize_cape_fear_lighthouse: "Authorize Cape Fear Lighthouse"
+ nc_authorize_cape_fear_lighthouse_desc: "Build a modern electric-era light for Frying Pan Shoals and the Cape Fear approaches."
+ nc_authorize_cape_fear_tt: "Construction of #b Cape Fear Lighthouse#! is now available in North Carolina."
+
  # Events
- nc_flavor_events.1.t: "Gold in Cabarrus County"
- nc_flavor_events.1.d: "A twelve-year-old boy fishing in Little Meadow Creek has found a gleaming nugget of gold. Word of Reed's discovery is spreading through the Piedmont, and prospectors are already heading for the Carolina hills."
- nc_flavor_events.1.f: "'There is gold in them hills — and this time, the hills belong to us.'"
- nc_flavor_events.1.a: "Invest heavily in the diggings."
- nc_flavor_events.1.b: "Claim a treasury share and leave the rest to prospectors."
+ nc_flavor_events.1.t: "Deepening the Carolina Gold Belt"
+ nc_flavor_events.1.d: "Since Conrad Reed's discovery in 1799, gold has been dug from the Piedmont creeks and hills of Cabarrus and Mecklenburg. Shafts around Charlotte are still yielding, and mine owners press for capital to sink deeper works and draw more labor into the Carolina Gold Belt."
+ nc_flavor_events.1.f: "'The rush began before the century turned. The question now is how far we will push it.'"
+ nc_flavor_events.1.a: "Invest heavily to expand the diggings."
+ nc_flavor_events.1.b: "Tax the existing mines and leave expansion to private capital."
 
  nc_flavor_events.2.t: "The Brightleaf Cure"
  nc_flavor_events.2.d: "Planters in the Piedmont have begun curing tobacco with controlled heat rather than wood smoke. The resulting bright, yellow leaf fetches far higher prices in English and continental markets than the dark tobacco of old."
@@ -169,7 +221,7 @@
  nc_flavor_events.8.a: "Dedicate the building to the people of North Carolina."
 
  nc_flavor_events.9.t: "Lights on the Outer Banks"
- nc_flavor_events.9.d: "Shipwrecks along the Graveyard of the Atlantic have long haunted Carolina commerce. Engineers and the Lighthouse Board propose strengthening the Outer Banks lights — from Cape Hatteras to Bodie Island — to guide merchant shipping safely past the shoals."
+ nc_flavor_events.9.d: "Old Baldy, Ocracoke, and the sandstone Cape Hatteras tower already watch Carolina waters, but shipwrecks along the Graveyard of the Atlantic still haunt commerce. The Lighthouse Board urges a fuller program — new lights at Lookout, Bodie Island, Currituck, and eventually Cape Fear — to close the remaining dark stretches of the Banks."
  nc_flavor_events.9.f: "'A light on the Banks is worth a fleet in the harbor.'"
  nc_flavor_events.9.a: "Fund a full Outer Banks lighthouse program."
  nc_flavor_events.9.b: "Maintain the existing lights on a shoestring."

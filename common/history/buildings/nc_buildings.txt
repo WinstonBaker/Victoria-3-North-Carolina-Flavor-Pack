@@ -8,9 +8,61 @@ BUILDINGS = {
 				activate_production_methods = { "pm_unc_active" }
 			}
 
-			# North Carolina State Capitol — historically under construction 1833–1840.
-			# Queued at game start so it appears as an active construction project.
-			# Completion is tracked by je_nc_state_capitol.
+			# Carolina Gold Belt — Reed Gold Mine (1799) and Piedmont diggings
+			# already operating for decades by the 1836 start date.
+			create_building = {
+				building = "building_gold_mine"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:USA"
+						levels = 3
+						region = "STATE_NORTH_CAROLINA"
+					}
+				}
+				reserves = 1
+				activate_production_methods = {
+					"pm_picks_and_shovels_building_gold_mine"
+					"pm_no_explosives"
+					"pm_no_steam_automation"
+					"pm_road_carts"
+				}
+			}
+
+			########################################
+			# Outer Banks / Carolina lighthouses already standing in 1836
+			########################################
+
+			# Old Baldy (Bald Head Island) — Cape Fear River navigation
+			create_building = {
+				building = "building_nc_old_baldy_lighthouse"
+				level = 1
+				activate_production_methods = {
+					"pm_nc_lighthouse_whale_oil"
+					"pm_nc_old_baldy_active"
+				}
+			}
+
+			# Ocracoke Lighthouse — inlet trade
+			create_building = {
+				building = "building_nc_ocracoke_lighthouse"
+				level = 1
+				activate_production_methods = {
+					"pm_nc_lighthouse_whale_oil"
+					"pm_nc_ocracoke_active"
+				}
+			}
+
+			# Cape Hatteras (Original 1803 sandstone tower)
+			# Can be upgraded/rebuilt later as the taller brick tower.
+			create_building = {
+				building = "building_nc_cape_hatteras_lighthouse"
+				level = 1
+				activate_production_methods = {
+					"pm_nc_lighthouse_whale_oil"
+					"pm_nc_cape_hatteras_active"
+				}
+			}
 		}
 	}
 }

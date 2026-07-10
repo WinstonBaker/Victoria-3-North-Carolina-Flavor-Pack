@@ -1,7 +1,8 @@
 namespace = nc_flavor_events
 
 ########################################
-# 1 — Carolina Gold Rush (Tar Heel Legacy pulse)
+# 1 — Deepening the Carolina Gold Belt
+# Gold has been mined since Reed's 1799 discovery; this is expansion, not discovery.
 ########################################
 
 nc_flavor_events.1 = {
@@ -27,6 +28,7 @@ nc_flavor_events.1 = {
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
+			has_building = building_gold_mine
 		}
 	}
 
@@ -40,7 +42,7 @@ nc_flavor_events.1 = {
 		}
 	}
 
-	# High funding: invest in the diggings
+	# High funding: expand shafts and attract more miners
 	option = {
 		name = nc_flavor_events.1.a
 		default_option = yes
@@ -53,7 +55,7 @@ nc_flavor_events.1 = {
 		}
 	}
 
-	# Low funding: skim a share, weaker boom
+	# Low funding: tax the existing diggings, weaker boom
 	option = {
 		name = nc_flavor_events.1.b
 		add_treasury = 15000

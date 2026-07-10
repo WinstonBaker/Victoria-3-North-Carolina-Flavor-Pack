@@ -1,0 +1,270 @@
+########################################
+# Outer Banks / Carolina Lighthouses
+# Unique monuments — no urban-center requirement (bg_monuments).
+########################################
+
+# --- 1836 starting lights (pre-built via history) ---
+
+building_nc_old_baldy_lighthouse = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/Old_Baldy_Lighthouse.dds"
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_2x2_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 2
+	}
+
+	production_method_groups = {
+		pmg_nc_lighthouse_fuel
+		pmg_nc_old_baldy
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	required_construction = construction_cost_low
+	ai_value = 1000
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_nc_ocracoke_lighthouse = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/Ocracoke_Lighthouse.dds"
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_2x2_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 2
+	}
+
+	production_method_groups = {
+		pmg_nc_lighthouse_fuel
+		pmg_nc_ocracoke
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	required_construction = construction_cost_low
+	ai_value = 1000
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+# Cape Hatteras (Original 1803 sandstone tower).
+# Can be upgraded/rebuilt later as a taller brick tower (future content).
+building_nc_cape_hatteras_lighthouse = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/Cape_Hatteras_Lighthouse.dds"
+	expandable = no
+	buildable = no
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_2x2_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 2
+	}
+
+	production_method_groups = {
+		pmg_nc_lighthouse_fuel
+		pmg_nc_cape_hatteras
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	required_construction = construction_cost_low
+	ai_value = 1000
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+# --- Unlockable lights (Level 0 at start; decisions unlock construction) ---
+
+building_nc_cape_lookout_lighthouse = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/Cape_Lookout_Lighthouse.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_2x2_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 2
+	}
+
+	production_method_groups = {
+		pmg_nc_lighthouse_fuel
+		pmg_nc_cape_lookout
+	}
+
+	# "Lathed Axles" → closest vanilla tech is lathe
+	unlocking_technologies = {
+		lathe
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_unlocked_cape_lookout
+		}
+	}
+
+	required_construction = construction_cost_medium
+	ai_value = 2000
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_nc_bodie_island_lighthouse = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/Bodie_Island_Lighthouse.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_2x2_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 2
+	}
+
+	production_method_groups = {
+		pmg_nc_lighthouse_fuel
+		pmg_nc_bodie_island
+	}
+
+	# "Kerosene" era → pumpjacks (oil)
+	unlocking_technologies = {
+		pumpjacks
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_unlocked_bodie_island
+		}
+	}
+
+	required_construction = construction_cost_medium
+	ai_value = 2500
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_nc_currituck_beach_lighthouse = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/Currituck_Beach_Lighthouse.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_2x2_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 2
+	}
+
+	production_method_groups = {
+		pmg_nc_lighthouse_fuel
+		pmg_nc_currituck_beach
+	}
+
+	unlocking_technologies = {
+		railways
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_unlocked_currituck_beach
+		}
+	}
+
+	required_construction = construction_cost_medium
+	ai_value = 2500
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_nc_cape_fear_lighthouse = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/Oak_Island_Lighthouse.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_2x2_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 2
+	}
+
+	production_method_groups = {
+		pmg_nc_lighthouse_fuel
+		pmg_nc_cape_fear
+	}
+
+	# "Electricity" → electrical_generation
+	unlocking_technologies = {
+		electrical_generation
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_unlocked_cape_fear
+		}
+	}
+
+	required_construction = construction_cost_high
+	ai_value = 4000
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}

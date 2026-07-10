@@ -1,0 +1,99 @@
+########################################
+# Shared lighthouse fuel PMG
+# Whale oil (oil goods) → kerosene/oil → electricity
+########################################
+
+pmg_nc_lighthouse_fuel = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_nc_lighthouse_whale_oil
+		pm_nc_lighthouse_kerosene
+		pm_nc_lighthouse_electric
+	}
+}
+
+pmg_nc_old_baldy = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_nc_old_baldy_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_nc_ocracoke = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_nc_ocracoke_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_nc_cape_hatteras = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_nc_cape_hatteras_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_nc_cape_lookout = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_nc_cape_lookout_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_nc_bodie_island = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_nc_bodie_island_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_nc_currituck_beach = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_nc_currituck_beach_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_nc_cape_fear = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_nc_cape_fear_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}

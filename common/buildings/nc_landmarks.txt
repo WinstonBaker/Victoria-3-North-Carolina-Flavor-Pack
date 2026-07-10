@@ -5,7 +5,7 @@
 
 building_nc_state_capitol = {
 	building_group = bg_monuments
-	icon = "gfx/interface/icons/building_icons/building_government_administration.dds"
+	icon = "gfx/interface/icons/building_icons/nc_state_capitol.dds"
 	expandable = no
 	buildable = yes
 	downsizeable = no
@@ -51,7 +51,7 @@ building_nc_state_capitol = {
 
 building_biltmore_house = {
 	building_group = bg_monuments
-	icon = "gfx/interface/icons/building_icons/building_arts_academy.dds"
+	icon = "gfx/interface/icons/building_icons/biltmore.dds"
 	expandable = no
 	buildable = yes
 	downsizeable = no
