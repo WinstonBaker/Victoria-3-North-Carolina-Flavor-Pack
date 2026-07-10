@@ -64,8 +64,11 @@ company_rj_reynolds = {
 
 	building_types = {
 		building_tobacco_plantation
-		building_textile_mills
 		building_food_industry
+	}
+
+	extension_building_types = {
+		building_cotton_plantation
 	}
 
 	potential = {
@@ -86,19 +89,15 @@ company_rj_reynolds = {
 			state_region = s:STATE_NORTH_CAROLINA
 			is_incorporated = yes
 			any_scope_building = {
-				OR = {
-					is_building_type = building_tobacco_plantation
-					is_building_type = building_textile_mills
-				}
+				is_building_type = building_tobacco_plantation
 				level >= 3
 			}
-			count >= 2
 		}
 	}
 
 	prosperity_modifier = {
-		building_tobacco_plantation_throughput_add = 0.05
-		building_textile_mills_throughput_add = 0.1
+		building_tobacco_plantation_throughput_add = 0.1
+		building_food_industry_throughput_add = 0.05
 	}
 
 	ai_will_do = {
@@ -121,7 +120,7 @@ company_cannon_mills = {
 	flavored_company = no
 
 	building_types = {
-		building_textile_mills
+		building_textile_mill
 		building_cotton_plantation
 	}
 
@@ -143,14 +142,14 @@ company_cannon_mills = {
 			state_region = s:STATE_NORTH_CAROLINA
 			is_incorporated = yes
 			any_scope_building = {
-				is_building_type = building_textile_mills
+				is_building_type = building_textile_mill
 				level >= 5
 			}
 		}
 	}
 
 	prosperity_modifier = {
-		building_textile_mills_throughput_add = 0.15
+		building_textile_mill_throughput_add = 0.15
 		state_lower_strata_standard_of_living_add = 0.5
 	}
 
@@ -163,5 +162,544 @@ company_cannon_mills = {
 
 	ai_weight = {
 		value = 3
+	}
+}
+
+# Burlington Industries — Piedmont textile conglomerate
+company_burlington_industries = {
+	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_textile_mill
+		building_cotton_plantation
+		building_logging_camp
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		OR = {
+			has_variable = nc_piedmont_textiles_complete
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_textile_mill
+					level >= 8
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_textile_mill_throughput_add = 0.1
+		building_cotton_plantation_throughput_add = 0.05
+		state_migration_pull_mult = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 4
+	}
+}
+
+# Southern Power / Duke Power — Piedmont hydroelectric
+company_duke_power = {
+	icon = "gfx/interface/icons/company_icons/basic_electrics.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_power_plant
+		building_coal_mine
+	}
+
+	extension_building_types = {
+		building_textile_mill
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = electrical_generation
+		OR = {
+			has_variable = nc_duke_power_complete
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_power_plant
+					level >= 5
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_power_plant_throughput_add = 0.15
+		building_group_bg_light_industry_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 4
+	}
+}
+
+# High Point furniture manufacturers
+company_high_point_furniture = {
+	icon = "gfx/interface/icons/company_icons/basic_home_goods.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_furniture_manufactory
+		building_logging_camp
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		OR = {
+			has_variable = nc_high_point_complete
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_furniture_manufactory
+					level >= 5
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_furniture_manufactory_throughput_add = 0.15
+		building_group_bg_logging_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+########################################
+# Pepsi-Cola — Caleb Bradham, New Bern (1893 / trademarked 1903)
+########################################
+
+company_pepsi_cola = {
+	icon = "gfx/interface/icons/company_icons/basic_food.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_food_industry
+		building_sugar_plantation
+	}
+
+	extension_building_types = {
+		building_wheat_farm
+		building_livestock_ranch
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_food_industry
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_food_industry_throughput_add = 0.15
+		building_sugar_plantation_throughput_add = 0.05
+		state_lower_strata_standard_of_living_add = 0.5
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 4
+	}
+}
+
+########################################
+# Liggett & Myers Tobacco Company — Durham
+########################################
+
+company_liggett_myers = {
+	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_1.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_tobacco_plantation
+		building_food_industry
+	}
+
+	extension_building_types = {
+		building_cotton_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_tobacco_plantation
+				level >= 4
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_tobacco_plantation_throughput_add = 0.1
+		building_food_industry_throughput_add = 0.05
+		interest_group_ig_industrialists_approval_add = 1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+########################################
+# Cone Mills — Greensboro denim & textiles
+########################################
+
+company_cone_mills = {
+	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_textile_mill
+		building_cotton_plantation
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 5
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_textile_mill_throughput_add = 0.15
+		building_cotton_plantation_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+########################################
+# P.H. Hanes Knitting Company — Winston-Salem
+########################################
+
+company_hanes = {
+	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_textile_mill
+		building_cotton_plantation
+	}
+
+	extension_building_types = {
+		building_livestock_ranch
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 4
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_textile_mill_throughput_add = 0.1
+		state_lower_strata_standard_of_living_add = 0.5
+		interest_group_ig_industrialists_approval_add = 1
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+########################################
+# Vick Chemical Company — Greensboro (Vicks VapoRub)
+########################################
+
+company_vick_chemical = {
+	icon = "gfx/interface/icons/company_icons/basic_chemicals.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_chemical_plant
+		building_food_industry
+	}
+
+	extension_building_types = {
+		building_logging_camp
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_chemical_plant
+				level >= 3
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_chemical_plant_throughput_add = 0.15
+		state_birth_rate_mult = 0.02
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
+
+########################################
+# North Carolina Railroad Company — state-backed trunk line
+########################################
+
+company_nc_railroad = {
+	icon = "gfx/interface/icons/company_icons/basic_motors.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+
+	flavored_company = no
+
+	building_types = {
+		building_railway
+		building_motor_industry
+	}
+
+	extension_building_types = {
+		building_coal_mine
+		building_logging_camp
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_atlantic_coast
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = railways
+		OR = {
+			has_variable = nc_railroad_complete
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				is_incorporated = yes
+				any_scope_building = {
+					is_building_type = building_railway
+					level >= 5
+				}
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_railway_throughput_add = 0.15
+		state_infrastructure_mult = 0.05
+		state_migration_pull_mult = 0.05
+	}
+
+	ai_will_do = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+		}
+	}
+
+	ai_weight = {
+		value = 4
 	}
 }

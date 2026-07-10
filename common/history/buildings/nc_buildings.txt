@@ -8,6 +8,13 @@ BUILDINGS = {
 				activate_production_methods = { "pm_unc_active" }
 			}
 
+			# Wake Forest College (founded 1834 as Baptist manual-labor institute)
+			create_building = {
+				building = "building_wake_forest_college"
+				level = 1
+				activate_production_methods = { "pm_wake_forest_active" }
+			}
+
 			# Carolina Gold Belt — Reed Gold Mine (1799) and Piedmont diggings
 			# already operating for decades by the 1836 start date.
 			create_building = {

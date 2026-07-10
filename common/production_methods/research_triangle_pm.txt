@@ -7,8 +7,7 @@ pm_nc_state_active = {
 		workforce_scaled = {
 			country_weekly_innovation_add = 10
 			country_weekly_innovation_mult = .01
-			country_prestige_add = .01
-
+			country_prestige_mult = 0.01
 		}
 	}
 
