@@ -1,0 +1,4 @@
+# Full monument cost is 2500. By 1836 the Capitol was ~40% complete
+# (begun 1833; exterior walls largely up by late 1834; finished 1840),
+# so only the remaining ~60% of construction points are required.
+construction_cost_nc_capitol_remaining = 1500

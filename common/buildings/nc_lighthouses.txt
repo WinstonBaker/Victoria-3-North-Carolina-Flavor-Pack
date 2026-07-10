@@ -68,7 +68,7 @@ building_nc_ocracoke_lighthouse = {
 }
 
 # Cape Hatteras (Original 1803 sandstone tower).
-# Can be upgraded/rebuilt later as a taller brick tower (future content).
+# Rebuild as the taller brick tower via decision nc_rebuild_cape_hatteras.
 building_nc_cape_hatteras_lighthouse = {
 	building_group = bg_monuments
 	icon = "gfx/interface/icons/building_icons/Cape_Hatteras_Lighthouse.dds"

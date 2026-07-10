@@ -142,3 +142,43 @@ nc_authorize_cape_fear_lighthouse = {
 		value = 15
 	}
 }
+
+########################################
+# Rebuild Cape Hatteras as the tall brick tower (~1870)
+########################################
+
+nc_rebuild_cape_hatteras = {
+	is_shown = {
+		NOT = { has_variable = nc_hatteras_rebuilt }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			has_building = building_nc_cape_hatteras_lighthouse
+		}
+		has_technology_researched = steel_railway_cars
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+			has_building = building_nc_cape_hatteras_lighthouse
+		}
+	}
+
+	when_taken = {
+		set_variable = nc_hatteras_rebuilt
+		add_treasury = -45000
+		# Switch the monument to the tall brick-tower production method
+		activate_production_method = {
+			building_type = building_nc_cape_hatteras_lighthouse
+			production_method = pm_nc_cape_hatteras_rebuilt
+		}
+		custom_tooltip = nc_rebuild_cape_hatteras_tt
+	}
+
+	ai_chance = {
+		value = 30
+	}
+}

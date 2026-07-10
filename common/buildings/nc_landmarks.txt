@@ -1,6 +1,6 @@
 ########################################
 # North Carolina State Capitol (1833–1840)
-# Present at game start as under construction.
+# Present at game start as under construction (~40% already done by 1836).
 ########################################
 
 building_nc_state_capitol = {
@@ -28,17 +28,18 @@ building_nc_state_capitol = {
 		state_region = s:STATE_NORTH_CAROLINA
 	}
 
-	# Only constructible while the historical project is active
+	# Unlocked at game start for USA; persists so the capitol can be rebuilt if lost
 	possible = {
 		owner ?= {
 			OR = {
-				has_variable = nc_capitol_construction_active
+				has_variable = nc_capitol_unlocked
 				has_journal_entry = je_nc_state_capitol
 			}
 		}
 	}
 
-	required_construction = construction_cost_monument
+	# Remaining work only — exterior walls largely stood by late 1834
+	required_construction = construction_cost_nc_capitol_remaining
 
 	ai_value = 5000
 

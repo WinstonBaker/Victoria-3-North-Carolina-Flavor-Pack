@@ -45,6 +45,7 @@ pmg_nc_cape_hatteras = {
 
 	production_methods = {
 		pm_nc_cape_hatteras_active
+		pm_nc_cape_hatteras_rebuilt
 		pm_monument_prestige_only
 		pm_monument_no_effects
 	}

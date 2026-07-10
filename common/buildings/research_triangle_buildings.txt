@@ -25,7 +25,10 @@ building_nc_state_university = {
 
 	possible = {
 		owner ?= {
-			has_journal_entry = je_nc_research_triangle
+			OR = {
+				has_variable = nc_research_triangle_unlocked
+				has_journal_entry = je_nc_research_triangle
+			}
 		}
 	}
 
@@ -63,7 +66,10 @@ building_duke_university = {
 
 	possible = {
 		owner ?= {
-			has_journal_entry = je_nc_research_triangle
+			OR = {
+				has_variable = nc_research_triangle_unlocked
+				has_journal_entry = je_nc_research_triangle
+			}
 		}
 	}
 

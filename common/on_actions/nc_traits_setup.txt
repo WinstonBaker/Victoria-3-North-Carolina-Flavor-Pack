@@ -1,8 +1,8 @@
 on_game_started = {
 	effect = {
-		# Unlock capitol construction before queuing it
+		# Permanent unlock so the capitol can be (re)built even after the JE ends
 		c:USA ?= {
-			set_variable = nc_capitol_construction_active
+			set_variable = nc_capitol_unlocked
 		}
 
 		s:STATE_NORTH_CAROLINA = {
@@ -15,10 +15,22 @@ on_game_started = {
 			add_state_trait = state_trait_great_dismal_swamp
 
 			# Queue the State Capitol as under construction at game start (1836).
+			# ~40% already done historically; remaining cost is reduced on the building.
 			# Historically completed in 1840; tracked by je_nc_state_capitol.
 			random_scope_state = {
 				limit = {
 					owner = c:USA
+				}
+				# Country prestige from Mount Mitchell (state traits can't carry country_* mods)
+				owner = {
+					if = {
+						limit = {
+							NOT = { has_modifier = nc_mount_mitchell_prestige }
+						}
+						add_modifier = {
+							name = nc_mount_mitchell_prestige
+						}
+					}
 				}
 				if = {
 					limit = {
@@ -28,6 +40,12 @@ on_game_started = {
 					add_modifier = {
 						name = nc_capitol_under_construction
 						days = long_modifier_time
+					}
+					owner = {
+						add_modifier = {
+							name = nc_capitol_under_construction_country
+							days = long_modifier_time
+						}
 					}
 				}
 			}
@@ -39,5 +57,6 @@ on_monthly_pulse_country = {
 	events = {
 		nc_flavor_events.7	# Charlotte Mint — July 27, 1837
 		nc_flavor_events.9	# Outer Banks Lighthouses — from 1840
+		nc_flavor_events.22	# Wright Brothers — December 17, 1903
 	}
 }

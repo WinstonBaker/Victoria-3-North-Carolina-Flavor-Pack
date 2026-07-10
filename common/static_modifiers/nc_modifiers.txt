@@ -15,20 +15,6 @@ nc_brightleaf_success_minor = {
 	building_tobacco_plantation_throughput_add = 0.10
 }
 
-# --- Railroad boom variants ---
-nc_iron_horse_boom = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	building_railway_throughput_add = 0.25
-	state_infrastructure_add = 30
-	state_construction_mult = 0.10
-}
-
-nc_iron_horse_boom_minor = {
-	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	building_railway_throughput_add = 0.10
-	state_infrastructure_add = 10
-}
-
 # Wilmington & Weldon — historically the world's longest railroad
 nc_wilmington_weldon = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
@@ -82,6 +68,107 @@ nc_carolina_rail_network = {
 	state_infrastructure_add = 40
 	state_construction_mult = 0.10
 	state_migration_pull_mult = 0.10
+}
+
+# --- Piedmont textiles / New South mills ---
+nc_piedmont_mill_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_textile_mill_throughput_add = 0.30
+	building_cotton_plantation_throughput_add = 0.15
+	state_construction_mult = 0.15
+	state_migration_pull_add = 15
+}
+
+nc_piedmont_mill_boom_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_textile_mill_throughput_add = 0.10
+	building_cotton_plantation_throughput_add = 0.05
+	state_migration_pull_add = 5
+}
+
+nc_piedmont_textile_belt = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_textile_mill_throughput_add = 0.25
+	building_cotton_plantation_throughput_add = 0.10
+	building_group_bg_light_industry_throughput_add = 0.10
+	state_migration_pull_mult = 0.10
+	state_infrastructure_add = 15
+}
+
+nc_piedmont_textile_belt_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	country_prestige_add = 25
+	interest_group_ig_industrialists_approval_add = 3
+}
+
+# --- Wright Brothers first flight (1903) ---
+nc_wright_brothers_flight = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 40
+	country_weekly_innovation_add = 10
+	country_prestige_mult = 0.02
+}
+
+nc_wright_brothers_flight_state = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_migration_pull_mult = 0.10
+	state_migration_pull_add = 10
+}
+
+# --- Duke Power / Piedmont hydro ---
+nc_duke_power_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_power_plant_throughput_add = 0.30
+	building_group_bg_light_industry_throughput_add = 0.15
+	state_construction_mult = 0.10
+}
+
+nc_duke_power_boom_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_power_plant_throughput_add = 0.10
+	building_group_bg_light_industry_throughput_add = 0.05
+}
+
+nc_duke_power_grid = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_power_plant_throughput_add = 0.25
+	building_group_bg_light_industry_throughput_add = 0.15
+	building_group_bg_heavy_industry_throughput_add = 0.10
+	state_infrastructure_add = 20
+}
+
+nc_duke_power_grid_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	country_prestige_add = 20
+	interest_group_ig_industrialists_approval_add = 2
+}
+
+# --- High Point furniture ---
+nc_high_point_furniture_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_furniture_manufactory_throughput_add = 0.30
+	building_group_bg_logging_throughput_add = 0.15
+	state_migration_pull_add = 10
+}
+
+nc_high_point_furniture_boom_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_furniture_manufactory_throughput_add = 0.10
+	building_group_bg_logging_throughput_add = 0.05
+}
+
+nc_high_point_furniture_capital = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_furniture_manufactory_throughput_add = 0.25
+	building_group_bg_logging_throughput_add = 0.15
+	goods_output_hardwood_mult = 0.10
+	state_migration_pull_mult = 0.08
+}
+
+nc_high_point_furniture_capital_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 20
+	interest_group_ig_industrialists_approval_add = 2
 }
 
 # --- Tar Heel State (reworked from broken Piedmont Industrialization) ---
@@ -214,10 +301,22 @@ nc_biltmore_construction_boom = {
 	state_infrastructure_add = 15
 }
 
+# --- Mount Mitchell (country prestige; trait itself is state-scoped only) ---
+nc_mount_mitchell_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+}
+
 # --- State Capitol under construction / completed ---
+# State-scoped only (applied to North Carolina while the building rises)
 nc_capitol_under_construction = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	state_construction_mult = 0.05
+}
+
+# Country-scoped companion while construction is underway
+nc_capitol_under_construction_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	country_prestige_add = 5
 }
 

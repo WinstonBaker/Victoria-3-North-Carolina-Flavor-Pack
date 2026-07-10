@@ -414,6 +414,18 @@ nc_flavor_events.8 = {
 	option = {
 		name = nc_flavor_events.8.a
 		default_option = yes
+		# Clear lingering "under construction" modifiers now that the building stands
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_modifier = nc_capitol_under_construction
+			}
+			remove_modifier = nc_capitol_under_construction
+		}
+		if = {
+			limit = { has_modifier = nc_capitol_under_construction_country }
+			remove_modifier = nc_capitol_under_construction_country
+		}
 		add_modifier = {
 			name = nc_capitol_completed
 			days = very_long_modifier_time
@@ -460,11 +472,17 @@ nc_flavor_events.9 = {
 		}
 	}
 
-	# High funding: federal lighthouse board investment (permanent)
+	# High funding: federal lighthouse board investment — unlocks later lights + permanent buffs
 	option = {
 		name = nc_flavor_events.9.a
 		default_option = yes
 		add_treasury = -40000
+		# Authorize the remaining Outer Banks lights (buildings still need their techs)
+		set_variable = nc_unlocked_cape_lookout
+		set_variable = nc_unlocked_bodie_island
+		set_variable = nc_unlocked_currituck_beach
+		set_variable = nc_unlocked_cape_fear
+		custom_tooltip = nc_outer_banks_program_unlocked_tt
 		add_modifier = {
 			name = nc_outer_banks_lighthouses_country
 		}
@@ -475,7 +493,7 @@ nc_flavor_events.9 = {
 		}
 	}
 
-	# Low funding: maintain existing lights only (timed, no country bonus)
+	# Low funding: maintain existing lights only (timed, no unlocks or country bonus)
 	option = {
 		name = nc_flavor_events.9.b
 		add_treasury = -5000
@@ -540,6 +558,8 @@ nc_flavor_events.10 = {
 				start_building_construction = building_railway
 			}
 		}
+		# Guarantee the next milestone instead of relying only on JE pulse RNG
+		trigger_event = { id = nc_flavor_events.11 days = 60 popup = yes }
 	}
 
 	# Low funding: private stock subscription
@@ -558,6 +578,7 @@ nc_flavor_events.10 = {
 				days = normal_modifier_time
 			}
 		}
+		trigger_event = { id = nc_flavor_events.11 days = 60 popup = yes }
 	}
 }
 
@@ -608,6 +629,7 @@ nc_flavor_events.11 = {
 				days = long_modifier_time
 			}
 		}
+		trigger_event = { id = nc_flavor_events.12 days = 60 popup = yes }
 	}
 
 	# Low funding
@@ -626,6 +648,7 @@ nc_flavor_events.11 = {
 				days = normal_modifier_time
 			}
 		}
+		trigger_event = { id = nc_flavor_events.12 days = 60 popup = yes }
 	}
 }
 
@@ -743,6 +766,377 @@ nc_flavor_events.13 = {
 }
 
 ########################################
+# 14 — Piedmont mill villages proposed
+########################################
+
+nc_flavor_events.14 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.14.t
+	desc = nc_flavor_events.14.d
+	flavor = nc_flavor_events.14.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_piedmont_textiles
+		NOT = { has_variable = nc_piedmont_mills_fired }
+	}
+
+	immediate = {
+		set_variable = nc_piedmont_mills_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	# High funding: state-backed mill villages along the fall line
+	option = {
+		name = nc_flavor_events.14.a
+		default_option = yes
+		add_treasury = -60000
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_piedmont_mill_boom
+				days = long_modifier_time
+			}
+			if = {
+				limit = {
+					NOT = { has_building = building_textile_mill }
+				}
+				start_building_construction = building_textile_mill
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage
+				days = long_modifier_time
+			}
+		}
+	}
+
+	# Low funding: leave it to Concord and Gastonia capitalists
+	option = {
+		name = nc_flavor_events.14.b
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_piedmont_mill_boom_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 15 — Piedmont textile belt complete
+########################################
+
+nc_flavor_events.15 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.15.t
+	desc = nc_flavor_events.15.d
+	flavor = nc_flavor_events.15.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.15.a
+		default_option = yes
+		custom_tooltip = nc_piedmont_textiles_complete_tt
+		add_modifier = {
+			name = nc_piedmont_textile_belt_country
+		}
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+			add_modifier = {
+				name = nc_piedmont_textile_belt
+			}
+		}
+	}
+}
+
+########################################
+# 16 — Duke Power / Southern Power proposed
+########################################
+
+nc_flavor_events.16 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.16.t
+	desc = nc_flavor_events.16.d
+	flavor = nc_flavor_events.16.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_duke_power
+		NOT = { has_variable = nc_duke_power_fired }
+	}
+
+	immediate = {
+		set_variable = nc_duke_power_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.16.a
+		default_option = yes
+		add_treasury = -80000
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_duke_power_boom
+				days = long_modifier_time
+			}
+			if = {
+				limit = {
+					NOT = { has_building = building_power_plant }
+				}
+				start_building_construction = building_power_plant
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage
+				days = long_modifier_time
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.16.b
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_duke_power_boom_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 17 — Duke Power grid complete
+########################################
+
+nc_flavor_events.17 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.17.t
+	desc = nc_flavor_events.17.d
+	flavor = nc_flavor_events.17.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.17.a
+		default_option = yes
+		custom_tooltip = nc_duke_power_complete_tt
+		add_modifier = {
+			name = nc_duke_power_grid_country
+		}
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+			add_modifier = {
+				name = nc_duke_power_grid
+			}
+		}
+	}
+}
+
+########################################
+# 18 — High Point furniture boom proposed
+########################################
+
+nc_flavor_events.18 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.18.t
+	desc = nc_flavor_events.18.d
+	flavor = nc_flavor_events.18.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_high_point_furniture
+		NOT = { has_variable = nc_high_point_fired }
+	}
+
+	immediate = {
+		set_variable = nc_high_point_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.18.a
+		default_option = yes
+		add_treasury = -50000
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_high_point_furniture_boom
+				days = long_modifier_time
+			}
+			if = {
+				limit = {
+					NOT = { has_building = building_furniture_manufactory }
+				}
+				start_building_construction = building_furniture_manufactory
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage
+				days = long_modifier_time
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.18.b
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_high_point_furniture_boom_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 19 — High Point furniture capital complete
+########################################
+
+nc_flavor_events.19 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.19.t
+	desc = nc_flavor_events.19.d
+	flavor = nc_flavor_events.19.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.19.a
+		default_option = yes
+		custom_tooltip = nc_high_point_complete_tt
+		add_modifier = {
+			name = nc_high_point_furniture_capital_country
+		}
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_NORTH_CAROLINA
+			}
+			add_modifier = {
+				name = nc_high_point_furniture_capital
+			}
+		}
+	}
+}
+
+########################################
 # 20 — Biltmore House proposed (~1889–1895)
 ########################################
 
@@ -844,6 +1238,61 @@ nc_flavor_events.21 = {
 		scope:nc_state_scope = {
 			add_modifier = {
 				name = nc_biltmore_attraction
+				days = very_long_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 22 — Wright Brothers first flight (Dec 17, 1903)
+########################################
+
+nc_flavor_events.22 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.22.t
+	desc = nc_flavor_events.22.d
+	flavor = nc_flavor_events.22.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		NOT = { has_variable = nc_wright_brothers_fired }
+		game_date >= 1903.12.17
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_wright_brothers_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.22.a
+		default_option = yes
+		add_modifier = {
+			name = nc_wright_brothers_flight
+			days = very_long_modifier_time
+		}
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_wright_brothers_flight_state
 				days = very_long_modifier_time
 			}
 		}

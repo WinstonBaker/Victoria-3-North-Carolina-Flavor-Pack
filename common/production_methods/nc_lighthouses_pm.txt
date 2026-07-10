@@ -122,6 +122,32 @@ pm_nc_cape_hatteras_active = {
 	}
 }
 
+# Tall brick tower (~1870) — activated by decision nc_rebuild_cape_hatteras
+pm_nc_cape_hatteras_rebuilt = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	is_hidden_when_unavailable = yes
+
+	unlocking_technologies = {
+		steel_railway_cars
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			building_port_throughput_add = 0.10
+			state_fortification_naval_invasion_add = 150
+			state_fortification_naval_battle_mult = 0.10
+			state_trade_capacity_mult = 0.05
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_prestige_add = 15
+			country_port_connection_cost_mult = -0.05
+		}
+	}
+}
+
 pm_nc_cape_lookout_active = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
 	is_hidden_when_unavailable = yes

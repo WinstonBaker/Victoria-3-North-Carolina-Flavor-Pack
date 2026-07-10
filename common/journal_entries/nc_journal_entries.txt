@@ -190,12 +190,12 @@ je_nc_railroad = {
 		}
 	}
 
-	# Pulse the next milestone events once prior ones are done
+	# Backup pulse if a chained follow-up somehow misses (triggers gate duplicates)
 	on_monthly_pulse = {
 		random_events = {
 			100 = 0
-			50 = nc_flavor_events.11
-			50 = nc_flavor_events.12
+			25 = nc_flavor_events.11
+			25 = nc_flavor_events.12
 		}
 	}
 
@@ -237,6 +237,7 @@ je_nc_research_triangle = {
 	}
 
 	immediate = {
+		set_variable = nc_research_triangle_unlocked
 		s:STATE_NORTH_CAROLINA = {
 			random_scope_state = {
 				limit = { owner = ROOT }
@@ -377,7 +378,7 @@ je_nc_state_capitol = {
 	}
 
 	immediate = {
-		set_variable = nc_capitol_construction_active
+		set_variable = nc_capitol_unlocked
 		s:STATE_NORTH_CAROLINA = {
 			random_scope_state = {
 				limit = { owner = ROOT }
@@ -397,6 +398,12 @@ je_nc_state_capitol = {
 						name = nc_capitol_under_construction
 						days = long_modifier_time
 					}
+					owner = {
+						add_modifier = {
+							name = nc_capitol_under_construction_country
+							days = long_modifier_time
+						}
+					}
 				}
 			}
 		}
@@ -414,7 +421,18 @@ je_nc_state_capitol = {
 
 	on_complete = {
 		set_variable = nc_capitol_complete
-		remove_variable = nc_capitol_construction_active
+		# Clear construction modifiers as soon as the building exists (event also cleans up)
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_modifier = nc_capitol_under_construction
+			}
+			remove_modifier = nc_capitol_under_construction
+		}
+		if = {
+			limit = { has_modifier = nc_capitol_under_construction_country }
+			remove_modifier = nc_capitol_under_construction_country
+		}
 		trigger_event = { id = nc_flavor_events.8 popup = yes }
 	}
 
@@ -428,6 +446,303 @@ je_nc_state_capitol = {
 	}
 
 	weight = 90
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# Piedmont Textiles — New South cotton mills
+########################################
+
+je_nc_piedmont_textiles = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = nc_piedmont_textiles_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		NOT = { has_variable = nc_piedmont_textiles_complete }
+		has_technology_researched = atmospheric_engine
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		trigger_event = { id = nc_flavor_events.14 popup = yes }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_piedmont_textiles_mills_status_loc
+				trigger = {
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						any_scope_building = {
+							is_building_type = building_textile_mill
+							level >= 5
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_piedmont_textiles_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_piedmont_textiles_mills_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				any_scope_building = {
+					is_building_type = building_textile_mill
+					level >= 5
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_nc_piedmont_textiles_cotton_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				any_scope_building = {
+					is_building_type = building_cotton_plantation
+					level >= 3
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_piedmont_textiles_complete
+		trigger_event = { id = nc_flavor_events.15 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_piedmont_textiles.15_tt
+			}
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 95
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# Duke Power — Piedmont hydroelectric grid
+########################################
+
+je_nc_duke_power = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = nc_duke_power_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		NOT = { has_variable = nc_duke_power_complete }
+		has_technology_researched = electrical_generation
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		trigger_event = { id = nc_flavor_events.16 popup = yes }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_duke_power_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_duke_power_plants_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				any_scope_building = {
+					is_building_type = building_power_plant
+					level >= 5
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_nc_duke_power_industry_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				OR = {
+					any_scope_building = {
+						is_building_type = building_textile_mill
+						level >= 5
+					}
+					any_scope_building = {
+						is_building_type = building_furniture_manufactory
+						level >= 3
+					}
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_duke_power_complete
+		trigger_event = { id = nc_flavor_events.17 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_duke_power.17_tt
+			}
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 85
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# High Point — Furniture Capital of the World
+########################################
+
+je_nc_high_point_furniture = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = nc_high_point_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		NOT = { has_variable = nc_high_point_complete }
+		has_technology_researched = manufacturies
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		trigger_event = { id = nc_flavor_events.18 popup = yes }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_high_point_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_high_point_furniture_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				any_scope_building = {
+					is_building_type = building_furniture_manufactory
+					level >= 5
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_nc_high_point_logging_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				any_scope_building = {
+					is_building_type = building_logging_camp
+					level >= 5
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_high_point_complete
+		trigger_event = { id = nc_flavor_events.19 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_high_point.19_tt
+			}
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 85
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
