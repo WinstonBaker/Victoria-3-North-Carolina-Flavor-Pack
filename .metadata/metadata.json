@@ -3,7 +3,7 @@
   "id": "nc_flavor_pack",
   "version": "1.3.0",
   "supported_game_version": "1.13.*",
-	"short_description": "Tar Heel flavor for Victoria 3: Outer Banks lighthouses & storms, universities & education prestige, Piedmont industry, Tobacco Belt, Cape Fear ports, Wright brothers, Reconstruction→New South, historical characters, Carolina brands, naval stores, landmarks, and Valdese / migrant colony flavor.",
+	"short_description": "Tar Heel flavor for Victoria 3: Outer Banks lighthouses & storms, universities & education prestige, Piedmont industry, Tobacco Belt, Cape Fear ports, Wright brothers, Reconstruction→New South, historical characters, Carolina brands, naval stores, and landmarks.",
   "tags": ["Flavor", "Historical", "United States", "1.13"],
   "relationships": [],
   "game_custom_data": {

@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # North Carolina State Capitol (1833–1840)
 # Present at game start as under construction (~40% already done by 1836).
 ########################################

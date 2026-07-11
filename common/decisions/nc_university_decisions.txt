@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # University System decisions
 # Charter slots after Research Triangle (capacity 1, upgradeable to 2)
 ########################################
@@ -86,6 +86,7 @@ nc_university_construction_push = {
 
 	possible = {
 		var:nc_uni_charter_count > 0
+		gold_reserves >= 50000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -113,61 +114,6 @@ nc_university_construction_push = {
 	}
 }
 
-# Reopen Centennial Campus expansion if deferred (or after first offer)
-nc_raise_centennial_campus = {
-	is_shown = {
-		has_variable = nc_ncsu_founded
-		OR = {
-			has_variable = nc_ncsu_centennial_deferred
-			has_variable = nc_ncsu_centennial_offered
-		}
-		NOT = { has_variable = nc_ncsu_centennial_authorized }
-		NOT = { has_variable = nc_ncsu_centennial_complete }
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-			any_scope_building = {
-				is_building_type = building_nc_state_university
-				level = 1
-			}
-		}
-	}
-
-	possible = {
-		gold_reserves >= 60000
-		NOT = { has_variable = nc_ncsu_centennial_authorized }
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-			is_incorporated = yes
-			any_scope_building = {
-				is_building_type = building_nc_state_university
-				level = 1
-			}
-		}
-	}
-
-	when_taken = {
-		add_treasury = -60000
-		set_variable = nc_ncsu_centennial_authorized
-		remove_variable = nc_ncsu_centennial_deferred
-		custom_tooltip = nc_ncsu_centennial_fund_tt
-		s:STATE_NORTH_CAROLINA = {
-			random_scope_state = {
-				limit = { owner = ROOT }
-				start_building_construction = building_nc_state_university
-				add_modifier = {
-					name = nc_university_expansion_rush
-					years = 2
-				}
-			}
-		}
-	}
-
-	ai_chance = {
-		value = 18
-	}
-}
 
 # Move Wake Forest College to Winston-Salem / university status
 # Not at game start — needs railways + Piedmont growth (tobacco or mid-century date).
@@ -197,6 +143,7 @@ nc_relocate_wake_forest = {
 	possible = {
 		gold_reserves >= 40000
 		has_technology_researched = railways
+		NOT = { has_modifier = nc_wake_forest_offer_cooldown }
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT

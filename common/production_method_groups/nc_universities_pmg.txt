@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # North Carolina Universities — production method groups
 ########################################
 
@@ -38,7 +38,6 @@ pmg_monument_nc_state = {
 
 	production_methods = {
 		pm_nc_state_active
-		pm_nc_state_centennial
 		pm_monument_prestige_only
 		pm_monument_no_effects
 	}
@@ -247,6 +246,30 @@ pmg_monument_unc_pembroke = {
 
 	production_methods = {
 		pm_unc_pembroke_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_elizabeth_city_state = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_elizabeth_city_state_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_winston_salem_state = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_winston_salem_state_active
 		pm_monument_prestige_only
 		pm_monument_no_effects
 	}

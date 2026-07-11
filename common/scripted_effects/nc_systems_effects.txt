@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # North Carolina Flavor — v2.0 systems
 # Character spawn helpers + education prestige refresh
 ########################################
@@ -89,6 +89,96 @@ nc_spawn_ph_hanes = {
 		}
 		create_character = {
 			template = nc_ph_hanes_template
+		}
+	}
+}
+
+nc_spawn_james_w_cannon = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_james_w_cannon_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_james_w_cannon_template
+		}
+	}
+}
+
+nc_spawn_caesar_cone = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_caesar_cone_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_caesar_cone_template
+		}
+	}
+}
+
+nc_spawn_j_spencer_love = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_j_spencer_love_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_j_spencer_love_template
+		}
+	}
+}
+
+nc_spawn_thomas_f_wrenn = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_thomas_f_wrenn_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_thomas_f_wrenn_template
+		}
+	}
+}
+
+nc_spawn_john_e_liggett = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_john_e_liggett_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_john_e_liggett_template
+		}
+	}
+}
+
+nc_spawn_john_motley_morehead = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_john_motley_morehead_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_john_motley_morehead_template
 		}
 	}
 }

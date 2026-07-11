@@ -1,13 +1,12 @@
-########################################
+﻿########################################
 # North Carolina flavor landmarks
-# Shared group so universities, lighthouses, and monuments cluster
-# together in the Development tab (after Port / Construction Sector),
-# instead of interleaving alphabetically with vanilla buildings.
+# Parent monuments + Special lens so campuses, lights, and estates appear
+# with other unique monuments (not buried under Development government).
 ########################################
 
 bg_nc_flavor = {
-	parent_group = bg_government
-	lens = development
+	parent_group = bg_monuments
+	lens = special
 	inheritable_construction = yes
 	economy_of_scale = no
 	is_government_funded = yes

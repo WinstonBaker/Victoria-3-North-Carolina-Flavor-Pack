@@ -1,299 +1,15 @@
-########################################
+﻿########################################
 # University System — shared effects
+#
+# Soft-lock fix: credit finished campuses monthly even if
+# je_nc_found_selected_university is inactive. That frees
+# charter slots and advances founded_count / Expanding.
 ########################################
 
-# Free a charter slot when its build flag is set but the campus
-# is neither finished nor under construction (cancel / failed queue).
-nc_recover_stale_university_charters = {
-	if = {
-		limit = {
-			has_variable = nc_uni_build_davidson
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_davidson_college
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_davidson
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_shaw
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_shaw_university
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_shaw
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_charlotte
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_unc_charlotte
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_charlotte
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_asheville
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_unc_asheville
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_asheville
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_wilmington
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_unc_wilmington
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_wilmington
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_app_state
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_appalachian_state
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_app_state
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_ecu
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_east_carolina_university
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_ecu
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_western
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_western_carolina_university
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_western
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_uncg
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_unc_greensboro
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_uncg
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_ncat
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_nc_at_university
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_ncat
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_elon
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_elon_university
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_elon
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_nccu
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_nc_central_university
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_nccu
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_uncsa
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_unc_school_of_the_arts
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_uncsa
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_jcs
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_johnson_c_smith_university
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_jcs
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_fayetteville
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_fayetteville_state
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_fayetteville
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	if = {
-		limit = {
-			has_variable = nc_uni_build_pembroke
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_unc_pembroke
-					}
-				}
-			}
-		}
-		remove_variable = nc_uni_build_pembroke
-		change_variable = {
-			name = nc_uni_charter_count
-			subtract = 1
-		}
-	}
-	# Clamp so a bad state never goes negative
+# Charter campus registry (UNC System regionals only — 14 campuses)
+# id | build_var | founded_var | building | special_founded_effect
+
+nc_uni_clamp_charter_count = {
 	if = {
 		limit = {
 			has_variable = nc_uni_charter_count
@@ -306,7 +22,540 @@ nc_recover_stale_university_charters = {
 	}
 }
 
-# After a campus founds: bump count and fire mid-tier once at 8/16
+# Free a slot when build flag is set but campus is neither finished nor under construction.
+nc_recover_stale_university_charters = {
+	if = {
+		limit = {
+			has_variable = nc_uni_build_app_state
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_appalachian_state
+						any_scope_building = {
+							is_building_type = building_appalachian_state
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_app_state
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_ecu
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_east_carolina_university
+						any_scope_building = {
+							is_building_type = building_east_carolina_university
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_ecu
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_ecsu
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_elizabeth_city_state
+						any_scope_building = {
+							is_building_type = building_elizabeth_city_state
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_ecsu
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_fayetteville
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_fayetteville_state
+						any_scope_building = {
+							is_building_type = building_fayetteville_state
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_fayetteville
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_ncat
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_nc_at_university
+						any_scope_building = {
+							is_building_type = building_nc_at_university
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_ncat
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_nccu
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_nc_central_university
+						any_scope_building = {
+							is_building_type = building_nc_central_university
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_nccu
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_asheville
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_unc_asheville
+						any_scope_building = {
+							is_building_type = building_unc_asheville
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_asheville
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_charlotte
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_unc_charlotte
+						any_scope_building = {
+							is_building_type = building_unc_charlotte
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_charlotte
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_uncg
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_unc_greensboro
+						any_scope_building = {
+							is_building_type = building_unc_greensboro
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_uncg
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_pembroke
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_unc_pembroke
+						any_scope_building = {
+							is_building_type = building_unc_pembroke
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_pembroke
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_uncsa
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_unc_school_of_the_arts
+						any_scope_building = {
+							is_building_type = building_unc_school_of_the_arts
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_uncsa
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_wilmington
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_unc_wilmington
+						any_scope_building = {
+							is_building_type = building_unc_wilmington
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_wilmington
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_western
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_western_carolina_university
+						any_scope_building = {
+							is_building_type = building_western_carolina_university
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_western
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	if = {
+		limit = {
+			has_variable = nc_uni_build_wssu
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					OR = {
+						has_building = building_winston_salem_state
+						any_scope_building = {
+							is_building_type = building_winston_salem_state
+							is_under_construction = yes
+						}
+					}
+				}
+			}
+		}
+		remove_variable = nc_uni_build_wssu
+		change_variable = { name = nc_uni_charter_count subtract = 1 }
+	}
+	# Legacy private-charter flags (older saves) — clear only; do not touch charter_count
+	if = {
+		limit = { has_variable = nc_uni_build_davidson }
+		remove_variable = nc_uni_build_davidson
+	}
+	if = {
+		limit = { has_variable = nc_uni_build_shaw }
+		remove_variable = nc_uni_build_shaw
+	}
+	if = {
+		limit = { has_variable = nc_uni_build_elon }
+		remove_variable = nc_uni_build_elon
+	}
+	if = {
+		limit = { has_variable = nc_uni_build_jcs }
+		remove_variable = nc_uni_build_jcs
+	}
+	nc_uni_clamp_charter_count = yes
+}
+
+# Credit finished campuses: free slots, set founded, bump Expanding progress.
+# Idempotent — safe from Found JE and monthly pulse.
+nc_credit_finished_university_charters = {
+	# --- UNC System (14) ---
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_app_state }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_appalachian_state
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_app_state }
+			remove_variable = nc_uni_build_app_state
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_app_state
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_ecu }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_east_carolina_university
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_ecu }
+			remove_variable = nc_uni_build_ecu
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_ecu
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_ecsu }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_elizabeth_city_state
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_ecsu }
+			remove_variable = nc_uni_build_ecsu
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_ecsu
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_fayetteville }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_fayetteville_state
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_fayetteville }
+			remove_variable = nc_uni_build_fayetteville
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_fayetteville
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_ncat }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_at_university
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_ncat }
+			remove_variable = nc_uni_build_ncat
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_ncat
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_nccu }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_central_university
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_nccu }
+			remove_variable = nc_uni_build_nccu
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_nccu
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_asheville }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_unc_asheville
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_asheville }
+			remove_variable = nc_uni_build_asheville
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_asheville
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_charlotte }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_unc_charlotte
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_charlotte }
+			remove_variable = nc_uni_build_charlotte
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_charlotte
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_uncg }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_unc_greensboro
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_uncg }
+			remove_variable = nc_uni_build_uncg
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_uncg
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_pembroke }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_unc_pembroke
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_pembroke }
+			remove_variable = nc_uni_build_pembroke
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_pembroke
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_uncsa }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_unc_school_of_the_arts
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_uncsa }
+			remove_variable = nc_uni_build_uncsa
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_uncsa
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_wilmington }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_unc_wilmington
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_wilmington }
+			remove_variable = nc_uni_build_wilmington
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_wilmington
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_western }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_western_carolina_university
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_western }
+			remove_variable = nc_uni_build_western
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_western
+		nc_on_university_campus_founded = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_founded_wssu }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_winston_salem_state
+			}
+		}
+		if = {
+			limit = { has_variable = nc_uni_build_wssu }
+			remove_variable = nc_uni_build_wssu
+			change_variable = { name = nc_uni_charter_count subtract = 1 }
+			set_variable = nc_uni_campus_just_founded
+		}
+		set_variable = nc_uni_founded_wssu
+		nc_on_university_campus_founded = yes
+	}
+	nc_uni_clamp_charter_count = yes
+}
+
+# After a campus founds: bump count and fire mid-tier once at 7/14
 nc_on_university_campus_founded = {
 	if = {
 		limit = {
@@ -324,33 +573,65 @@ nc_on_university_campus_founded = {
 	if = {
 		limit = {
 			NOT = { has_variable = nc_university_system_expanding_done }
-			var:nc_uni_founded_count >= 8
+			var:nc_uni_founded_count >= 7
 		}
 		set_variable = nc_university_system_expanding_done
 		trigger_event = { id = nc_flavor_events.38 popup = yes }
 	}
 }
 
-nc_apply_davidson_founded_modifiers = {
-	add_modifier = {
-		name = nc_davidson_founded_country
-	}
-	every_scope_state = {
-		limit = { state_region = s:STATE_NORTH_CAROLINA }
-		add_modifier = {
-			name = nc_davidson_founded
+# Fire system-complete reward once (Found JE or Progress JE)
+nc_try_complete_university_system = {
+	if = {
+		limit = {
+			NOT = { has_variable = nc_complete_unc_system_done }
+			has_variable = nc_uni_founded_app_state
+			has_variable = nc_uni_founded_ecu
+			has_variable = nc_uni_founded_ecsu
+			has_variable = nc_uni_founded_fayetteville
+			has_variable = nc_uni_founded_ncat
+			has_variable = nc_uni_founded_nccu
+			has_variable = nc_uni_founded_asheville
+			has_variable = nc_uni_founded_charlotte
+			has_variable = nc_uni_founded_uncg
+			has_variable = nc_uni_founded_pembroke
+			has_variable = nc_uni_founded_uncsa
+			has_variable = nc_uni_founded_wilmington
+			has_variable = nc_uni_founded_western
+			has_variable = nc_uni_founded_wssu
+		}
+		set_variable = nc_complete_unc_system_done
+		if = {
+			limit = {
+				NOT = { has_variable = nc_uni_system_reward_fired }
+			}
+			set_variable = nc_uni_system_reward_fired
+			trigger_event = { id = nc_flavor_events.31 popup = yes }
 		}
 	}
 }
 
-nc_apply_shaw_founded_modifiers = {
-	add_modifier = {
-		name = nc_shaw_founded_country
-	}
-	every_scope_state = {
-		limit = { state_region = s:STATE_NORTH_CAROLINA }
-		add_modifier = {
-			name = nc_shaw_founded
+# Monthly maintenance: recover cancels, credit finishes, maybe complete system
+nc_university_system_monthly = {
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_charter_count }
+		}
+		set_variable = {
+			name = nc_uni_charter_count
+			value = 0
 		}
 	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_uni_charter_capacity }
+		}
+		set_variable = {
+			name = nc_uni_charter_capacity
+			value = 1
+		}
+	}
+	nc_recover_stale_university_charters = yes
+	nc_credit_finished_university_charters = yes
+	nc_try_complete_university_system = yes
 }

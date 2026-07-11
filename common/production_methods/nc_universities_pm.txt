@@ -1,8 +1,16 @@
-########################################
+﻿########################################
 # North Carolina Universities — production methods
-# Each campus beats a vanilla university (~1-2 innovation):
-#   regional 2, mid-tier 3-4, Triangle/flagships 5-7.
-# Full system is a strong late reward for decades of investment.
+#
+# DESIGN INTENT (do NOT "balance-nerf" in reviews):
+# These campuses are intentionally much stronger than vanilla
+# building_university (~1–2 weekly innovation). That is the reward
+# for monument construction cost (2500 vs vanilla uni 400) plus
+# story gating (Research Triangle → charter slots → decades of JE).
+#
+# Target bands (keep roughly here):
+#   regional ~2, mid-tier ~3–4, Triangle/flagships ~5–7 innovation.
+# Full system + nc_education_prestige_country stacking is meant to
+# be a dominant late-game USA education/tech package.
 ########################################
 
 # --- Flagships / start campuses ---
@@ -130,40 +138,6 @@ pm_nc_state_active = {
 	}
 }
 
-pm_nc_state_centennial = {
-	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
-	is_hidden_when_unavailable = yes
-
-	unlocking_technologies = {
-		nc_centennial_campus
-	}
-
-	country_modifiers = {
-		workforce_scaled = {
-			country_weekly_innovation_add = 7
-			country_weekly_innovation_mult = 0.008
-			country_prestige_mult = 0.0056
-		}
-	}
-
-	state_modifiers = {
-		workforce_scaled = {
-			state_pop_qualifications_mult = 0.32
-			building_group_bg_heavy_industry_throughput_add = 0.18
-			building_group_bg_light_industry_throughput_add = 0.05
-			state_education_access_add = 0.14
-			state_migration_pull_mult = 0.08
-		}
-	}
-
-	building_modifiers = {
-		level_scaled = {
-			building_employment_academics_add = 400
-			building_employment_engineers_add = 350
-			building_employment_clerks_add = 120
-		}
-	}
-}
 
 pm_duke_active = {
 	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
@@ -665,6 +639,68 @@ pm_unc_pembroke_active = {
 		level_scaled = {
 			building_employment_academics_add = 280
 			building_employment_clerks_add = 120
+		}
+	}
+}
+
+# Elizabeth City State — eastern HBCU / teachers college
+pm_elizabeth_city_state_active = {
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+	is_hidden_when_unavailable = yes
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_weekly_innovation_add = 2
+			country_prestige_mult = 0.0015
+			country_afro_american_cultural_acceptance_add = 2
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_education_access_add = 0.07
+			state_pop_qualifications_mult = 0.11
+			building_group_bg_agriculture_throughput_add = 0.04
+			state_migration_pull_mult = 0.04
+		}
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_academics_add = 280
+			building_employment_clerks_add = 120
+			building_employment_farmers_add = 40
+		}
+	}
+}
+
+# Winston-Salem State — Piedmont HBCU / teachers college
+pm_winston_salem_state_active = {
+	texture = "gfx/interface/icons/production_method_icons/philosophy_dept.dds"
+	is_hidden_when_unavailable = yes
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_weekly_innovation_add = 2
+			country_prestige_mult = 0.0015
+			country_afro_american_cultural_acceptance_add = 2
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_education_access_add = 0.07
+			state_pop_qualifications_mult = 0.11
+			building_group_bg_light_industry_throughput_add = 0.04
+			state_migration_pull_mult = 0.05
+		}
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_academics_add = 300
+			building_employment_clerks_add = 120
+			building_employment_laborers_add = 40
 		}
 	}
 }

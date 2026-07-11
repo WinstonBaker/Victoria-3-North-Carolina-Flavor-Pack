@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Outer Banks / Carolina Lighthouses
 # Unique monuments — no urban-center requirement (bg_monuments).
 # Map mesh: european_lighthouse_01_entity (vanilla port-city lighthouse).

@@ -1,4 +1,4 @@
-# Full monument cost is 2500. By 1836 the Capitol was ~40% complete
+﻿# Full monument cost is 2500. By 1836 the Capitol was ~40% complete
 # (begun 1833; exterior walls largely up by late 1834; finished 1840),
 # so only the remaining ~60% of construction points are required.
 construction_cost_nc_capitol_remaining = 1500
@@ -18,86 +18,29 @@ nc_university_campus_count = {
 		limit = {
 			state_region = s:STATE_NORTH_CAROLINA
 		}
-		if = {
-			limit = { has_building = building_unc_chapel_hill }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_wake_forest_college }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_nc_state_university }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_duke_university }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_davidson_college }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_shaw_university }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_unc_charlotte }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_unc_asheville }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_unc_wilmington }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_appalachian_state }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_east_carolina_university }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_western_carolina_university }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_unc_greensboro }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_nc_at_university }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_elon_university }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_nc_central_university }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_unc_school_of_the_arts }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_johnson_c_smith_university }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_fayetteville_state }
-			add = 1
-		}
-		if = {
-			limit = { has_building = building_unc_pembroke }
-			add = 1
-		}
+		if = { limit = { has_building = building_unc_chapel_hill } add = 1 }
+		if = { limit = { has_building = building_wake_forest_college } add = 1 }
+		if = { limit = { has_building = building_nc_state_university } add = 1 }
+		if = { limit = { has_building = building_duke_university } add = 1 }
+		if = { limit = { has_building = building_appalachian_state } add = 1 }
+		if = { limit = { has_building = building_east_carolina_university } add = 1 }
+		if = { limit = { has_building = building_elizabeth_city_state } add = 1 }
+		if = { limit = { has_building = building_fayetteville_state } add = 1 }
+		if = { limit = { has_building = building_nc_at_university } add = 1 }
+		if = { limit = { has_building = building_nc_central_university } add = 1 }
+		if = { limit = { has_building = building_unc_asheville } add = 1 }
+		if = { limit = { has_building = building_unc_charlotte } add = 1 }
+		if = { limit = { has_building = building_unc_greensboro } add = 1 }
+		if = { limit = { has_building = building_unc_pembroke } add = 1 }
+		if = { limit = { has_building = building_unc_school_of_the_arts } add = 1 }
+		if = { limit = { has_building = building_unc_wilmington } add = 1 }
+		if = { limit = { has_building = building_western_carolina_university } add = 1 }
+		if = { limit = { has_building = building_winston_salem_state } add = 1 }
+		# Legacy private campuses still count if already built
+		if = { limit = { has_building = building_davidson_college } add = 1 }
+		if = { limit = { has_building = building_shaw_university } add = 1 }
+		if = { limit = { has_building = building_elon_university } add = 1 }
+		if = { limit = { has_building = building_johnson_c_smith_university } add = 1 }
 	}
 }
 

@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # North Carolina Flavor — character templates
 # Placeholders (no custom DNA); random portraits until art ships.
 ########################################
@@ -52,9 +52,6 @@ nc_washington_duke_template = {
 		}
 		earliest_usage_date = 1874.1.1
 		latest_usage_date = 1905.5.8
-	}
-	on_created = {
-		set_variable = nc_is_washington_duke
 	}
 }
 
@@ -110,9 +107,6 @@ nc_james_b_duke_template = {
 		earliest_usage_date = 1890.1.1
 		latest_usage_date = 1925.10.10
 	}
-	on_created = {
-		set_variable = nc_is_james_b_duke
-	}
 }
 
 nc_rj_reynolds_template = {
@@ -165,9 +159,6 @@ nc_rj_reynolds_template = {
 		earliest_usage_date = 1875.1.1
 		latest_usage_date = 1918.7.29
 	}
-	on_created = {
-		set_variable = nc_is_rj_reynolds
-	}
 }
 
 nc_caleb_bradham_template = {
@@ -216,9 +207,6 @@ nc_caleb_bradham_template = {
 		}
 		earliest_usage_date = 1898.1.1
 		latest_usage_date = 1934.2.19
-	}
-	on_created = {
-		set_variable = nc_is_caleb_bradham
 	}
 }
 
@@ -269,9 +257,6 @@ nc_lunsford_richardson_template = {
 		earliest_usage_date = 1894.1.1
 		latest_usage_date = 1919.8.21
 	}
-	on_created = {
-		set_variable = nc_is_lunsford_richardson
-	}
 }
 
 nc_ph_hanes_template = {
@@ -321,8 +306,320 @@ nc_ph_hanes_template = {
 		earliest_usage_date = 1901.1.1
 		latest_usage_date = 1925.1.1
 	}
-	on_created = {
-		set_variable = nc_is_ph_hanes
+}
+
+nc_james_w_cannon_template = {
+	first_name = James
+	last_name = Cannon
+	historical = yes
+	culture = cu:dixie
+	female = no
+	religion = rel:protestant
+	role = character_role_politician
+	ideology = ideology_moderate
+	interest_group = ig_industrialists
+	birth_date = 1852.8.25
+	home_region = STATE_NORTH_CAROLINA
+	traits = {
+		experienced_entrepreneur
+		persistent
+		pious
+	}
+	interest_group_leader_usage = {
+		country_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+			OR = {
+				has_company = company_type:company_cannon_mills
+				has_variable = nc_piedmont_textiles_complete
+			}
+		}
+		interest_group_trigger = {
+			ig_counts_as_marginal = no
+			is_interest_group_type = ig_industrialists
+		}
+		earliest_usage_date = 1887.1.1
+		latest_usage_date = 1921.12.19
+		chance = 45
+	}
+	executive_usage = {
+		country_trigger = {
+			has_dlc_feature = mp1_content
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+		}
+		company_trigger = {
+			is_company_type = company_type:company_cannon_mills
+		}
+		earliest_usage_date = 1887.1.1
+		latest_usage_date = 1921.12.19
+	}
+}
+
+nc_caesar_cone_template = {
+	first_name = Caesar
+	last_name = Cone
+	historical = yes
+	culture = cu:dixie
+	female = no
+	religion = rel:jewish
+	role = character_role_politician
+	ideology = ideology_moderate
+	interest_group = ig_industrialists
+	birth_date = 1859.4.22
+	home_region = STATE_NORTH_CAROLINA
+	traits = {
+		experienced_entrepreneur
+		innovative
+		meticulous
+	}
+	interest_group_leader_usage = {
+		country_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+			OR = {
+				has_company = company_type:company_cone_mills
+				has_variable = nc_piedmont_textiles_complete
+			}
+		}
+		interest_group_trigger = {
+			ig_counts_as_marginal = no
+			is_interest_group_type = ig_industrialists
+		}
+		earliest_usage_date = 1891.1.1
+		latest_usage_date = 1917.3.1
+		chance = 45
+	}
+	executive_usage = {
+		country_trigger = {
+			has_dlc_feature = mp1_content
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+		}
+		company_trigger = {
+			is_company_type = company_type:company_cone_mills
+		}
+		earliest_usage_date = 1895.1.1
+		latest_usage_date = 1917.3.1
+	}
+}
+
+nc_j_spencer_love_template = {
+	first_name = Spencer
+	last_name = Love
+	historical = yes
+	culture = cu:dixie
+	female = no
+	religion = rel:protestant
+	role = character_role_politician
+	ideology = ideology_moderate
+	interest_group = ig_industrialists
+	birth_date = 1896.7.6
+	home_region = STATE_NORTH_CAROLINA
+	traits = {
+		ambitious
+		expert_entrepreneur
+		innovative
+	}
+	interest_group_leader_usage = {
+		country_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+			OR = {
+				has_company = company_type:company_burlington_industries
+				has_variable = nc_piedmont_textiles_complete
+			}
+		}
+		interest_group_trigger = {
+			ig_counts_as_marginal = no
+			is_interest_group_type = ig_industrialists
+		}
+		earliest_usage_date = 1923.1.1
+		latest_usage_date = 1962.1.1
+		chance = 40
+	}
+	executive_usage = {
+		country_trigger = {
+			has_dlc_feature = mp1_content
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+		}
+		company_trigger = {
+			is_company_type = company_type:company_burlington_industries
+		}
+		earliest_usage_date = 1923.1.1
+		latest_usage_date = 1962.1.1
+	}
+}
+
+nc_thomas_f_wrenn_template = {
+	first_name = Thomas
+	last_name = Wrenn
+	historical = yes
+	culture = cu:dixie
+	female = no
+	religion = rel:protestant
+	role = character_role_politician
+	ideology = ideology_moderate
+	interest_group = ig_industrialists
+	birth_date = 1850.6.12
+	home_region = STATE_NORTH_CAROLINA
+	traits = {
+		experienced_entrepreneur
+		persistent
+		basic_entrepreneur
+	}
+	interest_group_leader_usage = {
+		country_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+			OR = {
+				has_company = company_type:company_high_point_furniture
+				has_variable = nc_high_point_complete
+			}
+		}
+		interest_group_trigger = {
+			ig_counts_as_marginal = no
+			is_interest_group_type = ig_industrialists
+		}
+		earliest_usage_date = 1888.1.1
+		latest_usage_date = 1915.1.1
+		chance = 40
+	}
+	executive_usage = {
+		country_trigger = {
+			has_dlc_feature = mp1_content
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+		}
+		company_trigger = {
+			is_company_type = company_type:company_high_point_furniture
+		}
+		earliest_usage_date = 1888.1.1
+		latest_usage_date = 1915.1.1
+	}
+}
+
+nc_john_e_liggett_template = {
+	first_name = John
+	last_name = Liggett
+	historical = yes
+	culture = cu:yankee
+	female = no
+	religion = rel:protestant
+	role = character_role_politician
+	ideology = ideology_moderate
+	interest_group = ig_industrialists
+	birth_date = 1829.1.1
+	home_region = STATE_NORTH_CAROLINA
+	traits = {
+		experienced_entrepreneur
+		persistent
+		ambitious
+	}
+	interest_group_leader_usage = {
+		country_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+			OR = {
+				has_company = company_type:company_liggett_myers
+				has_variable = nc_tobacco_belt_complete
+			}
+		}
+		interest_group_trigger = {
+			ig_counts_as_marginal = no
+			is_interest_group_type = ig_industrialists
+		}
+		earliest_usage_date = 1873.1.1
+		latest_usage_date = 1897.1.1
+		chance = 40
+	}
+	executive_usage = {
+		country_trigger = {
+			has_dlc_feature = mp1_content
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+		}
+		company_trigger = {
+			is_company_type = company_type:company_liggett_myers
+		}
+		earliest_usage_date = 1878.1.1
+		latest_usage_date = 1897.1.1
+	}
+}
+
+nc_john_motley_morehead_template = {
+	first_name = John
+	last_name = Morehead
+	historical = yes
+	culture = cu:dixie
+	female = no
+	religion = rel:protestant
+	role = character_role_politician
+	ideology = ideology_moderate
+	interest_group = ig_industrialists
+	birth_date = 1796.7.4
+	home_region = STATE_NORTH_CAROLINA
+	traits = {
+		experienced_diplomat
+		ambitious
+		persistent
+	}
+	interest_group_leader_usage = {
+		country_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+			OR = {
+				has_company = company_type:company_nc_railroad
+				has_variable = nc_railroad_complete
+			}
+		}
+		interest_group_trigger = {
+			ig_counts_as_marginal = no
+			OR = {
+				is_interest_group_type = ig_industrialists
+				is_interest_group_type = ig_intelligentsia
+			}
+		}
+		earliest_usage_date = 1836.1.1
+		latest_usage_date = 1866.8.27
+		chance = 50
+	}
+	executive_usage = {
+		country_trigger = {
+			has_dlc_feature = mp1_content
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = THIS
+			}
+		}
+		company_trigger = {
+			is_company_type = company_type:company_nc_railroad
+		}
+		earliest_usage_date = 1849.1.1
+		latest_usage_date = 1866.8.27
 	}
 }
 
@@ -366,9 +663,6 @@ nc_george_vanderbilt_template = {
 		latest_usage_date = 1914.3.6
 		chance = 50
 	}
-	on_created = {
-		set_variable = nc_is_george_vanderbilt
-	}
 }
 
 nc_orville_wright_template = {
@@ -404,9 +698,6 @@ nc_orville_wright_template = {
 		latest_usage_date = 1936.1.1
 		chance = 40
 	}
-	on_created = {
-		set_variable = nc_is_orville_wright
-	}
 }
 
 nc_wilbur_wright_template = {
@@ -441,8 +732,5 @@ nc_wilbur_wright_template = {
 		earliest_usage_date = 1903.12.17
 		latest_usage_date = 1912.5.30
 		chance = 40
-	}
-	on_created = {
-		set_variable = nc_is_wilbur_wright
 	}
 }

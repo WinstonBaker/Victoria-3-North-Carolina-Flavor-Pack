@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Tar Heel Legacy
 ########################################
 
@@ -596,6 +596,8 @@ je_nc_western_nc = {
 				remove_modifier = nc_railroad_under_construction
 			}
 		}
+		# Timed Western line bonus (full vs private), matching layers 1–4.
+		# Permanent Carolina Rail Network is granted by completion event .13.
 		if = {
 			limit = { has_variable = nc_western_nc_private }
 			every_scope_state = {
@@ -677,15 +679,33 @@ je_nc_research_triangle = {
 	}
 
 	immediate = {
-		# Do not unlock construction yet — event 5 schedules a delayed auto-queue
-		# so players can raise Construction Sectors first.
+		# Unlock buildability as soon as the JE is active (matches Biltmore pattern).
+		# Funding event still grants construction bonuses; event 40 auto-queues later.
+		set_variable = nc_research_triangle_unlocked
 		s:STATE_NORTH_CAROLINA = {
 			random_scope_state = {
 				limit = { owner = ROOT }
 				save_scope_as = nc_state_scope
 			}
 		}
-		trigger_event = { id = nc_flavor_events.5 popup = yes }
+		# One-shot opener; re-queue auto-build if funding was committed but auto-queue missed.
+		if = {
+			limit = {
+				NOT = { has_variable = nc_research_triangle_proposal_fired }
+			}
+			trigger_event = { id = nc_flavor_events.5 popup = yes }
+		}
+		else_if = {
+			limit = {
+				has_variable = nc_research_triangle_funding_committed
+				has_variable = nc_research_triangle_unlocked
+				NOT = { has_variable = nc_research_triangle_autoqueued }
+			}
+			trigger_event = {
+				id = nc_flavor_events.40
+				months = 1
+			}
+		}
 	}
 
 	status_desc = {
@@ -694,7 +714,8 @@ je_nc_research_triangle = {
 				desc = je_nc_research_triangle_waiting_status_loc
 				trigger = {
 					has_variable = nc_research_triangle_funding_committed
-					NOT = { has_variable = nc_research_triangle_unlocked }
+					has_variable = nc_research_triangle_unlocked
+					NOT = { has_variable = nc_research_triangle_autoqueued }
 				}
 			}
 			triggered_desc = {
@@ -814,7 +835,11 @@ je_nc_found_selected_university = {
 	is_shown_when_inactive = {
 		has_variable = nc_research_triangle_complete
 		NOT = { has_variable = nc_complete_unc_system_done }
-		var:nc_uni_charter_count > 0
+		OR = {
+			var:nc_uni_charter_count > 0
+			# Monthly credit may clear build flags before this JE completes
+			has_variable = nc_uni_campus_just_founded
+		}
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -824,7 +849,10 @@ je_nc_found_selected_university = {
 	possible = {
 		has_variable = nc_research_triangle_complete
 		NOT = { has_variable = nc_complete_unc_system_done }
-		var:nc_uni_charter_count > 0
+		OR = {
+			var:nc_uni_charter_count > 0
+			has_variable = nc_uni_campus_just_founded
+		}
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -849,26 +877,6 @@ je_nc_found_selected_university = {
 				}
 			}
 			triggered_desc = {
-				desc = je_nc_found_selected_davidson_status_loc
-				trigger = { has_variable = nc_uni_build_davidson }
-			}
-			triggered_desc = {
-				desc = je_nc_found_selected_shaw_status_loc
-				trigger = { has_variable = nc_uni_build_shaw }
-			}
-			triggered_desc = {
-				desc = je_nc_found_selected_charlotte_status_loc
-				trigger = { has_variable = nc_uni_build_charlotte }
-			}
-			triggered_desc = {
-				desc = je_nc_found_selected_asheville_status_loc
-				trigger = { has_variable = nc_uni_build_asheville }
-			}
-			triggered_desc = {
-				desc = je_nc_found_selected_wilmington_status_loc
-				trigger = { has_variable = nc_uni_build_wilmington }
-			}
-			triggered_desc = {
 				desc = je_nc_found_selected_app_state_status_loc
 				trigger = { has_variable = nc_uni_build_app_state }
 			}
@@ -877,87 +885,67 @@ je_nc_found_selected_university = {
 				trigger = { has_variable = nc_uni_build_ecu }
 			}
 			triggered_desc = {
-				desc = je_nc_found_selected_western_status_loc
-				trigger = { has_variable = nc_uni_build_western }
-			}
-			triggered_desc = {
-				desc = je_nc_found_selected_uncg_status_loc
-				trigger = { has_variable = nc_uni_build_uncg }
-			}
-			triggered_desc = {
-				desc = je_nc_found_selected_ncat_status_loc
-				trigger = { has_variable = nc_uni_build_ncat }
-			}
-			triggered_desc = {
-				desc = je_nc_found_selected_elon_status_loc
-				trigger = { has_variable = nc_uni_build_elon }
-			}
-			triggered_desc = {
-				desc = je_nc_found_selected_nccu_status_loc
-				trigger = { has_variable = nc_uni_build_nccu }
-			}
-			triggered_desc = {
-				desc = je_nc_found_selected_uncsa_status_loc
-				trigger = { has_variable = nc_uni_build_uncsa }
-			}
-			triggered_desc = {
-				desc = je_nc_found_selected_jcs_status_loc
-				trigger = { has_variable = nc_uni_build_jcs }
+				desc = je_nc_found_selected_ecsu_status_loc
+				trigger = { has_variable = nc_uni_build_ecsu }
 			}
 			triggered_desc = {
 				desc = je_nc_found_selected_fayetteville_status_loc
 				trigger = { has_variable = nc_uni_build_fayetteville }
 			}
 			triggered_desc = {
+				desc = je_nc_found_selected_ncat_status_loc
+				trigger = { has_variable = nc_uni_build_ncat }
+			}
+			triggered_desc = {
+				desc = je_nc_found_selected_nccu_status_loc
+				trigger = { has_variable = nc_uni_build_nccu }
+			}
+			triggered_desc = {
+				desc = je_nc_found_selected_asheville_status_loc
+				trigger = { has_variable = nc_uni_build_asheville }
+			}
+			triggered_desc = {
+				desc = je_nc_found_selected_charlotte_status_loc
+				trigger = { has_variable = nc_uni_build_charlotte }
+			}
+			triggered_desc = {
+				desc = je_nc_found_selected_uncg_status_loc
+				trigger = { has_variable = nc_uni_build_uncg }
+			}
+			triggered_desc = {
 				desc = je_nc_found_selected_pembroke_status_loc
 				trigger = { has_variable = nc_uni_build_pembroke }
+			}
+			triggered_desc = {
+				desc = je_nc_found_selected_uncsa_status_loc
+				trigger = { has_variable = nc_uni_build_uncsa }
+			}
+			triggered_desc = {
+				desc = je_nc_found_selected_wilmington_status_loc
+				trigger = { has_variable = nc_uni_build_wilmington }
+			}
+			triggered_desc = {
+				desc = je_nc_found_selected_western_status_loc
+				trigger = { has_variable = nc_uni_build_western }
+			}
+			triggered_desc = {
+				desc = je_nc_found_selected_wssu_status_loc
+				trigger = { has_variable = nc_uni_build_wssu }
 			}
 			triggered_desc = {
 				desc = je_nc_found_selected_university_progress_status_loc
 				trigger = { always = yes }
 			}
 		}
+
 	}
 
 	complete = {
 		custom_tooltip = {
 			text = je_nc_found_selected_university_tt
 			OR = {
-				AND = {
-					has_variable = nc_uni_build_davidson
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_davidson_college
-					}
-				}
-				AND = {
-					has_variable = nc_uni_build_shaw
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_shaw_university
-					}
-				}
-				AND = {
-					has_variable = nc_uni_build_charlotte
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_unc_charlotte
-					}
-				}
-				AND = {
-					has_variable = nc_uni_build_asheville
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_unc_asheville
-					}
-				}
-				AND = {
-					has_variable = nc_uni_build_wilmington
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_unc_wilmington
-					}
-				}
+				# Monthly credit already freed the slot — finish the JE so event .32 can fire
+				has_variable = nc_uni_campus_just_founded
 				AND = {
 					has_variable = nc_uni_build_app_state
 					any_scope_state = {
@@ -973,52 +961,10 @@ je_nc_found_selected_university = {
 					}
 				}
 				AND = {
-					has_variable = nc_uni_build_western
+					has_variable = nc_uni_build_ecsu
 					any_scope_state = {
 						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_western_carolina_university
-					}
-				}
-				AND = {
-					has_variable = nc_uni_build_uncg
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_unc_greensboro
-					}
-				}
-				AND = {
-					has_variable = nc_uni_build_ncat
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_nc_at_university
-					}
-				}
-				AND = {
-					has_variable = nc_uni_build_elon
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_elon_university
-					}
-				}
-				AND = {
-					has_variable = nc_uni_build_nccu
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_nc_central_university
-					}
-				}
-				AND = {
-					has_variable = nc_uni_build_uncsa
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_unc_school_of_the_arts
-					}
-				}
-				AND = {
-					has_variable = nc_uni_build_jcs
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						has_building = building_johnson_c_smith_university
+						has_building = building_elizabeth_city_state
 					}
 				}
 				AND = {
@@ -1029,10 +975,73 @@ je_nc_found_selected_university = {
 					}
 				}
 				AND = {
+					has_variable = nc_uni_build_ncat
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_nc_at_university
+					}
+				}
+				AND = {
+					has_variable = nc_uni_build_nccu
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_nc_central_university
+					}
+				}
+				AND = {
+					has_variable = nc_uni_build_asheville
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_unc_asheville
+					}
+				}
+				AND = {
+					has_variable = nc_uni_build_charlotte
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_unc_charlotte
+					}
+				}
+				AND = {
+					has_variable = nc_uni_build_uncg
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_unc_greensboro
+					}
+				}
+				AND = {
 					has_variable = nc_uni_build_pembroke
 					any_scope_state = {
 						state_region = s:STATE_NORTH_CAROLINA
 						has_building = building_unc_pembroke
+					}
+				}
+				AND = {
+					has_variable = nc_uni_build_uncsa
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_unc_school_of_the_arts
+					}
+				}
+				AND = {
+					has_variable = nc_uni_build_wilmington
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_unc_wilmington
+					}
+				}
+				AND = {
+					has_variable = nc_uni_build_western
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_western_carolina_university
+					}
+				}
+				AND = {
+					has_variable = nc_uni_build_wssu
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						has_building = building_winston_salem_state
 					}
 				}
 			}
@@ -1040,296 +1049,15 @@ je_nc_found_selected_university = {
 	}
 
 	on_complete = {
-		# Only clear campuses that have actually finished (supports dual charters)
+		# Credit all finished charters (also runs monthly — soft-lock fix)
+		nc_credit_finished_university_charters = yes
+		# Clear after credit — credit may set this flag when freeing slots
 		if = {
-			limit = {
-				has_variable = nc_uni_build_davidson
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_davidson_college
-				}
-			}
-			remove_variable = nc_uni_build_davidson
-			set_variable = nc_uni_founded_davidson
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_apply_davidson_founded_modifiers = yes
-			nc_on_university_campus_founded = yes
+			limit = { has_variable = nc_uni_campus_just_founded }
+			remove_variable = nc_uni_campus_just_founded
 		}
+		nc_try_complete_university_system = yes
 		if = {
-			limit = {
-				has_variable = nc_uni_build_shaw
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_shaw_university
-				}
-			}
-			remove_variable = nc_uni_build_shaw
-			set_variable = nc_uni_founded_shaw
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_apply_shaw_founded_modifiers = yes
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_charlotte
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_charlotte
-				}
-			}
-			remove_variable = nc_uni_build_charlotte
-			set_variable = nc_uni_founded_charlotte
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_asheville
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_asheville
-				}
-			}
-			remove_variable = nc_uni_build_asheville
-			set_variable = nc_uni_founded_asheville
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_wilmington
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_wilmington
-				}
-			}
-			remove_variable = nc_uni_build_wilmington
-			set_variable = nc_uni_founded_wilmington
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_app_state
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_appalachian_state
-				}
-			}
-			remove_variable = nc_uni_build_app_state
-			set_variable = nc_uni_founded_app_state
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_ecu
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_east_carolina_university
-				}
-			}
-			remove_variable = nc_uni_build_ecu
-			set_variable = nc_uni_founded_ecu
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_western
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_western_carolina_university
-				}
-			}
-			remove_variable = nc_uni_build_western
-			set_variable = nc_uni_founded_western
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_uncg
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_greensboro
-				}
-			}
-			remove_variable = nc_uni_build_uncg
-			set_variable = nc_uni_founded_uncg
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_ncat
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_nc_at_university
-				}
-			}
-			remove_variable = nc_uni_build_ncat
-			set_variable = nc_uni_founded_ncat
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_elon
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_elon_university
-				}
-			}
-			remove_variable = nc_uni_build_elon
-			set_variable = nc_uni_founded_elon
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_nccu
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_nc_central_university
-				}
-			}
-			remove_variable = nc_uni_build_nccu
-			set_variable = nc_uni_founded_nccu
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_uncsa
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_school_of_the_arts
-				}
-			}
-			remove_variable = nc_uni_build_uncsa
-			set_variable = nc_uni_founded_uncsa
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_jcs
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_johnson_c_smith_university
-				}
-			}
-			remove_variable = nc_uni_build_jcs
-			set_variable = nc_uni_founded_jcs
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_fayetteville
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_fayetteville_state
-				}
-			}
-			remove_variable = nc_uni_build_fayetteville
-			set_variable = nc_uni_founded_fayetteville
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-		if = {
-			limit = {
-				has_variable = nc_uni_build_pembroke
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_pembroke
-				}
-			}
-			remove_variable = nc_uni_build_pembroke
-			set_variable = nc_uni_founded_pembroke
-			change_variable = {
-				name = nc_uni_charter_count
-				subtract = 1
-			}
-			nc_on_university_campus_founded = yes
-		}
-
-		if = {
-			limit = {
-				has_variable = nc_uni_founded_davidson
-				has_variable = nc_uni_founded_shaw
-				has_variable = nc_uni_founded_charlotte
-				has_variable = nc_uni_founded_asheville
-				has_variable = nc_uni_founded_wilmington
-				has_variable = nc_uni_founded_app_state
-				has_variable = nc_uni_founded_ecu
-				has_variable = nc_uni_founded_western
-				has_variable = nc_uni_founded_uncg
-				has_variable = nc_uni_founded_ncat
-				has_variable = nc_uni_founded_elon
-				has_variable = nc_uni_founded_nccu
-				has_variable = nc_uni_founded_uncsa
-				has_variable = nc_uni_founded_jcs
-				has_variable = nc_uni_founded_fayetteville
-				has_variable = nc_uni_founded_pembroke
-			}
-			# Charter JE may finish before progress JE is taken — still grant the reward once
-			set_variable = nc_complete_unc_system_done
-			if = {
-				limit = {
-					NOT = { has_variable = nc_uni_system_reward_fired }
-				}
-				set_variable = nc_uni_system_reward_fired
-				trigger_event = { id = nc_flavor_events.31 popup = yes }
-			}
-		}
-		else_if = {
 			limit = {
 				NOT = { has_variable = nc_complete_unc_system_done }
 				var:nc_uni_charter_count < var:nc_uni_charter_capacity
@@ -1337,6 +1065,7 @@ je_nc_found_selected_university = {
 			trigger_event = { id = nc_flavor_events.32 popup = yes }
 		}
 	}
+
 
 	invalid = {
 		NOT = {
@@ -1352,7 +1081,7 @@ je_nc_found_selected_university = {
 }
 
 ########################################
-# Carolina University System progress (X of 16 charter campuses)
+# Carolina University System progress (X of 14 UNC System campuses)
 ########################################
 
 je_nc_university_system_progress = {
@@ -1412,57 +1141,8 @@ je_nc_university_system_progress = {
 		}
 	}
 
+	# Checklist: UNC System campuses A–Z (14)
 	complete = {
-		custom_tooltip = {
-			text = je_nc_uni_progress_davidson_tt
-			OR = {
-				has_variable = nc_uni_founded_davidson
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_davidson_college
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_uni_progress_shaw_tt
-			OR = {
-				has_variable = nc_uni_founded_shaw
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_shaw_university
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_uni_progress_charlotte_tt
-			OR = {
-				has_variable = nc_uni_founded_charlotte
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_charlotte
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_uni_progress_asheville_tt
-			OR = {
-				has_variable = nc_uni_founded_asheville
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_asheville
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_uni_progress_wilmington_tt
-			OR = {
-				has_variable = nc_uni_founded_wilmington
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_wilmington
-				}
-			}
-		}
 		custom_tooltip = {
 			text = je_nc_uni_progress_app_state_tt
 			OR = {
@@ -1484,72 +1164,12 @@ je_nc_university_system_progress = {
 			}
 		}
 		custom_tooltip = {
-			text = je_nc_uni_progress_western_tt
+			text = je_nc_uni_progress_ecsu_tt
 			OR = {
-				has_variable = nc_uni_founded_western
+				has_variable = nc_uni_founded_ecsu
 				any_scope_state = {
 					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_western_carolina_university
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_uni_progress_uncg_tt
-			OR = {
-				has_variable = nc_uni_founded_uncg
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_greensboro
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_uni_progress_ncat_tt
-			OR = {
-				has_variable = nc_uni_founded_ncat
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_nc_at_university
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_uni_progress_elon_tt
-			OR = {
-				has_variable = nc_uni_founded_elon
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_elon_university
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_uni_progress_nccu_tt
-			OR = {
-				has_variable = nc_uni_founded_nccu
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_nc_central_university
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_uni_progress_uncsa_tt
-			OR = {
-				has_variable = nc_uni_founded_uncsa
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_school_of_the_arts
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_uni_progress_jcs_tt
-			OR = {
-				has_variable = nc_uni_founded_jcs
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_johnson_c_smith_university
+					has_building = building_elizabeth_city_state
 				}
 			}
 		}
@@ -1564,6 +1184,56 @@ je_nc_university_system_progress = {
 			}
 		}
 		custom_tooltip = {
+			text = je_nc_uni_progress_ncat_tt
+			OR = {
+				has_variable = nc_uni_founded_ncat
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					has_building = building_nc_at_university
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_nc_uni_progress_nccu_tt
+			OR = {
+				has_variable = nc_uni_founded_nccu
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					has_building = building_nc_central_university
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_nc_uni_progress_asheville_tt
+			OR = {
+				has_variable = nc_uni_founded_asheville
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					has_building = building_unc_asheville
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_nc_uni_progress_charlotte_tt
+			OR = {
+				has_variable = nc_uni_founded_charlotte
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					has_building = building_unc_charlotte
+				}
+			}
+		}
+		custom_tooltip = {
+			text = je_nc_uni_progress_uncg_tt
+			OR = {
+				has_variable = nc_uni_founded_uncg
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					has_building = building_unc_greensboro
+				}
+			}
+		}
+		custom_tooltip = {
 			text = je_nc_uni_progress_pembroke_tt
 			OR = {
 				has_variable = nc_uni_founded_pembroke
@@ -1573,171 +1243,51 @@ je_nc_university_system_progress = {
 				}
 			}
 		}
-	}
-
-	on_complete = {
-		set_variable = nc_complete_unc_system_done
-		# Ensure founded flags exist even if construction JE was skipped
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_davidson }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_davidson_college
-				}
-			}
-			set_variable = nc_uni_founded_davidson
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_shaw }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_shaw_university
-				}
-			}
-			set_variable = nc_uni_founded_shaw
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_charlotte }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_charlotte
-				}
-			}
-			set_variable = nc_uni_founded_charlotte
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_asheville }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_asheville
-				}
-			}
-			set_variable = nc_uni_founded_asheville
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_wilmington }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_wilmington
-				}
-			}
-			set_variable = nc_uni_founded_wilmington
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_app_state }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_appalachian_state
-				}
-			}
-			set_variable = nc_uni_founded_app_state
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_ecu }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_east_carolina_university
-				}
-			}
-			set_variable = nc_uni_founded_ecu
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_western }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_western_carolina_university
-				}
-			}
-			set_variable = nc_uni_founded_western
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_uncg }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_greensboro
-				}
-			}
-			set_variable = nc_uni_founded_uncg
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_ncat }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_nc_at_university
-				}
-			}
-			set_variable = nc_uni_founded_ncat
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_elon }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_elon_university
-				}
-			}
-			set_variable = nc_uni_founded_elon
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_nccu }
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_nc_central_university
-				}
-			}
-			set_variable = nc_uni_founded_nccu
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_uncsa }
+		custom_tooltip = {
+			text = je_nc_uni_progress_uncsa_tt
+			OR = {
+				has_variable = nc_uni_founded_uncsa
 				any_scope_state = {
 					state_region = s:STATE_NORTH_CAROLINA
 					has_building = building_unc_school_of_the_arts
 				}
 			}
-			set_variable = nc_uni_founded_uncsa
 		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_jcs }
+		custom_tooltip = {
+			text = je_nc_uni_progress_wilmington_tt
+			OR = {
+				has_variable = nc_uni_founded_wilmington
 				any_scope_state = {
 					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_johnson_c_smith_university
+					has_building = building_unc_wilmington
 				}
 			}
-			set_variable = nc_uni_founded_jcs
 		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_fayetteville }
+		custom_tooltip = {
+			text = je_nc_uni_progress_western_tt
+			OR = {
+				has_variable = nc_uni_founded_western
 				any_scope_state = {
 					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_fayetteville_state
+					has_building = building_western_carolina_university
 				}
 			}
-			set_variable = nc_uni_founded_fayetteville
 		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_uni_founded_pembroke }
+		custom_tooltip = {
+			text = je_nc_uni_progress_wssu_tt
+			OR = {
+				has_variable = nc_uni_founded_wssu
 				any_scope_state = {
 					state_region = s:STATE_NORTH_CAROLINA
-					has_building = building_unc_pembroke
+					has_building = building_winston_salem_state
 				}
 			}
-			set_variable = nc_uni_founded_pembroke
 		}
+	}
+
+	on_complete = {
+		nc_credit_finished_university_charters = yes
+		set_variable = nc_complete_unc_system_done
 		if = {
 			limit = {
 				NOT = { has_variable = nc_uni_system_reward_fired }
@@ -1746,6 +1296,7 @@ je_nc_university_system_progress = {
 			trigger_event = { id = nc_flavor_events.31 popup = yes }
 		}
 	}
+
 
 	invalid = {
 		NOT = {
@@ -2110,6 +1661,10 @@ je_nc_state_capitol = {
 							has_building = building_nc_state_capitol
 							# Avoid double-queue when already building from 1836 start
 							has_modifier = nc_capitol_under_construction
+							any_scope_building = {
+								is_building_type = building_nc_state_capitol
+								is_under_construction = yes
+							}
 						}
 					}
 					start_building_construction = building_nc_state_capitol
@@ -2247,6 +1802,18 @@ je_nc_piedmont_textiles = {
 				}
 			}
 		}
+		custom_tooltip = {
+			text = je_nc_piedmont_textiles_cannon_tt
+			has_company = company_type:company_cannon_mills
+		}
+		custom_tooltip = {
+			text = je_nc_piedmont_textiles_cone_tt
+			has_company = company_type:company_cone_mills
+		}
+		custom_tooltip = {
+			text = je_nc_piedmont_textiles_burlington_tt
+			has_company = company_type:company_burlington_industries
+		}
 	}
 
 	on_complete = {
@@ -2348,6 +1915,10 @@ je_nc_duke_power = {
 				}
 			}
 		}
+		custom_tooltip = {
+			text = je_nc_duke_power_company_tt
+			has_company = company_type:company_duke_power
+		}
 	}
 
 	on_complete = {
@@ -2443,6 +2014,10 @@ je_nc_high_point_furniture = {
 				}
 			}
 		}
+		custom_tooltip = {
+			text = je_nc_high_point_company_tt
+			has_company = company_type:company_high_point_furniture
+		}
 	}
 
 	on_complete = {
@@ -2506,7 +2081,13 @@ je_nc_biltmore = {
 				save_scope_as = nc_state_scope
 			}
 		}
-		trigger_event = { id = nc_flavor_events.20 popup = yes }
+		# One-shot proposal — do not re-charge on JE reactivation
+		if = {
+			limit = {
+				NOT = { has_variable = nc_biltmore_proposed }
+			}
+			trigger_event = { id = nc_flavor_events.20 popup = yes }
+		}
 	}
 
 	complete = {
@@ -2974,11 +2555,23 @@ je_nc_cape_fear_ports = {
 
 	is_shown_when_inactive = {
 		OR = {
-			has_variable = nc_wilmington_weldon_done
-			has_variable = nc_naval_stores_complete
-			has_variable = nc_atlantic_nc_done
+			custom_tooltip = {
+				text = nc_var_wilmington_weldon_done_tt
+				has_variable = nc_wilmington_weldon_done
+			}
+			custom_tooltip = {
+				text = nc_var_naval_stores_complete_tt
+				has_variable = nc_naval_stores_complete
+			}
+			custom_tooltip = {
+				text = nc_var_atlantic_nc_done_tt
+				has_variable = nc_atlantic_nc_done
+			}
 		}
-		NOT = { has_variable = nc_cape_fear_ports_complete }
+		custom_tooltip = {
+			text = nc_var_cape_fear_ports_incomplete_tt
+			NOT = { has_variable = nc_cape_fear_ports_complete }
+		}
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -2987,11 +2580,23 @@ je_nc_cape_fear_ports = {
 
 	possible = {
 		OR = {
-			has_variable = nc_wilmington_weldon_done
-			has_variable = nc_naval_stores_complete
-			has_variable = nc_atlantic_nc_done
+			custom_tooltip = {
+				text = nc_var_wilmington_weldon_done_tt
+				has_variable = nc_wilmington_weldon_done
+			}
+			custom_tooltip = {
+				text = nc_var_naval_stores_complete_tt
+				has_variable = nc_naval_stores_complete
+			}
+			custom_tooltip = {
+				text = nc_var_atlantic_nc_done_tt
+				has_variable = nc_atlantic_nc_done
+			}
 		}
-		NOT = { has_variable = nc_cape_fear_ports_complete }
+		custom_tooltip = {
+			text = nc_var_cape_fear_ports_incomplete_tt
+			NOT = { has_variable = nc_cape_fear_ports_complete }
+		}
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -3391,153 +2996,3 @@ je_nc_outer_banks_hazards = {
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
-########################################
-# Valdese Waldensians — Burke County migrant colony (1893)
-########################################
-
-je_nc_valdese_waldensians = {
-	icon = "gfx/interface/icons/event_icons/event_map.dds"
-	group = je_group_nc_flavor
-
-	is_shown_when_inactive = {
-		game_date >= 1893.5.1
-		NOT = { has_variable = nc_valdese_complete }
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-			is_incorporated = yes
-		}
-		OR = {
-			has_variable = nc_railroad_complete
-			has_variable = nc_piedmont_textiles_complete
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				owner = ROOT
-				any_scope_building = {
-					is_building_type = building_railway
-					level >= 8
-				}
-			}
-		}
-	}
-
-	possible = {
-		game_date >= 1893.5.1
-		NOT = { has_variable = nc_valdese_complete }
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-			is_incorporated = yes
-		}
-		OR = {
-			has_variable = nc_railroad_complete
-			has_variable = nc_piedmont_textiles_complete
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				owner = ROOT
-				any_scope_building = {
-					is_building_type = building_railway
-					level >= 8
-				}
-			}
-		}
-	}
-
-	immediate = {
-		s:STATE_NORTH_CAROLINA = {
-			random_scope_state = {
-				limit = { owner = ROOT }
-				save_scope_as = nc_state_scope
-			}
-		}
-		trigger_event = { id = nc_flavor_events.72 popup = yes }
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = je_nc_valdese_waldensians_ready_status_loc
-				trigger = {
-					has_variable = nc_valdese_sponsored
-					OR = {
-						any_scope_state = {
-							state_region = s:STATE_NORTH_CAROLINA
-							any_scope_building = {
-								is_building_type = building_textile_mill
-								level >= 3
-							}
-						}
-						any_scope_state = {
-							state_region = s:STATE_NORTH_CAROLINA
-							any_scope_building = {
-								is_building_type = building_logging_camp
-								level >= 5
-							}
-						}
-					}
-				}
-			}
-			triggered_desc = {
-				desc = je_nc_valdese_waldensians_sponsored_status_loc
-				trigger = {
-					has_variable = nc_valdese_sponsored
-				}
-			}
-			triggered_desc = {
-				desc = je_nc_valdese_waldensians_progress_status_loc
-				trigger = { always = yes }
-			}
-		}
-	}
-
-	complete = {
-		custom_tooltip = {
-			text = je_nc_valdese_waldensians_sponsored_tt
-			has_variable = nc_valdese_sponsored
-		}
-		custom_tooltip = {
-			text = je_nc_valdese_waldensians_industry_tt
-			OR = {
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_textile_mill
-						level >= 3
-					}
-				}
-				any_scope_state = {
-					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_logging_camp
-						level >= 5
-					}
-				}
-			}
-		}
-	}
-
-	on_complete = {
-		set_variable = nc_valdese_complete
-		trigger_event = { id = nc_flavor_events.73 popup = yes }
-	}
-
-	event_outcome_completed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_nc_valdese_waldensians.73_tt
-			}
-		}
-	}
-
-	invalid = {
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				owner = ROOT
-			}
-		}
-	}
-
-	weight = 74
-	should_be_pinned_by_default_uninvolved_or_context = yes
-}

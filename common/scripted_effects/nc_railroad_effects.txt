@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Queue government railway construction in a state
 # until level_after_queued_constructions reaches $LEVEL$.
 # Scope: state

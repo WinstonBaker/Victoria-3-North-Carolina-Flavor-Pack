@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Outer Banks lighthouses — shared effects
 ########################################
 
@@ -11,8 +11,12 @@ nc_recover_stale_lighthouse_charters = {
 			NOT = {
 				any_scope_state = {
 					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_nc_cape_lookout_lighthouse
+					OR = {
+						has_building = building_nc_cape_lookout_lighthouse
+						any_scope_building = {
+							is_building_type = building_nc_cape_lookout_lighthouse
+							is_under_construction = yes
+						}
 					}
 				}
 			}
@@ -26,8 +30,12 @@ nc_recover_stale_lighthouse_charters = {
 			NOT = {
 				any_scope_state = {
 					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_nc_bodie_island_lighthouse
+					OR = {
+						has_building = building_nc_bodie_island_lighthouse
+						any_scope_building = {
+							is_building_type = building_nc_bodie_island_lighthouse
+							is_under_construction = yes
+						}
 					}
 				}
 			}
@@ -41,8 +49,12 @@ nc_recover_stale_lighthouse_charters = {
 			NOT = {
 				any_scope_state = {
 					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_nc_currituck_beach_lighthouse
+					OR = {
+						has_building = building_nc_currituck_beach_lighthouse
+						any_scope_building = {
+							is_building_type = building_nc_currituck_beach_lighthouse
+							is_under_construction = yes
+						}
 					}
 				}
 			}
@@ -56,8 +68,12 @@ nc_recover_stale_lighthouse_charters = {
 			NOT = {
 				any_scope_state = {
 					state_region = s:STATE_NORTH_CAROLINA
-					any_scope_building = {
-						is_building_type = building_nc_cape_fear_lighthouse
+					OR = {
+						has_building = building_nc_cape_fear_lighthouse
+						any_scope_building = {
+							is_building_type = building_nc_cape_fear_lighthouse
+							is_under_construction = yes
+						}
 					}
 				}
 			}
@@ -65,4 +81,101 @@ nc_recover_stale_lighthouse_charters = {
 		remove_variable = nc_light_build_cape_fear
 		remove_variable = nc_light_build_pending
 	}
+}
+
+# Credit finished lights when the build JE missed them (soft-lock fix).
+# Mirrors university nc_credit_finished_university_charters: if the light
+# stands, mark founded and clear pending so Choose Next is not blocked.
+nc_credit_finished_lighthouse_charters = {
+	if = {
+		limit = {
+			NOT = { has_variable = nc_light_founded_lookout }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_cape_lookout_lighthouse
+			}
+		}
+		if = {
+			limit = { has_variable = nc_light_build_lookout }
+			remove_variable = nc_light_build_lookout
+			remove_variable = nc_light_build_pending
+			set_variable = nc_light_just_credited
+		}
+		set_variable = nc_light_founded_lookout
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_light_founded_bodie }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_bodie_island_lighthouse
+			}
+		}
+		if = {
+			limit = { has_variable = nc_light_build_bodie }
+			remove_variable = nc_light_build_bodie
+			remove_variable = nc_light_build_pending
+			set_variable = nc_light_just_credited
+		}
+		set_variable = nc_light_founded_bodie
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_light_founded_currituck }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_currituck_beach_lighthouse
+			}
+		}
+		if = {
+			limit = { has_variable = nc_light_build_currituck }
+			remove_variable = nc_light_build_currituck
+			remove_variable = nc_light_build_pending
+			set_variable = nc_light_just_credited
+		}
+		set_variable = nc_light_founded_currituck
+	}
+	if = {
+		limit = {
+			NOT = { has_variable = nc_light_founded_cape_fear }
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_building = building_nc_cape_fear_lighthouse
+			}
+		}
+		if = {
+			limit = { has_variable = nc_light_build_cape_fear }
+			remove_variable = nc_light_build_cape_fear
+			remove_variable = nc_light_build_pending
+			set_variable = nc_light_just_credited
+		}
+		set_variable = nc_light_founded_cape_fear
+	}
+
+	# Same follow-up as je_nc_build_selected_lighthouse on_complete
+	if = {
+		limit = {
+			has_variable = nc_light_just_credited
+		}
+		remove_variable = nc_light_just_credited
+		if = {
+			limit = {
+				NOT = {
+					AND = {
+						has_variable = nc_light_founded_lookout
+						has_variable = nc_light_founded_bodie
+						has_variable = nc_light_founded_currituck
+						has_variable = nc_light_founded_cape_fear
+					}
+				}
+			}
+			trigger_event = { id = nc_flavor_events.33 popup = yes }
+		}
+	}
+}
+
+# Monthly maintenance: recover cancels + credit finishes
+nc_lighthouse_system_monthly = {
+	nc_recover_stale_lighthouse_charters = yes
+	nc_credit_finished_lighthouse_charters = yes
 }

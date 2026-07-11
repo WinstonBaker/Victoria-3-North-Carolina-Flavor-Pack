@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Carolina Brands — company story sponsors
 # Naval Stores — Dismal Swamp Canal funding
 ########################################
@@ -218,6 +218,210 @@ nc_fund_dismal_canal = {
 
 	ai_chance = {
 		value = 18
+	}
+}
+
+########################################
+# Piedmont Textiles — Cannon / Cone / Burlington sponsors
+########################################
+
+nc_sponsor_cannon_mills = {
+	is_shown = {
+		has_journal_entry = je_nc_piedmont_textiles
+		NOT = { has_variable = nc_cannon_sponsored }
+		NOT = { has_company = company_type:company_cannon_mills }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 50000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 2
+			}
+		}
+	}
+
+	when_taken = {
+		add_treasury = -50000
+		set_variable = nc_cannon_sponsored
+		custom_tooltip = nc_sponsor_cannon_mills_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_cannon_mills_boom
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 16
+	}
+}
+
+nc_sponsor_cone_mills = {
+	is_shown = {
+		has_journal_entry = je_nc_piedmont_textiles
+		NOT = { has_variable = nc_cone_sponsored }
+		NOT = { has_company = company_type:company_cone_mills }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 50000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 2
+			}
+		}
+	}
+
+	when_taken = {
+		add_treasury = -50000
+		set_variable = nc_cone_sponsored
+		custom_tooltip = nc_sponsor_cone_mills_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_cone_mills_boom
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 15
+	}
+}
+
+nc_sponsor_burlington = {
+	is_shown = {
+		has_journal_entry = je_nc_piedmont_textiles
+		NOT = { has_variable = nc_burlington_sponsored }
+		NOT = { has_company = company_type:company_burlington_industries }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 60000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 4
+			}
+		}
+	}
+
+	when_taken = {
+		add_treasury = -60000
+		set_variable = nc_burlington_sponsored
+		custom_tooltip = nc_sponsor_burlington_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_burlington_mills_boom
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 14
+	}
+}
+
+nc_sponsor_high_point = {
+	is_shown = {
+		has_journal_entry = je_nc_high_point_furniture
+		NOT = { has_variable = nc_high_point_sponsored }
+		NOT = { has_company = company_type:company_high_point_furniture }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 50000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_furniture_manufactory
+				level >= 2
+			}
+		}
+	}
+
+	when_taken = {
+		add_treasury = -50000
+		set_variable = nc_high_point_sponsored
+		custom_tooltip = nc_sponsor_high_point_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_high_point_furniture_boom
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 15
 	}
 }
 
@@ -495,11 +699,15 @@ nc_fund_kitty_hawk = {
 		add_treasury = -35000
 		set_variable = nc_kitty_hawk_funded
 		custom_tooltip = nc_fund_kitty_hawk_tt
+		add_modifier = {
+			name = nc_kitty_hawk_experiments
+			days = very_long_modifier_time
+		}
 		s:STATE_NORTH_CAROLINA = {
 			random_scope_state = {
 				limit = { owner = ROOT }
 				add_modifier = {
-					name = nc_kitty_hawk_experiments
+					name = nc_kitty_hawk_experiments_state
 					days = very_long_modifier_time
 				}
 			}
@@ -569,54 +777,5 @@ nc_fund_freedmen_schools = {
 
 	ai_chance = {
 		value = 14
-	}
-}
-
-########################################
-# Valdese Waldensians — Burke County colony sponsor
-########################################
-
-nc_sponsor_valdese_colony = {
-	is_shown = {
-		has_journal_entry = je_nc_valdese_waldensians
-		NOT = { has_variable = nc_valdese_sponsored }
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-		}
-	}
-
-	possible = {
-		gold_reserves >= 45000
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-			is_incorporated = yes
-		}
-	}
-
-	when_taken = {
-		add_treasury = -45000
-		set_variable = nc_valdese_sponsored
-		custom_tooltip = nc_sponsor_valdese_colony_tt
-		s:STATE_NORTH_CAROLINA = {
-			random_scope_state = {
-				limit = { owner = ROOT }
-				add_modifier = {
-					name = nc_valdese_settlement_boom
-					days = long_modifier_time
-				}
-			}
-		}
-		ig:ig_devout ?= {
-			add_modifier = {
-				name = nc_ig_patronage_minor
-				days = normal_modifier_time
-			}
-		}
-	}
-
-	ai_chance = {
-		value = 16
 	}
 }

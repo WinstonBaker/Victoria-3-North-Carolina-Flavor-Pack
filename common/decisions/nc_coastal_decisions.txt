@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Outer Banks coastal reconstruction
 ########################################
 
@@ -49,12 +49,12 @@ nc_fund_coastal_reconstruction = {
 			}
 			add_modifier = {
 				name = nc_coastal_reconstruction_works
-				days = long_modifier_time
+				days = normal_modifier_time
 			}
 		}
 		add_modifier = {
 			name = nc_lighthouse_vigilance_country
-			days = long_modifier_time
+			days = normal_modifier_time
 		}
 		if = {
 			limit = { NOT = { has_variable = nc_coastal_reconstruction_done } }

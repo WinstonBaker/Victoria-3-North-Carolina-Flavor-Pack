@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Outer Banks Lighthouse System
 # Sequential unlocks via choice event (like universities).
 # Cape Hatteras rebuild remains a separate upgrade decision.
@@ -92,6 +92,7 @@ nc_rebuild_cape_hatteras = {
 	}
 
 	possible = {
+		gold_reserves >= 45000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -103,6 +104,7 @@ nc_rebuild_cape_hatteras = {
 	when_taken = {
 		set_variable = nc_hatteras_rebuilt
 		add_treasury = -45000
+		add_technology_researched = nc_cape_hatteras_rebuild
 		activate_production_method = {
 			building_type = building_nc_cape_hatteras_lighthouse
 			production_method = pm_nc_cape_hatteras_rebuilt

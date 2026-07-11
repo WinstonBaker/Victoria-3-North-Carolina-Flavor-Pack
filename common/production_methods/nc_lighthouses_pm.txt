@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # Lighthouse fuel methods
 # Vic3 has no separate whale-oil / kerosene goods:
 # early oil = whale oil, mid oil + pumpjacks = kerosene era, late = electricity.
@@ -29,12 +29,16 @@ pm_nc_lighthouse_kerosene = {
 		workforce_scaled = {
 			goods_input_oil_add = 2
 		}
-		unscaled = {
-			building_port_throughput_add = 0.01
-		}
 		level_scaled = {
 			building_employment_bureaucrats_add = 10
 			building_employment_soldiers_add = 10
+		}
+	}
+
+	# Port throughput must be state-scoped (matches per-light active PMs)
+	state_modifiers = {
+		unscaled = {
+			building_port_throughput_add = 0.01
 		}
 	}
 }
@@ -50,12 +54,15 @@ pm_nc_lighthouse_electric = {
 		workforce_scaled = {
 			goods_input_electricity_add = 1
 		}
-		unscaled = {
-			building_port_throughput_add = 0.02
-		}
 		level_scaled = {
 			building_employment_bureaucrats_add = 5
 			building_employment_soldiers_add = 5
+		}
+	}
+
+	state_modifiers = {
+		unscaled = {
+			building_port_throughput_add = 0.02
 		}
 	}
 
@@ -133,14 +140,13 @@ pm_nc_cape_hatteras_active = {
 	}
 }
 
-# Tall brick tower (~1870) — preferred path is decision nc_rebuild_cape_hatteras
-# (funds the project). Tech also unlocks manual switch once steel_railway_cars is researched.
+# Tall brick tower (~1870) — unlocked only via decision nc_rebuild_cape_hatteras
 pm_nc_cape_hatteras_rebuilt = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
 	is_hidden_when_unavailable = yes
 
 	unlocking_technologies = {
-		steel_railway_cars
+		nc_cape_hatteras_rebuild
 	}
 
 	state_modifiers = {

@@ -1,6 +1,15 @@
-# North Carolina start buildings (1836)
+﻿# North Carolina start buildings (1836)
 BUILDINGS = {
 	s:STATE_NORTH_CAROLINA = {
+		# Carolina Gold Belt — enable capped gold potential without redefining
+		# the whole state region (avoids province-cache duplicate errors).
+		# add_resource_potential enables the type (1); change brings total to 6.
+		add_resource_potential = building_gold_mine
+		change_resource_potential = {
+			type = building_gold_mine
+			amount = 5
+		}
+
 		region_state:USA = {
 			# University of North Carolina at Chapel Hill (founded 1789)
 			create_building = {
@@ -18,9 +27,9 @@ BUILDINGS = {
 
 			# Carolina Gold Belt — Reed Gold Mine (1799) and Piedmont diggings
 			# already operating for decades by the 1836 start date.
+			# Ownership levels set size; do not also set level= (mutually exclusive).
 			create_building = {
 				building = "building_gold_mine"
-				level = 3
 				add_ownership = {
 					building = {
 						type = "building_financial_district"

@@ -1,4 +1,4 @@
-########################################
+﻿########################################
 # North Carolina Flavor — game start & monthly pulses
 ########################################
 
@@ -15,7 +15,7 @@ nc_flavor_on_game_started = {
 			set_variable = nc_capitol_unlocked
 		}
 
-		# State traits live in map_data/state_regions/nc_flavor.txt (not add_state_trait here).
+		# State traits + gold potential are applied in history (global / buildings).
 		s:STATE_NORTH_CAROLINA = {
 			# Queue the State Capitol as under construction at game start (1836).
 			# ~40% already done historically; remaining cost is reduced on the building.
@@ -60,8 +60,6 @@ on_monthly_pulse_country = {
 	events = {
 		nc_flavor_events.7	# Charlotte Mint — July 27, 1837
 		nc_flavor_events.22	# Wright Brothers — December 17, 1903
-		nc_flavor_events.35	# NCSU founded → schedule Centennial
-		nc_flavor_events.37	# Centennial level 2 → activate PM
 		nc_flavor_events.45	# Pepsi-Cola company story
 		nc_flavor_events.46	# Vick Chemical company story
 		nc_flavor_events.47	# Hanes company story
@@ -73,7 +71,8 @@ on_monthly_pulse_country = {
 		nc_flavor_events.58	# Cone Mills company story
 		nc_flavor_events.59	# Burlington Industries company story
 		nc_flavor_events.60	# Mill town prosperity
-		nc_flavor_events.75	# Piedmont mill specialists migration
+		nc_flavor_events.76	# High Point Furniture company story
+		nc_flavor_events.77	# Duke Power company story
 	}
 	on_actions = {
 		nc_flavor_monthly_pulse
@@ -108,24 +107,22 @@ nc_flavor_monthly_pulse = {
 			remove_modifier = nc_mount_mitchell_prestige
 		}
 
-		# Recover cancelled university charters
+		# University System: free cancelled slots + credit finished campuses (soft-lock fix)
 		if = {
 			limit = {
 				has_variable = nc_research_triangle_complete
 				NOT = { has_variable = nc_complete_unc_system_done }
-				var:nc_uni_charter_count > 0
 			}
-			nc_recover_stale_university_charters = yes
+			nc_university_system_monthly = yes
 		}
 
-		# Recover cancelled lighthouse picks (pending softlock)
+		# Lighthouse program: free cancelled slots + credit finished lights (soft-lock fix)
 		if = {
 			limit = {
 				has_variable = nc_lighthouse_system_active
 				NOT = { has_variable = nc_lighthouse_system_complete }
-				has_variable = nc_light_build_pending
 			}
-			nc_recover_stale_lighthouse_charters = yes
+			nc_lighthouse_system_monthly = yes
 		}
 
 		# Education prestige scales with live NC university campus count
