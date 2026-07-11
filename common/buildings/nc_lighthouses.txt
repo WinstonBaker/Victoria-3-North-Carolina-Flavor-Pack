@@ -6,7 +6,7 @@
 # --- 1836 starting lights (pre-built via history) ---
 
 building_nc_old_baldy_lighthouse = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/Old_Baldy_Lighthouse.dds"
 	expandable = no
 	buildable = no
@@ -37,7 +37,7 @@ building_nc_old_baldy_lighthouse = {
 }
 
 building_nc_ocracoke_lighthouse = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/Ocracoke_Lighthouse.dds"
 	expandable = no
 	buildable = no
@@ -70,7 +70,7 @@ building_nc_ocracoke_lighthouse = {
 # Cape Hatteras (Original 1803 sandstone tower).
 # Rebuild as the taller brick tower via decision nc_rebuild_cape_hatteras.
 building_nc_cape_hatteras_lighthouse = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/Cape_Hatteras_Lighthouse.dds"
 	expandable = no
 	buildable = no
@@ -103,7 +103,7 @@ building_nc_cape_hatteras_lighthouse = {
 # --- Unlockable lights (Level 0 at start; decisions unlock construction) ---
 
 building_nc_cape_lookout_lighthouse = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/Cape_Lookout_Lighthouse.dds"
 	expandable = no
 	buildable = yes
@@ -139,13 +139,13 @@ building_nc_cape_lookout_lighthouse = {
 		}
 	}
 
-	required_construction = construction_cost_medium
+	required_construction = construction_cost_nc_lighthouse
 	ai_value = 2000
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
 
 building_nc_bodie_island_lighthouse = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/Bodie_Island_Lighthouse.dds"
 	expandable = no
 	buildable = yes
@@ -181,13 +181,13 @@ building_nc_bodie_island_lighthouse = {
 		}
 	}
 
-	required_construction = construction_cost_medium
+	required_construction = construction_cost_nc_lighthouse
 	ai_value = 2500
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
 
 building_nc_currituck_beach_lighthouse = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/Currituck_Beach_Lighthouse.dds"
 	expandable = no
 	buildable = yes
@@ -222,14 +222,14 @@ building_nc_currituck_beach_lighthouse = {
 		}
 	}
 
-	required_construction = construction_cost_medium
+	required_construction = construction_cost_nc_lighthouse
 	ai_value = 2500
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
 
 building_nc_cape_fear_lighthouse = {
-	building_group = bg_monuments
-	icon = "gfx/interface/icons/building_icons/Oak_Island_Lighthouse.dds"
+	building_group = bg_nc_flavor
+	icon = "gfx/interface/icons/building_icons/Cape_Fear_Lighthouse.dds"
 	expandable = no
 	buildable = yes
 	downsizeable = no
@@ -264,7 +264,7 @@ building_nc_cape_fear_lighthouse = {
 		}
 	}
 
-	required_construction = construction_cost_high
+	required_construction = construction_cost_nc_lighthouse_major
 	ai_value = 4000
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }

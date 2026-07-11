@@ -1,7 +1,7 @@
 # Level 1 = Main Campus; level 2 = Centennial (story-gated expand only).
 # unique = no so level 2 is allowed; possible blocks casual expand / second copies.
 building_nc_state_university = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/ncsu.dds"
 	expandable = yes
 	buildable = yes
@@ -28,12 +28,9 @@ building_nc_state_university = {
 	possible = {
 		owner ?= {
 			OR = {
-				# Founding via Research Triangle
+				# Founding via Research Triangle (after delayed auto-queue event)
 				AND = {
-					OR = {
-						has_variable = nc_research_triangle_unlocked
-						has_journal_entry = je_nc_research_triangle
-					}
+					has_variable = nc_research_triangle_unlocked
 					NOT = {
 						any_scope_state = {
 							state_region = s:STATE_NORTH_CAROLINA
@@ -69,7 +66,7 @@ building_nc_state_university = {
 }
 
 building_duke_university = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/duke.dds"
 	expandable = no
 	buildable = yes
@@ -95,10 +92,7 @@ building_duke_university = {
 
 	possible = {
 		owner ?= {
-			OR = {
-				has_variable = nc_research_triangle_unlocked
-				has_journal_entry = je_nc_research_triangle
-			}
+			has_variable = nc_research_triangle_unlocked
 		}
 	}
 

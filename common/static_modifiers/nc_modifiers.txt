@@ -81,7 +81,7 @@ nc_atlantic_nc_minor = {
 nc_western_nc = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
 	building_railway_throughput_add = 0.18
-	building_logging_camp_throughput_add = 0.15
+	building_group_bg_logging_throughput_add = 0.15
 	building_group_bg_mining_throughput_add = 0.10
 	state_infrastructure_add = 30
 	state_migration_pull_mult = 0.12
@@ -90,7 +90,7 @@ nc_western_nc = {
 nc_western_nc_minor = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
 	building_railway_throughput_add = 0.08
-	building_logging_camp_throughput_add = 0.05
+	building_group_bg_logging_throughput_add = 0.05
 	state_infrastructure_add = 12
 }
 
@@ -292,6 +292,19 @@ nc_ig_patronage_minor = {
 	interest_group_pol_str_mult = 0.05
 }
 
+# Expanding the university board ties up authority for several years
+nc_university_board_authority_cost = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_negative.dds
+	country_authority_add = -50
+}
+
+# Evangelicals / devout upset by Wake Forest leaving the Baptist campus
+nc_wake_forest_devout_upset = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	interest_group_approval_add = -5
+	interest_group_pol_str_mult = -0.05
+}
+
 # Unified permanent Research Triangle — state package (monument campuses)
 nc_research_triangle = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
@@ -454,4 +467,174 @@ nc_capitol_completed = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	country_prestige_add = 20
 	country_authority_add = 10
+}
+
+########################################
+# Mill Village vs Plantation outcomes
+########################################
+
+# Mill paternalism — New South factory towns win the political fight
+nc_mill_paternalism = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_textile_mill_throughput_add = 0.20
+	building_group_bg_light_industry_throughput_add = 0.10
+	state_lower_strata_standard_of_living_add = 1
+	state_migration_pull_mult = 0.08
+}
+
+nc_mill_paternalism_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	country_prestige_add = 15
+	interest_group_ig_industrialists_approval_add = 5
+	interest_group_ig_landowners_approval_add = -3
+}
+
+# Planter backlash — tobacco and cotton interests reclaim the Piedmont
+nc_planter_backlash = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_tobacco_plantation_throughput_add = 0.20
+	building_cotton_plantation_throughput_add = 0.15
+	building_textile_mill_throughput_add = 0.05
+}
+
+nc_planter_backlash_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_prestige_add = 10
+	interest_group_ig_landowners_approval_add = 5
+	interest_group_ig_industrialists_approval_add = -3
+}
+
+# Uneasy compromise — mills and plantations share the New South
+nc_mill_village_compromise = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	building_textile_mill_throughput_add = 0.10
+	building_tobacco_plantation_throughput_add = 0.10
+	building_cotton_plantation_throughput_add = 0.08
+	state_infrastructure_add = 10
+}
+
+nc_mill_village_compromise_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_prestige_add = 12
+	interest_group_ig_industrialists_approval_add = 2
+	interest_group_ig_landowners_approval_add = 2
+}
+
+# Timed tension during the JE
+nc_mill_village_tension_mills = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_textile_mill_throughput_add = 0.10
+	state_lower_strata_standard_of_living_add = 0.5
+}
+
+nc_mill_village_tension_planters = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_tobacco_plantation_throughput_add = 0.10
+	building_cotton_plantation_throughput_add = 0.08
+}
+
+nc_ig_industrialists_upset = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	interest_group_approval_add = -4
+	interest_group_pol_str_mult = -0.05
+}
+
+nc_ig_landowners_upset = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_negative.dds
+	interest_group_approval_add = -4
+	interest_group_pol_str_mult = -0.05
+}
+
+########################################
+# Carolina company story pack
+########################################
+
+nc_pepsi_new_bern_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	building_food_industry_throughput_add = 0.25
+	building_tobacco_plantation_throughput_add = 0.05
+	state_lower_strata_standard_of_living_add = 0.5
+}
+
+nc_pepsi_brand_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+	building_food_industry_throughput_add = 0.05
+}
+
+nc_vicks_pharmacy_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_chemical_plant_throughput_add = 0.25
+	building_food_industry_throughput_add = 0.05
+}
+
+nc_vicks_brand_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+	building_chemical_plant_throughput_add = 0.05
+	state_birth_rate_mult = 0.01
+}
+
+nc_hanes_hosiery_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_textile_mill_throughput_add = 0.20
+	state_lower_strata_standard_of_living_add = 0.5
+}
+
+nc_hanes_brand_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+	building_textile_mill_throughput_add = 0.05
+	interest_group_ig_industrialists_approval_add = 2
+}
+
+nc_ncr_company_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	country_prestige_add = 15
+	building_railway_throughput_add = 0.05
+}
+
+nc_ncr_company_prestige_state = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.05
+	state_infrastructure_add = 10
+}
+
+nc_carolina_brands_complete = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 25
+	building_group_bg_light_industry_throughput_add = 0.05
+	interest_group_ig_industrialists_approval_add = 3
+}
+
+########################################
+# Naval stores & Dismal Swamp Canal
+########################################
+
+nc_naval_stores_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_group_bg_logging_throughput_add = 0.25
+	goods_output_hardwood_mult = 0.10
+	state_construction_mult = 0.10
+}
+
+nc_dismal_canal_works = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_infrastructure_add = 15
+	state_construction_mult = 0.15
+	state_trade_capacity_mult = 0.05
+}
+
+nc_naval_stores_belt = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_group_bg_logging_throughput_add = 0.20
+	goods_output_hardwood_mult = 0.10
+	state_infrastructure_add = 20
+	state_trade_capacity_mult = 0.10
+	building_port_throughput_add = 0.05
+}
+
+nc_naval_stores_belt_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 20
 }

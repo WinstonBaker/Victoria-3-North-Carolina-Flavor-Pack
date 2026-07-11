@@ -1,3 +1,4 @@
+# North Carolina start buildings (1836)
 BUILDINGS = {
 	s:STATE_NORTH_CAROLINA = {
 		region_state:USA = {
@@ -19,6 +20,7 @@ BUILDINGS = {
 			# already operating for decades by the 1836 start date.
 			create_building = {
 				building = "building_gold_mine"
+				level = 3
 				add_ownership = {
 					building = {
 						type = "building_financial_district"

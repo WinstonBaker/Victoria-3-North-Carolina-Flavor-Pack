@@ -89,7 +89,7 @@ pm_nc_old_baldy_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_port_connection_cost_mult = -0.01
+			country_port_connection_cost_mult = -0.005
 		}
 	}
 }
@@ -108,7 +108,7 @@ pm_nc_ocracoke_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_port_connection_cost_mult = -0.01
+			country_port_connection_cost_mult = -0.005
 		}
 	}
 }
@@ -128,7 +128,7 @@ pm_nc_cape_hatteras_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_port_connection_cost_mult = -0.01
+			country_port_connection_cost_mult = -0.005
 		}
 	}
 }
@@ -155,7 +155,7 @@ pm_nc_cape_hatteras_rebuilt = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_prestige_add = 15
-			country_port_connection_cost_mult = -0.03
+			country_port_connection_cost_mult = -0.02
 		}
 	}
 }
@@ -174,7 +174,7 @@ pm_nc_cape_lookout_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_port_connection_cost_mult = -0.02
+			country_port_connection_cost_mult = -0.01
 		}
 	}
 }
@@ -193,7 +193,7 @@ pm_nc_bodie_island_active = {
 	country_modifiers = {
 		workforce_scaled = {
 			# Cheaper merchant-marine demand ≈ more convoy capacity
-			country_port_connection_cost_mult = -0.02
+			country_port_connection_cost_mult = -0.01
 		}
 	}
 }
@@ -212,7 +212,7 @@ pm_nc_currituck_beach_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_port_connection_cost_mult = -0.02
+			country_port_connection_cost_mult = -0.01
 		}
 	}
 }
@@ -232,7 +232,7 @@ pm_nc_cape_fear_active = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_prestige_add = 10
-			country_port_connection_cost_mult = -0.03
+			country_port_connection_cost_mult = -0.015
 		}
 	}
 }

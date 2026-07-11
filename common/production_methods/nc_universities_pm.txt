@@ -1,6 +1,8 @@
 ########################################
 # North Carolina Universities — production methods
-# Balanced so the full system is strong but not USA-dominating
+# Each campus beats a vanilla university (~1-2 innovation):
+#   regional 2, mid-tier 3-4, Triangle/flagships 5-7.
+# Full system is a strong late reward for decades of investment.
 ########################################
 
 # --- Flagships / start campuses ---
@@ -13,14 +15,14 @@ pm_unc_active = {
 		workforce_scaled = {
 			country_weekly_innovation_add = 6
 			country_weekly_innovation_mult = 0.008
-			country_prestige_mult = 0.01
+			country_prestige_mult = 0.007
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_pop_qualifications_mult = 0.40
-			state_education_access_add = 0.18
+			state_pop_qualifications_mult = 0.32
+			state_education_access_add = 0.15
 			state_migration_pull_mult = 0.10
 		}
 	}
@@ -40,14 +42,14 @@ pm_wake_forest_active = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_weekly_innovation_add = 3
-			country_prestige_mult = 0.005
+			country_prestige_mult = 0.0035
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.12
-			state_pop_qualifications_mult = 0.20
+			state_education_access_add = 0.1
+			state_pop_qualifications_mult = 0.16
 			state_conversion_mult = 0.10
 		}
 	}
@@ -74,14 +76,14 @@ pm_wake_forest_university = {
 		workforce_scaled = {
 			country_weekly_innovation_add = 5
 			country_weekly_innovation_mult = 0.005
-			country_prestige_mult = 0.01
+			country_prestige_mult = 0.007
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.15
-			state_pop_qualifications_mult = 0.30
+			state_education_access_add = 0.13
+			state_pop_qualifications_mult = 0.24
 			state_migration_pull_mult = 0.08
 			state_conversion_mult = 0.05
 		}
@@ -106,15 +108,15 @@ pm_nc_state_active = {
 		workforce_scaled = {
 			country_weekly_innovation_add = 5
 			country_weekly_innovation_mult = 0.005
-			country_prestige_mult = 0.005
+			country_prestige_mult = 0.0035
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_pop_qualifications_mult = 0.35
+			state_pop_qualifications_mult = 0.28
 			building_group_bg_heavy_industry_throughput_add = 0.12
-			state_education_access_add = 0.15
+			state_education_access_add = 0.13
 			state_migration_pull_mult = 0.06
 		}
 	}
@@ -138,18 +140,18 @@ pm_nc_state_centennial = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 8
-			country_weekly_innovation_mult = 0.01
-			country_prestige_mult = 0.008
+			country_weekly_innovation_add = 7
+			country_weekly_innovation_mult = 0.008
+			country_prestige_mult = 0.0056
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_pop_qualifications_mult = 0.40
+			state_pop_qualifications_mult = 0.32
 			building_group_bg_heavy_industry_throughput_add = 0.18
 			building_group_bg_light_industry_throughput_add = 0.05
-			state_education_access_add = 0.16
+			state_education_access_add = 0.14
 			state_migration_pull_mult = 0.08
 		}
 	}
@@ -170,16 +172,16 @@ pm_duke_active = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_weekly_innovation_add = 5
-			country_weekly_innovation_mult = 0.005
-			country_prestige_mult = 0.015
-			country_prestige_add = 3
+			country_weekly_innovation_mult = 0.006
+			country_prestige_mult = 0.0105
+			country_prestige_add = 2.55
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.12
-			state_pop_qualifications_mult = 0.25
+			state_education_access_add = 0.1
+			state_pop_qualifications_mult = 0.2
 			state_migration_pull_mult = 0.12
 		}
 	}
@@ -201,14 +203,14 @@ pm_davidson_active = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_weekly_innovation_add = 3
-			country_prestige_mult = 0.006
+			country_prestige_mult = 0.0024
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.10
-			state_pop_qualifications_mult = 0.18
+			state_education_access_add = 0.07
+			state_pop_qualifications_mult = 0.12
 			state_conversion_mult = 0.05
 		}
 	}
@@ -229,15 +231,15 @@ pm_shaw_active = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_weekly_innovation_add = 3
-			country_prestige_mult = 0.006
+			country_prestige_mult = 0.0024
 			country_afro_american_cultural_acceptance_add = 3
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.15
-			state_pop_qualifications_mult = 0.25
+			state_education_access_add = 0.1
+			state_pop_qualifications_mult = 0.16
 			state_conversion_mult = 0.06
 			state_migration_pull_mult = 0.06
 		}
@@ -259,16 +261,16 @@ pm_elon_active = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_weekly_innovation_add = 2
-			country_prestige_mult = 0.004
+			country_prestige_mult = 0.0012
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.08
-			state_pop_qualifications_mult = 0.15
+			state_education_access_add = 0.04
+			state_pop_qualifications_mult = 0.07
 			state_conversion_mult = 0.04
-			building_group_bg_arts_academy_throughput_add = 0.05
+			building_group_bg_arts_throughput_add = 0.05
 		}
 	}
 
@@ -289,15 +291,15 @@ pm_unc_charlotte_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 4
-			country_prestige_mult = 0.005
+			country_weekly_innovation_add = 3
+			country_prestige_mult = 0.0015
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.10
-			state_pop_qualifications_mult = 0.22
+			state_education_access_add = 0.06
+			state_pop_qualifications_mult = 0.11
 			building_group_bg_light_industry_throughput_add = 0.10
 			state_migration_pull_mult = 0.08
 			state_migration_pull_add = 5
@@ -319,17 +321,17 @@ pm_unc_asheville_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 3
-			country_prestige_mult = 0.004
+			country_weekly_innovation_add = 2
+			country_prestige_mult = 0.0012
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.10
-			state_pop_qualifications_mult = 0.18
+			state_education_access_add = 0.06
+			state_pop_qualifications_mult = 0.09
 			state_migration_pull_mult = 0.10
-			building_logging_camp_throughput_add = 0.06
+			building_group_bg_logging_throughput_add = 0.06
 		}
 	}
 
@@ -347,16 +349,16 @@ pm_unc_wilmington_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 3
-			country_prestige_mult = 0.004
+			country_weekly_innovation_add = 2
+			country_prestige_mult = 0.0012
 			country_port_connection_cost_mult = -0.02
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.10
-			state_pop_qualifications_mult = 0.16
+			state_education_access_add = 0.06
+			state_pop_qualifications_mult = 0.08
 			state_trade_capacity_mult = 0.05
 			building_port_throughput_add = 0.04
 			state_migration_pull_mult = 0.05
@@ -377,17 +379,17 @@ pm_appalachian_state_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 3
-			country_prestige_mult = 0.004
+			country_weekly_innovation_add = 2
+			country_prestige_mult = 0.0012
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.12
-			state_pop_qualifications_mult = 0.25
+			state_education_access_add = 0.07
+			state_pop_qualifications_mult = 0.12
 			state_migration_pull_mult = 0.06
-			building_logging_camp_throughput_add = 0.05
+			building_group_bg_logging_throughput_add = 0.05
 		}
 	}
 
@@ -405,15 +407,15 @@ pm_east_carolina_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 3
-			country_prestige_mult = 0.005
+			country_weekly_innovation_add = 2
+			country_prestige_mult = 0.0015
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.12
-			state_pop_qualifications_mult = 0.22
+			state_education_access_add = 0.07
+			state_pop_qualifications_mult = 0.11
 			state_birth_rate_mult = 0.015
 			building_cotton_plantation_throughput_add = 0.04
 			building_group_bg_agriculture_throughput_add = 0.03
@@ -435,16 +437,16 @@ pm_western_carolina_active = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_weekly_innovation_add = 2
-			country_prestige_mult = 0.003
+			country_prestige_mult = 0.0009
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.08
-			state_pop_qualifications_mult = 0.15
+			state_education_access_add = 0.04
+			state_pop_qualifications_mult = 0.07
 			building_group_bg_mining_throughput_add = 0.08
-			building_logging_camp_throughput_add = 0.05
+			building_group_bg_logging_throughput_add = 0.05
 		}
 	}
 
@@ -462,15 +464,15 @@ pm_unc_greensboro_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 4
-			country_prestige_mult = 0.005
+			country_weekly_innovation_add = 3
+			country_prestige_mult = 0.002
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.14
-			state_pop_qualifications_mult = 0.30
+			state_education_access_add = 0.1
+			state_pop_qualifications_mult = 0.2
 			state_conversion_mult = 0.02
 		}
 	}
@@ -489,17 +491,17 @@ pm_nc_at_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 5
-			country_weekly_innovation_mult = 0.004
-			country_prestige_mult = 0.006
+			country_weekly_innovation_add = 4
+			country_weekly_innovation_mult = 0.003
+			country_prestige_mult = 0.0024
 			country_afro_american_cultural_acceptance_add = 3
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.15
-			state_pop_qualifications_mult = 0.28
+			state_education_access_add = 0.1
+			state_pop_qualifications_mult = 0.18
 			building_group_bg_agriculture_throughput_add = 0.08
 			building_group_bg_heavy_industry_throughput_add = 0.08
 			state_migration_pull_mult = 0.06
@@ -521,17 +523,17 @@ pm_nc_central_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 4
-			country_prestige_mult = 0.006
-			country_prestige_add = 3
+			country_weekly_innovation_add = 3
+			country_prestige_mult = 0.0018
+			country_prestige_add = 1.8
 			country_afro_american_cultural_acceptance_add = 2
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.14
-			state_pop_qualifications_mult = 0.25
+			state_education_access_add = 0.08
+			state_pop_qualifications_mult = 0.12
 			state_migration_pull_mult = 0.05
 		}
 	}
@@ -550,19 +552,20 @@ pm_uncsa_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_prestige_mult = 0.015
-			country_prestige_add = 5
+			country_weekly_innovation_add = 2
+			country_prestige_mult = 0.0045
+			country_prestige_add = 3
 			country_influence_mult = 0.03
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.08
-			state_pop_qualifications_mult = 0.15
+			state_education_access_add = 0.04
+			state_pop_qualifications_mult = 0.07
 			state_migration_pull_mult = 0.10
-			building_group_bg_arts_academy_throughput_add = 0.18
-			building_group_bg_urban_facilities_throughput_add = 0.05
+			building_group_bg_arts_throughput_add = 0.18
+			building_urban_center_throughput_add = 0.05
 		}
 	}
 
@@ -581,16 +584,16 @@ pm_johnson_c_smith_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 3
-			country_prestige_mult = 0.005
+			country_weekly_innovation_add = 2
+			country_prestige_mult = 0.0015
 			country_afro_american_cultural_acceptance_add = 2
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.12
-			state_pop_qualifications_mult = 0.22
+			state_education_access_add = 0.07
+			state_pop_qualifications_mult = 0.11
 			building_group_bg_light_industry_throughput_add = 0.05
 			state_migration_pull_mult = 0.06
 		}
@@ -612,16 +615,16 @@ pm_fayetteville_state_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 3
-			country_prestige_mult = 0.005
+			country_weekly_innovation_add = 2
+			country_prestige_mult = 0.0015
 			country_afro_american_cultural_acceptance_add = 2
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.13
-			state_pop_qualifications_mult = 0.22
+			state_education_access_add = 0.07
+			state_pop_qualifications_mult = 0.11
 			building_government_administration_throughput_add = 0.05
 			state_migration_pull_mult = 0.05
 		}
@@ -643,16 +646,16 @@ pm_unc_pembroke_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_weekly_innovation_add = 3
-			country_prestige_mult = 0.005
+			country_weekly_innovation_add = 2
+			country_prestige_mult = 0.0015
 			country_cherokee_cultural_acceptance_add = 3
 		}
 	}
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_education_access_add = 0.12
-			state_pop_qualifications_mult = 0.20
+			state_education_access_add = 0.07
+			state_pop_qualifications_mult = 0.1
 			state_migration_pull_mult = 0.06
 			building_group_bg_agriculture_throughput_add = 0.04
 		}

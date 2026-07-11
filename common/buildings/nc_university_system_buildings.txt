@@ -4,7 +4,7 @@
 ########################################
 
 building_davidson_college = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/davidson.dds"
 	expandable = no
 	buildable = yes
@@ -40,7 +40,7 @@ building_davidson_college = {
 }
 
 building_unc_charlotte = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/unc_charlotte.dds"
 	expandable = no
 	buildable = yes
@@ -76,7 +76,7 @@ building_unc_charlotte = {
 }
 
 building_unc_asheville = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/unc_asheville.dds"
 	expandable = no
 	buildable = yes
@@ -112,7 +112,7 @@ building_unc_asheville = {
 }
 
 building_unc_wilmington = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/unc_wilmington.dds"
 	expandable = no
 	buildable = yes
@@ -148,7 +148,7 @@ building_unc_wilmington = {
 }
 
 building_appalachian_state = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/app_state.dds"
 	expandable = no
 	buildable = yes
@@ -184,7 +184,7 @@ building_appalachian_state = {
 }
 
 building_east_carolina_university = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/ecu.dds"
 	expandable = no
 	buildable = yes
@@ -220,7 +220,7 @@ building_east_carolina_university = {
 }
 
 building_western_carolina_university = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/western_carolina.dds"
 	expandable = no
 	buildable = yes
@@ -256,7 +256,7 @@ building_western_carolina_university = {
 }
 
 building_unc_greensboro = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/unc_greensboro.dds"
 	expandable = no
 	buildable = yes
@@ -292,7 +292,7 @@ building_unc_greensboro = {
 }
 
 building_nc_at_university = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/nc_at.dds"
 	expandable = no
 	buildable = yes
@@ -328,7 +328,7 @@ building_nc_at_university = {
 }
 
 building_shaw_university = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/shaw.dds"
 	expandable = no
 	buildable = yes
@@ -364,7 +364,7 @@ building_shaw_university = {
 }
 
 building_elon_university = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/elon.dds"
 	expandable = no
 	buildable = yes
@@ -400,7 +400,7 @@ building_elon_university = {
 }
 
 building_nc_central_university = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/nccu.dds"
 	expandable = no
 	buildable = yes
@@ -436,7 +436,7 @@ building_nc_central_university = {
 }
 
 building_unc_school_of_the_arts = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/uncsa.dds"
 	expandable = no
 	buildable = yes
@@ -472,7 +472,7 @@ building_unc_school_of_the_arts = {
 }
 
 building_johnson_c_smith_university = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/johnson_c_smith.dds"
 	expandable = no
 	buildable = yes
@@ -508,7 +508,7 @@ building_johnson_c_smith_university = {
 }
 
 building_fayetteville_state = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/fayetteville_state.dds"
 	expandable = no
 	buildable = yes
@@ -544,7 +544,7 @@ building_fayetteville_state = {
 }
 
 building_unc_pembroke = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/unc_pembroke.dds"
 	expandable = no
 	buildable = yes

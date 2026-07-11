@@ -8,10 +8,7 @@ nc_choose_next_university = {
 		has_variable = nc_research_triangle_complete
 		NOT = { has_variable = nc_complete_unc_system_done }
 		has_variable = nc_uni_charter_capacity
-		check_variable = {
-			name = nc_uni_charter_count
-			value < var:nc_uni_charter_capacity
-		}
+		var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -21,10 +18,7 @@ nc_choose_next_university = {
 	possible = {
 		has_variable = nc_research_triangle_complete
 		NOT = { has_variable = nc_complete_unc_system_done }
-		check_variable = {
-			name = nc_uni_charter_count
-			value < var:nc_uni_charter_capacity
-		}
+		var:nc_uni_charter_count < var:nc_uni_charter_capacity
 	}
 
 	when_taken = {
@@ -32,7 +26,7 @@ nc_choose_next_university = {
 	}
 
 	ai_chance = {
-		base = 25
+		value = 25
 	}
 }
 
@@ -42,10 +36,7 @@ nc_expand_university_board = {
 		has_variable = nc_research_triangle_complete
 		NOT = { has_variable = nc_complete_unc_system_done }
 		has_variable = nc_uni_charter_capacity
-		check_variable = {
-			name = nc_uni_charter_capacity
-			value < 2
-		}
+		var:nc_uni_charter_capacity < 2
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -54,10 +45,8 @@ nc_expand_university_board = {
 
 	possible = {
 		has_variable = nc_research_triangle_complete
-		check_variable = {
-			name = nc_uni_charter_capacity
-			value < 2
-		}
+		var:nc_uni_charter_capacity < 2
+		gold_reserves >= 100000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -67,7 +56,10 @@ nc_expand_university_board = {
 
 	when_taken = {
 		add_treasury = -100000
-		add_authority = -50
+		add_modifier = {
+			name = nc_university_board_authority_cost
+			years = 5
+		}
 		set_variable = {
 			name = nc_uni_charter_capacity
 			value = 2
@@ -76,7 +68,7 @@ nc_expand_university_board = {
 	}
 
 	ai_chance = {
-		base = 12
+		value = 12
 	}
 }
 
@@ -85,10 +77,7 @@ nc_university_construction_push = {
 	is_shown = {
 		has_variable = nc_research_triangle_complete
 		NOT = { has_variable = nc_complete_unc_system_done }
-		check_variable = {
-			name = nc_uni_charter_count
-			value > 0
-		}
+		var:nc_uni_charter_count > 0
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -96,10 +85,7 @@ nc_university_construction_push = {
 	}
 
 	possible = {
-		check_variable = {
-			name = nc_uni_charter_count
-			value > 0
-		}
+		var:nc_uni_charter_count > 0
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -123,7 +109,7 @@ nc_university_construction_push = {
 	}
 
 	ai_chance = {
-		base = 15
+		value = 15
 	}
 }
 
@@ -179,14 +165,28 @@ nc_raise_centennial_campus = {
 	}
 
 	ai_chance = {
-		base = 18
+		value = 18
 	}
 }
 
 # Move Wake Forest College to Winston-Salem / university status
+# Not at game start — needs railways + Piedmont growth (tobacco or mid-century date).
 nc_relocate_wake_forest = {
 	is_shown = {
 		NOT = { has_variable = nc_wake_forest_relocated }
+		has_technology_researched = railways
+		OR = {
+			game_date >= 1855.1.1
+			has_variable = nc_research_triangle_complete
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+				any_scope_building = {
+					is_building_type = building_tobacco_plantation
+					level >= 3
+				}
+			}
+		}
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -210,6 +210,6 @@ nc_relocate_wake_forest = {
 	}
 
 	ai_chance = {
-		base = 10
+		value = 10
 	}
 }

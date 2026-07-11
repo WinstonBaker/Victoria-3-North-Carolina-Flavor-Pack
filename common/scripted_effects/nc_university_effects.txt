@@ -297,10 +297,7 @@ nc_recover_stale_university_charters = {
 	if = {
 		limit = {
 			has_variable = nc_uni_charter_count
-			check_variable = {
-				name = nc_uni_charter_count
-				value < 0
-			}
+			var:nc_uni_charter_count < 0
 		}
 		set_variable = {
 			name = nc_uni_charter_count
@@ -327,10 +324,7 @@ nc_on_university_campus_founded = {
 	if = {
 		limit = {
 			NOT = { has_variable = nc_university_system_expanding_done }
-			check_variable = {
-				name = nc_uni_founded_count
-				value >= 8
-			}
+			var:nc_uni_founded_count >= 8
 		}
 		set_variable = nc_university_system_expanding_done
 		trigger_event = { id = nc_flavor_events.38 popup = yes }

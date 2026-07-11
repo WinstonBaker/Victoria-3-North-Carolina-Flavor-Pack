@@ -1,3 +1,4 @@
+﻿# Reserved / unused event IDs: .3, .25-.30 (do not reuse without checking history)
 namespace = nc_flavor_events
 
 ########################################
@@ -221,12 +222,13 @@ nc_flavor_events.5 = {
 		}
 	}
 
-	# High funding: state funds & land grants
+	# High funding: state funds & land grants — campuses auto-queue after a short delay
 	option = {
 		name = nc_flavor_events.5.a
 		default_option = yes
 		add_treasury = -100000
-		custom_tooltip = rt_universities_unlocked_tt
+		custom_tooltip = rt_universities_delayed_queue_tt
+		set_variable = nc_research_triangle_funding_committed
 		scope:nc_state_scope = {
 			add_modifier = {
 				name = nc_research_triangle_state_grants
@@ -239,12 +241,17 @@ nc_flavor_events.5 = {
 				days = long_modifier_time
 			}
 		}
+		trigger_event = {
+			id = nc_flavor_events.40
+			months = 2
+		}
 	}
 
-	# Low funding: private philanthropy
+	# Low funding: private philanthropy — same delayed auto-queue
 	option = {
 		name = nc_flavor_events.5.b
-		custom_tooltip = rt_universities_unlocked_tt
+		custom_tooltip = rt_universities_delayed_queue_tt
+		set_variable = nc_research_triangle_funding_committed
 		ig:ig_devout ?= {
 			add_modifier = {
 				name = nc_ig_patronage_minor
@@ -262,6 +269,10 @@ nc_flavor_events.5 = {
 				name = nc_research_triangle_state_grants_minor
 				days = normal_modifier_time
 			}
+		}
+		trigger_event = {
+			id = nc_flavor_events.40
+			months = 2
 		}
 	}
 }
@@ -501,10 +512,6 @@ nc_flavor_events.9 = {
 		custom_tooltip = nc_lighthouse_system_defer_tt
 	}
 }
-
-########################################
-# 10 — Wilmington & Weldon Railroad (charter)
-########################################
 
 ########################################
 # 10 — Wilmington & Weldon Railroad (charter)
@@ -1478,6 +1485,14 @@ nc_flavor_events.32 = {
 	icon = "gfx/interface/icons/building_icons/unc.dds"
 	duration = 3
 
+	trigger = {
+		has_variable = nc_research_triangle_complete
+		NOT = { has_variable = nc_complete_unc_system_done }
+		has_variable = nc_uni_charter_capacity
+		has_variable = nc_uni_charter_count
+		var:nc_uni_charter_count < var:nc_uni_charter_capacity
+	}
+
 	immediate = {
 		s:STATE_NORTH_CAROLINA = {
 			random_scope_state = {
@@ -1506,10 +1521,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_davidson }
 			NOT = { has_variable = nc_uni_build_davidson }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_davidson_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1540,10 +1552,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_shaw }
 			NOT = { has_variable = nc_uni_build_shaw }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_shaw_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1574,10 +1583,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_charlotte }
 			NOT = { has_variable = nc_uni_build_charlotte }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_charlotte_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1608,10 +1614,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_asheville }
 			NOT = { has_variable = nc_uni_build_asheville }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_asheville_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1634,10 +1637,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_wilmington }
 			NOT = { has_variable = nc_uni_build_wilmington }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_wilmington_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1668,10 +1668,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_app_state }
 			NOT = { has_variable = nc_uni_build_app_state }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_app_state_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1702,10 +1699,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_ecu }
 			NOT = { has_variable = nc_uni_build_ecu }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_ecu_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1728,10 +1722,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_western }
 			NOT = { has_variable = nc_uni_build_western }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_western_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1754,10 +1745,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_uncg }
 			NOT = { has_variable = nc_uni_build_uncg }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_uncg_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1788,10 +1776,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_ncat }
 			NOT = { has_variable = nc_uni_build_ncat }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_ncat_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1822,10 +1807,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_elon }
 			NOT = { has_variable = nc_uni_build_elon }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_elon_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1848,10 +1830,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_nccu }
 			NOT = { has_variable = nc_uni_build_nccu }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_nccu_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1874,10 +1853,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_uncsa }
 			NOT = { has_variable = nc_uni_build_uncsa }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_uncsa_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1908,10 +1884,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_jcs }
 			NOT = { has_variable = nc_uni_build_jcs }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_jcs_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1934,10 +1907,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_fayetteville }
 			NOT = { has_variable = nc_uni_build_fayetteville }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_fayetteville_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -1960,10 +1930,7 @@ nc_flavor_events.32 = {
 		trigger = {
 			NOT = { has_variable = nc_uni_founded_pembroke }
 			NOT = { has_variable = nc_uni_build_pembroke }
-			check_variable = {
-				name = nc_uni_charter_count
-				value < var:nc_uni_charter_capacity
-			}
+			var:nc_uni_charter_count < var:nc_uni_charter_capacity
 		}
 		custom_tooltip = nc_uni_pick_pembroke_tt
 		custom_tooltip = nc_uni_auto_build_tt
@@ -2320,6 +2287,70 @@ nc_flavor_events.38 = {
 }
 
 ########################################
+# 40 — Delayed Research Triangle auto-queue (Duke + NC State)
+# Fires ~2 months after funding event 5 so players can raise Construction Sectors.
+########################################
+
+nc_flavor_events.40 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.40.t
+	desc = nc_flavor_events.40.d
+	flavor = nc_flavor_events.40.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/building_icons/ncsu.dds"
+	duration = 3
+
+	trigger = {
+		has_variable = nc_research_triangle_funding_committed
+		NOT = { has_variable = nc_research_triangle_unlocked }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.40.a
+		default_option = yes
+		set_variable = nc_research_triangle_unlocked
+		custom_tooltip = rt_universities_auto_queued_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				if = {
+					limit = {
+						NOT = { has_building = building_nc_state_university }
+					}
+					start_building_construction = building_nc_state_university
+				}
+				if = {
+					limit = {
+						NOT = { has_building = building_duke_university }
+					}
+					start_building_construction = building_duke_university
+				}
+			}
+		}
+	}
+}
+
+########################################
 # 39 — Relocate Wake Forest to Winston-Salem
 ########################################
 
@@ -2363,6 +2394,7 @@ nc_flavor_events.39 = {
 		add_treasury = -40000
 		set_variable = nc_wake_forest_relocated
 		custom_tooltip = nc_wake_forest_relocate_tt
+		custom_tooltip = nc_wake_forest_devout_upset_tt
 		add_technology_researched = nc_wake_forest_university
 		activate_production_method = {
 			building_type = building_wake_forest_college
@@ -2377,6 +2409,12 @@ nc_flavor_events.39 = {
 				name = nc_wake_forest_relocated
 			}
 		}
+		ig:ig_devout ?= {
+			add_modifier = {
+				name = nc_wake_forest_devout_upset
+				years = 5
+			}
+		}
 		ai_chance = { base = 80 }
 	}
 
@@ -2384,5 +2422,638 @@ nc_flavor_events.39 = {
 		name = nc_flavor_events.39.b
 		custom_tooltip = nc_wake_forest_defer_tt
 		ai_chance = { base = 20 }
+	}
+}
+
+########################################
+# 41 — Mill Village conflict opens
+########################################
+
+nc_flavor_events.41 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.41.t
+	desc = nc_flavor_events.41.d
+	flavor = nc_flavor_events.41.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_mill_village
+		NOT = { has_variable = nc_mill_village_fired }
+	}
+
+	immediate = {
+		set_variable = nc_mill_village_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.41.a
+		default_option = yes
+		custom_tooltip = nc_mill_village_start_tt
+	}
+}
+
+########################################
+# 42 — Mill Village conflict resolved (branching)
+########################################
+
+nc_flavor_events.42 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.42.t
+	desc = nc_flavor_events.42.d
+	flavor = nc_flavor_events.42.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	# Mill paternalism
+	option = {
+		name = nc_flavor_events.42.a
+		default_option = yes
+		custom_tooltip = nc_mill_paternalism_tt
+		add_modifier = {
+			name = nc_mill_paternalism_country
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_mill_paternalism
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage
+				days = long_modifier_time
+			}
+		}
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = nc_ig_landowners_upset
+				years = 5
+			}
+		}
+		ai_chance = { base = 45 }
+	}
+
+	# Planter backlash
+	option = {
+		name = nc_flavor_events.42.b
+		custom_tooltip = nc_planter_backlash_tt
+		add_modifier = {
+			name = nc_planter_backlash_country
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_planter_backlash
+			}
+		}
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = nc_ig_patronage
+				days = long_modifier_time
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_industrialists_upset
+				years = 5
+			}
+		}
+		ai_chance = { base = 30 }
+	}
+
+	# Uneasy compromise
+	option = {
+		name = nc_flavor_events.42.c
+		custom_tooltip = nc_mill_village_compromise_tt
+		add_modifier = {
+			name = nc_mill_village_compromise_country
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_mill_village_compromise
+			}
+		}
+		ai_chance = { base = 25 }
+	}
+}
+
+########################################
+# 43 — Mill village tension pulse (mill side)
+########################################
+
+nc_flavor_events.43 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.43.t
+	desc = nc_flavor_events.43.d
+	flavor = nc_flavor_events.43.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_mill_village
+		NOT = { has_variable = nc_mill_village_complete }
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.43.a
+		default_option = yes
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_mill_village_tension_mills
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = nc_ig_landowners_upset
+				years = 2
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.43.b
+		# Side with planters this time
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_mill_village_tension_planters
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 44 — Mill village tension pulse (planter side)
+########################################
+
+nc_flavor_events.44 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.44.t
+	desc = nc_flavor_events.44.d
+	flavor = nc_flavor_events.44.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_mill_village
+		NOT = { has_variable = nc_mill_village_complete }
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.44.a
+		default_option = yes
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_mill_village_tension_planters
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_industrialists_upset
+				years = 2
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.44.b
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_mill_village_tension_mills
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 45 — Pepsi-Cola company founded
+########################################
+
+nc_flavor_events.45 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.45.t
+	desc = nc_flavor_events.45.d
+	flavor = nc_flavor_events.45.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_company = company_type:company_pepsi_cola
+		NOT = { has_variable = nc_pepsi_story_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_pepsi_story_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.45.a
+		default_option = yes
+		custom_tooltip = nc_pepsi_story_tt
+		add_modifier = {
+			name = nc_pepsi_brand_prestige
+			days = long_modifier_time
+		}
+	}
+}
+
+########################################
+# 46 — Vick Chemical company founded
+########################################
+
+nc_flavor_events.46 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.46.t
+	desc = nc_flavor_events.46.d
+	flavor = nc_flavor_events.46.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_company = company_type:company_vick_chemical
+		NOT = { has_variable = nc_vicks_story_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_vicks_story_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.46.a
+		default_option = yes
+		custom_tooltip = nc_vicks_story_tt
+		add_modifier = {
+			name = nc_vicks_brand_prestige
+			days = long_modifier_time
+		}
+	}
+}
+
+########################################
+# 47 — Hanes company founded
+########################################
+
+nc_flavor_events.47 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.47.t
+	desc = nc_flavor_events.47.d
+	flavor = nc_flavor_events.47.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_company = company_type:company_hanes
+		NOT = { has_variable = nc_hanes_story_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_hanes_story_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.47.a
+		default_option = yes
+		custom_tooltip = nc_hanes_story_tt
+		add_modifier = {
+			name = nc_hanes_brand_prestige
+			days = long_modifier_time
+		}
+	}
+}
+
+########################################
+# 48 — NC Railroad company founded
+########################################
+
+nc_flavor_events.48 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.48.t
+	desc = nc_flavor_events.48.d
+	flavor = nc_flavor_events.48.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_company = company_type:company_nc_railroad
+		NOT = { has_variable = nc_ncr_story_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_ncr_story_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.48.a
+		default_option = yes
+		custom_tooltip = nc_ncr_story_tt
+		add_modifier = {
+			name = nc_ncr_company_prestige
+			days = long_modifier_time
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_ncr_company_prestige_state
+				days = long_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 49 — Carolina Brands JE complete
+########################################
+
+nc_flavor_events.49 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.49.t
+	desc = nc_flavor_events.49.d
+	flavor = nc_flavor_events.49.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.49.a
+		default_option = yes
+		custom_tooltip = nc_carolina_brands_complete_tt
+		add_modifier = {
+			name = nc_carolina_brands_complete
+		}
+	}
+}
+
+########################################
+# 50 — Naval Stores JE opens
+########################################
+
+nc_flavor_events.50 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.50.t
+	desc = nc_flavor_events.50.d
+	flavor = nc_flavor_events.50.f
+
+	event_image = {
+		video = "europenorthamerica_gold_prospectors"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_naval_stores
+		NOT = { has_variable = nc_naval_stores_fired }
+	}
+
+	immediate = {
+		set_variable = nc_naval_stores_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.50.a
+		default_option = yes
+		custom_tooltip = nc_naval_stores_start_tt
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_naval_stores_boom
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 51 — Naval Stores / Canal complete
+########################################
+
+nc_flavor_events.51 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.51.t
+	desc = nc_flavor_events.51.d
+	flavor = nc_flavor_events.51.f
+
+	event_image = {
+		video = "europenorthamerica_gold_prospectors"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.51.a
+		default_option = yes
+		custom_tooltip = nc_naval_stores_complete_tt
+		add_modifier = {
+			name = nc_naval_stores_belt_country
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_naval_stores_belt
+			}
+		}
 	}
 }

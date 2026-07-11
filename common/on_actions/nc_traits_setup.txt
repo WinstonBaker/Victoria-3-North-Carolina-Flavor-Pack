@@ -1,3 +1,7 @@
+########################################
+# North Carolina Flavor — game start & monthly pulses
+########################################
+
 on_game_started = {
 	on_actions = {
 		nc_flavor_on_game_started
@@ -58,24 +62,62 @@ on_monthly_pulse_country = {
 		nc_flavor_events.22	# Wright Brothers — December 17, 1903
 		nc_flavor_events.35	# NCSU founded → schedule Centennial
 		nc_flavor_events.37	# Centennial level 2 → activate PM
+		nc_flavor_events.45	# Pepsi-Cola company story
+		nc_flavor_events.46	# Vick Chemical company story
+		nc_flavor_events.47	# Hanes company story
+		nc_flavor_events.48	# NC Railroad company story
 	}
 	on_actions = {
-		nc_university_monthly_pulse
+		nc_flavor_monthly_pulse
 	}
 }
 
-nc_university_monthly_pulse = {
+nc_flavor_monthly_pulse = {
 	effect = {
+		# Mount Mitchell prestige follows whoever currently owns North Carolina
+		if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					owner = ROOT
+				}
+				NOT = { has_modifier = nc_mount_mitchell_prestige }
+			}
+			add_modifier = {
+				name = nc_mount_mitchell_prestige
+			}
+		}
+		else_if = {
+			limit = {
+				has_modifier = nc_mount_mitchell_prestige
+				NOT = {
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						owner = ROOT
+					}
+				}
+			}
+			remove_modifier = nc_mount_mitchell_prestige
+		}
+
+		# Recover cancelled university charters
 		if = {
 			limit = {
 				has_variable = nc_research_triangle_complete
 				NOT = { has_variable = nc_complete_unc_system_done }
-				check_variable = {
-					name = nc_uni_charter_count
-					value > 0
-				}
+				var:nc_uni_charter_count > 0
 			}
 			nc_recover_stale_university_charters = yes
+		}
+
+		# Recover cancelled lighthouse picks (pending softlock)
+		if = {
+			limit = {
+				has_variable = nc_lighthouse_system_active
+				NOT = { has_variable = nc_lighthouse_system_complete }
+				has_variable = nc_light_build_pending
+			}
+			nc_recover_stale_lighthouse_charters = yes
 		}
 	}
 }

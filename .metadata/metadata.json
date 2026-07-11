@@ -3,7 +3,7 @@
   "id": "nc_flavor_pack",
   "version": "1.0.0",
   "supported_game_version": "1.13.*",
-  "short_description": "Tar Heel flavor for Victoria 3: state traits, Outer Banks lighthouses, UNC and Research Triangle campuses, Piedmont industry journal entries, Carolina companies, and landmarks from the State Capitol to Biltmore.",
+	"short_description": "Tar Heel flavor for Victoria 3: state traits, Outer Banks lighthouses, UNC and Research Triangle campuses, Piedmont industry, mill-village politics, Carolina brand companies, naval stores, and landmarks from the State Capitol to Biltmore.",
   "tags": ["Flavor", "Historical", "United States", "1.13"],
   "relationships": [],
   "game_custom_data": {

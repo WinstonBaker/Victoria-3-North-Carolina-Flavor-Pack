@@ -1,0 +1,222 @@
+########################################
+# Carolina Brands — company story sponsors
+# Naval Stores — Dismal Swamp Canal funding
+########################################
+
+nc_new_bern_soft_drink = {
+	is_shown = {
+		has_journal_entry = je_nc_carolina_brands
+		NOT = { has_variable = nc_pepsi_sponsored }
+		NOT = { has_company = company_type:company_pepsi_cola }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 40000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -40000
+		set_variable = nc_pepsi_sponsored
+		custom_tooltip = nc_new_bern_soft_drink_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_pepsi_new_bern_boom
+					days = long_modifier_time
+				}
+				if = {
+					limit = {
+						NOT = { has_building = building_food_industry }
+					}
+					start_building_construction = building_food_industry
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 15
+	}
+}
+
+nc_greensboro_pharmacy = {
+	is_shown = {
+		has_journal_entry = je_nc_carolina_brands
+		NOT = { has_variable = nc_vicks_sponsored }
+		NOT = { has_company = company_type:company_vick_chemical }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 45000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -45000
+		set_variable = nc_vicks_sponsored
+		custom_tooltip = nc_greensboro_pharmacy_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_vicks_pharmacy_boom
+					days = long_modifier_time
+				}
+				if = {
+					limit = {
+						NOT = { has_building = building_chemical_plant }
+					}
+					start_building_construction = building_chemical_plant
+				}
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 12
+	}
+}
+
+nc_winston_hosiery = {
+	is_shown = {
+		has_journal_entry = je_nc_carolina_brands
+		NOT = { has_variable = nc_hanes_sponsored }
+		NOT = { has_company = company_type:company_hanes }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 50000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 2
+			}
+		}
+	}
+
+	when_taken = {
+		add_treasury = -50000
+		set_variable = nc_hanes_sponsored
+		custom_tooltip = nc_winston_hosiery_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_hanes_hosiery_boom
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 15
+	}
+}
+
+########################################
+# Fund the Great Dismal Swamp Canal works
+########################################
+
+nc_fund_dismal_canal = {
+	is_shown = {
+		OR = {
+			has_journal_entry = je_nc_naval_stores
+			AND = {
+				NOT = { has_variable = nc_naval_stores_complete }
+				NOT = { has_variable = nc_dismal_canal_funded }
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					owner = ROOT
+				}
+			}
+		}
+		NOT = { has_variable = nc_dismal_canal_funded }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 75000
+		NOT = { has_variable = nc_dismal_canal_funded }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -75000
+		set_variable = nc_dismal_canal_funded
+		custom_tooltip = nc_fund_dismal_canal_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_dismal_canal_works
+					days = long_modifier_time
+				}
+				add_modifier = {
+					name = nc_naval_stores_boom
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 18
+	}
+}

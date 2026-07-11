@@ -45,7 +45,7 @@ nc_choose_next_lighthouse = {
 	}
 
 	ai_chance = {
-		base = 20
+		value = 20
 	}
 }
 
@@ -72,7 +72,7 @@ nc_start_lighthouse_program = {
 	}
 
 	ai_chance = {
-		base = 10
+		value = 10
 	}
 }
 

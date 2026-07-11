@@ -1,3 +1,4 @@
+# North Carolina landmark production methods
 pm_nc_capitol_active = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
 

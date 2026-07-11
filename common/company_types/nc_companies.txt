@@ -1,6 +1,6 @@
 # W. Duke, Sons & Co. — Durham tobacco dynasty
 company_w_duke_sons = {
-	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_2.dds"
+	icon = "gfx/interface/icons/company_icons/company_w_duke_sons.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
 
 	flavored_company = yes
@@ -57,7 +57,7 @@ company_w_duke_sons = {
 
 # R.J. Reynolds Tobacco Company — Winston-Salem
 company_rj_reynolds = {
-	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_1.dds"
+	icon = "gfx/interface/icons/company_icons/company_rj_reynolds.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
 
 	flavored_company = yes
@@ -114,7 +114,7 @@ company_rj_reynolds = {
 
 # Cannon Mills — Concord textile manufacturer
 company_cannon_mills = {
-	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
+	icon = "gfx/interface/icons/company_icons/company_cannon_mills.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
 	flavored_company = yes
@@ -167,7 +167,7 @@ company_cannon_mills = {
 
 # Burlington Industries — Piedmont textile conglomerate
 company_burlington_industries = {
-	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
+	icon = "gfx/interface/icons/company_icons/company_burlington_industries.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
 	flavored_company = yes
@@ -225,7 +225,7 @@ company_burlington_industries = {
 
 # Southern Power / Duke Power — Piedmont hydroelectric
 company_duke_power = {
-	icon = "gfx/interface/icons/company_icons/basic_electrics.dds"
+	icon = "gfx/interface/icons/company_icons/company_duke_power.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
 
 	flavored_company = yes
@@ -285,7 +285,7 @@ company_duke_power = {
 
 # High Point furniture manufacturers
 company_high_point_furniture = {
-	icon = "gfx/interface/icons/company_icons/basic_home_goods.dds"
+	icon = "gfx/interface/icons/company_icons/company_high_point_furniture.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
 	flavored_company = yes
@@ -344,7 +344,7 @@ company_high_point_furniture = {
 ########################################
 
 company_pepsi_cola = {
-	icon = "gfx/interface/icons/company_icons/basic_food.dds"
+	icon = "gfx/interface/icons/company_icons/company_pepsi_cola.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
 	flavored_company = yes
@@ -406,7 +406,7 @@ company_pepsi_cola = {
 ########################################
 
 company_liggett_myers = {
-	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_1.dds"
+	icon = "gfx/interface/icons/company_icons/company_liggett_myers.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
 
 	flavored_company = yes
@@ -467,7 +467,7 @@ company_liggett_myers = {
 ########################################
 
 company_cone_mills = {
-	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
+	icon = "gfx/interface/icons/company_icons/company_cone_mills.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
 	flavored_company = yes
@@ -523,7 +523,7 @@ company_cone_mills = {
 ########################################
 
 company_hanes = {
-	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
+	icon = "gfx/interface/icons/company_icons/company_hanes.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
 	flavored_company = yes
@@ -584,7 +584,7 @@ company_hanes = {
 ########################################
 
 company_vick_chemical = {
-	icon = "gfx/interface/icons/company_icons/basic_chemicals.dds"
+	icon = "gfx/interface/icons/company_icons/company_vick_chemical.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
 
 	flavored_company = yes
@@ -644,8 +644,8 @@ company_vick_chemical = {
 ########################################
 
 company_nc_railroad = {
-	icon = "gfx/interface/icons/company_icons/basic_motors.dds"
-	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
+	icon = "gfx/interface/icons/company_icons/company_nc_railroad.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
 
 	flavored_company = yes
 

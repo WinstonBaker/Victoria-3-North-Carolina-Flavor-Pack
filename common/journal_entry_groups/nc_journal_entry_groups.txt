@@ -1,3 +1,4 @@
+# North Carolina flavor journal entry group
 je_group_nc_flavor = {
 	context = country
 }

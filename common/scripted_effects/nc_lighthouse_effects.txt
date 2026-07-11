@@ -1,0 +1,68 @@
+########################################
+# Outer Banks lighthouses — shared effects
+########################################
+
+# Free the pending slot when its build flag is set but the light
+# is neither finished nor under construction (cancel / failed queue).
+nc_recover_stale_lighthouse_charters = {
+	if = {
+		limit = {
+			has_variable = nc_light_build_lookout
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					any_scope_building = {
+						is_building_type = building_nc_cape_lookout_lighthouse
+					}
+				}
+			}
+		}
+		remove_variable = nc_light_build_lookout
+		remove_variable = nc_light_build_pending
+	}
+	if = {
+		limit = {
+			has_variable = nc_light_build_bodie
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					any_scope_building = {
+						is_building_type = building_nc_bodie_island_lighthouse
+					}
+				}
+			}
+		}
+		remove_variable = nc_light_build_bodie
+		remove_variable = nc_light_build_pending
+	}
+	if = {
+		limit = {
+			has_variable = nc_light_build_currituck
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					any_scope_building = {
+						is_building_type = building_nc_currituck_beach_lighthouse
+					}
+				}
+			}
+		}
+		remove_variable = nc_light_build_currituck
+		remove_variable = nc_light_build_pending
+	}
+	if = {
+		limit = {
+			has_variable = nc_light_build_cape_fear
+			NOT = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					any_scope_building = {
+						is_building_type = building_nc_cape_fear_lighthouse
+					}
+				}
+			}
+		}
+		remove_variable = nc_light_build_cape_fear
+		remove_variable = nc_light_build_pending
+	}
+}

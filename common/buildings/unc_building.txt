@@ -1,5 +1,6 @@
+# UNC Chapel Hill & Wake Forest - start campuses
 building_unc_chapel_hill = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/unc.dds"
 	expandable = no
 	buildable = no
@@ -28,9 +29,9 @@ building_unc_chapel_hill = {
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
 }
 
-# Wake Forest College — founded 1834 as a Baptist manual-labor institute
+# Wake Forest College - founded 1834 as a Baptist manual-labor institute
 building_wake_forest_college = {
-	building_group = bg_monuments
+	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/wake_forest.dds"
 	expandable = no
 	buildable = no
