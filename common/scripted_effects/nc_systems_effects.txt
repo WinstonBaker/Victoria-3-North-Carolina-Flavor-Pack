@@ -1,0 +1,183 @@
+########################################
+# North Carolina Flavor — v2.0 systems
+# Character spawn helpers + education prestige refresh
+########################################
+
+nc_spawn_washington_duke = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_washington_duke_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_washington_duke_template
+		}
+	}
+}
+
+nc_spawn_james_b_duke = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_james_b_duke_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_james_b_duke_template
+		}
+	}
+}
+
+nc_spawn_rj_reynolds = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_rj_reynolds_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_rj_reynolds_template
+		}
+	}
+}
+
+nc_spawn_caleb_bradham = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_caleb_bradham_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_caleb_bradham_template
+		}
+	}
+}
+
+nc_spawn_lunsford_richardson = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_lunsford_richardson_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_lunsford_richardson_template
+		}
+	}
+}
+
+nc_spawn_ph_hanes = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_ph_hanes_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_ph_hanes_template
+		}
+	}
+}
+
+nc_spawn_george_vanderbilt = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_george_vanderbilt_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_george_vanderbilt_template
+		}
+	}
+}
+
+nc_spawn_wright_brothers = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_orville_wright_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_orville_wright_template
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				any_scope_character = {
+					has_template = nc_wilbur_wright_template
+				}
+			}
+		}
+		create_character = {
+			template = nc_wilbur_wright_template
+		}
+	}
+}
+
+# Scale country + NC state education prestige from live campus count.
+# Unit modifiers are multiplied by nc_university_campus_count each month.
+nc_refresh_education_prestige = {
+	if = {
+		limit = { has_modifier = nc_education_prestige_country }
+		remove_modifier = nc_education_prestige_country
+	}
+	every_scope_state = {
+		limit = {
+			state_region = s:STATE_NORTH_CAROLINA
+			has_modifier = nc_education_prestige
+		}
+		remove_modifier = nc_education_prestige
+	}
+	if = {
+		limit = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+			nc_university_campus_count > 0
+		}
+		add_modifier = {
+			name = nc_education_prestige_country
+			multiplier = nc_university_campus_count
+		}
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+			add_modifier = {
+				name = nc_education_prestige
+				multiplier = nc_university_campus_count
+			}
+		}
+		set_variable = {
+			name = nc_university_campus_count_var
+			value = nc_university_campus_count
+		}
+	}
+	else_if = {
+		limit = { has_variable = nc_university_campus_count_var }
+		remove_variable = nc_university_campus_count_var
+	}
+}

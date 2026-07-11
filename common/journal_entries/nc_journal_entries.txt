@@ -2541,7 +2541,7 @@ je_nc_biltmore = {
 		}
 	}
 
-	weight = 80
+	weight = 70
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
@@ -2554,7 +2554,10 @@ je_nc_mill_village = {
 	group = je_group_nc_flavor
 
 	is_shown_when_inactive = {
-		has_variable = nc_piedmont_textiles_complete
+		OR = {
+			has_variable = nc_piedmont_textiles_complete
+			has_variable = nc_new_south_complete
+		}
 		NOT = { has_variable = nc_mill_village_complete }
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
@@ -2563,7 +2566,10 @@ je_nc_mill_village = {
 	}
 
 	possible = {
-		has_variable = nc_piedmont_textiles_complete
+		OR = {
+			has_variable = nc_piedmont_textiles_complete
+			has_variable = nc_new_south_complete
+		}
 		NOT = { has_variable = nc_mill_village_complete }
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
@@ -2751,7 +2757,7 @@ je_nc_carolina_brands = {
 		}
 	}
 
-	weight = 80
+	weight = 70
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
@@ -2858,5 +2864,680 @@ je_nc_naval_stores = {
 	}
 
 	weight = 85
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# Tobacco Belt — Duke / Reynolds / Liggett
+########################################
+
+je_nc_tobacco_belt = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		has_variable = nc_tar_heel_legacy_complete
+		NOT = { has_variable = nc_tobacco_belt_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		has_variable = nc_tar_heel_legacy_complete
+		NOT = { has_variable = nc_tobacco_belt_complete }
+		has_technology_researched = corporate_charters
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		trigger_event = { id = nc_flavor_events.52 popup = yes }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_tobacco_belt_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_tobacco_belt_duke_tt
+			has_company = company_type:company_w_duke_sons
+		}
+		custom_tooltip = {
+			text = je_nc_tobacco_belt_reynolds_tt
+			has_company = company_type:company_rj_reynolds
+		}
+		custom_tooltip = {
+			text = je_nc_tobacco_belt_liggett_tt
+			has_company = company_type:company_liggett_myers
+		}
+		custom_tooltip = {
+			text = je_nc_tobacco_belt_plantations_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				any_scope_building = {
+					is_building_type = building_tobacco_plantation
+					level >= 8
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_tobacco_belt_complete
+		trigger_event = { id = nc_flavor_events.56 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_tobacco_belt.56_tt
+			}
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 78
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# Cape Fear & Crystal Coast ports
+########################################
+
+je_nc_cape_fear_ports = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		OR = {
+			has_variable = nc_wilmington_weldon_done
+			has_variable = nc_naval_stores_complete
+			has_variable = nc_atlantic_nc_done
+		}
+		NOT = { has_variable = nc_cape_fear_ports_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		OR = {
+			has_variable = nc_wilmington_weldon_done
+			has_variable = nc_naval_stores_complete
+			has_variable = nc_atlantic_nc_done
+		}
+		NOT = { has_variable = nc_cape_fear_ports_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		trigger_event = { id = nc_flavor_events.61 popup = yes }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_cape_fear_ports_ready_status_loc
+				trigger = {
+					has_variable = nc_wilmington_harbor_funded
+					has_variable = nc_morehead_terminal_funded
+					any_scope_state = {
+						state_region = s:STATE_NORTH_CAROLINA
+						any_scope_building = {
+							is_building_type = building_port
+							level >= 3
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_cape_fear_ports_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_cape_fear_ports_wilmington_tt
+			has_variable = nc_wilmington_harbor_funded
+		}
+		custom_tooltip = {
+			text = je_nc_cape_fear_ports_morehead_tt
+			has_variable = nc_morehead_terminal_funded
+		}
+		custom_tooltip = {
+			text = je_nc_cape_fear_ports_level_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				any_scope_building = {
+					is_building_type = building_port
+					level >= 3
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_cape_fear_ports_complete
+		trigger_event = { id = nc_flavor_events.62 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_cape_fear_ports.62_tt
+			}
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 72
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# Wright Brothers — Kitty Hawk to first flight
+########################################
+
+je_nc_wright_brothers = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		game_date >= 1896.1.1
+		NOT = { has_variable = nc_wright_je_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		game_date >= 1896.1.1
+		NOT = { has_variable = nc_wright_je_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		trigger_event = { id = nc_flavor_events.63 popup = yes }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_wright_brothers_flight_status_loc
+				trigger = {
+					has_variable = nc_kitty_hawk_funded
+					has_variable = nc_wright_brothers_fired
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_wright_brothers_funded_status_loc
+				trigger = {
+					has_variable = nc_kitty_hawk_funded
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_wright_brothers_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_wright_brothers_fund_tt
+			has_variable = nc_kitty_hawk_funded
+		}
+		custom_tooltip = {
+			text = je_nc_wright_brothers_flight_tt
+			has_variable = nc_wright_brothers_fired
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_wright_je_complete
+		trigger_event = { id = nc_flavor_events.64 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_wright_brothers.64_tt
+			}
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 68
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# Reconstruction → New South bargain
+########################################
+
+je_nc_new_south = {
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		game_date >= 1866.1.1
+		has_variable = nc_tar_heel_legacy_complete
+		NOT = { has_variable = nc_new_south_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		game_date >= 1866.1.1
+		has_variable = nc_tar_heel_legacy_complete
+		NOT = { has_variable = nc_new_south_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		trigger_event = { id = nc_flavor_events.65 popup = yes }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_new_south_ready_status_loc
+				trigger = {
+					has_variable = nc_freedmen_schools_funded
+					OR = {
+						has_variable = nc_piedmont_textiles_complete
+						has_variable = nc_research_triangle_complete
+						any_scope_state = {
+							state_region = s:STATE_NORTH_CAROLINA
+							any_scope_building = {
+								is_building_type = building_textile_mill
+								level >= 3
+							}
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_new_south_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_new_south_schools_tt
+			has_variable = nc_freedmen_schools_funded
+		}
+		custom_tooltip = {
+			text = je_nc_new_south_industry_tt
+			OR = {
+				has_variable = nc_piedmont_textiles_complete
+				has_variable = nc_research_triangle_complete
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					any_scope_building = {
+						is_building_type = building_textile_mill
+						level >= 3
+					}
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_new_south_complete
+		trigger_event = { id = nc_flavor_events.66 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_new_south.66_tt
+			}
+		}
+	}
+
+	on_monthly_pulse = {
+		random_events = {
+			200 = 0
+			12 = nc_flavor_events.67
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 92
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# Outer Banks coastal hazards (after lights complete)
+########################################
+
+je_nc_outer_banks_hazards = {
+	icon = "gfx/interface/icons/building_icons/Cape_Hatteras_Lighthouse.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		has_variable = nc_lighthouse_system_complete
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	is_shown_in_lobby = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+		}
+	}
+
+	possible = {
+		has_variable = nc_lighthouse_system_complete
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_variable = nc_outer_banks_hazards_fired }
+			}
+			trigger_event = { id = nc_flavor_events.68 popup = yes }
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_outer_banks_hazards_storm_status_loc
+				trigger = {
+					OR = {
+						has_modifier = nc_outer_banks_storm_damage_country
+						any_scope_state = {
+							state_region = s:STATE_NORTH_CAROLINA
+							OR = {
+								has_modifier = nc_outer_banks_storm_damage
+								has_modifier = nc_outer_banks_wreck_toll
+							}
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_outer_banks_hazards_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	# Ongoing coastal system — never completes; storms keep the Banks interactive.
+	complete = {
+		custom_tooltip = {
+			text = je_nc_outer_banks_hazards_ongoing_tt
+			always = no
+		}
+	}
+
+	on_monthly_pulse = {
+		random_events = {
+			220 = 0
+			12 = nc_flavor_events.69
+			10 = nc_flavor_events.70
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 88
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+########################################
+# Valdese Waldensians — Burke County migrant colony (1893)
+########################################
+
+je_nc_valdese_waldensians = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	group = je_group_nc_flavor
+
+	is_shown_when_inactive = {
+		game_date >= 1893.5.1
+		NOT = { has_variable = nc_valdese_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+		OR = {
+			has_variable = nc_railroad_complete
+			has_variable = nc_piedmont_textiles_complete
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+				any_scope_building = {
+					is_building_type = building_railway
+					level >= 8
+				}
+			}
+		}
+	}
+
+	possible = {
+		game_date >= 1893.5.1
+		NOT = { has_variable = nc_valdese_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+		OR = {
+			has_variable = nc_railroad_complete
+			has_variable = nc_piedmont_textiles_complete
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+				any_scope_building = {
+					is_building_type = building_railway
+					level >= 8
+				}
+			}
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+		trigger_event = { id = nc_flavor_events.72 popup = yes }
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_nc_valdese_waldensians_ready_status_loc
+				trigger = {
+					has_variable = nc_valdese_sponsored
+					OR = {
+						any_scope_state = {
+							state_region = s:STATE_NORTH_CAROLINA
+							any_scope_building = {
+								is_building_type = building_textile_mill
+								level >= 3
+							}
+						}
+						any_scope_state = {
+							state_region = s:STATE_NORTH_CAROLINA
+							any_scope_building = {
+								is_building_type = building_logging_camp
+								level >= 5
+							}
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_valdese_waldensians_sponsored_status_loc
+				trigger = {
+					has_variable = nc_valdese_sponsored
+				}
+			}
+			triggered_desc = {
+				desc = je_nc_valdese_waldensians_progress_status_loc
+				trigger = { always = yes }
+			}
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = je_nc_valdese_waldensians_sponsored_tt
+			has_variable = nc_valdese_sponsored
+		}
+		custom_tooltip = {
+			text = je_nc_valdese_waldensians_industry_tt
+			OR = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					any_scope_building = {
+						is_building_type = building_textile_mill
+						level >= 3
+					}
+				}
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					any_scope_building = {
+						is_building_type = building_logging_camp
+						level >= 5
+					}
+				}
+			}
+		}
+	}
+
+	on_complete = {
+		set_variable = nc_valdese_complete
+		trigger_event = { id = nc_flavor_events.73 popup = yes }
+	}
+
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_valdese_waldensians.73_tt
+			}
+		}
+	}
+
+	invalid = {
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+		}
+	}
+
+	weight = 74
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }

@@ -13,7 +13,8 @@ building_nc_state_capitol = {
 
 	entity_not_constructed = { }
 	entity_under_construction = { "building_construction_3x3_entity" }
-	entity_constructed = { }
+	# Vanilla US Capitol mesh — closest neoclassical capitol stand-in
+	entity_constructed = { "wonder_capitol_building_entity" }
 
 	city_gfx_interactions = {
 		clear_size_area = yes
@@ -60,7 +61,8 @@ building_biltmore_house = {
 
 	entity_not_constructed = { }
 	entity_under_construction = { "building_construction_3x3_entity" }
-	entity_constructed = { }
+	# Vanilla White House — base-game American mansion stand-in (Pena Palace mesh is DLC-gated)
+	entity_constructed = { "wonder_white_house_01_entity" }
 
 	city_gfx_interactions = {
 		clear_size_area = yes

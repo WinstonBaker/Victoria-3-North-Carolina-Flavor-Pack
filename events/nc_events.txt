@@ -1,4 +1,7 @@
-﻿# Reserved / unused event IDs: .3, .25-.30 (do not reuse without checking history)
+﻿# Event ID hygiene (namespace nc_flavor_events):
+#   Used: .1-.2, .4-.24, .31-.75 (.72-.75 Valdese/migrant hooks)
+#   Reserved gaps (do not reuse without checking history/saves): .3, .25-.30
+#   Next free block: .76+
 namespace = nc_flavor_events
 
 ########################################
@@ -311,6 +314,8 @@ nc_flavor_events.6 = {
 		default_option = yes
 		custom_tooltip = rt_universities_established_tt
 		custom_tooltip = nc_choose_next_university_tt
+		custom_tooltip = nc_character_james_duke_tt
+		nc_spawn_james_b_duke = yes
 		set_variable = {
 			name = nc_uni_charter_capacity
 			value = 1
@@ -1118,6 +1123,8 @@ nc_flavor_events.17 = {
 		name = nc_flavor_events.17.a
 		default_option = yes
 		custom_tooltip = nc_duke_power_complete_tt
+		custom_tooltip = nc_character_james_duke_tt
+		nc_spawn_james_b_duke = yes
 		add_modifier = {
 			name = nc_duke_power_grid_country
 		}
@@ -1290,6 +1297,8 @@ nc_flavor_events.20 = {
 		default_option = yes
 		add_treasury = -150000
 		custom_tooltip = nc_biltmore_unlocked_tt
+		custom_tooltip = nc_character_vanderbilt_tt
+		nc_spawn_george_vanderbilt = yes
 		scope:nc_state_scope = {
 			add_modifier = {
 				name = nc_biltmore_construction_boom
@@ -1308,6 +1317,8 @@ nc_flavor_events.20 = {
 	option = {
 		name = nc_flavor_events.20.b
 		custom_tooltip = nc_biltmore_unlocked_tt
+		custom_tooltip = nc_character_vanderbilt_tt
+		nc_spawn_george_vanderbilt = yes
 		ig:ig_landowners ?= {
 			add_modifier = {
 				name = nc_ig_patronage_minor
@@ -1350,6 +1361,8 @@ nc_flavor_events.21 = {
 		name = nc_flavor_events.21.a
 		default_option = yes
 		custom_tooltip = nc_biltmore_complete_tt
+		custom_tooltip = nc_character_vanderbilt_tt
+		nc_spawn_george_vanderbilt = yes
 		add_modifier = {
 			name = nc_biltmore_prestige
 			days = very_long_modifier_time
@@ -1360,6 +1373,7 @@ nc_flavor_events.21 = {
 				days = very_long_modifier_time
 			}
 		}
+		trigger_event = { id = nc_flavor_events.74 }
 	}
 }
 
@@ -1413,6 +1427,16 @@ nc_flavor_events.22 = {
 			add_modifier = {
 				name = nc_wright_brothers_flight_state
 				days = very_long_modifier_time
+			}
+			if = {
+				limit = {
+					ROOT = { has_variable = nc_kitty_hawk_funded }
+				}
+				custom_tooltip = nc_wright_kitty_hawk_bonus_tt
+				add_modifier = {
+					name = nc_kitty_hawk_experiments
+					days = long_modifier_time
+				}
 			}
 		}
 	}
@@ -2762,6 +2786,8 @@ nc_flavor_events.45 = {
 		name = nc_flavor_events.45.a
 		default_option = yes
 		custom_tooltip = nc_pepsi_story_tt
+		custom_tooltip = nc_character_bradham_tt
+		nc_spawn_caleb_bradham = yes
 		add_modifier = {
 			name = nc_pepsi_brand_prestige
 			days = long_modifier_time
@@ -2812,6 +2838,8 @@ nc_flavor_events.46 = {
 		name = nc_flavor_events.46.a
 		default_option = yes
 		custom_tooltip = nc_vicks_story_tt
+		custom_tooltip = nc_character_richardson_tt
+		nc_spawn_lunsford_richardson = yes
 		add_modifier = {
 			name = nc_vicks_brand_prestige
 			days = long_modifier_time
@@ -2862,6 +2890,8 @@ nc_flavor_events.47 = {
 		name = nc_flavor_events.47.a
 		default_option = yes
 		custom_tooltip = nc_hanes_story_tt
+		custom_tooltip = nc_character_hanes_tt
+		nc_spawn_ph_hanes = yes
 		add_modifier = {
 			name = nc_hanes_brand_prestige
 			days = long_modifier_time
@@ -3053,6 +3083,1295 @@ nc_flavor_events.51 = {
 			limit = { state_region = s:STATE_NORTH_CAROLINA }
 			add_modifier = {
 				name = nc_naval_stores_belt
+			}
+		}
+	}
+}
+
+########################################
+# 52 — Tobacco Belt JE opens
+########################################
+
+nc_flavor_events.52 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.52.t
+	desc = nc_flavor_events.52.d
+	flavor = nc_flavor_events.52.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_tobacco_belt
+		NOT = { has_variable = nc_tobacco_belt_fired }
+	}
+
+	immediate = {
+		set_variable = nc_tobacco_belt_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.52.a
+		default_option = yes
+		custom_tooltip = nc_tobacco_belt_start_tt
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_durham_tobacco_boom
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 53 — W. Duke, Sons founded
+########################################
+
+nc_flavor_events.53 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.53.t
+	desc = nc_flavor_events.53.d
+	flavor = nc_flavor_events.53.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_company = company_type:company_w_duke_sons
+		NOT = { has_variable = nc_duke_tobacco_story_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_duke_tobacco_story_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.53.a
+		default_option = yes
+		custom_tooltip = nc_duke_tobacco_story_tt
+		custom_tooltip = nc_character_washington_duke_tt
+		nc_spawn_washington_duke = yes
+		add_modifier = {
+			name = nc_duke_tobacco_prestige
+			days = long_modifier_time
+		}
+	}
+}
+
+########################################
+# 54 — R.J. Reynolds founded
+########################################
+
+nc_flavor_events.54 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.54.t
+	desc = nc_flavor_events.54.d
+	flavor = nc_flavor_events.54.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_company = company_type:company_rj_reynolds
+		NOT = { has_variable = nc_reynolds_story_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_reynolds_story_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.54.a
+		default_option = yes
+		custom_tooltip = nc_reynolds_story_tt
+		custom_tooltip = nc_character_reynolds_tt
+		nc_spawn_rj_reynolds = yes
+		add_modifier = {
+			name = nc_reynolds_tobacco_prestige
+			days = long_modifier_time
+		}
+	}
+}
+
+########################################
+# 55 — Liggett & Myers founded
+########################################
+
+nc_flavor_events.55 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.55.t
+	desc = nc_flavor_events.55.d
+	flavor = nc_flavor_events.55.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_company = company_type:company_liggett_myers
+		NOT = { has_variable = nc_liggett_story_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_liggett_story_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.55.a
+		default_option = yes
+		custom_tooltip = nc_liggett_story_tt
+		add_modifier = {
+			name = nc_liggett_tobacco_prestige
+			days = long_modifier_time
+		}
+	}
+}
+
+########################################
+# 56 — Tobacco Belt JE complete
+########################################
+
+nc_flavor_events.56 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.56.t
+	desc = nc_flavor_events.56.d
+	flavor = nc_flavor_events.56.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.56.a
+		default_option = yes
+		custom_tooltip = nc_tobacco_belt_complete_tt
+		add_modifier = {
+			name = nc_tobacco_belt_complete
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_tobacco_belt_state
+			}
+		}
+	}
+}
+
+########################################
+# 57 — Cannon Mills founded
+########################################
+
+nc_flavor_events.57 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.57.t
+	desc = nc_flavor_events.57.d
+	flavor = nc_flavor_events.57.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_company = company_type:company_cannon_mills
+		NOT = { has_variable = nc_cannon_story_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_cannon_story_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.57.a
+		default_option = yes
+		custom_tooltip = nc_cannon_story_tt
+		add_modifier = {
+			name = nc_cannon_mills_prestige
+			days = long_modifier_time
+		}
+	}
+}
+
+########################################
+# 58 — Cone Mills founded
+########################################
+
+nc_flavor_events.58 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.58.t
+	desc = nc_flavor_events.58.d
+	flavor = nc_flavor_events.58.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_company = company_type:company_cone_mills
+		NOT = { has_variable = nc_cone_story_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_cone_story_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.58.a
+		default_option = yes
+		custom_tooltip = nc_cone_story_tt
+		add_modifier = {
+			name = nc_cone_mills_prestige
+			days = long_modifier_time
+		}
+	}
+}
+
+########################################
+# 59 — Burlington Industries founded
+########################################
+
+nc_flavor_events.59 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.59.t
+	desc = nc_flavor_events.59.d
+	flavor = nc_flavor_events.59.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_company = company_type:company_burlington_industries
+		NOT = { has_variable = nc_burlington_story_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_burlington_story_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.59.a
+		default_option = yes
+		custom_tooltip = nc_burlington_story_tt
+		add_modifier = {
+			name = nc_burlington_prestige
+			days = long_modifier_time
+		}
+	}
+}
+
+########################################
+# 60 — Mill town prosperity (2+ textile firms)
+########################################
+
+nc_flavor_events.60 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.60.t
+	desc = nc_flavor_events.60.d
+	flavor = nc_flavor_events.60.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+	cooldown = { days = very_long_modifier_time }
+
+	trigger = {
+		NOT = { has_variable = nc_mill_town_prosperity_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+		OR = {
+			AND = {
+				has_company = company_type:company_cannon_mills
+				OR = {
+					has_company = company_type:company_cone_mills
+					has_company = company_type:company_burlington_industries
+					has_company = company_type:company_hanes
+				}
+			}
+			AND = {
+				has_company = company_type:company_cone_mills
+				OR = {
+					has_company = company_type:company_burlington_industries
+					has_company = company_type:company_hanes
+				}
+			}
+			AND = {
+				has_company = company_type:company_burlington_industries
+				has_company = company_type:company_hanes
+			}
+		}
+	}
+
+	immediate = {
+		set_variable = nc_mill_town_prosperity_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.60.a
+		default_option = yes
+		custom_tooltip = nc_mill_town_prosperity_tt
+		add_modifier = {
+			name = nc_mill_town_prosperity_country
+			days = very_long_modifier_time
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_mill_town_prosperity
+				days = very_long_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 61 — Cape Fear ports JE opens
+########################################
+
+nc_flavor_events.61 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.61.t
+	desc = nc_flavor_events.61.d
+	flavor = nc_flavor_events.61.f
+
+	event_image = {
+		video = "europenorthamerica_gold_prospectors"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_cape_fear_ports
+		NOT = { has_variable = nc_cape_fear_ports_fired }
+	}
+
+	immediate = {
+		set_variable = nc_cape_fear_ports_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.61.a
+		default_option = yes
+		custom_tooltip = nc_cape_fear_ports_start_tt
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_wilmington_harbor_works
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 62 — Cape Fear ports complete
+########################################
+
+nc_flavor_events.62 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.62.t
+	desc = nc_flavor_events.62.d
+	flavor = nc_flavor_events.62.f
+
+	event_image = {
+		video = "europenorthamerica_gold_prospectors"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.62.a
+		default_option = yes
+		custom_tooltip = nc_cape_fear_ports_complete_tt
+		add_modifier = {
+			name = nc_cape_fear_ports_country
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_cape_fear_ports_hub
+			}
+		}
+	}
+}
+
+########################################
+# 63 — Wright JE opens (Kitty Hawk)
+########################################
+
+nc_flavor_events.63 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.63.t
+	desc = nc_flavor_events.63.d
+	flavor = nc_flavor_events.63.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_wright_brothers
+		NOT = { has_variable = nc_wright_je_fired }
+	}
+
+	immediate = {
+		set_variable = nc_wright_je_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.63.a
+		default_option = yes
+		custom_tooltip = nc_wright_je_start_tt
+	}
+}
+
+########################################
+# 64 — Wright JE complete
+########################################
+
+nc_flavor_events.64 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.64.t
+	desc = nc_flavor_events.64.d
+	flavor = nc_flavor_events.64.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.64.a
+		default_option = yes
+		custom_tooltip = nc_wright_je_complete_tt
+		custom_tooltip = nc_character_wright_tt
+		nc_spawn_wright_brothers = yes
+		add_modifier = {
+			name = nc_aviation_pioneer
+		}
+	}
+}
+
+########################################
+# 65 — Reconstruction / New South JE opens
+########################################
+
+nc_flavor_events.65 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.65.t
+	desc = nc_flavor_events.65.d
+	flavor = nc_flavor_events.65.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_new_south
+		NOT = { has_variable = nc_new_south_fired }
+	}
+
+	immediate = {
+		set_variable = nc_new_south_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.65.a
+		default_option = yes
+		custom_tooltip = nc_new_south_start_tt
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 66 — New South bargain (completion)
+########################################
+
+nc_flavor_events.66 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.66.t
+	desc = nc_flavor_events.66.d
+	flavor = nc_flavor_events.66.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	# Literacy / education path
+	option = {
+		name = nc_flavor_events.66.a
+		default_option = yes
+		custom_tooltip = nc_new_south_literacy_tt
+		add_modifier = {
+			name = nc_new_south_literacy_country
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_new_south_literacy
+			}
+		}
+		ai_chance = { base = 40 }
+	}
+
+	# Spindle / industrial path
+	option = {
+		name = nc_flavor_events.66.b
+		custom_tooltip = nc_new_south_spindles_tt
+		add_modifier = {
+			name = nc_new_south_spindles_country
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_new_south_spindles
+			}
+		}
+		ai_chance = { base = 35 }
+	}
+
+	# Compromise bargain
+	option = {
+		name = nc_flavor_events.66.c
+		custom_tooltip = nc_new_south_bargain_tt
+		add_modifier = {
+			name = nc_new_south_bargain_country
+		}
+		every_scope_state = {
+			limit = { state_region = s:STATE_NORTH_CAROLINA }
+			add_modifier = {
+				name = nc_new_south_bargain
+			}
+		}
+		ai_chance = { base = 25 }
+	}
+}
+
+########################################
+# 67 — Reconstruction tension pulse
+########################################
+
+nc_flavor_events.67 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.67.t
+	desc = nc_flavor_events.67.d
+	flavor = nc_flavor_events.67.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_new_south
+		NOT = { has_variable = nc_new_south_complete }
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.67.a
+		default_option = yes
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_reconstruction_tension_schools
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = nc_ig_landowners_upset
+				years = 2
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.67.b
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_reconstruction_tension_planters
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = nc_ig_industrialists_upset
+				years = 2
+			}
+		}
+	}
+}
+
+########################################
+# 68 — Outer Banks hazards kickoff
+########################################
+
+nc_flavor_events.68 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.68.t
+	desc = nc_flavor_events.68.d
+	flavor = nc_flavor_events.68.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/building_icons/Cape_Hatteras_Lighthouse.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_outer_banks_hazards
+		NOT = { has_variable = nc_outer_banks_hazards_fired }
+	}
+
+	immediate = {
+		set_variable = nc_outer_banks_hazards_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.68.a
+		default_option = yes
+		custom_tooltip = nc_outer_banks_hazards_start_tt
+	}
+}
+
+########################################
+# 69 — Outer Banks nor'easter / storm pulse
+########################################
+
+nc_flavor_events.69 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.69.t
+	desc = nc_flavor_events.69.d
+	flavor = nc_flavor_events.69.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_outer_banks_hazards
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+		NOT = { has_modifier = nc_outer_banks_storm_damage_country }
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+				has_modifier = nc_outer_banks_storm_damage
+			}
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.69.a
+		default_option = yes
+		custom_tooltip = nc_outer_banks_storm_damage_tt
+		add_modifier = {
+			name = nc_outer_banks_storm_damage_country
+			days = normal_modifier_time
+		}
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_outer_banks_storm_damage
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.69.b
+		add_treasury = -20000
+		custom_tooltip = nc_outer_banks_storm_mitigate_tt
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_outer_banks_storm_damage
+				days = short_modifier_time
+			}
+		}
+		add_modifier = {
+			name = nc_outer_banks_storm_damage_country
+			days = short_modifier_time
+		}
+		add_modifier = {
+			name = nc_lighthouse_vigilance_country
+			days = normal_modifier_time
+		}
+	}
+}
+
+########################################
+# 70 — Outer Banks wreck pulse
+########################################
+
+nc_flavor_events.70 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.70.t
+	desc = nc_flavor_events.70.d
+	flavor = nc_flavor_events.70.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_outer_banks_hazards
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+		NOT = {
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				has_modifier = nc_outer_banks_wreck_toll
+			}
+		}
+	}
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.70.a
+		default_option = yes
+		custom_tooltip = nc_outer_banks_wreck_tt
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_outer_banks_wreck_toll
+				days = normal_modifier_time
+			}
+		}
+		add_modifier = {
+			name = nc_lighthouse_vigilance_country
+			days = normal_modifier_time
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.70.b
+		add_treasury = -15000
+		custom_tooltip = nc_outer_banks_wreck_salvage_tt
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_outer_banks_wreck_toll
+				days = short_modifier_time
+			}
+		}
+		add_modifier = {
+			name = nc_lighthouse_vigilance_country
+			days = long_modifier_time
+		}
+	}
+}
+
+########################################
+# 71 — Coastal reconstruction funded
+########################################
+
+nc_flavor_events.71 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.71.t
+	desc = nc_flavor_events.71.d
+	flavor = nc_flavor_events.71.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/building_icons/Cape_Hatteras_Lighthouse.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.71.a
+		default_option = yes
+		custom_tooltip = nc_coastal_reconstruction_event_tt
+	}
+}
+
+########################################
+# 72 — Valdese Waldensians JE opens
+########################################
+
+nc_flavor_events.72 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.72.t
+	desc = nc_flavor_events.72.d
+	flavor = nc_flavor_events.72.f
+
+	event_image = {
+		video = "europenorthamerica_rich_and_poor"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	duration = 3
+
+	trigger = {
+		has_journal_entry = je_nc_valdese_waldensians
+		NOT = { has_variable = nc_valdese_fired }
+	}
+
+	immediate = {
+		set_variable = nc_valdese_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.72.a
+		default_option = yes
+		custom_tooltip = nc_valdese_start_tt
+	}
+}
+
+########################################
+# 73 — Valdese colony established
+########################################
+
+nc_flavor_events.73 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.73.t
+	desc = nc_flavor_events.73.d
+	flavor = nc_flavor_events.73.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	immediate = {
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.73.a
+		default_option = yes
+		custom_tooltip = nc_valdese_complete_tt
+		add_modifier = {
+			name = nc_valdese_colony_country
+		}
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_valdese_colony
+			}
+		}
+	}
+}
+
+########################################
+# 74 — Biltmore Italian artisans
+########################################
+
+nc_flavor_events.74 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.74.t
+	desc = nc_flavor_events.74.d
+	flavor = nc_flavor_events.74.f
+
+	event_image = {
+		video = "europenorthamerica_capitalists_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+	duration = 3
+
+	trigger = {
+		NOT = { has_variable = nc_biltmore_artisans_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_biltmore_artisans_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.74.a
+		default_option = yes
+		custom_tooltip = nc_biltmore_artisans_tt
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_biltmore_artisan_migration
+				days = long_modifier_time
+			}
+		}
+	}
+}
+
+########################################
+# 75 — Piedmont mill specialists
+########################################
+
+nc_flavor_events.75 = {
+	type = country_event
+	placement = scope:nc_state_scope
+
+	title = nc_flavor_events.75.t
+	desc = nc_flavor_events.75.d
+	flavor = nc_flavor_events.75.f
+
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 3
+
+	trigger = {
+		has_variable = nc_piedmont_textiles_complete
+		NOT = { has_variable = nc_mill_specialists_fired }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	immediate = {
+		set_variable = nc_mill_specialists_fired
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+
+	option = {
+		name = nc_flavor_events.75.a
+		default_option = yes
+		custom_tooltip = nc_mill_specialists_tt
+		scope:nc_state_scope = {
+			add_modifier = {
+				name = nc_mill_specialist_migration
+				days = long_modifier_time
 			}
 		}
 	}

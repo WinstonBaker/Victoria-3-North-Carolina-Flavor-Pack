@@ -66,6 +66,14 @@ on_monthly_pulse_country = {
 		nc_flavor_events.46	# Vick Chemical company story
 		nc_flavor_events.47	# Hanes company story
 		nc_flavor_events.48	# NC Railroad company story
+		nc_flavor_events.53	# W. Duke, Sons company story
+		nc_flavor_events.54	# R.J. Reynolds company story
+		nc_flavor_events.55	# Liggett & Myers company story
+		nc_flavor_events.57	# Cannon Mills company story
+		nc_flavor_events.58	# Cone Mills company story
+		nc_flavor_events.59	# Burlington Industries company story
+		nc_flavor_events.60	# Mill town prosperity
+		nc_flavor_events.75	# Piedmont mill specialists migration
 	}
 	on_actions = {
 		nc_flavor_monthly_pulse
@@ -118,6 +126,21 @@ nc_flavor_monthly_pulse = {
 				has_variable = nc_light_build_pending
 			}
 			nc_recover_stale_lighthouse_charters = yes
+		}
+
+		# Education prestige scales with live NC university campus count
+		if = {
+			limit = {
+				any_scope_state = {
+					state_region = s:STATE_NORTH_CAROLINA
+					owner = ROOT
+				}
+			}
+			nc_refresh_education_prestige = yes
+		}
+		else_if = {
+			limit = { has_modifier = nc_education_prestige_country }
+			remove_modifier = nc_education_prestige_country
 		}
 	}
 }

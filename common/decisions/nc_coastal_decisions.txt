@@ -1,0 +1,72 @@
+########################################
+# Outer Banks coastal reconstruction
+########################################
+
+nc_fund_coastal_reconstruction = {
+	is_shown = {
+		has_variable = nc_lighthouse_system_complete
+		OR = {
+			has_modifier = nc_outer_banks_storm_damage_country
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+				OR = {
+					has_modifier = nc_outer_banks_storm_damage
+					has_modifier = nc_outer_banks_wreck_toll
+				}
+			}
+		}
+	}
+
+	possible = {
+		gold_reserves >= 35000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -35000
+		custom_tooltip = nc_fund_coastal_reconstruction_tt
+		if = {
+			limit = { has_modifier = nc_outer_banks_storm_damage_country }
+			remove_modifier = nc_outer_banks_storm_damage_country
+		}
+		every_scope_state = {
+			limit = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+			}
+			if = {
+				limit = { has_modifier = nc_outer_banks_storm_damage }
+				remove_modifier = nc_outer_banks_storm_damage
+			}
+			if = {
+				limit = { has_modifier = nc_outer_banks_wreck_toll }
+				remove_modifier = nc_outer_banks_wreck_toll
+			}
+			add_modifier = {
+				name = nc_coastal_reconstruction_works
+				days = long_modifier_time
+			}
+		}
+		add_modifier = {
+			name = nc_lighthouse_vigilance_country
+			days = long_modifier_time
+		}
+		if = {
+			limit = { NOT = { has_variable = nc_coastal_reconstruction_done } }
+			set_variable = nc_coastal_reconstruction_done
+			add_modifier = {
+				name = nc_outer_banks_hazards_complete_country
+			}
+		}
+		trigger_event = { id = nc_flavor_events.71 popup = yes }
+	}
+
+	ai_chance = {
+		value = 40
+	}
+}

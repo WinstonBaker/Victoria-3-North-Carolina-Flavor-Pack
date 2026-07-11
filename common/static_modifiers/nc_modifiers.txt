@@ -310,7 +310,7 @@ nc_research_triangle = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	state_pop_qualifications_mult = 0.20
 	state_education_access_add = 0.15
-	state_migration_pull_mult = 0.06
+	state_migration_pull_mult = 0.10
 	state_construction_mult = 0.03
 }
 
@@ -637,4 +637,295 @@ nc_naval_stores_belt = {
 nc_naval_stores_belt_country = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	country_prestige_add = 20
+}
+
+########################################
+# Tobacco Belt (v1.1)
+########################################
+
+nc_durham_tobacco_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_tobacco_plantation_throughput_add = 0.25
+	building_food_industry_throughput_add = 0.05
+	interest_group_ig_industrialists_approval_add = 2
+}
+
+nc_winston_tobacco_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_tobacco_plantation_throughput_add = 0.20
+	building_food_industry_throughput_add = 0.10
+}
+
+nc_liggett_tobacco_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_tobacco_plantation_throughput_add = 0.20
+	building_food_industry_throughput_add = 0.05
+}
+
+nc_duke_tobacco_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 12
+	building_tobacco_plantation_throughput_add = 0.05
+	interest_group_ig_industrialists_approval_add = 2
+}
+
+nc_reynolds_tobacco_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+	building_tobacco_plantation_throughput_add = 0.05
+}
+
+nc_liggett_tobacco_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+	building_tobacco_plantation_throughput_add = 0.05
+	interest_group_ig_industrialists_approval_add = 1
+}
+
+nc_tobacco_belt_complete = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 30
+	building_tobacco_plantation_throughput_add = 0.10
+	interest_group_ig_industrialists_approval_add = 4
+}
+
+nc_tobacco_belt_state = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_tobacco_plantation_throughput_add = 0.15
+	building_food_industry_throughput_add = 0.05
+	state_migration_pull_mult = 0.05
+}
+
+nc_cannon_mills_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 8
+	building_textile_mill_throughput_add = 0.05
+}
+
+nc_cone_mills_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 8
+	building_textile_mill_throughput_add = 0.05
+	building_cotton_plantation_throughput_add = 0.03
+}
+
+nc_burlington_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+	building_textile_mill_throughput_add = 0.05
+	state_migration_pull_mult = 0.03
+}
+
+nc_mill_town_prosperity = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_textile_mill_throughput_add = 0.15
+	state_lower_strata_standard_of_living_add = 1
+	state_migration_pull_mult = 0.05
+}
+
+nc_mill_town_prosperity_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 15
+	interest_group_ig_industrialists_approval_add = 3
+}
+
+########################################
+# Cape Fear ports / Wright / New South (v1.2)
+########################################
+
+nc_wilmington_harbor_works = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_port_throughput_add = 0.25
+	state_trade_capacity_mult = 0.10
+	state_infrastructure_add = 15
+	building_group_bg_logging_throughput_add = 0.05
+}
+
+nc_morehead_terminal_works = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_port_throughput_add = 0.20
+	state_trade_capacity_mult = 0.08
+	state_infrastructure_add = 10
+}
+
+nc_cape_fear_ports_hub = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_port_throughput_add = 0.20
+	state_trade_capacity_mult = 0.15
+	state_infrastructure_add = 20
+	building_group_bg_logging_throughput_add = 0.05
+}
+
+nc_cape_fear_ports_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 25
+	country_port_connection_cost_mult = -0.05
+}
+
+nc_kitty_hawk_experiments = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_weekly_innovation_add = 5
+	state_migration_pull_mult = 0.05
+}
+
+nc_aviation_pioneer = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 35
+	country_weekly_innovation_add = 15
+	country_prestige_mult = 0.02
+}
+
+nc_freedmen_schools = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_education_access_add = 0.15
+}
+
+nc_new_south_literacy = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_education_access_add = 0.10
+	state_construction_mult = 0.05
+}
+
+nc_new_south_literacy_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 20
+	interest_group_ig_intelligentsia_approval_add = 4
+	interest_group_ig_landowners_approval_add = -2
+}
+
+nc_new_south_spindles = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_textile_mill_throughput_add = 0.15
+	state_construction_mult = 0.10
+	state_lower_strata_standard_of_living_add = 0.5
+}
+
+nc_new_south_spindles_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 20
+	interest_group_ig_industrialists_approval_add = 4
+	interest_group_ig_landowners_approval_add = -2
+}
+
+nc_new_south_bargain = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_textile_mill_throughput_add = 0.08
+	state_education_access_add = 0.08
+	state_construction_mult = 0.05
+}
+
+nc_new_south_bargain_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 25
+	interest_group_ig_industrialists_approval_add = 2
+	interest_group_ig_intelligentsia_approval_add = 2
+}
+
+nc_reconstruction_tension_schools = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_education_access_add = 0.08
+}
+
+nc_reconstruction_tension_planters = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_tobacco_plantation_throughput_add = 0.10
+	building_cotton_plantation_throughput_add = 0.10
+}
+
+########################################
+# v2.0 — Education prestige (per-campus unit; multiplied by campus count)
+########################################
+
+nc_education_prestige = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_education_access_add = 0.005
+	state_pop_qualifications_mult = 0.008
+	state_migration_pull_mult = 0.02
+	state_migration_pull_add = 2
+}
+
+nc_education_prestige_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 2
+	country_weekly_innovation_add = 1
+}
+
+########################################
+# 1.3 — Valdese Waldensians + migrant hooks
+########################################
+
+nc_valdese_settlement_boom = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_migration_pull_mult = 0.20
+	state_migration_pull_add = 25
+	state_construction_mult = 0.10
+}
+
+nc_valdese_colony = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_migration_pull_mult = 0.12
+	state_migration_pull_add = 15
+	building_textile_mill_throughput_add = 0.08
+}
+
+nc_valdese_colony_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 15
+	interest_group_ig_devout_approval_add = 2
+}
+
+nc_biltmore_artisan_migration = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_migration_pull_mult = 0.10
+	state_migration_pull_add = 12
+	state_construction_mult = 0.08
+}
+
+nc_mill_specialist_migration = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_migration_pull_mult = 0.12
+	state_migration_pull_add = 15
+	building_textile_mill_throughput_add = 0.10
+}
+
+########################################
+# v2.0 — Outer Banks storm / wreck pulse
+########################################
+
+nc_outer_banks_storm_damage = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	building_port_throughput_add = -0.20
+	state_trade_capacity_mult = -0.12
+	state_infrastructure_add = -10
+	state_market_access_price_impact = -0.05
+}
+
+nc_outer_banks_storm_damage_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	country_port_connection_cost_mult = 0.08
+}
+
+nc_outer_banks_wreck_toll = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	building_port_throughput_add = -0.10
+	state_trade_capacity_mult = -0.08
+	building_fishing_wharf_throughput_add = -0.15
+}
+
+nc_coastal_reconstruction_works = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_port_throughput_add = 0.12
+	state_construction_mult = 0.08
+	state_infrastructure_add = 8
+}
+
+nc_lighthouse_vigilance_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 10
+	country_port_connection_cost_mult = -0.05
+}
+
+nc_outer_banks_hazards_complete_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	country_prestige_add = 15
 }

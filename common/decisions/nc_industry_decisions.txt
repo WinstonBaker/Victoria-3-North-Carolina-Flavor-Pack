@@ -220,3 +220,403 @@ nc_fund_dismal_canal = {
 		value = 18
 	}
 }
+
+########################################
+# Tobacco Belt — Duke / Reynolds / Liggett sponsors
+########################################
+
+nc_sponsor_durham_tobacco = {
+	is_shown = {
+		has_journal_entry = je_nc_tobacco_belt
+		NOT = { has_variable = nc_duke_tobacco_sponsored }
+		NOT = { has_company = company_type:company_w_duke_sons }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 50000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -50000
+		set_variable = nc_duke_tobacco_sponsored
+		custom_tooltip = nc_sponsor_durham_tobacco_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_durham_tobacco_boom
+					days = long_modifier_time
+				}
+				if = {
+					limit = {
+						NOT = { has_building = building_tobacco_plantation }
+					}
+					start_building_construction = building_tobacco_plantation
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 18
+	}
+}
+
+nc_sponsor_winston_tobacco = {
+	is_shown = {
+		has_journal_entry = je_nc_tobacco_belt
+		NOT = { has_variable = nc_reynolds_sponsored }
+		NOT = { has_company = company_type:company_rj_reynolds }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 45000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -45000
+		set_variable = nc_reynolds_sponsored
+		custom_tooltip = nc_sponsor_winston_tobacco_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_winston_tobacco_boom
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 16
+	}
+}
+
+nc_sponsor_liggett_myers = {
+	is_shown = {
+		has_journal_entry = je_nc_tobacco_belt
+		NOT = { has_variable = nc_liggett_sponsored }
+		NOT = { has_company = company_type:company_liggett_myers }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 45000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -45000
+		set_variable = nc_liggett_sponsored
+		custom_tooltip = nc_sponsor_liggett_myers_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_liggett_tobacco_boom
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 15
+	}
+}
+
+########################################
+# Cape Fear / Morehead port hubs
+########################################
+
+nc_fund_wilmington_harbor = {
+	is_shown = {
+		has_journal_entry = je_nc_cape_fear_ports
+		NOT = { has_variable = nc_wilmington_harbor_funded }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 80000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -80000
+		set_variable = nc_wilmington_harbor_funded
+		custom_tooltip = nc_fund_wilmington_harbor_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_wilmington_harbor_works
+					days = long_modifier_time
+				}
+				if = {
+					limit = {
+						NOT = { has_building = building_port }
+					}
+					start_building_construction = building_port
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 20
+	}
+}
+
+nc_fund_morehead_terminal = {
+	is_shown = {
+		has_journal_entry = je_nc_cape_fear_ports
+		NOT = { has_variable = nc_morehead_terminal_funded }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 60000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -60000
+		set_variable = nc_morehead_terminal_funded
+		custom_tooltip = nc_fund_morehead_terminal_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_morehead_terminal_works
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 16
+	}
+}
+
+########################################
+# Kitty Hawk experiments
+########################################
+
+nc_fund_kitty_hawk = {
+	is_shown = {
+		has_journal_entry = je_nc_wright_brothers
+		NOT = { has_variable = nc_kitty_hawk_funded }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 35000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	when_taken = {
+		add_treasury = -35000
+		set_variable = nc_kitty_hawk_funded
+		custom_tooltip = nc_fund_kitty_hawk_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_kitty_hawk_experiments
+					days = very_long_modifier_time
+				}
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 22
+	}
+}
+
+########################################
+# Reconstruction — freedmen schools
+########################################
+
+nc_fund_freedmen_schools = {
+	is_shown = {
+		has_journal_entry = je_nc_new_south
+		NOT = { has_variable = nc_freedmen_schools_funded }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 55000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -55000
+		set_variable = nc_freedmen_schools_funded
+		custom_tooltip = nc_fund_freedmen_schools_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_freedmen_schools
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = nc_ig_patronage
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = nc_ig_landowners_upset
+				years = 3
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 14
+	}
+}
+
+########################################
+# Valdese Waldensians — Burke County colony sponsor
+########################################
+
+nc_sponsor_valdese_colony = {
+	is_shown = {
+		has_journal_entry = je_nc_valdese_waldensians
+		NOT = { has_variable = nc_valdese_sponsored }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 45000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -45000
+		set_variable = nc_valdese_sponsored
+		custom_tooltip = nc_sponsor_valdese_colony_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_valdese_settlement_boom
+					days = long_modifier_time
+				}
+			}
+		}
+		ig:ig_devout ?= {
+			add_modifier = {
+				name = nc_ig_patronage_minor
+				days = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 16
+	}
+}

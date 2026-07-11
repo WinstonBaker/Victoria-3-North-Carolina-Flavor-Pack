@@ -6,3 +6,103 @@ construction_cost_nc_capitol_remaining = 1500
 # Outer Banks lights — pricier than vanilla medium (400)
 construction_cost_nc_lighthouse = 800
 construction_cost_nc_lighthouse_major = 1100
+
+########################################
+# Education prestige — live campus count
+# Evaluated in country scope; counts unique NC university buildings.
+########################################
+
+nc_university_campus_count = {
+	value = 0
+	every_scope_state = {
+		limit = {
+			state_region = s:STATE_NORTH_CAROLINA
+		}
+		if = {
+			limit = { has_building = building_unc_chapel_hill }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_wake_forest_college }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_nc_state_university }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_duke_university }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_davidson_college }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_shaw_university }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_unc_charlotte }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_unc_asheville }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_unc_wilmington }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_appalachian_state }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_east_carolina_university }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_western_carolina_university }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_unc_greensboro }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_nc_at_university }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_elon_university }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_nc_central_university }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_unc_school_of_the_arts }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_johnson_c_smith_university }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_fayetteville_state }
+			add = 1
+		}
+		if = {
+			limit = { has_building = building_unc_pembroke }
+			add = 1
+		}
+	}
+}
+
+# Soft score for tooltips / AI: prestige points implied by campus count
+nc_education_prestige_score = {
+	value = nc_university_campus_count
+	multiply = 2
+}

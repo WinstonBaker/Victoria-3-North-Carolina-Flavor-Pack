@@ -1,3 +1,7 @@
 # Local tooling / source assets — not loaded by the game
 .cursor_icon_preview/
 assets/
+
+# macOS Finder metadata
+.DS_Store
+**/.DS_Store

@@ -1,6 +1,7 @@
 ########################################
 # Outer Banks / Carolina Lighthouses
 # Unique monuments — no urban-center requirement (bg_monuments).
+# Map mesh: european_lighthouse_01_entity (vanilla port-city lighthouse).
 ########################################
 
 # --- 1836 starting lights (pre-built via history) ---
@@ -15,7 +16,7 @@ building_nc_old_baldy_lighthouse = {
 
 	entity_not_constructed = { }
 	entity_under_construction = { "building_construction_2x2_entity" }
-	entity_constructed = { }
+	entity_constructed = { "european_lighthouse_01_entity" }
 
 	city_gfx_interactions = {
 		clear_size_area = yes
@@ -46,7 +47,7 @@ building_nc_ocracoke_lighthouse = {
 
 	entity_not_constructed = { }
 	entity_under_construction = { "building_construction_2x2_entity" }
-	entity_constructed = { }
+	entity_constructed = { "european_lighthouse_01_entity" }
 
 	city_gfx_interactions = {
 		clear_size_area = yes
@@ -79,7 +80,7 @@ building_nc_cape_hatteras_lighthouse = {
 
 	entity_not_constructed = { }
 	entity_under_construction = { "building_construction_2x2_entity" }
-	entity_constructed = { }
+	entity_constructed = { "european_lighthouse_01_entity" }
 
 	city_gfx_interactions = {
 		clear_size_area = yes
@@ -112,7 +113,7 @@ building_nc_cape_lookout_lighthouse = {
 
 	entity_not_constructed = { }
 	entity_under_construction = { "building_construction_2x2_entity" }
-	entity_constructed = { }
+	entity_constructed = { "european_lighthouse_01_entity" }
 
 	city_gfx_interactions = {
 		clear_size_area = yes
@@ -154,7 +155,7 @@ building_nc_bodie_island_lighthouse = {
 
 	entity_not_constructed = { }
 	entity_under_construction = { "building_construction_2x2_entity" }
-	entity_constructed = { }
+	entity_constructed = { "european_lighthouse_01_entity" }
 
 	city_gfx_interactions = {
 		clear_size_area = yes
@@ -196,7 +197,7 @@ building_nc_currituck_beach_lighthouse = {
 
 	entity_not_constructed = { }
 	entity_under_construction = { "building_construction_2x2_entity" }
-	entity_constructed = { }
+	entity_constructed = { "european_lighthouse_01_entity" }
 
 	city_gfx_interactions = {
 		clear_size_area = yes
@@ -237,7 +238,7 @@ building_nc_cape_fear_lighthouse = {
 
 	entity_not_constructed = { }
 	entity_under_construction = { "building_construction_2x2_entity" }
-	entity_constructed = { }
+	entity_constructed = { "european_lighthouse_01_entity" }
 
 	city_gfx_interactions = {
 		clear_size_area = yes
