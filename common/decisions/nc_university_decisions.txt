@@ -1,0 +1,215 @@
+########################################
+# University System decisions
+# Charter slots after Research Triangle (capacity 1, upgradeable to 2)
+########################################
+
+nc_choose_next_university = {
+	is_shown = {
+		has_variable = nc_research_triangle_complete
+		NOT = { has_variable = nc_complete_unc_system_done }
+		has_variable = nc_uni_charter_capacity
+		check_variable = {
+			name = nc_uni_charter_count
+			value < var:nc_uni_charter_capacity
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		has_variable = nc_research_triangle_complete
+		NOT = { has_variable = nc_complete_unc_system_done }
+		check_variable = {
+			name = nc_uni_charter_count
+			value < var:nc_uni_charter_capacity
+		}
+	}
+
+	when_taken = {
+		trigger_event = { id = nc_flavor_events.32 popup = yes }
+	}
+
+	ai_chance = {
+		base = 25
+	}
+}
+
+# Permanent upgrade: charter two campuses at once
+nc_expand_university_board = {
+	is_shown = {
+		has_variable = nc_research_triangle_complete
+		NOT = { has_variable = nc_complete_unc_system_done }
+		has_variable = nc_uni_charter_capacity
+		check_variable = {
+			name = nc_uni_charter_capacity
+			value < 2
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		has_variable = nc_research_triangle_complete
+		check_variable = {
+			name = nc_uni_charter_capacity
+			value < 2
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -100000
+		add_authority = -50
+		set_variable = {
+			name = nc_uni_charter_capacity
+			value = 2
+		}
+		custom_tooltip = nc_expand_university_board_tt
+	}
+
+	ai_chance = {
+		base = 12
+	}
+}
+
+# Timed construction push while any campus charter is active
+nc_university_construction_push = {
+	is_shown = {
+		has_variable = nc_research_triangle_complete
+		NOT = { has_variable = nc_complete_unc_system_done }
+		check_variable = {
+			name = nc_uni_charter_count
+			value > 0
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		check_variable = {
+			name = nc_uni_charter_count
+			value > 0
+		}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+			NOT = { has_modifier = nc_university_system_grants }
+		}
+	}
+
+	when_taken = {
+		add_treasury = -50000
+		custom_tooltip = nc_university_construction_push_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				add_modifier = {
+					name = nc_university_system_grants
+					days = normal_modifier_time
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 15
+	}
+}
+
+# Reopen Centennial Campus expansion if deferred (or after first offer)
+nc_raise_centennial_campus = {
+	is_shown = {
+		has_variable = nc_ncsu_founded
+		OR = {
+			has_variable = nc_ncsu_centennial_deferred
+			has_variable = nc_ncsu_centennial_offered
+		}
+		NOT = { has_variable = nc_ncsu_centennial_authorized }
+		NOT = { has_variable = nc_ncsu_centennial_complete }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			any_scope_building = {
+				is_building_type = building_nc_state_university
+				level = 1
+			}
+		}
+	}
+
+	possible = {
+		gold_reserves >= 60000
+		NOT = { has_variable = nc_ncsu_centennial_authorized }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_nc_state_university
+				level = 1
+			}
+		}
+	}
+
+	when_taken = {
+		add_treasury = -60000
+		set_variable = nc_ncsu_centennial_authorized
+		remove_variable = nc_ncsu_centennial_deferred
+		custom_tooltip = nc_ncsu_centennial_fund_tt
+		s:STATE_NORTH_CAROLINA = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				start_building_construction = building_nc_state_university
+				add_modifier = {
+					name = nc_university_expansion_rush
+					years = 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 18
+	}
+}
+
+# Move Wake Forest College to Winston-Salem / university status
+nc_relocate_wake_forest = {
+	is_shown = {
+		NOT = { has_variable = nc_wake_forest_relocated }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			has_building = building_wake_forest_college
+		}
+	}
+
+	possible = {
+		gold_reserves >= 40000
+		has_technology_researched = railways
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+			has_building = building_wake_forest_college
+		}
+	}
+
+	when_taken = {
+		trigger_event = { id = nc_flavor_events.39 popup = yes }
+	}
+
+	ai_chance = {
+		base = 10
+	}
+}

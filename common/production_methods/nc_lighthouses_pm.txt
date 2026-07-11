@@ -29,6 +29,9 @@ pm_nc_lighthouse_kerosene = {
 		workforce_scaled = {
 			goods_input_oil_add = 2
 		}
+		unscaled = {
+			building_port_throughput_add = 0.01
+		}
 		level_scaled = {
 			building_employment_bureaucrats_add = 10
 			building_employment_soldiers_add = 10
@@ -47,9 +50,18 @@ pm_nc_lighthouse_electric = {
 		workforce_scaled = {
 			goods_input_electricity_add = 1
 		}
+		unscaled = {
+			building_port_throughput_add = 0.02
+		}
 		level_scaled = {
-			building_employment_bureaucrats_add = 10
-			building_employment_soldiers_add = 10
+			building_employment_bureaucrats_add = 5
+			building_employment_soldiers_add = 5
+		}
+	}
+
+	country_modifiers = {
+		unscaled = {
+			country_prestige_add = 1
 		}
 	}
 }
@@ -61,7 +73,6 @@ pm_nc_lighthouse_electric = {
 #  Trade competitiveness → trade advantage
 #  Port/Coastal defense → naval fortification defense
 #  Convoy capacity → cheaper merchant-marine port connections
-#  Enlistment → conscription rate
 ########################################
 
 pm_nc_old_baldy_active = {
@@ -78,7 +89,7 @@ pm_nc_old_baldy_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_port_connection_cost_mult = -0.02
+			country_port_connection_cost_mult = -0.01
 		}
 	}
 }
@@ -97,7 +108,7 @@ pm_nc_ocracoke_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_port_connection_cost_mult = -0.02
+			country_port_connection_cost_mult = -0.01
 		}
 	}
 }
@@ -117,7 +128,7 @@ pm_nc_cape_hatteras_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_port_connection_cost_mult = -0.02
+			country_port_connection_cost_mult = -0.01
 		}
 	}
 }
@@ -144,7 +155,7 @@ pm_nc_cape_hatteras_rebuilt = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_prestige_add = 15
-			country_port_connection_cost_mult = -0.05
+			country_port_connection_cost_mult = -0.03
 		}
 	}
 }
@@ -163,7 +174,7 @@ pm_nc_cape_lookout_active = {
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_port_connection_cost_mult = -0.03
+			country_port_connection_cost_mult = -0.02
 		}
 	}
 }
@@ -182,7 +193,7 @@ pm_nc_bodie_island_active = {
 	country_modifiers = {
 		workforce_scaled = {
 			# Cheaper merchant-marine demand ≈ more convoy capacity
-			country_port_connection_cost_mult = -0.05
+			country_port_connection_cost_mult = -0.02
 		}
 	}
 }
@@ -191,16 +202,17 @@ pm_nc_currituck_beach_active = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
 	is_hidden_when_unavailable = yes
 
+	# Northern Banks trade corridor — closes the last dark stretch for coastal shipping
 	state_modifiers = {
 		workforce_scaled = {
 			building_port_throughput_add = 0.03
-			state_conscription_rate_mult = 0.05
+			state_trade_advantage_mult = 0.05
 		}
 	}
 
 	country_modifiers = {
 		workforce_scaled = {
-			country_port_connection_cost_mult = -0.03
+			country_port_connection_cost_mult = -0.02
 		}
 	}
 }
@@ -220,7 +232,7 @@ pm_nc_cape_fear_active = {
 	country_modifiers = {
 		workforce_scaled = {
 			country_prestige_add = 10
-			country_port_connection_cost_mult = -0.05
+			country_port_connection_cost_mult = -0.03
 		}
 	}
 }

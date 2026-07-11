@@ -1,0 +1,200 @@
+########################################
+# Decisions to charter NC railroad lines
+# State funding only — full queue to JE target.
+# Private funding is via charter events (option B).
+########################################
+
+nc_charter_wilmington_weldon = {
+	is_shown = {
+		has_journal_entry = je_nc_wilmington_weldon
+		NOT = { has_variable = nc_wilmington_weldon_chartered }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 150000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -150000
+		set_variable = nc_wilmington_weldon_chartered
+		remove_variable = nc_wilmington_weldon_private
+		nc_save_nc_rail_state = yes
+		scope:nc_state_scope = {
+			nc_queue_railways_to_level = { LEVEL = 8 }
+			add_modifier = {
+				name = nc_railroad_under_construction
+				years = 1
+			}
+		}
+		custom_tooltip = nc_charter_wilmington_weldon_tt
+	}
+
+	ai_chance = {
+		value = 40
+	}
+}
+
+nc_charter_raleigh_gaston = {
+	is_shown = {
+		has_journal_entry = je_nc_raleigh_gaston
+		NOT = { has_variable = nc_raleigh_gaston_chartered }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 75000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -75000
+		set_variable = nc_raleigh_gaston_chartered
+		remove_variable = nc_raleigh_gaston_private
+		nc_save_nc_rail_state = yes
+		scope:nc_state_scope = {
+			nc_queue_railways_to_level = { LEVEL = 10 }
+			add_modifier = {
+				name = nc_railroad_under_construction
+				years = 1
+			}
+		}
+		custom_tooltip = nc_charter_raleigh_gaston_tt
+	}
+
+	ai_chance = {
+		value = 45
+	}
+}
+
+nc_charter_ncr_trunk = {
+	is_shown = {
+		has_journal_entry = je_nc_ncr_trunk
+		NOT = { has_variable = nc_ncr_trunk_chartered }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 175000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -175000
+		set_variable = nc_ncr_trunk_chartered
+		remove_variable = nc_ncr_trunk_private
+		nc_save_nc_rail_state = yes
+		scope:nc_state_scope = {
+			nc_queue_railways_to_level = { LEVEL = 13 }
+			add_modifier = {
+				name = nc_railroad_under_construction
+				years = 1
+			}
+		}
+		custom_tooltip = nc_charter_ncr_trunk_tt
+	}
+
+	ai_chance = {
+		value = 45
+	}
+}
+
+nc_charter_atlantic_nc = {
+	is_shown = {
+		has_journal_entry = je_nc_atlantic_nc
+		NOT = { has_variable = nc_atlantic_nc_chartered }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 125000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -125000
+		set_variable = nc_atlantic_nc_chartered
+		remove_variable = nc_atlantic_nc_private
+		nc_save_nc_rail_state = yes
+		scope:nc_state_scope = {
+			nc_queue_railways_to_level = { LEVEL = 16 }
+			add_modifier = {
+				name = nc_railroad_under_construction
+				years = 1
+			}
+		}
+		custom_tooltip = nc_charter_atlantic_nc_tt
+	}
+
+	ai_chance = {
+		value = 40
+	}
+}
+
+nc_charter_western_nc = {
+	is_shown = {
+		has_journal_entry = je_nc_western_nc
+		NOT = { has_variable = nc_western_nc_chartered }
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		gold_reserves >= 250000
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+			is_incorporated = yes
+		}
+	}
+
+	when_taken = {
+		add_treasury = -250000
+		set_variable = nc_western_nc_chartered
+		remove_variable = nc_western_nc_private
+		nc_save_nc_rail_state = yes
+		scope:nc_state_scope = {
+			nc_queue_railways_to_level = { LEVEL = 20 }
+			add_modifier = {
+				name = nc_railroad_under_construction
+				years = 1
+			}
+		}
+		custom_tooltip = nc_charter_western_nc_tt
+	}
+
+	ai_chance = {
+		value = 35
+	}
+}

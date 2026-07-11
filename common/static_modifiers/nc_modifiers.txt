@@ -61,7 +61,47 @@ nc_ncr_trunk_minor = {
 	state_migration_pull_mult = 0.05
 }
 
-# Permanent reward for completing the NC Railroad JE
+# Atlantic & North Carolina — Goldsboro to Morehead City
+nc_atlantic_nc = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.12
+	building_port_throughput_add = 0.20
+	state_trade_capacity_mult = 0.10
+	state_infrastructure_add = 18
+}
+
+nc_atlantic_nc_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.05
+	building_port_throughput_add = 0.08
+	state_infrastructure_add = 8
+}
+
+# Western North Carolina Railroad — mountain line to Asheville
+nc_western_nc = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.18
+	building_logging_camp_throughput_add = 0.15
+	building_group_bg_mining_throughput_add = 0.10
+	state_infrastructure_add = 30
+	state_migration_pull_mult = 0.12
+}
+
+nc_western_nc_minor = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_railway_throughput_add = 0.08
+	building_logging_camp_throughput_add = 0.05
+	state_infrastructure_add = 12
+}
+
+# Temporary buff while a chartered railroad is under construction
+nc_railroad_under_construction = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_construction_mult = 0.20
+	state_infrastructure_add = 5
+}
+
+# Permanent reward for completing the full NC Railroad JE chain
 nc_carolina_rail_network = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
 	building_railway_throughput_add = 0.20
@@ -226,14 +266,12 @@ nc_charlotte_mint_prestige = {
 }
 
 # --- Research Triangle planning (timed) ---
-# Targets NC monument campuses (bg_monuments), not vanilla building_university
+# Monument campuses have no dynamic building_*_throughput_add types; use state education effects.
 nc_research_triangle_state_grants = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	state_construction_mult = 0.25
 	state_education_access_add = 0.20
-	building_unc_chapel_hill_throughput_add = 0.15
-	building_nc_state_university_throughput_add = 0.15
-	building_duke_university_throughput_add = 0.15
+	state_pop_qualifications_mult = 0.15
 }
 
 nc_research_triangle_state_grants_minor = {
@@ -257,22 +295,102 @@ nc_ig_patronage_minor = {
 # Unified permanent Research Triangle — state package (monument campuses)
 nc_research_triangle = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
-	building_unc_chapel_hill_throughput_add = 0.40
-	building_nc_state_university_throughput_add = 0.40
-	building_duke_university_throughput_add = 0.40
 	state_pop_qualifications_mult = 0.20
-	state_education_access_add = 0.25
-	state_migration_pull_mult = 0.10
+	state_education_access_add = 0.15
+	state_migration_pull_mult = 0.06
+	state_construction_mult = 0.03
 }
 
 # Country-level companion applied alongside the state package
 nc_research_triangle_country = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
-	country_weekly_innovation_add = 15
+	country_weekly_innovation_add = 8
+	country_prestige_add = 25
+}
+
+# --- Davidson College founding ---
+nc_davidson_founded = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_education_access_add = 0.10
+	state_pop_qualifications_mult = 0.10
+	state_conversion_mult = 0.05
+}
+
+nc_davidson_founded_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_prestige_add = 15
+}
+
+# --- Shaw University founding ---
+nc_shaw_founded = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_education_access_add = 0.12
+	state_pop_qualifications_mult = 0.15
+}
+
+nc_shaw_founded_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_prestige_add = 20
+}
+
+# Timed rush while Centennial Campus expands (~half build time vs normal)
+nc_university_expansion_rush = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_construction_mult = 1.0
+}
+
+# --- University System expansion (timed construction aid) ---
+nc_university_system_grants = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_construction_mult = 0.15
+	state_education_access_add = 0.10
+	state_pop_qualifications_mult = 0.10
+}
+
+# Mid-tier permanent bonus after founding several regional campuses
+nc_university_system_expanding = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_education_access_add = 0.10
+	state_pop_qualifications_mult = 0.12
+	state_migration_pull_mult = 0.04
+}
+
+nc_university_system_expanding_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_weekly_innovation_add = 5
+	country_prestige_add = 15
+}
+
+# Full Carolina University System — all regional campuses founded
+nc_carolina_university_system = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_education_access_add = 0.18
+	state_pop_qualifications_mult = 0.20
+	state_migration_pull_mult = 0.08
+	state_construction_mult = 0.03
+}
+
+nc_carolina_university_system_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_weekly_innovation_add = 10
+	country_weekly_innovation_mult = 0.01
 	country_prestige_add = 35
 }
 
+# Wake Forest relocation to Winston-Salem
+nc_wake_forest_relocated = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	state_education_access_add = 0.05
+	state_migration_pull_mult = 0.04
+}
+
+nc_wake_forest_relocated_country = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
+	country_prestige_add = 15
+}
+
 # --- Outer Banks Lighthouses (state-scoped shipping / port buffs) ---
+# Applied when the full sequential lighthouse program is completed
 nc_outer_banks_lighthouses = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
 	building_port_throughput_add = 0.25
@@ -281,10 +399,17 @@ nc_outer_banks_lighthouses = {
 	state_market_access_price_impact = 0.08
 }
 
-# Country-level companion when the full lighthouse program is funded
+# Country-level companion when the full lighthouse program is complete
 nc_outer_banks_lighthouses_country = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
-	country_port_connection_cost_mult = -0.15
+	country_port_connection_cost_mult = -0.10
+}
+
+# Timed aid while expanding the Banks light chain
+nc_lighthouse_construction_grants = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_construction_mult = 0.10
+	building_port_throughput_add = 0.05
 }
 
 # --- Biltmore House ---

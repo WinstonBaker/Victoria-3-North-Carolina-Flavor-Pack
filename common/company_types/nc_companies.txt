@@ -3,7 +3,7 @@ company_w_duke_sons = {
 	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_2.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_tobacco_plantation
@@ -60,7 +60,7 @@ company_rj_reynolds = {
 	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_1.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_tobacco_plantation
@@ -117,7 +117,7 @@ company_cannon_mills = {
 	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_textile_mill
@@ -170,7 +170,7 @@ company_burlington_industries = {
 	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_textile_mill
@@ -228,7 +228,7 @@ company_duke_power = {
 	icon = "gfx/interface/icons/company_icons/basic_electrics.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_power_plant
@@ -288,7 +288,7 @@ company_high_point_furniture = {
 	icon = "gfx/interface/icons/company_icons/basic_home_goods.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_furniture_manufactory
@@ -347,11 +347,11 @@ company_pepsi_cola = {
 	icon = "gfx/interface/icons/company_icons/basic_food.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_food_industry
-		building_sugar_plantation
+		building_tobacco_plantation
 	}
 
 	extension_building_types = {
@@ -385,7 +385,7 @@ company_pepsi_cola = {
 
 	prosperity_modifier = {
 		building_food_industry_throughput_add = 0.15
-		building_sugar_plantation_throughput_add = 0.05
+		building_tobacco_plantation_throughput_add = 0.05
 		state_lower_strata_standard_of_living_add = 0.5
 	}
 
@@ -409,7 +409,7 @@ company_liggett_myers = {
 	icon = "gfx/interface/icons/company_icons/basic_colonial_plantations_1.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_tobacco_plantation
@@ -470,7 +470,7 @@ company_cone_mills = {
 	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_textile_mill
@@ -526,7 +526,7 @@ company_hanes = {
 	icon = "gfx/interface/icons/company_icons/basic_fabrics.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_textile_mill
@@ -587,7 +587,7 @@ company_vick_chemical = {
 	icon = "gfx/interface/icons/company_icons/basic_chemicals.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_chemical_plant
@@ -647,7 +647,7 @@ company_nc_railroad = {
 	icon = "gfx/interface/icons/company_icons/basic_motors.dds"
 	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_heavy.dds"
 
-	flavored_company = no
+	flavored_company = yes
 
 	building_types = {
 		building_railway
@@ -673,17 +673,7 @@ company_nc_railroad = {
 
 	possible = {
 		has_technology_researched = railways
-		OR = {
-			has_variable = nc_railroad_complete
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				is_incorporated = yes
-				any_scope_building = {
-					is_building_type = building_railway
-					level >= 5
-				}
-			}
-		}
+		has_variable = nc_railroad_complete
 	}
 
 	prosperity_modifier = {

@@ -135,7 +135,7 @@ building_nc_cape_lookout_lighthouse = {
 
 	possible = {
 		owner ?= {
-			has_variable = nc_unlocked_cape_lookout
+			has_variable = nc_light_build_lookout
 		}
 	}
 
@@ -166,9 +166,9 @@ building_nc_bodie_island_lighthouse = {
 		pmg_nc_bodie_island
 	}
 
-	# "Kerosene" era → pumpjacks (oil)
+	# Mid-1870s Outer Banks rebuild era (historical Bodie Island tower 1872)
 	unlocking_technologies = {
-		pumpjacks
+		railways
 	}
 
 	potential = {
@@ -177,7 +177,7 @@ building_nc_bodie_island_lighthouse = {
 
 	possible = {
 		owner ?= {
-			has_variable = nc_unlocked_bodie_island
+			has_variable = nc_light_build_bodie
 		}
 	}
 
@@ -218,7 +218,7 @@ building_nc_currituck_beach_lighthouse = {
 
 	possible = {
 		owner ?= {
-			has_variable = nc_unlocked_currituck_beach
+			has_variable = nc_light_build_currituck
 		}
 	}
 
@@ -260,7 +260,7 @@ building_nc_cape_fear_lighthouse = {
 
 	possible = {
 		owner ?= {
-			has_variable = nc_unlocked_cape_fear
+			has_variable = nc_light_build_cape_fear
 		}
 	}
 

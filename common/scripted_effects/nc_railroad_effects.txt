@@ -1,0 +1,91 @@
+########################################
+# Queue government railway construction in a state
+# until level_after_queued_constructions reaches $LEVEL$.
+# Scope: state
+# Call: nc_queue_railways_to_level = { LEVEL = 8 }
+########################################
+
+nc_queue_railways_to_level = {
+	hidden_effect = {
+		while = {
+			count = $LEVEL$
+			if = {
+				limit = {
+					OR = {
+						NOT = {
+							any_scope_building = {
+								is_building_type = building_railway
+							}
+						}
+						any_scope_building = {
+							is_building_type = building_railway
+							level_after_queued_constructions < $LEVEL$
+						}
+					}
+				}
+				start_building_construction = building_railway
+			}
+		}
+	}
+}
+
+########################################
+# Private funding: queue at most $MAX_ADD$ levels,
+# never past the JE target $LEVEL$.
+# Call: nc_queue_railways_partial_to_level = { LEVEL = 8 MAX_ADD = 4 }
+########################################
+
+nc_queue_railways_partial_to_level = {
+	hidden_effect = {
+		while = {
+			count = $MAX_ADD$
+			if = {
+				limit = {
+					OR = {
+						NOT = {
+							any_scope_building = {
+								is_building_type = building_railway
+							}
+						}
+						any_scope_building = {
+							is_building_type = building_railway
+							level_after_queued_constructions < $LEVEL$
+						}
+					}
+				}
+				start_building_construction = building_railway
+			}
+		}
+	}
+}
+
+########################################
+# Pick preferred NC state for rail charter construction.
+# Scope: country. Saves scope:nc_state_scope (incorporated preferred).
+########################################
+
+nc_save_nc_rail_state = {
+	s:STATE_NORTH_CAROLINA = {
+		if = {
+			limit = {
+				any_scope_state = {
+					owner = ROOT
+					is_incorporated = yes
+				}
+			}
+			random_scope_state = {
+				limit = {
+					owner = ROOT
+					is_incorporated = yes
+				}
+				save_scope_as = nc_state_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = { owner = ROOT }
+				save_scope_as = nc_state_scope
+			}
+		}
+	}
+}

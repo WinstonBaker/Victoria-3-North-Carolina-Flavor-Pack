@@ -1,57 +1,62 @@
 ########################################
-# Decisions to authorize later Outer Banks lighthouses
-# Sets unlock variables so the unique monuments become buildable.
+# Outer Banks Lighthouse System
+# Sequential unlocks via choice event (like universities).
+# Cape Hatteras rebuild remains a separate upgrade decision.
 ########################################
 
-nc_authorize_cape_lookout_lighthouse = {
+nc_choose_next_lighthouse = {
 	is_shown = {
-		NOT = { has_variable = nc_unlocked_cape_lookout }
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				has_building = building_nc_cape_lookout_lighthouse
-			}
-		}
+		has_variable = nc_lighthouse_system_active
+		NOT = { has_variable = nc_lighthouse_system_complete }
+		NOT = { has_variable = nc_light_build_pending }
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
 		}
-		has_technology_researched = lathe
 	}
 
 	possible = {
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-			is_incorporated = yes
+		has_variable = nc_lighthouse_system_active
+		NOT = { has_variable = nc_light_build_pending }
+		NOT = { has_variable = nc_lighthouse_system_complete }
+		# At least one unlockable light's tech is researched and not yet founded
+		OR = {
+			AND = {
+				has_technology_researched = lathe
+				NOT = { has_variable = nc_light_founded_lookout }
+			}
+			AND = {
+				has_technology_researched = railways
+				NOT = { has_variable = nc_light_founded_bodie }
+			}
+			AND = {
+				has_technology_researched = railways
+				NOT = { has_variable = nc_light_founded_currituck }
+			}
+			AND = {
+				has_technology_researched = electrical_generation
+				NOT = { has_variable = nc_light_founded_cape_fear }
+			}
 		}
 	}
 
 	when_taken = {
-		set_variable = nc_unlocked_cape_lookout
-		add_treasury = -25000
-		custom_tooltip = nc_authorize_cape_lookout_tt
+		trigger_event = { id = nc_flavor_events.33 popup = yes }
 	}
 
 	ai_chance = {
-		value = 25
+		base = 20
 	}
 }
 
-nc_authorize_bodie_island_lighthouse = {
+nc_start_lighthouse_program = {
 	is_shown = {
-		NOT = { has_variable = nc_unlocked_bodie_island }
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				has_building = building_nc_bodie_island_lighthouse
-			}
-		}
+		NOT = { has_variable = nc_lighthouse_system_active }
+		NOT = { has_variable = nc_lighthouse_system_complete }
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
 		}
-		has_technology_researched = pumpjacks
 	}
 
 	possible = {
@@ -63,83 +68,11 @@ nc_authorize_bodie_island_lighthouse = {
 	}
 
 	when_taken = {
-		set_variable = nc_unlocked_bodie_island
-		add_treasury = -35000
-		custom_tooltip = nc_authorize_bodie_island_tt
+		trigger_event = { id = nc_flavor_events.9 popup = yes }
 	}
 
 	ai_chance = {
-		value = 20
-	}
-}
-
-nc_authorize_currituck_beach_lighthouse = {
-	is_shown = {
-		NOT = { has_variable = nc_unlocked_currituck_beach }
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				has_building = building_nc_currituck_beach_lighthouse
-			}
-		}
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-		}
-		has_technology_researched = railways
-	}
-
-	possible = {
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-			is_incorporated = yes
-		}
-	}
-
-	when_taken = {
-		set_variable = nc_unlocked_currituck_beach
-		add_treasury = -35000
-		custom_tooltip = nc_authorize_currituck_beach_tt
-	}
-
-	ai_chance = {
-		value = 20
-	}
-}
-
-nc_authorize_cape_fear_lighthouse = {
-	is_shown = {
-		NOT = { has_variable = nc_unlocked_cape_fear }
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				has_building = building_nc_cape_fear_lighthouse
-			}
-		}
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-		}
-		has_technology_researched = electrical_generation
-	}
-
-	possible = {
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-			is_incorporated = yes
-		}
-	}
-
-	when_taken = {
-		set_variable = nc_unlocked_cape_fear
-		add_treasury = -50000
-		custom_tooltip = nc_authorize_cape_fear_tt
-	}
-
-	ai_chance = {
-		value = 15
+		base = 10
 	}
 }
 
@@ -170,8 +103,6 @@ nc_rebuild_cape_hatteras = {
 	when_taken = {
 		set_variable = nc_hatteras_rebuilt
 		add_treasury = -45000
-		# Country-scoped activate_production_method matches vanilla history usage
-		# and switches every building of this type (unique, so one lighthouse).
 		activate_production_method = {
 			building_type = building_nc_cape_hatteras_lighthouse
 			production_method = pm_nc_cape_hatteras_rebuilt

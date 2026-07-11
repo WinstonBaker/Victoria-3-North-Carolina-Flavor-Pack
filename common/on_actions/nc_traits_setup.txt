@@ -1,4 +1,10 @@
 on_game_started = {
+	on_actions = {
+		nc_flavor_on_game_started
+	}
+}
+
+nc_flavor_on_game_started = {
 	effect = {
 		# Permanent unlock so the capitol can be (re)built even after the JE ends
 		c:USA ?= {
@@ -49,7 +55,27 @@ on_game_started = {
 on_monthly_pulse_country = {
 	events = {
 		nc_flavor_events.7	# Charlotte Mint — July 27, 1837
-		nc_flavor_events.9	# Outer Banks Lighthouses — from 1840
 		nc_flavor_events.22	# Wright Brothers — December 17, 1903
+		nc_flavor_events.35	# NCSU founded → schedule Centennial
+		nc_flavor_events.37	# Centennial level 2 → activate PM
+	}
+	on_actions = {
+		nc_university_monthly_pulse
+	}
+}
+
+nc_university_monthly_pulse = {
+	effect = {
+		if = {
+			limit = {
+				has_variable = nc_research_triangle_complete
+				NOT = { has_variable = nc_complete_unc_system_done }
+				check_variable = {
+					name = nc_uni_charter_count
+					value > 0
+				}
+			}
+			nc_recover_stale_university_charters = yes
+		}
 	}
 }

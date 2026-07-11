@@ -1,0 +1,253 @@
+########################################
+# North Carolina Universities — production method groups
+########################################
+
+# --- Flagships / start campuses ---
+
+pmg_monument_unc = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_unc_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_wake_forest = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_wake_forest_active
+		pm_wake_forest_university
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+# --- Research Triangle ---
+
+pmg_monument_nc_state = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_nc_state_active
+		pm_nc_state_centennial
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_duke = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_duke_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+# --- Early / church colleges ---
+
+pmg_monument_davidson = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_davidson_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_shaw = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_shaw_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_elon = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_elon_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+# --- Regional University System campuses ---
+
+pmg_monument_unc_charlotte = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_unc_charlotte_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_unc_asheville = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_unc_asheville_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_unc_wilmington = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_unc_wilmington_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_appalachian_state = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_appalachian_state_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_east_carolina = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_east_carolina_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_western_carolina = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_western_carolina_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_unc_greensboro = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_unc_greensboro_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_nc_at = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_nc_at_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_nc_central = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_nc_central_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_uncsa = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_uncsa_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_johnson_c_smith = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_johnson_c_smith_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_fayetteville_state = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_fayetteville_state_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}
+
+pmg_monument_unc_pembroke = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+	is_hidden_when_unavailable = yes
+
+	production_methods = {
+		pm_unc_pembroke_active
+		pm_monument_prestige_only
+		pm_monument_no_effects
+	}
+}

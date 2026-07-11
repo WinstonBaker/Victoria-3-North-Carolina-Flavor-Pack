@@ -1,0 +1,580 @@
+########################################
+# North Carolina University System
+# Each campus unlocks only when chosen via the post-Triangle event
+########################################
+
+building_davidson_college = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/davidson.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_davidson
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_davidson
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1800
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_unc_charlotte = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/unc_charlotte.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_unc_charlotte
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_charlotte
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1600
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_unc_asheville = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/unc_asheville.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_unc_asheville
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_asheville
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1500
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_unc_wilmington = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/unc_wilmington.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_unc_wilmington
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_wilmington
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1500
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_appalachian_state = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/app_state.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_appalachian_state
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_app_state
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1500
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_east_carolina_university = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/ecu.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_east_carolina
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_ecu
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1600
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_western_carolina_university = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/western_carolina.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_western_carolina
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_western
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1400
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_unc_greensboro = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/unc_greensboro.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_unc_greensboro
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_uncg
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1500
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_nc_at_university = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/nc_at.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_nc_at
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_ncat
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1700
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_shaw_university = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/shaw.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_shaw
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_shaw
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1600
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_elon_university = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/elon.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_elon
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_elon
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1400
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_nc_central_university = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/nccu.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_nc_central
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_nccu
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1500
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_unc_school_of_the_arts = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/uncsa.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_uncsa
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_uncsa
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1750
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_johnson_c_smith_university = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/johnson_c_smith.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_johnson_c_smith
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_jcs
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1550
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_fayetteville_state = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/fayetteville_state.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_fayetteville_state
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_fayetteville
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1550
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
+
+building_unc_pembroke = {
+	building_group = bg_monuments
+	icon = "gfx/interface/icons/building_icons/unc_pembroke.dds"
+	expandable = no
+	buildable = yes
+	downsizeable = no
+	unique = yes
+
+	entity_not_constructed = { }
+	entity_under_construction = { "building_construction_3x3_entity" }
+	entity_constructed = { }
+
+	city_gfx_interactions = {
+		clear_size_area = yes
+		size = 4
+	}
+
+	production_method_groups = {
+		pmg_monument_unc_pembroke
+	}
+
+	potential = {
+		state_region = s:STATE_NORTH_CAROLINA
+	}
+
+	possible = {
+		owner ?= {
+			has_variable = nc_uni_build_pembroke
+		}
+	}
+
+	required_construction = construction_cost_monument
+	ai_value = 1500
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+}
