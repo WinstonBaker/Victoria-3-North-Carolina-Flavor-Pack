@@ -3,8 +3,8 @@
   "id": "nc_flavor_pack",
   "version": "1.0.0",
   "supported_game_version": "1.13.*",
-  "short_description": "Historical flavor for the Tar Heel State: tobacco, Piedmont industry, Wilmington trade, and journal entries for North Carolina.",
-  "tags": ["Flavor", "Historical", "United States"],
+  "short_description": "Tar Heel flavor for Victoria 3: state traits, Outer Banks lighthouses, UNC and Research Triangle campuses, Piedmont industry journal entries, Carolina companies, and landmarks from the State Capitol to Biltmore.",
+  "tags": ["Flavor", "Historical", "United States", "1.13"],
   "relationships": [],
   "game_custom_data": {
     "multiplayer_synchronized": true

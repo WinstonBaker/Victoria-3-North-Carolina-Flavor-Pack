@@ -122,7 +122,8 @@ pm_nc_cape_hatteras_active = {
 	}
 }
 
-# Tall brick tower (~1870) — activated by decision nc_rebuild_cape_hatteras
+# Tall brick tower (~1870) — preferred path is decision nc_rebuild_cape_hatteras
+# (funds the project). Tech also unlocks manual switch once steel_railway_cars is researched.
 pm_nc_cape_hatteras_rebuilt = {
 	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
 	is_hidden_when_unavailable = yes

@@ -222,6 +222,8 @@ je_nc_research_triangle = {
 
 	is_shown_when_inactive = {
 		NOT = { has_variable = nc_research_triangle_complete }
+		# NC State (1887) / Trinity-in-Durham era — do not fire at 1836 start
+		game_date >= 1885.1.1
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -230,6 +232,7 @@ je_nc_research_triangle = {
 
 	possible = {
 		NOT = { has_variable = nc_research_triangle_complete }
+		game_date >= 1885.1.1
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT

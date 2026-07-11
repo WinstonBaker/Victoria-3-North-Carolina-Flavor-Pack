@@ -226,11 +226,14 @@ nc_charlotte_mint_prestige = {
 }
 
 # --- Research Triangle planning (timed) ---
+# Targets NC monument campuses (bg_monuments), not vanilla building_university
 nc_research_triangle_state_grants = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
 	state_construction_mult = 0.25
 	state_education_access_add = 0.20
-	building_university_throughput_add = 0.15
+	building_unc_chapel_hill_throughput_add = 0.15
+	building_nc_state_university_throughput_add = 0.15
+	building_duke_university_throughput_add = 0.15
 }
 
 nc_research_triangle_state_grants_minor = {
@@ -251,10 +254,12 @@ nc_ig_patronage_minor = {
 	interest_group_pol_str_mult = 0.05
 }
 
-# Unified permanent Research Triangle — state package (university focus)
+# Unified permanent Research Triangle — state package (monument campuses)
 nc_research_triangle = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds
-	building_university_throughput_add = 0.40
+	building_unc_chapel_hill_throughput_add = 0.40
+	building_nc_state_university_throughput_add = 0.40
+	building_duke_university_throughput_add = 0.40
 	state_pop_qualifications_mult = 0.20
 	state_education_access_add = 0.25
 	state_migration_pull_mult = 0.10

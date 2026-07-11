@@ -5,15 +5,8 @@ on_game_started = {
 			set_variable = nc_capitol_unlocked
 		}
 
+		# State traits live in map_data/state_regions/nc_flavor.txt (not add_state_trait here).
 		s:STATE_NORTH_CAROLINA = {
-			add_state_trait = state_trait_tobacco_belt
-			add_state_trait = state_trait_piedmont_fall_line
-			add_state_trait = state_trait_cape_fear_harbor
-			add_state_trait = state_trait_sandhills
-			add_state_trait = state_trait_mount_mitchell
-			add_state_trait = state_trait_outer_banks
-			add_state_trait = state_trait_great_dismal_swamp
-
 			# Queue the State Capitol as under construction at game start (1836).
 			# ~40% already done historically; remaining cost is reduced on the building.
 			# Historically completed in 1840; tracked by je_nc_state_capitol.
