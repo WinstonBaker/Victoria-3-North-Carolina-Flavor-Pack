@@ -1749,325 +1749,6 @@ je_nc_state_capitol = {
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
-########################################
-# Piedmont Textiles — New South cotton mills
-########################################
-
-je_nc_piedmont_textiles = {
-	icon = "gfx/interface/icons/event_icons/event_industry.dds"
-	group = je_group_nc_flavor
-
-	# Inverse: charter Cannon, Cone, or Burlington → JE opens; buildings finish it.
-	is_shown_when_inactive = {
-		has_variable = nc_tar_heel_legacy_complete
-		NOT = { has_variable = nc_piedmont_textiles_complete }
-		has_technology_researched = atmospheric_engine
-		OR = {
-			has_company = company_type:company_cannon_mills
-			has_company = company_type:company_cone_mills
-			has_company = company_type:company_burlington_industries
-		}
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-		}
-	}
-
-	possible = {
-		has_variable = nc_tar_heel_legacy_complete
-		NOT = { has_variable = nc_piedmont_textiles_complete }
-		has_technology_researched = atmospheric_engine
-		custom_tooltip = {
-			text = je_nc_piedmont_textiles_company_start_tt
-			OR = {
-				has_company = company_type:company_cannon_mills
-				has_company = company_type:company_cone_mills
-				has_company = company_type:company_burlington_industries
-			}
-		}
-	}
-
-	immediate = {
-		s:STATE_NORTH_CAROLINA = {
-			random_scope_state = {
-				limit = { owner = ROOT }
-				save_scope_as = nc_state_scope
-			}
-		}
-		trigger_event = { id = nc_flavor_events.14 popup = yes }
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = je_nc_piedmont_textiles_mills_status_loc
-				trigger = {
-					any_scope_state = {
-						state_region = s:STATE_NORTH_CAROLINA
-						any_scope_building = {
-							is_building_type = building_textile_mill
-							level >= 5
-						}
-					}
-				}
-			}
-			triggered_desc = {
-				desc = je_nc_piedmont_textiles_progress_status_loc
-				trigger = { always = yes }
-			}
-		}
-	}
-
-	complete = {
-		custom_tooltip = {
-			text = je_nc_piedmont_textiles_mills_tt
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				any_scope_building = {
-					is_building_type = building_textile_mill
-					level >= 5
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_piedmont_textiles_cotton_tt
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				any_scope_building = {
-					is_building_type = building_cotton_plantation
-					level >= 3
-				}
-			}
-		}
-	}
-
-	on_complete = {
-		set_variable = nc_piedmont_textiles_complete
-		trigger_event = { id = nc_flavor_events.15 popup = yes }
-	}
-
-	event_outcome_completed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_nc_piedmont_textiles.15_tt
-			}
-		}
-	}
-
-	invalid = {
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				owner = ROOT
-			}
-		}
-	}
-
-	weight = 95
-	should_be_pinned_by_default_uninvolved_or_context = no
-}
-
-########################################
-# Duke Power — Piedmont hydroelectric grid
-########################################
-
-je_nc_duke_power = {
-	icon = "gfx/interface/icons/event_icons/event_scales.dds"
-	group = je_group_nc_flavor
-
-	# Inverse: charter Duke Power → JE opens; plants + industry finish it.
-	is_shown_when_inactive = {
-		has_variable = nc_tar_heel_legacy_complete
-		NOT = { has_variable = nc_duke_power_complete }
-		has_technology_researched = electrical_generation
-		has_company = company_type:company_duke_power
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-		}
-	}
-
-	possible = {
-		has_variable = nc_tar_heel_legacy_complete
-		NOT = { has_variable = nc_duke_power_complete }
-		has_technology_researched = electrical_generation
-		custom_tooltip = {
-			text = je_nc_duke_power_company_start_tt
-			has_company = company_type:company_duke_power
-		}
-	}
-
-	immediate = {
-		s:STATE_NORTH_CAROLINA = {
-			random_scope_state = {
-				limit = { owner = ROOT }
-				save_scope_as = nc_state_scope
-			}
-		}
-		trigger_event = { id = nc_flavor_events.16 popup = yes }
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = je_nc_duke_power_progress_status_loc
-				trigger = { always = yes }
-			}
-		}
-	}
-
-	complete = {
-		custom_tooltip = {
-			text = je_nc_duke_power_plants_tt
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				any_scope_building = {
-					is_building_type = building_power_plant
-					level >= 5
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_duke_power_industry_tt
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				OR = {
-					any_scope_building = {
-						is_building_type = building_textile_mill
-						level >= 5
-					}
-					any_scope_building = {
-						is_building_type = building_furniture_manufactory
-						level >= 3
-					}
-				}
-			}
-		}
-	}
-
-	on_complete = {
-		set_variable = nc_duke_power_complete
-		trigger_event = { id = nc_flavor_events.17 popup = yes }
-	}
-
-	event_outcome_completed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_nc_duke_power.17_tt
-			}
-		}
-	}
-
-	invalid = {
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				owner = ROOT
-			}
-		}
-	}
-
-	weight = 85
-	should_be_pinned_by_default_uninvolved_or_context = no
-}
-
-########################################
-# High Point — Furniture Capital of the World
-########################################
-
-je_nc_high_point_furniture = {
-	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
-	group = je_group_nc_flavor
-
-	# Inverse: charter High Point Furniture → JE opens; furniture + logging finish it.
-	is_shown_when_inactive = {
-		has_variable = nc_tar_heel_legacy_complete
-		NOT = { has_variable = nc_high_point_complete }
-		has_technology_researched = manufacturies
-		has_company = company_type:company_high_point_furniture
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-		}
-	}
-
-	possible = {
-		has_variable = nc_tar_heel_legacy_complete
-		NOT = { has_variable = nc_high_point_complete }
-		has_technology_researched = manufacturies
-		custom_tooltip = {
-			text = je_nc_high_point_company_start_tt
-			has_company = company_type:company_high_point_furniture
-		}
-	}
-
-	immediate = {
-		s:STATE_NORTH_CAROLINA = {
-			random_scope_state = {
-				limit = { owner = ROOT }
-				save_scope_as = nc_state_scope
-			}
-		}
-		trigger_event = { id = nc_flavor_events.18 popup = yes }
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = je_nc_high_point_progress_status_loc
-				trigger = { always = yes }
-			}
-		}
-	}
-
-	complete = {
-		custom_tooltip = {
-			text = je_nc_high_point_furniture_tt
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				any_scope_building = {
-					is_building_type = building_furniture_manufactory
-					level >= 5
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_high_point_logging_tt
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				any_scope_building = {
-					is_building_type = building_logging_camp
-					level >= 5
-				}
-			}
-		}
-	}
-
-	on_complete = {
-		set_variable = nc_high_point_complete
-		trigger_event = { id = nc_flavor_events.19 popup = yes }
-	}
-
-	event_outcome_completed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_nc_high_point.19_tt
-			}
-		}
-	}
-
-	invalid = {
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				owner = ROOT
-			}
-		}
-	}
-
-	weight = 85
-	should_be_pinned_by_default_uninvolved_or_context = no
-}
 
 ########################################
 # Biltmore House (late game, ~1895)
@@ -2159,8 +1840,18 @@ je_nc_mill_village = {
 
 	is_shown_when_inactive = {
 		OR = {
-			has_variable = nc_piedmont_textiles_complete
+			has_company = company_type:company_cannon_mills
+			has_company = company_type:company_cone_mills
+			has_company = company_type:company_burlington_industries
 			has_variable = nc_new_south_complete
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+				any_scope_building = {
+					is_building_type = building_textile_mill
+					level >= 5
+				}
+			}
 		}
 		NOT = { has_variable = nc_mill_village_complete }
 		any_scope_state = {
@@ -2171,8 +1862,18 @@ je_nc_mill_village = {
 
 	possible = {
 		OR = {
-			has_variable = nc_piedmont_textiles_complete
+			has_company = company_type:company_cannon_mills
+			has_company = company_type:company_cone_mills
+			has_company = company_type:company_burlington_industries
 			has_variable = nc_new_south_complete
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+				any_scope_building = {
+					is_building_type = building_textile_mill
+					level >= 5
+				}
+			}
 		}
 		NOT = { has_variable = nc_mill_village_complete }
 		any_scope_state = {
@@ -2275,126 +1976,6 @@ je_nc_mill_village = {
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
-########################################
-# Carolina Brands — Pepsi, Vicks, Hanes, NC Railroad stories
-########################################
-
-je_nc_carolina_brands = {
-	icon = "gfx/interface/icons/event_icons/event_trade.dds"
-	group = je_group_nc_flavor
-
-	# Inverse: charter Pepsi, Vicks, Hanes, or NCR → JE opens; industries finish it.
-	is_shown_when_inactive = {
-		has_variable = nc_tar_heel_legacy_complete
-		NOT = { has_variable = nc_carolina_brands_complete }
-		has_technology_researched = corporate_charters
-		OR = {
-			has_company = company_type:company_pepsi_cola
-			has_company = company_type:company_vick_chemical
-			has_company = company_type:company_hanes
-			has_company = company_type:company_nc_railroad
-		}
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-		}
-	}
-
-	possible = {
-		has_variable = nc_tar_heel_legacy_complete
-		NOT = { has_variable = nc_carolina_brands_complete }
-		has_technology_researched = corporate_charters
-		custom_tooltip = {
-			text = je_nc_carolina_brands_company_start_tt
-			OR = {
-				has_company = company_type:company_pepsi_cola
-				has_company = company_type:company_vick_chemical
-				has_company = company_type:company_hanes
-				has_company = company_type:company_nc_railroad
-			}
-		}
-	}
-
-	immediate = {
-		s:STATE_NORTH_CAROLINA = {
-			random_scope_state = {
-				limit = { owner = ROOT }
-				save_scope_as = nc_state_scope
-			}
-		}
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = je_nc_carolina_brands_progress_status_loc
-				trigger = { always = yes }
-			}
-		}
-	}
-
-	complete = {
-		custom_tooltip = {
-			text = je_nc_carolina_brands_food_tt
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				any_scope_building = {
-					is_building_type = building_food_industry
-					level >= 5
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_carolina_brands_chemicals_tt
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				any_scope_building = {
-					is_building_type = building_chemical_plant
-					level >= 3
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_carolina_brands_textiles_tt
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				any_scope_building = {
-					is_building_type = building_textile_mill
-					level >= 4
-				}
-			}
-		}
-		custom_tooltip = {
-			text = je_nc_carolina_brands_trunk_tt
-			has_variable = nc_ncr_trunk_done
-		}
-	}
-
-	on_complete = {
-		set_variable = nc_carolina_brands_complete
-		trigger_event = { id = nc_flavor_events.49 popup = yes }
-	}
-
-	event_outcome_completed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_nc_carolina_brands.49_tt
-			}
-		}
-	}
-
-	invalid = {
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				owner = ROOT
-			}
-		}
-	}
-
-	weight = 70
-	should_be_pinned_by_default_uninvolved_or_context = no
-}
 
 ########################################
 # Naval Stores & Great Dismal Swamp Canal
@@ -2502,106 +2083,6 @@ je_nc_naval_stores = {
 	should_be_pinned_by_default_uninvolved_or_context = yes
 }
 
-########################################
-# Tobacco Belt — Duke / Reynolds / Liggett
-########################################
-
-je_nc_tobacco_belt = {
-	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
-	group = je_group_nc_flavor
-
-	# Inverse: charter Duke, Reynolds, or Liggett → JE opens; plantations finish it.
-	is_shown_when_inactive = {
-		has_variable = nc_tar_heel_legacy_complete
-		NOT = { has_variable = nc_tobacco_belt_complete }
-		has_technology_researched = corporate_charters
-		OR = {
-			has_company = company_type:company_w_duke_sons
-			has_company = company_type:company_rj_reynolds
-			has_company = company_type:company_liggett_myers
-		}
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
-		}
-	}
-
-	possible = {
-		has_variable = nc_tar_heel_legacy_complete
-		NOT = { has_variable = nc_tobacco_belt_complete }
-		has_technology_researched = corporate_charters
-		custom_tooltip = {
-			text = je_nc_tobacco_belt_company_start_tt
-			OR = {
-				has_company = company_type:company_w_duke_sons
-				has_company = company_type:company_rj_reynolds
-				has_company = company_type:company_liggett_myers
-			}
-		}
-	}
-
-	immediate = {
-		s:STATE_NORTH_CAROLINA = {
-			random_scope_state = {
-				limit = { owner = ROOT }
-				save_scope_as = nc_state_scope
-			}
-		}
-		if = {
-			limit = {
-				NOT = { has_variable = nc_tobacco_belt_fired }
-			}
-			trigger_event = { id = nc_flavor_events.52 popup = yes }
-		}
-	}
-
-	status_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = je_nc_tobacco_belt_progress_status_loc
-				trigger = { always = yes }
-			}
-		}
-	}
-
-	complete = {
-		custom_tooltip = {
-			text = je_nc_tobacco_belt_plantations_tt
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				any_scope_building = {
-					is_building_type = building_tobacco_plantation
-					level >= 8
-				}
-			}
-		}
-	}
-
-	on_complete = {
-		set_variable = nc_tobacco_belt_complete
-		trigger_event = { id = nc_flavor_events.56 popup = yes }
-	}
-
-	event_outcome_completed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_nc_tobacco_belt.56_tt
-			}
-		}
-	}
-
-	invalid = {
-		NOT = {
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				owner = ROOT
-			}
-		}
-	}
-
-	weight = 78
-	should_be_pinned_by_default_uninvolved_or_context = no
-}
 
 ########################################
 # Cape Fear & Crystal Coast ports
@@ -2883,7 +2364,9 @@ je_nc_new_south = {
 				trigger = {
 					has_variable = nc_freedmen_schools_funded
 					OR = {
-						has_variable = nc_piedmont_textiles_complete
+						has_company = company_type:company_cannon_mills
+						has_company = company_type:company_cone_mills
+						has_company = company_type:company_burlington_industries
 						has_variable = nc_research_triangle_complete
 						any_scope_state = {
 							state_region = s:STATE_NORTH_CAROLINA
@@ -2910,7 +2393,9 @@ je_nc_new_south = {
 		custom_tooltip = {
 			text = je_nc_new_south_industry_tt
 			OR = {
-				has_variable = nc_piedmont_textiles_complete
+				has_company = company_type:company_cannon_mills
+				has_company = company_type:company_cone_mills
+				has_company = company_type:company_burlington_industries
 				has_variable = nc_research_triangle_complete
 				any_scope_state = {
 					state_region = s:STATE_NORTH_CAROLINA

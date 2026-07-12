@@ -214,16 +214,12 @@ company_burlington_industries = {
 
 	possible = {
 		has_technology_researched = corporate_charters
-		OR = {
-			has_variable = nc_piedmont_textiles_complete
-			# Match Cannon/Cone and je_nc_piedmont_textiles mill gate (level 5)
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				is_incorporated = yes
-				any_scope_building = {
-					is_building_type = building_textile_mill
-					level >= 5
-				}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_textile_mill
+				level >= 5
 			}
 		}
 	}
@@ -277,15 +273,12 @@ company_duke_power = {
 
 	possible = {
 		has_technology_researched = electrical_generation
-		OR = {
-			has_variable = nc_duke_power_complete
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				is_incorporated = yes
-				any_scope_building = {
-					is_building_type = building_power_plant
-					level >= 5
-				}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_power_plant
+				level >= 5
 			}
 		}
 	}
@@ -338,15 +331,12 @@ company_high_point_furniture = {
 
 	possible = {
 		has_technology_researched = corporate_charters
-		OR = {
-			has_variable = nc_high_point_complete
-			any_scope_state = {
-				state_region = s:STATE_NORTH_CAROLINA
-				is_incorporated = yes
-				any_scope_building = {
-					is_building_type = building_furniture_manufactory
-					level >= 5
-				}
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_furniture_manufactory
+				level >= 5
 			}
 		}
 	}

@@ -4,6 +4,8 @@ All notable changes to the North Carolina Flavor Pack are documented here.
 
 ## 1.3.0
 
+- Removed company sponsor Decisions and company-gated industry JEs (Piedmont, Duke Power, High Point, Carolina Brands, Tobacco Belt); firms stay as charterable companies with story events
+- NC logging potential: +4 at start (vanilla 15 → 19, Georgia-tier specialty timber); Naval Stores completion adds +2 more
 - Historical characters and education prestige (innovation + migration pull from campuses)
 - Outer Banks storm/wreck pulses with coastal reconstruction that recovers damage without outpacing the penalty
 - University mid-tier Expanding package upgrades into the full Carolina University System; Wright First Flight prestige upgrades into lasting Aviation Pioneer

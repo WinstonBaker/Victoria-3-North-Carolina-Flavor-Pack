@@ -25,10 +25,7 @@ nc_washington_duke_template = {
 			any_scope_state = {
 				state_region = s:STATE_NORTH_CAROLINA
 			}
-			OR = {
-				has_company = company_type:company_w_duke_sons
-				has_variable = nc_tobacco_belt_complete
-			}
+			has_company = company_type:company_w_duke_sons
 		}
 		interest_group_trigger = {
 			ig_counts_as_marginal = no
@@ -78,7 +75,6 @@ nc_james_b_duke_template = {
 			OR = {
 				has_company = company_type:company_duke_power
 				has_company = company_type:company_w_duke_sons
-				has_variable = nc_duke_power_complete
 				has_variable = nc_research_triangle_complete
 			}
 		}
@@ -127,10 +123,7 @@ nc_rj_reynolds_template = {
 			any_scope_state = {
 				state_region = s:STATE_NORTH_CAROLINA
 			}
-			OR = {
-				has_company = company_type:company_rj_reynolds
-				has_variable = nc_tobacco_belt_complete
-			}
+			has_company = company_type:company_rj_reynolds
 		}
 		interest_group_trigger = {
 			ig_counts_as_marginal = no
@@ -318,10 +311,7 @@ nc_james_w_cannon_template = {
 			any_scope_state = {
 				state_region = s:STATE_NORTH_CAROLINA
 			}
-			OR = {
-				has_company = company_type:company_cannon_mills
-				has_variable = nc_piedmont_textiles_complete
-			}
+			has_company = company_type:company_cannon_mills
 		}
 		interest_group_trigger = {
 			ig_counts_as_marginal = no
@@ -368,10 +358,7 @@ nc_caesar_cone_template = {
 			any_scope_state = {
 				state_region = s:STATE_NORTH_CAROLINA
 			}
-			OR = {
-				has_company = company_type:company_cone_mills
-				has_variable = nc_piedmont_textiles_complete
-			}
+			has_company = company_type:company_cone_mills
 		}
 		interest_group_trigger = {
 			ig_counts_as_marginal = no
@@ -418,10 +405,7 @@ nc_j_spencer_love_template = {
 			any_scope_state = {
 				state_region = s:STATE_NORTH_CAROLINA
 			}
-			OR = {
-				has_company = company_type:company_burlington_industries
-				has_variable = nc_piedmont_textiles_complete
-			}
+			has_company = company_type:company_burlington_industries
 		}
 		interest_group_trigger = {
 			ig_counts_as_marginal = no
@@ -468,10 +452,7 @@ nc_thomas_f_wrenn_template = {
 			any_scope_state = {
 				state_region = s:STATE_NORTH_CAROLINA
 			}
-			OR = {
-				has_company = company_type:company_high_point_furniture
-				has_variable = nc_high_point_complete
-			}
+			has_company = company_type:company_high_point_furniture
 		}
 		interest_group_trigger = {
 			ig_counts_as_marginal = no
@@ -518,10 +499,7 @@ nc_john_e_liggett_template = {
 			any_scope_state = {
 				state_region = s:STATE_NORTH_CAROLINA
 			}
-			OR = {
-				has_company = company_type:company_liggett_myers
-				has_variable = nc_tobacco_belt_complete
-			}
+			has_company = company_type:company_liggett_myers
 		}
 		interest_group_trigger = {
 			ig_counts_as_marginal = no

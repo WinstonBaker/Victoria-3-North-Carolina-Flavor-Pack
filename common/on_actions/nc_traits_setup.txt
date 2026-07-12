@@ -15,7 +15,7 @@ nc_flavor_on_game_started = {
 			set_variable = nc_capitol_unlocked
 		}
 
-		# State traits + gold potential are applied in history (global / buildings).
+		# State traits + gold / logging potential are applied in history (global / buildings).
 		s:STATE_NORTH_CAROLINA = {
 			# Queue the State Capitol as under construction at game start (1836).
 			# ~40% already done historically; remaining cost is reduced on the building.

@@ -10,6 +10,14 @@ BUILDINGS = {
 			amount = 5
 		}
 
+		# Longleaf / naval-stores timber — vanilla is 15 (behind GA 20 / FL 23).
+		# +4 → 19 keeps NC Georgia-tier specialty timber, not Lakes/PNW lumber.
+		# Naval Stores JE completion adds +2 more (earned capacity).
+		change_resource_potential = {
+			type = building_logging_camp
+			amount = 4
+		}
+
 		region_state:USA = {
 			# University of North Carolina at Chapel Hill (founded 1789)
 			create_building = {

@@ -40,23 +40,7 @@
  je_nc_cape_fear_ports_ready_status_loc: "Harbor and terminal works are funded and ports are ready — finish the coastal hub program."
  je_nc_cape_fear_ports_wilmington_tt: "Funded Wilmington Harbor works"
 
- je_nc_carolina_brands: "Carolina Brands"
- je_nc_carolina_brands_desc: "A Carolina brand has taken root. Grow soft drinks, chemicals, and hosiery, finish the NCR trunk, and optionally charter more houses if you have slots — sponsors can nudge industries either before or after the first charter."
- je_nc_carolina_brands_reason: "Opens when you charter Pepsi-Cola, Vick Chemical, Hanes, or the NC Railroad. Completes on Food Industry 5, Chemical Plants 3, Textile Mills 4, and the Piedmont NCR trunk."
- je_nc_carolina_brands_company_start_tt: "Chartered Pepsi-Cola, Vick Chemical, Hanes, or the North Carolina Railroad Company"
- je_nc_carolina_brands_food_tt: "North Carolina has at least 5 levels of Food Industry"
- je_nc_carolina_brands_chemicals_tt: "North Carolina has at least 3 levels of Chemical Plants"
- je_nc_carolina_brands_textiles_tt: "North Carolina has at least 4 levels of Textile Mills"
- je_nc_carolina_brands_trunk_tt: "The Piedmont NCR trunk railroad JE is complete"
- je_nc_carolina_brands_progress_status_loc: "Raise Food Industry to 5, Chemical Plants to 3, and Textile Mills to 4, and finish the Piedmont NCR trunk. Additional brand charters are optional."
 
- je_nc_duke_power: "Light the Piedmont"
- je_nc_duke_power_desc: "Duke Power is on the map. Raise power plants and feed Piedmont industry until the grid runs on hydroelectric current."
- je_nc_duke_power_reason: "Opens when you charter Duke Power. Completes with Power Plants at level 5 plus strong textile mills or furniture manufactories."
- je_nc_duke_power_industry_tt: "North Carolina has substantial textile mills or furniture manufactories"
- je_nc_duke_power_plants_tt: "North Carolina has at least 5 levels of Power Plants"
- je_nc_duke_power_company_start_tt: "Chartered Duke Power"
- je_nc_duke_power_progress_status_loc: "Build Power Plants to level 5 and keep Piedmont textile mills or furniture manufactories strong."
 
  je_nc_found_selected_app_state_status_loc: "Build #b Appalachian State University#! in North Carolina."
  je_nc_found_selected_asheville_status_loc: "Build #b UNC Asheville#! in North Carolina."
@@ -79,13 +63,6 @@
  je_nc_found_selected_wilmington_status_loc: "Build #b UNC Wilmington#! in North Carolina."
  je_nc_found_selected_wssu_status_loc: "Build #b Winston-Salem State University#! in North Carolina."
 
- je_nc_high_point_furniture: "Furniture Capital of the World"
- je_nc_high_point_furniture_desc: "High Point Furniture is chartered. Expand furniture manufactories and logging camps until the world shops Carolina woodwork."
- je_nc_high_point_furniture_reason: "Opens when you charter High Point Furniture. Completes with Furniture Manufactories and Logging Camps at level 5."
- je_nc_high_point_furniture_tt: "North Carolina has at least 5 levels of Furniture Manufactories"
- je_nc_high_point_logging_tt: "North Carolina has at least 5 levels of Logging Camps"
- je_nc_high_point_company_start_tt: "Chartered High Point Furniture"
- je_nc_high_point_progress_status_loc: "Expand Furniture Manufactories and Logging Camps to level 5."
 
  je_nc_light_bodie_tt: "Bodie Island Lighthouse has been founded"
 
@@ -97,7 +74,7 @@
 
  je_nc_mill_village: "Mill Village and Plantation"
  je_nc_mill_village_desc: "Spindles and smoke stacks rise beside tobacco barns and cotton fields. Mill owners want company towns, cheap labor, and fall-line power; planters want the Piedmont kept for leaf and lint. Expand mills and plantations until the conflict can no longer be postponed."
- je_nc_mill_village_reason: "Unlocks after Piedmont Textiles or the New South bargain. Grow mills and plantations until New South industry and Old South agriculture collide."
+ je_nc_mill_village_reason: "Unlocks after a Piedmont textile company, large mill growth, or the New South bargain. Grow mills and plantations until New South industry and Old South agriculture collide."
  je_nc_mill_village_mills_status_loc: "The mills dominate the fall line. Expand tobacco or cotton plantations to force a settlement."
  je_nc_mill_village_mills_tt: "North Carolina has at least 8 levels of Textile Mills"
  je_nc_mill_village_plantations_tt: "North Carolina has at least 5 levels of Tobacco or Cotton Plantations"
@@ -123,8 +100,8 @@
  je_nc_new_south: "Reconstruction to New South"
  je_nc_new_south_desc: "War's end leaves North Carolina between planter power and mill ambition. Fund freedmen's schools, grow spindles or the university corridor, then strike a New South bargain — literacy, industry, or a careful compromise — without rewriting national law."
  je_nc_new_south_reason: "Available from 1866 after Tar Heel Legacy. Fund schools and develop textiles or the Research Triangle, then choose a bargain outcome."
- je_nc_new_south_industry_tt: "Textile mills (level 3+), Piedmont Textiles complete, or Research Triangle complete"
- je_nc_new_south_progress_status_loc: "Open Decisions to #b Fund Freedmen's Schools#!. Grow Textile Mills to level 3, or complete Piedmont Textiles / Research Triangle."
+ je_nc_new_south_industry_tt: "Textile mills (level 3+), a Piedmont textile company, or Research Triangle complete"
+ je_nc_new_south_progress_status_loc: "Open Decisions to #b Fund Freedmen's Schools#!. Grow Textile Mills to level 3, charter a Piedmont mill company, or complete the Research Triangle."
  je_nc_new_south_ready_status_loc: "Schools and industry are ready — finish the New South journal."
  je_nc_new_south_schools_tt: "Funded freedmen's schools and literacy work"
 
@@ -141,14 +118,6 @@
  je_nc_outer_banks_program_building_status_loc: "A lighthouse is authorized and under construction. Finish it before choosing another."
  je_nc_outer_banks_program_progress_status_loc: "Fund the Lighthouse Board to begin choosing new Outer Banks lights."
 
- je_nc_piedmont_textiles: "Raise the Piedmont Mills"
- je_nc_piedmont_textiles_desc: "A Piedmont mill company is chartered. Raise mills and secure cotton until the fall line hums with spindles — more textile houses are optional if you have slots."
- je_nc_piedmont_textiles_reason: "Opens when you charter Cannon, Cone, or Burlington. Completes with Textile Mills at level 5 and Cotton Plantations at level 3."
- je_nc_piedmont_textiles_cotton_tt: "North Carolina has at least 3 levels of Cotton Plantations"
- je_nc_piedmont_textiles_mills_status_loc: "The mills stand ready. Expand cotton plantations to finish the Piedmont textile belt."
- je_nc_piedmont_textiles_mills_tt: "North Carolina has at least 5 levels of Textile Mills"
- je_nc_piedmont_textiles_company_start_tt: "Chartered Cannon Mills, Cone Mills, or Burlington Industries"
- je_nc_piedmont_textiles_progress_status_loc: "Raise Textile Mills to level 5 and Cotton Plantations to level 3."
 
  je_nc_raleigh_gaston: "Raleigh & Gaston Railroad"
  je_nc_raleigh_gaston_desc: "A shorter inland spur of about 85 miles from Gaston on the Roanoke to the capital at Raleigh. Charter it via #b Decisions#! or a charter event, then expand #b Railways#! in North Carolina to level 10."
@@ -180,12 +149,6 @@
  je_nc_tar_heel_legacy_desc: "North Carolina sits at a crossroads of the Old South and the rising industrial order. Tobacco fields blanket the Piedmont, pine forests feed naval stores, and Wilmington's harbor opens the state to the Atlantic world. Develop the Tar Heel State into a powerhouse of agriculture, timber, and trade."
  je_nc_tar_heel_legacy_reason: "Tobacco, timber, and naval stores can make North Carolina a New South powerhouse — if the fields and pine forests are developed in earnest."
 
- je_nc_tobacco_belt: "Tobacco Belt"
- je_nc_tobacco_belt_desc: "A brightleaf house is chartered. Expand tobacco plantations along the Durham–Winston corridor — more leaf companies are optional if you have slots. Sponsors can still help factories grow before the first charter."
- je_nc_tobacco_belt_reason: "Opens when you charter W. Duke, Sons & Co., R.J. Reynolds, or Liggett & Myers. Completes when Tobacco Plantations reach level 8."
- je_nc_tobacco_belt_plantations_tt: "North Carolina has at least 8 levels of Tobacco Plantations"
- je_nc_tobacco_belt_company_start_tt: "Chartered W. Duke, Sons & Co., R.J. Reynolds, or Liggett & Myers"
- je_nc_tobacco_belt_progress_status_loc: "Expand Tobacco Plantations to level 8. Additional leaf-house charters are optional."
 
  je_nc_uni_progress_app_state_tt: "Appalachian State founded"
  je_nc_uni_progress_asheville_tt: "UNC Asheville founded"
@@ -238,18 +201,13 @@
 
  event_effects_nc_biltmore.21_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_biltmore_prestige$\n• North Carolina gets $nc_biltmore_attraction$#!"
  event_effects_nc_cape_fear_ports.62_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_cape_fear_ports_country$\n• North Carolina gets $nc_cape_fear_ports_hub$#!"
- event_effects_nc_carolina_brands.49_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_carolina_brands_complete$#!"
  event_effects_nc_complete_unc_system.31_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_carolina_university_system_country$\n• North Carolina gets $nc_carolina_university_system$#!"
- event_effects_nc_duke_power.17_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_duke_power_grid_country$\n• North Carolina gets $nc_duke_power_grid$#!"
- event_effects_nc_high_point.19_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_high_point_furniture_capital_country$\n• North Carolina gets $nc_high_point_furniture_capital$#!"
  event_effects_nc_lighthouse_system.34_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_outer_banks_lighthouses_country$\n• North Carolina gets $nc_outer_banks_lighthouses$#!"
  event_effects_nc_mill_village.42_tt: "$event_effect_choose_one$ #indent_newline:3 \n• Choose mill paternalism, planter backlash, or an uneasy compromise#!"
  event_effects_nc_naval_stores.51_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_naval_stores_belt_country$\n• North Carolina gets $nc_naval_stores_belt$#!"
  event_effects_nc_new_south.66_tt: "$event_effect_choose_one$ #indent_newline:3 \n• Choose a #b New South#! bargain outcome#!"
- event_effects_nc_piedmont_textiles.15_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_piedmont_textile_belt_country$\n• North Carolina gets $nc_piedmont_textile_belt$#!"
  event_effects_nc_railroad.13_tt: "$event_effect_choose_one$ #indent_newline:3 \n• North Carolina gets a 2-year Western North Carolina Railroad bonus (weaker if privately funded)\n• North Carolina gets permanent $nc_carolina_rail_network$#!"
  event_effects_nc_research_triangle.6_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_research_triangle_country$\n• North Carolina gets $nc_research_triangle$#!"
- event_effects_nc_tobacco_belt.56_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_tobacco_belt_complete$\n• North Carolina gets $nc_tobacco_belt_state$#!"
  event_effects_nc_wright_brothers.64_tt: "$event_effect_choose_one$ #indent_newline:3 \n• [ROOT.GetCountry.GetName] gets $nc_aviation_pioneer$#!"
 
  # === Buildings ===
@@ -621,7 +579,6 @@
  nc_cannon_story_tt: "Timed #b Cannon Mills#! prestige and textile attention."
  nc_cape_fear_ports_complete_tt: "[ROOT.GetCountry.GetName] gains lasting #b Cape Fear Ports#! prestige, throughput, and cheaper port connections."
  nc_cape_fear_ports_start_tt: "North Carolina gains a short harbor boom as coastal factors stir."
- nc_carolina_brands_complete_tt: "[ROOT.GetCountry.GetName] gains lasting #b Carolina Brands#! prestige and light-industry bonuses."
  nc_character_bradham_tt: "Caleb Bradham appears as a historical character."
  nc_character_cannon_tt: "James W. Cannon appears as a historical character."
  nc_character_cone_tt: "Caesar Cone appears as a historical character."
@@ -650,7 +607,6 @@
  nc_coastal_reconstruction_event_tt: "Coastal repairs are underway along the Outer Banks."
  nc_complete_unc_system_tt: "North Carolina gains the lasting #b Carolina University System#! package — replacing the mid-tier Expanding University System bonus if it was active."
  nc_cone_story_tt: "Timed #b Cone Mills#! prestige and textile attention."
- nc_duke_power_complete_tt: "North Carolina gains a lasting #b Duke Power Grid#! bonus to electricity and industry."
  nc_duke_tobacco_story_tt: "Timed #b W. Duke, Sons & Co.#! prestige and industrialist favor."
  nc_expand_university_board_tt: "Charter capacity rises to #b 2#!. A second campus may be authorized while another is still under construction. Authority is reduced for 5 years."
  nc_fund_coastal_reconstruction_tt: "Clears Outer Banks storm/wreck damage. North Carolina gains timed #b Coastal Reconstruction#! recovery works and #b Lighthouse Vigilance#!."
@@ -659,9 +615,7 @@
  nc_fund_kitty_hawk_tt: "North Carolina gains a long #b Kitty Hawk Experiments#! innovation bonus, plus Outer Banks migration pull."
  nc_fund_morehead_terminal_tt: "North Carolina gains a timed #b Morehead Terminal Works#! bonus."
  nc_fund_wilmington_harbor_tt: "North Carolina gains a timed #b Wilmington Harbor Works#! bonus. A Port is queued if none exists."
- nc_greensboro_pharmacy_tt: "North Carolina gains a timed #b Greensboro Pharmacy Boom#!. A Chemical Plant is queued if none exists. #b Vick Chemical#! still needs Chemical Plants at level 3+ to charter."
  nc_hanes_story_tt: "Timed #b Hanes#! prestige and textile attention."
- nc_high_point_complete_tt: "North Carolina gains a lasting #b Furniture Capital#! bonus to furniture and timber."
  nc_liggett_story_tt: "Timed #b Liggett & Myers#! prestige and tobacco attention."
  nc_light_auto_build_tt: "Automatically queues construction of this lighthouse in North Carolina."
  nc_light_pick_bodie_tt: "Unlocks #b Bodie Island#! (requires Railways)\n• Port throughput\n• Trade capacity\n• Cheaper port connections"
@@ -676,10 +630,9 @@
  nc_mill_town_prosperity_tt: "Timed #b Mill Town Prosperity#! for North Carolina textiles and living standards."
  nc_mill_village_compromise_tt: "North Carolina gains a lasting #b Piedmont Compromise#! — milder bonuses for both mills and plantations."
  nc_mill_village_start_tt: "Industrialists and landowners will contend for the Piedmont's future while this journal entry is active."
- nc_naval_stores_complete_tt: "North Carolina gains a lasting #b Naval Stores Belt#! bonus to logging, hardwood, infrastructure, and trade."
+ nc_naval_stores_complete_tt: "North Carolina gains a lasting #b Naval Stores Belt#! bonus to logging, hardwood, infrastructure, and trade, plus #b +2 Logging Camp#! resource potential."
  nc_naval_stores_start_tt: "Logging and canal investment will determine whether Carolina keeps its tar-and-turpentine edge."
  nc_ncr_story_tt: "Timed #b North Carolina Railroad Company#! prestige, railways, and infrastructure."
- nc_new_bern_soft_drink_tt: "North Carolina gains a timed #b New Bern Soft Drink Boom#!. A Food Industry is queued if none exists. #b Pepsi-Cola#! still needs Food Industry at level 5+ to charter."
  nc_new_south_bargain_tt: "North Carolina gains a lasting #b New South Bargain#! — milder bonuses for mills and schools alike."
  nc_new_south_literacy_tt: "North Carolina gains lasting #b New South Literacy#! — education and construction, with Intelligentsia favor."
  nc_new_south_spindles_tt: "North Carolina gains lasting #b New South Spindles#! — mill throughput and construction, with Industrialist favor. Helps feed mill-village politics."
@@ -690,22 +643,13 @@
  nc_outer_banks_wreck_tt: "A wreck toll hits Carolina ports and fisheries."
  nc_outer_banks_wreck_salvage_tt: "Fund salvage to shorten the wreck toll and gain #b Lighthouse Vigilance#!."
  nc_pepsi_story_tt: "Timed #b Pepsi-Cola#! prestige and food-industry attention."
- nc_piedmont_textiles_complete_tt: "North Carolina gains a lasting #b Piedmont Textile Belt#! bonus to mills, cotton, and light industry."
  nc_planter_backlash_tt: "North Carolina gains lasting #b Planter Backlash#! plantation bonuses (no mill throughput). Landowners approve; Industrialists resent the settlement."
  nc_rail_already_chartered_tt: "This railroad has already been chartered — no further treasury or queue action is taken."
  nc_railroad_complete_tt: "North Carolina gains a permanent #b Carolina Rail Network#! bonus to railways, infrastructure, construction, and migration."
  nc_rebuild_cape_hatteras_tt: "Cape Hatteras switches to the #b Brick Tower (1870)#! production method, strengthening Outer Banks navigation and coastal defense."
  nc_reynolds_story_tt: "Timed #b R.J. Reynolds#! prestige and tobacco attention."
- nc_sponsor_durham_tobacco_tt: "North Carolina gains a timed #b Durham Tobacco Boom#!. A Tobacco Plantation is queued if none exists."
- nc_sponsor_liggett_myers_tt: "North Carolina gains a timed #b Liggett Tobacco Boom#!."
- nc_sponsor_winston_tobacco_tt: "North Carolina gains a timed #b Winston Tobacco Boom#!."
- nc_sponsor_cannon_mills_tt: "North Carolina gains a timed #b Cannon Mills Boom#! for Concord textiles and mill-village living standards."
- nc_sponsor_cone_mills_tt: "North Carolina gains a timed #b Cone Mills Boom#! for Greensboro denim and cotton throughput."
- nc_sponsor_burlington_tt: "North Carolina gains a timed #b Burlington Boom#! for textiles, cotton, and logging."
- nc_sponsor_high_point_tt: "North Carolina gains a timed #b High Point Furniture Boom#!."
  nc_high_point_company_story_tt: "Timed #b High Point Furniture#! prestige and furniture throughput."
  nc_duke_power_company_story_tt: "Timed #b Duke Power#! prestige and grid throughput."
- nc_tobacco_belt_complete_tt: "[ROOT.GetCountry.GetName] gains lasting #b Tobacco Belt#! prestige and brightleaf throughput."
  nc_tobacco_belt_start_tt: "North Carolina gains a short #b Durham Tobacco Boom#! as the brightleaf corridor wakes."
  nc_uni_auto_build_tt: "Automatically queues construction of this campus in North Carolina."
  nc_uni_pick_app_state_tt: "Charters #b Appalachian State#! and queues construction.\n• Mountain teachers' college\n• Strong education & qualifications\n• Logging throughput & migration"
@@ -733,7 +677,6 @@
  nc_wake_forest_defer_tt: "Leave Wake Forest in place for now. Reopen later from #b Decisions#! after a short cooldown."
  nc_wake_forest_devout_upset_tt: "The #b Evangelicals#! (Devout) disapprove of leaving the Baptist college for a worldly Piedmont city."
  nc_wake_forest_relocate_tt: "Grants the #b Wake Forest University#! production method and a lasting prestige package."
- nc_winston_hosiery_tt: "North Carolina gains a timed #b Winston Hosiery Boom#! for textile mills. #b Hanes#! still needs Textile Mills at level 4+ to charter."
  nc_wright_je_complete_tt: "[ROOT.GetCountry.GetName] gains lasting #b Aviation Pioneer#! prestige and innovation (replacing the timed First Flight prestige spike)."
  nc_wright_je_start_tt: "Open Decisions to fund the Kill Devil Hills camp when ready."
  nc_wright_kitty_hawk_bonus_tt: "Prior Kitty Hawk funding renews experiment bonuses after the flight."
@@ -772,34 +715,14 @@
  nc_fund_morehead_terminal_desc: "Build out Morehead City and Beaufort Harbor as the Mullet Road's deep-water outlet. Costs treasury and boosts port throughput and trade capacity."
  nc_fund_wilmington_harbor: "Fund Wilmington Harbor"
  nc_fund_wilmington_harbor_desc: "Deepen Cape Fear approaches, wharves, and warehouse yards at Wilmington. Costs treasury and boosts ports, trade, and naval-stores synergy."
- nc_greensboro_pharmacy: "Sponsor Greensboro Pharmacy"
- nc_greensboro_pharmacy_desc: "Fund a Greensboro drugstore's medicinal balm research. Costs treasury and boosts chemicals — expand Chemical Plants to level 3+ before chartering Vick Chemical."
- nc_new_bern_soft_drink: "Sponsor New Bern Soft Drink"
- nc_new_bern_soft_drink_desc: "Back Caleb Bradham's pharmacy soda experiments in New Bern. Costs treasury and boosts food industry — expand Food Industry to level 5+ before chartering Pepsi-Cola."
  nc_rebuild_cape_hatteras: "Rebuild Cape Hatteras Lighthouse"
  nc_rebuild_cape_hatteras_desc: "Replace the aging 1803 sandstone tower with a taller brick lighthouse — historically completed in 1870 — to better mark Diamond Shoals."
  nc_relocate_wake_forest: "Relocate Wake Forest"
  nc_relocate_wake_forest_desc: "Tobacco wealth and Piedmont industry pull Wake Forest College toward Winston-Salem. Moving elevates it to university status — but Baptist traditionalists resent abandoning the old campus. Available after railways, once Piedmont tobacco grows, the Research Triangle is complete, or mid-century arrives."
- nc_sponsor_durham_tobacco: "Sponsor Durham Tobacco"
- nc_sponsor_durham_tobacco_desc: "Back Washington Duke's packing sheds and cigarette works in Durham. Costs treasury and boosts tobacco toward a W. Duke, Sons & Co. charter."
- nc_sponsor_liggett_myers: "Sponsor Liggett & Myers"
- nc_sponsor_liggett_myers_desc: "Support Durham's Liggett & Myers rival house. Costs treasury and boosts tobacco toward a Liggett & Myers charter."
- nc_sponsor_winston_tobacco: "Sponsor Winston Tobacco"
- nc_sponsor_winston_tobacco_desc: "Underwrite R.J. Reynolds' Winston factories. Costs treasury and boosts tobacco and food industry toward a Reynolds charter."
- nc_sponsor_cannon_mills: "Sponsor Cannon Mills"
- nc_sponsor_cannon_mills_desc: "Back James W. Cannon's Concord towel and sheet works. Costs treasury and boosts textiles toward a Cannon Mills charter."
- nc_sponsor_cone_mills: "Sponsor Cone Mills"
- nc_sponsor_cone_mills_desc: "Support the Cone brothers' Greensboro denim mills. Costs treasury and boosts textiles and cotton toward a Cone Mills charter."
- nc_sponsor_burlington: "Sponsor Burlington Industries"
- nc_sponsor_burlington_desc: "Underwrite a Piedmont textile conglomerate linking mills, cotton, and timber. Costs treasury and boosts industry toward a Burlington charter."
- nc_sponsor_high_point: "Sponsor High Point Furniture"
- nc_sponsor_high_point_desc: "Back High Point's furniture manufactories and hardwood trade. Costs treasury and boosts furniture toward a High Point Furniture charter."
  nc_start_lighthouse_program: "Fund the Lighthouse Board"
  nc_start_lighthouse_program_desc: "Open the Outer Banks lighthouse program. After funding, choose new beacons one at a time as their technologies are researched."
  nc_university_construction_push: "University Construction Push"
  nc_university_construction_push_desc: "Spend state funds to accelerate construction while chartered campuses are rising."
- nc_winston_hosiery: "Sponsor Winston Hosiery"
- nc_winston_hosiery_desc: "Support knitting mills in Winston that specialize in hosiery and underwear. Costs treasury and boosts textiles — expand Textile Mills to level 4+ before chartering Hanes."
 
  # === Events ===
 
@@ -871,38 +794,11 @@
  nc_flavor_events.13.f: "'Where the rails go, Carolina follows.'"
  nc_flavor_events.13.t: "Rails Across the Old North State"
 
- nc_flavor_events.14.a: "Underwrite mill villages with state credit."
- nc_flavor_events.14.b: "Leave the spindles to private capital."
- nc_flavor_events.14.d: "Promoters in Concord, Gastonia, and Charlotte propose mill villages along the Piedmont fall line — brick factories, company housing, and Southern cotton spun into cloth without a northern middleman. Water power is cheap; labor is cheaper still. The only question is whether the state will underwrite the boom."
- nc_flavor_events.14.f: "'Bring the mill to the cotton — not the cotton to New England.'"
- nc_flavor_events.14.t: "Spindles on the Fall Line"
 
- nc_flavor_events.15.a: "Let the spindles define the age."
- nc_flavor_events.15.d: "From Charlotte through Gastonia to Concord, the mills never sleep. Whistles call the villages to work, cotton wagons crowd the sidings, and newspapers boast that North Carolina now spins what it grows. The New South has found its workshop in the Piedmont."
- nc_flavor_events.15.f: "'Where the fall line drops, Carolina rises.'"
- nc_flavor_events.15.t: "The Piedmont Textile Belt"
 
- nc_flavor_events.16.a: "Back Southern Power with state credit."
- nc_flavor_events.16.b: "Leave the dams to private capital."
- nc_flavor_events.16.d: "James B. Duke and the Southern Power Company propose dams and generating stations along the Catawba River. Electrified mills could run night shifts from Charlotte to Gastonia — if the state helps underwrite the grid."
- nc_flavor_events.16.f: "'Water over the dam becomes light in the mill.'"
- nc_flavor_events.16.t: "Power on the Catawba"
 
- nc_flavor_events.17.a: "Let the current define the New South."
- nc_flavor_events.17.d: "Transmission lines stitch the fall line together. Mill whistles answer to turbines now, and newspapers call it the age of Duke Power — Carolina industry running on mountain water and copper wire."
- nc_flavor_events.17.f: "'The river works while Carolina sleeps.'"
- nc_flavor_events.17.t: "The Piedmont Goes Electric"
 
- nc_flavor_events.18.a: "Underwrite the furniture factories."
- nc_flavor_events.18.b: "Leave High Point to private makers."
- nc_flavor_events.18.d: "High Point's boosters claim the town can furnish America. Hardwood from the surrounding hills, rail connections, and skilled joiners make a furniture boom possible — if capital follows the sawdust."
- nc_flavor_events.18.f: "'From stump to showroom — all in Carolina.'"
- nc_flavor_events.18.t: "Chairs from the Piedmont"
 
- nc_flavor_events.19.a: "Celebrate the capital of woodwork."
- nc_flavor_events.19.d: "Showrooms crowd High Point. Buyers from New York and Chicago walk floors of Carolina oak and walnut, and the town's name becomes shorthand for American furniture."
- nc_flavor_events.19.f: "'If it has four legs, it was made in High Point.'"
- nc_flavor_events.19.t: "Furniture Capital of the World"
 
  nc_flavor_events.20.a: "Subsidize roads, a rail spur, and grounds work."
  nc_flavor_events.20.b: "Wish Mr. Vanderbilt well and keep the treasury shut."
@@ -1030,10 +926,6 @@
  nc_flavor_events.48.f: "'Iron paid for by the people, run for the people.'"
  nc_flavor_events.48.t: "The State's Own Railroad"
 
- nc_flavor_events.49.a: "Wear the Carolina brands with pride"
- nc_flavor_events.49.d: "Pepsi-Cola, Vick Chemical, Hanes, and the North Carolina Railroad Company now anchor Carolina commerce. Soft drinks, remedies, knit goods, and rails carry the state's reputation far beyond the fall line."
- nc_flavor_events.49.f: "'Four brands. One Piedmont.'"
- nc_flavor_events.49.t: "Names the Nation Knows"
 
  nc_flavor_events.50.a: "Push the naval stores trade"
  nc_flavor_events.50.d: "Factors in Wilmington and Norfolk still speak of Carolina tar as the navy's friend. The Sandhills and Dismal Swamp can feed that trade again — if logging camps expand and the canal cuts are paid for."
@@ -1045,10 +937,6 @@
  nc_flavor_events.51.f: "'From the Dismal to the Cape Fear — the pines pay their freight.'"
  nc_flavor_events.51.t: "The Canal Runs Clear"
 
- nc_flavor_events.52.a: "Chase the cigarette fortune"
- nc_flavor_events.52.d: "Auction floors in Durham and Winston fill with golden leaf. Cigarette factories promise fortunes that leave cotton and naval stores looking old-fashioned — if the right houses can be chartered and the plantations keep curing."
- nc_flavor_events.52.f: "'Pack it bright, ship it far — and let Durham and Winston share the smoke.'"
- nc_flavor_events.52.t: "Smoke Over the Brightleaf Belt"
 
  nc_flavor_events.53.a: "Toast the Durham house"
  nc_flavor_events.53.d: "Washington Duke's sons have turned a packing shed into W. Duke, Sons & Co. — cigarettes rolling from Durham toward every rail town in America."
@@ -1065,10 +953,6 @@
  nc_flavor_events.55.f: "'Two houses, one brightleaf belt.'"
  nc_flavor_events.55.t: "Liggett & Myers Rising"
 
- nc_flavor_events.56.a: "Secure the Tobacco Belt"
- nc_flavor_events.56.d: "Duke, Reynolds, and Liggett & Myers now rule Carolina tobacco. From Durham auction floors to Winston factory floors, the Tobacco Belt is complete — and Industrialists lean hard into the New South."
- nc_flavor_events.56.f: "'Three houses. One corridor of gold leaf.'"
- nc_flavor_events.56.t: "The Brightleaf Triumvirate"
 
  nc_flavor_events.57.a: "Back the Concord mills"
  nc_flavor_events.57.d: "Cannon Mills turns Cabarrus cotton into towels and sheets that fill company stores and northern dry-goods houses alike."
@@ -1193,11 +1077,7 @@
 
  nc_burlington_prestige: "Burlington Industries"
  nc_burlington_prestige_desc: "National attention on the Piedmont textile conglomerate."
- nc_burlington_mills_boom: "Burlington Boom"
- nc_burlington_mills_boom_desc: "Conglomerate investment across Piedmont mills, cotton, and timber."
 
- nc_cannon_mills_boom: "Cannon Mills Boom"
- nc_cannon_mills_boom_desc: "Concord towel and sheet works expand with mill-village patronage."
  nc_cannon_mills_prestige: "Cannon Mills"
  nc_cannon_mills_prestige_desc: "National attention on Concord towels and sheets."
 
@@ -1214,8 +1094,6 @@
  nc_capitol_under_construction_country: "Capitol Rising"
  nc_capitol_under_construction_country_desc: "National attention on finishing the North Carolina State Capitol."
 
- nc_carolina_brands_complete: "Carolina Brands"
- nc_carolina_brands_complete_desc: "Soft drinks, remedies, hosiery, and rail brand North Carolina's industrial identity."
 
  nc_carolina_rail_network: "Carolina Rail Network"
  nc_carolina_rail_network_desc: "Permanent bonus to railways, infrastructure, construction, and migration from completing the Carolina rail network."
@@ -1235,30 +1113,18 @@
  nc_coastal_reconstruction_works: "Coastal Reconstruction"
  nc_coastal_reconstruction_works_desc: "Modest port and construction recovery while Banks repairs proceed — weaker than storm damage."
 
- nc_cone_mills_boom: "Cone Mills Boom"
- nc_cone_mills_boom_desc: "Greensboro denim and cotton throughput surge."
  nc_cone_mills_prestige: "Cone Mills"
  nc_cone_mills_prestige_desc: "National attention on Greensboro denim and work cloth."
 
  nc_dismal_canal_works: "Dismal Swamp Canal Works"
  nc_dismal_canal_works_desc: "Canal construction improving infrastructure, building speed, and trade capacity."
 
- nc_duke_power_boom: "Southern Power Boom"
- nc_duke_power_boom_desc: "Hydroelectric expansion powering Piedmont industry."
- nc_duke_power_boom_minor: "Private Hydro Investment"
- nc_duke_power_boom_minor_desc: "Limited private power investment boom."
  nc_duke_power_company_prestige: "Duke Power"
  nc_duke_power_company_prestige_desc: "Prestige and grid throughput from the Piedmont power charter."
- nc_duke_power_grid: "Duke Power Grid"
- nc_duke_power_grid_desc: "Permanent grid bonus from Duke Power's rise."
- nc_duke_power_grid_country: "Electrified Piedmont"
- nc_duke_power_grid_country_desc: "Hydroelectric current from the Catawba powers Carolina industry."
 
  nc_duke_tobacco_prestige: "W. Duke, Sons & Co."
  nc_duke_tobacco_prestige_desc: "National attention on Durham's Duke tobacco house."
 
- nc_durham_tobacco_boom: "Durham Tobacco Boom"
- nc_durham_tobacco_boom_desc: "State-backed brightleaf surge and cigarette-works throughput (food industry as packing proxy) centered on Durham."
 
  nc_education_prestige: "Carolina Campus Prestige"
  nc_education_prestige_desc: "Education access, qualifications, and migration pull from each active North Carolina university campus (scales with campus count, capped)."
@@ -1274,19 +1140,9 @@
  nc_hanes_brand_prestige: "Hanes Knitting"
  nc_hanes_brand_prestige_desc: "National attention on Carolina hosiery and underwear mills."
 
- nc_hanes_hosiery_boom: "Winston Hosiery Boom"
- nc_hanes_hosiery_boom_desc: "Knitting and hosiery expansion in Winston's mills."
 
  nc_high_point_company_prestige: "High Point Furniture"
  nc_high_point_company_prestige_desc: "Prestige and furniture throughput from the High Point charter."
- nc_high_point_furniture_boom: "High Point Furniture Boom"
- nc_high_point_furniture_boom_desc: "Furniture capital surge in the Piedmont."
- nc_high_point_furniture_boom_minor: "Private Furniture Investment"
- nc_high_point_furniture_boom_minor_desc: "Smaller furniture manufactory investment wave."
- nc_high_point_furniture_capital: "Furniture Capital"
- nc_high_point_furniture_capital_desc: "Lasting furniture industry specialization."
- nc_high_point_furniture_capital_country: "Carolina Woodwork"
- nc_high_point_furniture_capital_country_desc: "High Point furniture is known wherever hardwood is sold."
 
  nc_ig_industrialists_upset: "Mill Interests Spurned"
  nc_ig_industrialists_upset_desc: "Industrialists resent decisions that favor planters over mill villages."
@@ -1307,8 +1163,6 @@
  nc_kitty_hawk_experiments_state: "Kitty Hawk Camp"
  nc_kitty_hawk_experiments_state_desc: "Migration pull toward the Outer Banks aviation camp."
 
- nc_liggett_tobacco_boom: "Liggett Tobacco Boom"
- nc_liggett_tobacco_boom_desc: "Durham rival-house tobacco surge and cigarette-works packing throughput."
  nc_liggett_tobacco_prestige: "Liggett & Myers"
  nc_liggett_tobacco_prestige_desc: "National attention on Durham's Liggett & Myers house."
 
@@ -1389,18 +1243,8 @@
  nc_pepsi_brand_prestige: "Pepsi-Cola"
  nc_pepsi_brand_prestige_desc: "National attention on Carolina's soft-drink brand."
 
- nc_pepsi_new_bern_boom: "New Bern Soft Drink Boom"
- nc_pepsi_new_bern_boom_desc: "State-backed soft-drink and food industry surge centered on New Bern."
 
- nc_piedmont_mill_boom: "Piedmont Mill Boom"
- nc_piedmont_mill_boom_desc: "New South cotton mill boom across the Piedmont."
- nc_piedmont_mill_boom_minor: "Private Mill Investment"
- nc_piedmont_mill_boom_minor_desc: "Smaller mill investment wave in the Piedmont."
 
- nc_piedmont_textile_belt: "Piedmont Textile Belt"
- nc_piedmont_textile_belt_desc: "Enduring textile-belt throughput across North Carolina."
- nc_piedmont_textile_belt_country: "New South Spindles"
- nc_piedmont_textile_belt_country_desc: "Carolina cotton mills have made the Piedmont a byword for Southern industry."
 
  nc_planter_backlash: "Planter Backlash"
  nc_planter_backlash_desc: "Plantation interests reclaim labor and political initiative from the mills — tobacco and cotton throughput, no mill bonus."
@@ -1439,10 +1283,6 @@
  nc_tar_heel_pride: "Tar Heel Pride"
  nc_tar_heel_pride_desc: "Statewide pride from Tar Heel Legacy progress."
 
- nc_tobacco_belt_state: "Brightleaf Corridor"
- nc_tobacco_belt_state_desc: "Enduring tobacco plantations and cigarette-works throughput (food industry as packing proxy) along the Durham–Winston belt."
- nc_tobacco_belt_complete: "Tobacco Belt"
- nc_tobacco_belt_complete_desc: "Brightleaf plantations define North Carolina's tobacco corridor."
 
  nc_university_board_authority_cost: "University Board Expansion"
  nc_university_board_authority_cost_desc: "Authority tied up while the university board expands charter capacity."
@@ -1457,8 +1297,6 @@
  nc_vicks_brand_prestige: "Vick Chemical"
  nc_vicks_brand_prestige_desc: "National attention on Carolina medicinal brands — chemical throughput and lower mortality."
 
- nc_vicks_pharmacy_boom: "Greensboro Pharmacy Boom"
- nc_vicks_pharmacy_boom_desc: "Medicinal chemistry surge from Greensboro pharmacy investment."
 
  nc_wake_forest_devout_upset: "Baptist Campus Abandoned"
  nc_wake_forest_devout_upset_desc: "Evangelicals resent relocating Wake Forest from its Baptist roots to Winston-Salem's industrial wealth."
@@ -1482,8 +1320,6 @@
  nc_wilmington_weldon_minor: "Wilmington & Weldon (Private)"
  nc_wilmington_weldon_minor_desc: "Private funding bonus from the Wilmington & Weldon charter."
 
- nc_winston_tobacco_boom: "Winston Tobacco Boom"
- nc_winston_tobacco_boom_desc: "Winston cigarette works — tobacco plantations plus food-industry packing throughput."
 
  nc_wright_brothers_flight: "First Flight"
  nc_wright_brothers_flight_desc: "Timed prestige from Kill Devil Hills — lasting innovation comes when the aviation journal completes."

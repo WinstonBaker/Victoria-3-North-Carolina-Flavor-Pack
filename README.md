@@ -21,8 +21,8 @@ Compatible with vanilla USA; no hard dependencies on other flavor mods. Company 
 | **Universities** | UNC System (Chapel Hill, Research Triangle, 14 regional charters), Wake Forest relocation, education prestige |
 | **Outer Banks** | Lighthouse program, fuel PMs, storm/wreck pulses, coastal reconstruction |
 | **Rail** | Wilmington & Weldon → Atlantic & NC → Western NC → Carolina Rail Network |
-| **Piedmont industry** | Textiles, Duke Power, High Point furniture, mill village, Carolina brands, naval stores |
-| **Tobacco Belt** | Brightleaf corridor; Duke / Reynolds / Liggett |
+| **Piedmont industry** | Textile / power / furniture / brand companies, mill village, naval stores |
+| **Tobacco** | Brightleaf companies (Duke / Reynolds / Liggett) |
 | **Coast & century** | Cape Fear / Morehead ports, Wright brothers, Reconstruction → New South |
 | **Characters** | Historical industrialists & educators (Duke, Reynolds, Bradham, Vanderbilt, Wrights, …) |
 | **Landmarks** | State Capitol, Biltmore, state traits, Carolina gold belt |
@@ -30,7 +30,7 @@ Compatible with vanilla USA; no hard dependencies on other flavor mods. Company 
 ## Notes
 
 - Research Triangle unlocks after **Tar Heel Legacy** (pacing gate, not a calendar lock).
-- Industry journal entries open when you charter one related company; they complete on buildings, not a full company slate.
+- Piedmont / tobacco / brand **companies** are charter-only flavor firms (no dedicated industry JEs).
 - Education prestige scales with campuses and is capped so a full system stays strong without runaway stacking.
 - Davidson, Shaw, Elon, and Johnson C. Smith count for prestige / old saves but are not part of the UNC System charter JE.
 - Character portraits are placeholders (no custom DNA yet).
@@ -41,7 +41,7 @@ After script changes, sanity-check in-game:
 
 1. Start: UNC, Wake Forest, starting lighthouses, gold mines, NC state traits
 2. Mid-game: university / lighthouse charter recovery (cancel mid-build frees the slot); finished lights still credit
-3. Industry JEs: sponsors after Tar Heel + tech; one related company opens the JE; finish on buildings
-4. Later arcs: Cape Fear ports, Wright brothers (1896 / flight 1903), Reconstruction→New South (1866+)
-5. Systems: company founding, Triangle after Tar Heel, Biltmore / Wright characters, Outer Banks storms + Coastal Reconstruction
+3. Companies: charter Piedmont / tobacco / brand firms when building gates allow; story events may fire; no sponsor Decisions
+4. Later arcs: Cape Fear ports, Wright brothers (1896 / flight 1903), Reconstruction→New South (1866+); Mill Village after mills/company or New South
+5. Systems: Triangle after Tar Heel, Biltmore / Wright characters, Outer Banks storms + Coastal Reconstruction
 6. With and without Charters of Commerce — no script errors; error log clean on load
