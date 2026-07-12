@@ -19,7 +19,6 @@ nc_fund_coastal_reconstruction = {
 	}
 
 	possible = {
-		gold_reserves >= 35000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT

@@ -1,11 +1,13 @@
 ﻿########################################
-# Carolina Brands — company story sponsors
-# Naval Stores — Dismal Swamp Canal funding
+# Industry sponsors — available before company JEs
+# Flow: sponsor / grow buildings → charter ONE firm → related JE opens → finish on buildings
 ########################################
 
 nc_new_bern_soft_drink = {
 	is_shown = {
-		has_journal_entry = je_nc_carolina_brands
+		has_variable = nc_tar_heel_legacy_complete
+		has_technology_researched = corporate_charters
+		NOT = { has_variable = nc_carolina_brands_complete }
 		NOT = { has_variable = nc_pepsi_sponsored }
 		NOT = { has_company = company_type:company_pepsi_cola }
 		any_scope_state = {
@@ -15,7 +17,6 @@ nc_new_bern_soft_drink = {
 	}
 
 	possible = {
-		gold_reserves >= 40000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -57,7 +58,9 @@ nc_new_bern_soft_drink = {
 
 nc_greensboro_pharmacy = {
 	is_shown = {
-		has_journal_entry = je_nc_carolina_brands
+		has_variable = nc_tar_heel_legacy_complete
+		has_technology_researched = corporate_charters
+		NOT = { has_variable = nc_carolina_brands_complete }
 		NOT = { has_variable = nc_vicks_sponsored }
 		NOT = { has_company = company_type:company_vick_chemical }
 		any_scope_state = {
@@ -67,7 +70,6 @@ nc_greensboro_pharmacy = {
 	}
 
 	possible = {
-		gold_reserves >= 45000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -109,7 +111,9 @@ nc_greensboro_pharmacy = {
 
 nc_winston_hosiery = {
 	is_shown = {
-		has_journal_entry = je_nc_carolina_brands
+		has_variable = nc_tar_heel_legacy_complete
+		has_technology_researched = corporate_charters
+		NOT = { has_variable = nc_carolina_brands_complete }
 		NOT = { has_variable = nc_hanes_sponsored }
 		NOT = { has_company = company_type:company_hanes }
 		any_scope_state = {
@@ -119,7 +123,6 @@ nc_winston_hosiery = {
 	}
 
 	possible = {
-		gold_reserves >= 50000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -182,7 +185,6 @@ nc_fund_dismal_canal = {
 	}
 
 	possible = {
-		gold_reserves >= 75000
 		NOT = { has_variable = nc_dismal_canal_funded }
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
@@ -227,7 +229,9 @@ nc_fund_dismal_canal = {
 
 nc_sponsor_cannon_mills = {
 	is_shown = {
-		has_journal_entry = je_nc_piedmont_textiles
+		has_variable = nc_tar_heel_legacy_complete
+		has_technology_researched = atmospheric_engine
+		NOT = { has_variable = nc_piedmont_textiles_complete }
 		NOT = { has_variable = nc_cannon_sponsored }
 		NOT = { has_company = company_type:company_cannon_mills }
 		any_scope_state = {
@@ -237,7 +241,6 @@ nc_sponsor_cannon_mills = {
 	}
 
 	possible = {
-		gold_reserves >= 50000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -277,7 +280,9 @@ nc_sponsor_cannon_mills = {
 
 nc_sponsor_cone_mills = {
 	is_shown = {
-		has_journal_entry = je_nc_piedmont_textiles
+		has_variable = nc_tar_heel_legacy_complete
+		has_technology_researched = atmospheric_engine
+		NOT = { has_variable = nc_piedmont_textiles_complete }
 		NOT = { has_variable = nc_cone_sponsored }
 		NOT = { has_company = company_type:company_cone_mills }
 		any_scope_state = {
@@ -287,7 +292,6 @@ nc_sponsor_cone_mills = {
 	}
 
 	possible = {
-		gold_reserves >= 50000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -327,7 +331,9 @@ nc_sponsor_cone_mills = {
 
 nc_sponsor_burlington = {
 	is_shown = {
-		has_journal_entry = je_nc_piedmont_textiles
+		has_variable = nc_tar_heel_legacy_complete
+		has_technology_researched = atmospheric_engine
+		NOT = { has_variable = nc_piedmont_textiles_complete }
 		NOT = { has_variable = nc_burlington_sponsored }
 		NOT = { has_company = company_type:company_burlington_industries }
 		any_scope_state = {
@@ -337,7 +343,6 @@ nc_sponsor_burlington = {
 	}
 
 	possible = {
-		gold_reserves >= 60000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -377,7 +382,9 @@ nc_sponsor_burlington = {
 
 nc_sponsor_high_point = {
 	is_shown = {
-		has_journal_entry = je_nc_high_point_furniture
+		has_variable = nc_tar_heel_legacy_complete
+		has_technology_researched = manufacturies
+		NOT = { has_variable = nc_high_point_complete }
 		NOT = { has_variable = nc_high_point_sponsored }
 		NOT = { has_company = company_type:company_high_point_furniture }
 		any_scope_state = {
@@ -387,7 +394,6 @@ nc_sponsor_high_point = {
 	}
 
 	possible = {
-		gold_reserves >= 50000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -431,7 +437,9 @@ nc_sponsor_high_point = {
 
 nc_sponsor_durham_tobacco = {
 	is_shown = {
-		has_journal_entry = je_nc_tobacco_belt
+		has_variable = nc_tar_heel_legacy_complete
+		has_technology_researched = corporate_charters
+		NOT = { has_variable = nc_tobacco_belt_complete }
 		NOT = { has_variable = nc_duke_tobacco_sponsored }
 		NOT = { has_company = company_type:company_w_duke_sons }
 		any_scope_state = {
@@ -441,7 +449,6 @@ nc_sponsor_durham_tobacco = {
 	}
 
 	possible = {
-		gold_reserves >= 50000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -483,7 +490,9 @@ nc_sponsor_durham_tobacco = {
 
 nc_sponsor_winston_tobacco = {
 	is_shown = {
-		has_journal_entry = je_nc_tobacco_belt
+		has_variable = nc_tar_heel_legacy_complete
+		has_technology_researched = corporate_charters
+		NOT = { has_variable = nc_tobacco_belt_complete }
 		NOT = { has_variable = nc_reynolds_sponsored }
 		NOT = { has_company = company_type:company_rj_reynolds }
 		any_scope_state = {
@@ -493,7 +502,6 @@ nc_sponsor_winston_tobacco = {
 	}
 
 	possible = {
-		gold_reserves >= 45000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -529,7 +537,9 @@ nc_sponsor_winston_tobacco = {
 
 nc_sponsor_liggett_myers = {
 	is_shown = {
-		has_journal_entry = je_nc_tobacco_belt
+		has_variable = nc_tar_heel_legacy_complete
+		has_technology_researched = corporate_charters
+		NOT = { has_variable = nc_tobacco_belt_complete }
 		NOT = { has_variable = nc_liggett_sponsored }
 		NOT = { has_company = company_type:company_liggett_myers }
 		any_scope_state = {
@@ -539,7 +549,6 @@ nc_sponsor_liggett_myers = {
 	}
 
 	possible = {
-		gold_reserves >= 45000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -588,7 +597,6 @@ nc_fund_wilmington_harbor = {
 	}
 
 	possible = {
-		gold_reserves >= 80000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -639,7 +647,6 @@ nc_fund_morehead_terminal = {
 	}
 
 	possible = {
-		gold_reserves >= 60000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -688,7 +695,6 @@ nc_fund_kitty_hawk = {
 	}
 
 	possible = {
-		gold_reserves >= 35000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -740,7 +746,6 @@ nc_fund_freedmen_schools = {
 	}
 
 	possible = {
-		gold_reserves >= 55000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT

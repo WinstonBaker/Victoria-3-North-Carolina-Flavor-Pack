@@ -15,7 +15,6 @@ nc_charter_wilmington_weldon = {
 	}
 
 	possible = {
-		gold_reserves >= 150000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -54,7 +53,6 @@ nc_charter_raleigh_gaston = {
 	}
 
 	possible = {
-		gold_reserves >= 75000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -93,7 +91,6 @@ nc_charter_ncr_trunk = {
 	}
 
 	possible = {
-		gold_reserves >= 175000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -132,7 +129,6 @@ nc_charter_atlantic_nc = {
 	}
 
 	possible = {
-		gold_reserves >= 125000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -171,7 +167,6 @@ nc_charter_western_nc = {
 	}
 
 	possible = {
-		gold_reserves >= 250000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT

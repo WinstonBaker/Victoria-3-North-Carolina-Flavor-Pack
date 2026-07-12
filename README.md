@@ -47,7 +47,7 @@ After changes, in-game check:
 
 1. Start buildings: UNC, Wake Forest, starting lighthouses, gold mines; NC state traits present
 2. Mid-game: university / lighthouse charter recovery still works (cancel mid-build frees the slot without soft-lock); finished lights also credit if the build JE missed them
-3. Industry JEs: Carolina Brands, naval stores, mill village, Tobacco Belt — decisions appear and company unlocks remain attainable (NCR after Piedmont trunk; sponsors note remaining building levels; Burlington at mills 5 with Cannon/Cone)
+3. Industry JEs: sponsors appear after Tar Heel + tech; charter any one related company to open the JE; finish on buildings (no full company slate required)
 4. History arcs (1.2): Cape Fear ports, Wright brothers (from 1896 / flight 1903), Reconstruction→New South (from 1866)
 5. Systems (1.3): company founding / Triangle (after Tar Heel) / Biltmore / Wright spawn characters; education prestige scales with campuses (capped); after lights complete, Outer Banks storm JE pulses and Coastal Reconstruction decision clears damage
 6. With Charters of Commerce: flavored company prestige goods appear; without CoC, no script errors

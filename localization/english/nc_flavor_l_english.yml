@@ -41,20 +41,26 @@
  je_nc_cape_fear_ports_wilmington_tt: "Funded Wilmington Harbor works"
 
  je_nc_carolina_brands: "Carolina Brands"
- je_nc_carolina_brands_desc: "North Carolina's factories and pharmacies are ready to become household names. Charter Pepsi-Cola, Vick Chemical, Hanes, and the North Carolina Railroad Company — use Decisions to sponsor New Bern soft drinks, a Greensboro pharmacy, or Winston hosiery while you grow the industries they need. The railroad company unlocks after the Piedmont NCR trunk is finished."
- je_nc_carolina_brands_reason: "Shown after Tar Heel Legacy with Corporate Charters. Activates so you can sponsor brands; completes when Pepsi-Cola, Vick Chemical, Hanes, and the NC Railroad Company are all founded."
+ je_nc_carolina_brands_desc: "A Carolina brand has taken root. Grow soft drinks, chemicals, and hosiery, finish the NCR trunk, and optionally charter more houses if you have slots — sponsors can nudge industries either before or after the first charter."
+ je_nc_carolina_brands_reason: "Opens when you charter Pepsi-Cola, Vick Chemical, Hanes, or the NC Railroad. Completes on Food Industry 5, Chemical Plants 3, Textile Mills 4, and the Piedmont NCR trunk."
+ je_nc_carolina_brands_company_start_tt: "Chartered Pepsi-Cola, Vick Chemical, Hanes, or the North Carolina Railroad Company"
  je_nc_carolina_brands_hanes_tt: "Hanes has been established as a company"
  je_nc_carolina_brands_ncr_tt: "The North Carolina Railroad Company has been established (unlocks after the Piedmont NCR trunk JE)"
  je_nc_carolina_brands_pepsi_tt: "Pepsi-Cola has been established as a company"
- je_nc_carolina_brands_progress_status_loc: "Found Pepsi-Cola, Vick Chemical, Hanes, and the North Carolina Railroad Company. Sponsors help industries grow; NCR needs the Piedmont trunk complete first."
+ je_nc_carolina_brands_food_tt: "North Carolina has at least 5 levels of Food Industry"
+ je_nc_carolina_brands_chemicals_tt: "North Carolina has at least 3 levels of Chemical Plants"
+ je_nc_carolina_brands_textiles_tt: "North Carolina has at least 4 levels of Textile Mills"
+ je_nc_carolina_brands_trunk_tt: "The Piedmont NCR trunk railroad JE is complete"
+ je_nc_carolina_brands_progress_status_loc: "Raise Food Industry to 5, Chemical Plants to 3, and Textile Mills to 4, and finish the Piedmont NCR trunk. Additional brand charters are optional."
  je_nc_carolina_brands_vicks_tt: "Vick Chemical has been established as a company"
 
  je_nc_duke_power: "Light the Piedmont"
- je_nc_duke_power_desc: "James B. Duke's Southern Power Company aims to dam the Catawba and electrify the mill belt. Raise power plants and feed Piedmont industry until the grid runs on hydroelectric current. Chartering Duke Power remains optional."
- je_nc_duke_power_reason: "Shown after Tar Heel Legacy with Electrical Generation. Activates once North Carolina has a power plant — finish the grid with plants and industry."
+ je_nc_duke_power_desc: "Duke Power is on the map. Raise power plants and feed Piedmont industry until the grid runs on hydroelectric current."
+ je_nc_duke_power_reason: "Opens when you charter Duke Power. Completes with Power Plants at level 5 plus strong textile mills or furniture manufactories."
  je_nc_duke_power_industry_tt: "North Carolina has substantial textile mills or furniture manufactories"
  je_nc_duke_power_plants_tt: "North Carolina has at least 5 levels of Power Plants"
  je_nc_duke_power_company_tt: "Duke Power has been established as a company"
+ je_nc_duke_power_company_start_tt: "Chartered Duke Power"
  je_nc_duke_power_start_tt: "North Carolina has at least 1 level of Power Plants"
  je_nc_duke_power_progress_status_loc: "Build Power Plants to level 5 and keep Piedmont textile mills or furniture manufactories strong."
 
@@ -80,11 +86,12 @@
  je_nc_found_selected_wssu_status_loc: "Build #b Winston-Salem State University#! in North Carolina."
 
  je_nc_high_point_furniture: "Furniture Capital of the World"
- je_nc_high_point_furniture_desc: "High Point sits amid hardwood forests and rail sidings perfect for chairs, tables, and case goods. Build furniture manufactories and logging camps until the world shops Carolina woodwork. Chartering High Point Furniture remains optional."
- je_nc_high_point_furniture_reason: "Shown after Tar Heel Legacy with Manufacturies. Activates once furniture factories are underway — finish with furniture and logging."
+ je_nc_high_point_furniture_desc: "High Point Furniture is chartered. Expand furniture manufactories and logging camps until the world shops Carolina woodwork."
+ je_nc_high_point_furniture_reason: "Opens when you charter High Point Furniture. Completes with Furniture Manufactories and Logging Camps at level 5."
  je_nc_high_point_furniture_tt: "North Carolina has at least 5 levels of Furniture Manufactories"
  je_nc_high_point_logging_tt: "North Carolina has at least 5 levels of Logging Camps"
  je_nc_high_point_company_tt: "High Point Furniture has been established as a company"
+ je_nc_high_point_company_start_tt: "Chartered High Point Furniture"
  je_nc_high_point_start_tt: "North Carolina has at least 2 levels of Furniture Manufactories"
  je_nc_high_point_progress_status_loc: "Expand Furniture Manufactories and Logging Camps to level 5."
 
@@ -143,14 +150,15 @@
  je_nc_outer_banks_program_progress_status_loc: "Fund the Lighthouse Board to begin choosing new Outer Banks lights."
 
  je_nc_piedmont_textiles: "Raise the Piedmont Mills"
- je_nc_piedmont_textiles_desc: "Along the fall line from Charlotte to Gastonia and Concord, water power and cheap cotton invite a New South experiment: mill villages spinning Southern fiber into cloth. Raise mills and secure cotton until the Piedmont hums with spindles. Chartering Cannon, Cone, or Burlington remains optional."
- je_nc_piedmont_textiles_reason: "Shown after Tar Heel Legacy with Atmospheric Engine. Activates once textile mills are underway — finish with mills and cotton."
+ je_nc_piedmont_textiles_desc: "A Piedmont mill company is chartered. Raise mills and secure cotton until the fall line hums with spindles — more textile houses are optional if you have slots."
+ je_nc_piedmont_textiles_reason: "Opens when you charter Cannon, Cone, or Burlington. Completes with Textile Mills at level 5 and Cotton Plantations at level 3."
  je_nc_piedmont_textiles_cotton_tt: "North Carolina has at least 3 levels of Cotton Plantations"
  je_nc_piedmont_textiles_mills_status_loc: "The mills stand ready. Expand cotton plantations to finish the Piedmont textile belt."
  je_nc_piedmont_textiles_mills_tt: "North Carolina has at least 5 levels of Textile Mills"
  je_nc_piedmont_textiles_cannon_tt: "Cannon Mills has been established as a company"
  je_nc_piedmont_textiles_cone_tt: "Cone Mills has been established as a company"
  je_nc_piedmont_textiles_burlington_tt: "Burlington Industries has been established as a company"
+ je_nc_piedmont_textiles_company_start_tt: "Chartered Cannon Mills, Cone Mills, or Burlington Industries"
  je_nc_piedmont_textiles_start_tt: "North Carolina has at least 2 levels of Textile Mills"
  je_nc_piedmont_textiles_progress_status_loc: "Raise Textile Mills to level 5 and Cotton Plantations to level 3."
 
@@ -186,12 +194,13 @@
  je_nc_tar_heel_legacy_reason: "Tobacco, timber, and naval stores can make North Carolina a New South powerhouse — if the fields and pine forests are developed in earnest."
 
  je_nc_tobacco_belt: "Tobacco Belt"
- je_nc_tobacco_belt_desc: "Brightleaf cured in Durham and Winston has made North Carolina the cigarette capital of America. Charter W. Duke, Sons & Co., R.J. Reynolds, and Liggett & Myers — use Decisions to sponsor their factories while expanding tobacco plantations along the Durham–Winston corridor."
- je_nc_tobacco_belt_reason: "Shown after Tar Heel Legacy with Corporate Charters. Activates so you can sponsor leaf houses; completes when Duke, Reynolds, and Liggett are founded and Tobacco Plantations reach level 8."
+ je_nc_tobacco_belt_desc: "A brightleaf house is chartered. Expand tobacco plantations along the Durham–Winston corridor — more leaf companies are optional if you have slots. Sponsors can still help factories grow before the first charter."
+ je_nc_tobacco_belt_reason: "Opens when you charter W. Duke, Sons & Co., R.J. Reynolds, or Liggett & Myers. Completes when Tobacco Plantations reach level 8."
  je_nc_tobacco_belt_duke_tt: "W. Duke, Sons & Co. has been established as a company"
  je_nc_tobacco_belt_liggett_tt: "Liggett & Myers Tobacco Company has been established as a company"
  je_nc_tobacco_belt_plantations_tt: "North Carolina has at least 8 levels of Tobacco Plantations"
- je_nc_tobacco_belt_progress_status_loc: "Found Duke, Reynolds, and Liggett & Myers. Expand Tobacco Plantations to level 8. Open Decisions to sponsor Durham or Winston leaf."
+ je_nc_tobacco_belt_company_start_tt: "Chartered W. Duke, Sons & Co., R.J. Reynolds, or Liggett & Myers"
+ je_nc_tobacco_belt_progress_status_loc: "Expand Tobacco Plantations to level 8. Additional leaf-house charters are optional."
  je_nc_tobacco_belt_reynolds_tt: "R.J. Reynolds Tobacco Company has been established as a company"
 
  je_nc_uni_progress_app_state_tt: "Appalachian State founded"
@@ -354,6 +363,30 @@
 
  building_winston_salem_state: "Winston-Salem State University"
  building_winston_salem_state_desc: "A Piedmont teachers' college for Black students in Winston-Salem, later a vital regional campus in the UNC System."
+
+ # Special-lens construction buttons (required for buildable unique buildings)
+ building_appalachian_state_lens_option: "Build $building_appalachian_state$"
+ building_biltmore_house_lens_option: "Build $building_biltmore_house$"
+ building_duke_university_lens_option: "Build $building_duke_university$"
+ building_east_carolina_university_lens_option: "Build $building_east_carolina_university$"
+ building_elizabeth_city_state_lens_option: "Build $building_elizabeth_city_state$"
+ building_fayetteville_state_lens_option: "Build $building_fayetteville_state$"
+ building_nc_at_university_lens_option: "Build $building_nc_at_university$"
+ building_nc_bodie_island_lighthouse_lens_option: "Build $building_nc_bodie_island_lighthouse$"
+ building_nc_cape_fear_lighthouse_lens_option: "Build $building_nc_cape_fear_lighthouse$"
+ building_nc_cape_lookout_lighthouse_lens_option: "Build $building_nc_cape_lookout_lighthouse$"
+ building_nc_central_university_lens_option: "Build $building_nc_central_university$"
+ building_nc_currituck_beach_lighthouse_lens_option: "Build $building_nc_currituck_beach_lighthouse$"
+ building_nc_state_capitol_lens_option: "Build $building_nc_state_capitol$"
+ building_nc_state_university_lens_option: "Build $building_nc_state_university$"
+ building_unc_asheville_lens_option: "Build $building_unc_asheville$"
+ building_unc_charlotte_lens_option: "Build $building_unc_charlotte$"
+ building_unc_greensboro_lens_option: "Build $building_unc_greensboro$"
+ building_unc_pembroke_lens_option: "Build $building_unc_pembroke$"
+ building_unc_school_of_the_arts_lens_option: "Build $building_unc_school_of_the_arts$"
+ building_unc_wilmington_lens_option: "Build $building_unc_wilmington$"
+ building_western_carolina_university_lens_option: "Build $building_western_carolina_university$"
+ building_winston_salem_state_lens_option: "Build $building_winston_salem_state$"
 
  # === Companies ===
 
@@ -1199,7 +1232,7 @@
  nc_capitol_under_construction_country_desc: "National attention on finishing the North Carolina State Capitol."
 
  nc_carolina_brands_complete: "Carolina Brands"
- nc_carolina_brands_complete_desc: "Pepsi, Vicks, Hanes, and the state railroad brand North Carolina's industrial identity."
+ nc_carolina_brands_complete_desc: "Soft drinks, remedies, hosiery, and rail brand North Carolina's industrial identity."
 
  nc_carolina_rail_network: "Carolina Rail Network"
  nc_carolina_rail_network_desc: "Permanent bonus to railways, infrastructure, construction, and migration from completing the Carolina rail network."
@@ -1249,7 +1282,7 @@
  nc_education_prestige_country: "Carolina Campus Prestige"
  nc_education_prestige_country_desc: "Prestige and innovation scaled by North Carolina university campuses (capped so a full system remains strong without runaway stacking)."
 
- nc_freedmen_schools: "Freedmen's Schools"
+ nc_freedmen_schools: "Freedmen Schools"
  nc_freedmen_schools_desc: "Education access from postwar school funding."
 
  nc_gold_rush_excitement: "Carolina Gold Rush"
@@ -1426,7 +1459,7 @@
  nc_tobacco_belt_state: "Brightleaf Corridor"
  nc_tobacco_belt_state_desc: "Enduring tobacco plantations and cigarette-works throughput (food industry as packing proxy) along the Durham–Winston belt."
  nc_tobacco_belt_complete: "Tobacco Belt"
- nc_tobacco_belt_complete_desc: "Duke, Reynolds, and Liggett brand North Carolina's brightleaf corridor."
+ nc_tobacco_belt_complete_desc: "Brightleaf plantations define North Carolina's tobacco corridor."
 
  nc_university_board_authority_cost: "University Board Expansion"
  nc_university_board_authority_cost_desc: "Authority tied up while the university board expands charter capacity."

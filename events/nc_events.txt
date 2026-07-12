@@ -233,9 +233,6 @@ nc_flavor_events.5 = {
 	option = {
 		name = nc_flavor_events.5.a
 		default_option = yes
-		trigger = {
-			gold_reserves >= 100000
-		}
 		add_treasury = -100000
 		custom_tooltip = rt_universities_unlocked_tt
 		custom_tooltip = rt_universities_delayed_queue_tt
@@ -514,7 +511,6 @@ nc_flavor_events.9 = {
 		default_option = yes
 		trigger = {
 			NOT = { has_variable = nc_lighthouse_system_active }
-			gold_reserves >= 40000
 		}
 		add_treasury = -40000
 		set_variable = nc_lighthouse_system_active
@@ -570,7 +566,6 @@ nc_flavor_events.10 = {
 		default_option = yes
 		trigger = {
 			NOT = { has_variable = nc_wilmington_weldon_chartered }
-			gold_reserves >= 150000
 		}
 		add_treasury = -150000
 		set_variable = nc_wilmington_weldon_chartered
@@ -654,7 +649,6 @@ nc_flavor_events.11 = {
 		default_option = yes
 		trigger = {
 			NOT = { has_variable = nc_raleigh_gaston_chartered }
-			gold_reserves >= 75000
 		}
 		add_treasury = -75000
 		set_variable = nc_raleigh_gaston_chartered
@@ -737,7 +731,6 @@ nc_flavor_events.12 = {
 		default_option = yes
 		trigger = {
 			NOT = { has_variable = nc_ncr_trunk_chartered }
-			gold_reserves >= 175000
 		}
 		add_treasury = -175000
 		set_variable = nc_ncr_trunk_chartered
@@ -859,7 +852,6 @@ nc_flavor_events.23 = {
 		default_option = yes
 		trigger = {
 			NOT = { has_variable = nc_atlantic_nc_chartered }
-			gold_reserves >= 125000
 		}
 		add_treasury = -125000
 		set_variable = nc_atlantic_nc_chartered
@@ -942,7 +934,6 @@ nc_flavor_events.24 = {
 		default_option = yes
 		trigger = {
 			NOT = { has_variable = nc_western_nc_chartered }
-			gold_reserves >= 250000
 		}
 		add_treasury = -250000
 		set_variable = nc_western_nc_chartered
@@ -1403,9 +1394,6 @@ nc_flavor_events.20 = {
 	option = {
 		name = nc_flavor_events.20.a
 		default_option = yes
-		trigger = {
-			gold_reserves >= 150000
-		}
 		add_treasury = -150000
 		custom_tooltip = nc_biltmore_unlocked_tt
 		custom_tooltip = nc_character_vanderbilt_tt
@@ -2330,9 +2318,6 @@ nc_flavor_events.39 = {
 	option = {
 		name = nc_flavor_events.39.a
 		default_option = yes
-		trigger = {
-			gold_reserves >= 40000
-		}
 		add_treasury = -40000
 		set_variable = nc_wake_forest_relocated
 		custom_tooltip = nc_wake_forest_relocate_tt
@@ -4013,9 +3998,6 @@ nc_flavor_events.69 = {
 
 	option = {
 		name = nc_flavor_events.69.b
-		trigger = {
-			gold_reserves >= 20000
-		}
 		add_treasury = -20000
 		custom_tooltip = nc_outer_banks_storm_mitigate_tt
 		scope:nc_state_scope = {
@@ -4092,9 +4074,6 @@ nc_flavor_events.70 = {
 
 	option = {
 		name = nc_flavor_events.70.b
-		trigger = {
-			gold_reserves >= 15000
-		}
 		add_treasury = -15000
 		custom_tooltip = nc_outer_banks_wreck_salvage_tt
 		scope:nc_state_scope = {

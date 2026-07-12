@@ -46,7 +46,6 @@ nc_expand_university_board = {
 	possible = {
 		has_variable = nc_research_triangle_complete
 		var:nc_uni_charter_capacity < 2
-		gold_reserves >= 100000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -86,7 +85,6 @@ nc_university_construction_push = {
 
 	possible = {
 		var:nc_uni_charter_count > 0
-		gold_reserves >= 50000
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -141,7 +139,6 @@ nc_relocate_wake_forest = {
 	}
 
 	possible = {
-		gold_reserves >= 40000
 		has_technology_researched = railways
 		NOT = { has_modifier = nc_wake_forest_offer_cooldown }
 		any_scope_state = {
