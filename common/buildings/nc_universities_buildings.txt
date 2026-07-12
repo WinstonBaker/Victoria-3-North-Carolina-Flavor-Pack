@@ -1,6 +1,6 @@
 ﻿########################################
 # North Carolina Universities (all campuses)
-# Sections: start -> Research Triangle -> UNC System charters -> private (legacy, not chartered)
+# Sections: start -> Research Triangle -> UNC System charters -> private (kept, not charterable)
 ########################################
 # UNC Chapel Hill & Wake Forest - start campuses
 # Monument cost + strong PMs are intentional; see nc_universities_pm.txt DESIGN INTENT.
@@ -69,7 +69,7 @@ building_wake_forest_college = {
 # Research Triangle
 ########################################
 
-# NC State - unique Triangle campus (Centennial level-2 expansion removed; Vic3 monument expand was unreliable)
+# NC State — unique Triangle campus (no level-2 Centennial expansion)
 building_nc_state_university = {
 	building_group = bg_nc_flavor
 	icon = "gfx/interface/icons/building_icons/ncsu.dds"
@@ -667,7 +667,7 @@ building_winston_salem_state = {
 }
 
 ########################################
-# Private colleges (legacy buildings; not part of UNC System charter JE)
+# Private colleges (kept for prestige count / old saves; not UNC System charters)
 ########################################
 building_davidson_college = {
 	building_group = bg_nc_flavor

@@ -37,7 +37,7 @@ nc_university_campus_count = {
 		if = { limit = { has_building = building_unc_wilmington } add = 1 }
 		if = { limit = { has_building = building_western_carolina_university } add = 1 }
 		if = { limit = { has_building = building_winston_salem_state } add = 1 }
-		# Legacy private campuses still count if already built
+		# Private campuses still count if already built
 		if = { limit = { has_building = building_davidson_college } add = 1 }
 		if = { limit = { has_building = building_shaw_university } add = 1 }
 		if = { limit = { has_building = building_elon_university } add = 1 }

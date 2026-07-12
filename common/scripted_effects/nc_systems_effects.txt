@@ -1,6 +1,5 @@
 ﻿########################################
-# North Carolina Flavor — v2.0 systems
-# Character spawn helpers + education prestige refresh
+# North Carolina Flavor — character spawn helpers + education prestige refresh
 ########################################
 
 nc_spawn_washington_duke = {

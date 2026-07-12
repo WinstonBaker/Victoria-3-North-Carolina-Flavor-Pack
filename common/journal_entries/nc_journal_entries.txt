@@ -1301,6 +1301,13 @@ je_nc_university_system_progress = {
 		}
 	}
 
+	event_outcome_completed_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = event_effects_nc_complete_unc_system.31_tt
+			}
+		}
+	}
 
 	invalid = {
 		NOT = {

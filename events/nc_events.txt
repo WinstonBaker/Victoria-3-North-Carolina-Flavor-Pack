@@ -4126,6 +4126,11 @@ nc_flavor_events.71 = {
 }
 
 ########################################
+# 72–75 — RETIRED (former Valdese / migrant hooks)
+# IDs reserved — do not reuse without save/history check.
+########################################
+
+########################################
 # 76 — High Point Furniture company founded
 ########################################
 
