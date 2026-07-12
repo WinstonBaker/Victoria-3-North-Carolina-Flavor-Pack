@@ -16,6 +16,7 @@ All notable changes to the North Carolina Flavor Pack are documented here.
 - Bugfixes: Found University JE no longer races monthly charter credit; Kitty Hawk innovation applies on country scope; Western NC private/full timed rewards restored; NCR company unlocks after Piedmont trunk (unblocks Carolina Brands); capitol re-queue guarded by under-construction; lighthouse fuel port bonuses are state-scoped; ECSU/WSSU building descriptions; Charlotte Mint low path applies minor boom; storm/wreck mitigate options require gold
 - Launch polish: university charter recovery respects under-construction campuses; orphan Davidson/Shaw founded modifiers removed; prestige-good descriptions; Wake Forest relocate typo fix; CoC prestige-goods note; Caesar Cone template key corrected
 - Launch readiness: monthly lighthouse finished-credit (mirrors university soft-lock fix); Caesar Cone spawn effect rename; removed unused gold-rush minor modifier; brand-sponsor and Carolina Brands / NCR trunk tooltips state remaining unlock gates; event ID header documents reserved/retired gaps; ECSU/WSSU campus copy polish
+- P0/P1 launch fixes: lighthouse Build JE soft-lock + choose-next (.33) dedupe; Burlington mill gate aligned to 5 with Piedmont JE; Research Triangle after Tar Heel (pacing, not calendar purity); education prestige campus multiplier capped; Biltmore migration softened; company/mint/Wright monthly events scoped to NC owners; lighthouse board funding requires gold reserves
 
 ## 1.2.0
 

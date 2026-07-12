@@ -649,7 +649,7 @@ je_nc_western_nc = {
 }
 
 ########################################
-# Research Triangle — available from game start (UNC already stands)
+# Research Triangle — shown in Potential early; unlocks after Tar Heel Legacy
 ########################################
 
 je_nc_research_triangle = {
@@ -672,6 +672,10 @@ je_nc_research_triangle = {
 
 	possible = {
 		NOT = { has_variable = nc_research_triangle_complete }
+		custom_tooltip = {
+			text = je_nc_research_triangle_tar_heel_tt
+			has_variable = nc_tar_heel_legacy_complete
+		}
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -1485,7 +1489,11 @@ je_nc_build_selected_lighthouse = {
 	is_shown_when_inactive = {
 		has_variable = nc_lighthouse_system_active
 		NOT = { has_variable = nc_lighthouse_system_complete }
-		has_variable = nc_light_build_pending
+		OR = {
+			has_variable = nc_light_build_pending
+			# Monthly credit may clear build flags before this JE completes
+			has_variable = nc_light_just_credited
+		}
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -1495,7 +1503,10 @@ je_nc_build_selected_lighthouse = {
 	possible = {
 		has_variable = nc_lighthouse_system_active
 		NOT = { has_variable = nc_lighthouse_system_complete }
-		has_variable = nc_light_build_pending
+		OR = {
+			has_variable = nc_light_build_pending
+			has_variable = nc_light_just_credited
+		}
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -1540,6 +1551,8 @@ je_nc_build_selected_lighthouse = {
 		custom_tooltip = {
 			text = je_nc_build_selected_lighthouse_tt
 			OR = {
+				# Monthly credit already freed the slot — finish the JE so event .33 can fire
+				has_variable = nc_light_just_credited
 				AND = {
 					has_variable = nc_light_build_lookout
 					any_scope_state = {
@@ -1573,6 +1586,8 @@ je_nc_build_selected_lighthouse = {
 	}
 
 	on_complete = {
+		# Credit finished lights (also runs monthly — soft-lock fix)
+		nc_credit_finished_lighthouse_charters = yes
 		if = {
 			limit = { has_variable = nc_light_build_lookout }
 			remove_variable = nc_light_build_lookout
@@ -1594,6 +1609,10 @@ je_nc_build_selected_lighthouse = {
 			set_variable = nc_light_founded_cape_fear
 		}
 		remove_variable = nc_light_build_pending
+		if = {
+			limit = { has_variable = nc_light_just_credited }
+			remove_variable = nc_light_just_credited
+		}
 
 		if = {
 			limit = {
@@ -1734,6 +1753,7 @@ je_nc_piedmont_textiles = {
 	is_shown_when_inactive = {
 		has_variable = nc_tar_heel_legacy_complete
 		NOT = { has_variable = nc_piedmont_textiles_complete }
+		has_technology_researched = atmospheric_engine
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -1744,9 +1764,16 @@ je_nc_piedmont_textiles = {
 		has_variable = nc_tar_heel_legacy_complete
 		NOT = { has_variable = nc_piedmont_textiles_complete }
 		has_technology_researched = atmospheric_engine
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
+		custom_tooltip = {
+			text = je_nc_piedmont_textiles_start_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+				any_scope_building = {
+					is_building_type = building_textile_mill
+					level >= 2
+				}
+			}
 		}
 	}
 
@@ -1802,18 +1829,6 @@ je_nc_piedmont_textiles = {
 				}
 			}
 		}
-		custom_tooltip = {
-			text = je_nc_piedmont_textiles_cannon_tt
-			has_company = company_type:company_cannon_mills
-		}
-		custom_tooltip = {
-			text = je_nc_piedmont_textiles_cone_tt
-			has_company = company_type:company_cone_mills
-		}
-		custom_tooltip = {
-			text = je_nc_piedmont_textiles_burlington_tt
-			has_company = company_type:company_burlington_industries
-		}
 	}
 
 	on_complete = {
@@ -1839,7 +1854,7 @@ je_nc_piedmont_textiles = {
 	}
 
 	weight = 95
-	should_be_pinned_by_default_uninvolved_or_context = yes
+	should_be_pinned_by_default_uninvolved_or_context = no
 }
 
 ########################################
@@ -1847,12 +1862,13 @@ je_nc_piedmont_textiles = {
 ########################################
 
 je_nc_duke_power = {
-	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
 	group = je_group_nc_flavor
 
 	is_shown_when_inactive = {
 		has_variable = nc_tar_heel_legacy_complete
 		NOT = { has_variable = nc_duke_power_complete }
+		has_technology_researched = electrical_generation
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -1863,9 +1879,16 @@ je_nc_duke_power = {
 		has_variable = nc_tar_heel_legacy_complete
 		NOT = { has_variable = nc_duke_power_complete }
 		has_technology_researched = electrical_generation
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
+		custom_tooltip = {
+			text = je_nc_duke_power_start_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+				any_scope_building = {
+					is_building_type = building_power_plant
+					level >= 1
+				}
+			}
 		}
 	}
 
@@ -1915,10 +1938,6 @@ je_nc_duke_power = {
 				}
 			}
 		}
-		custom_tooltip = {
-			text = je_nc_duke_power_company_tt
-			has_company = company_type:company_duke_power
-		}
 	}
 
 	on_complete = {
@@ -1944,7 +1963,7 @@ je_nc_duke_power = {
 	}
 
 	weight = 85
-	should_be_pinned_by_default_uninvolved_or_context = yes
+	should_be_pinned_by_default_uninvolved_or_context = no
 }
 
 ########################################
@@ -1952,12 +1971,13 @@ je_nc_duke_power = {
 ########################################
 
 je_nc_high_point_furniture = {
-	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
 	group = je_group_nc_flavor
 
 	is_shown_when_inactive = {
 		has_variable = nc_tar_heel_legacy_complete
 		NOT = { has_variable = nc_high_point_complete }
+		has_technology_researched = manufacturies
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
@@ -1968,9 +1988,16 @@ je_nc_high_point_furniture = {
 		has_variable = nc_tar_heel_legacy_complete
 		NOT = { has_variable = nc_high_point_complete }
 		has_technology_researched = manufacturies
-		any_scope_state = {
-			state_region = s:STATE_NORTH_CAROLINA
-			owner = ROOT
+		custom_tooltip = {
+			text = je_nc_high_point_start_tt
+			any_scope_state = {
+				state_region = s:STATE_NORTH_CAROLINA
+				owner = ROOT
+				any_scope_building = {
+					is_building_type = building_furniture_manufactory
+					level >= 2
+				}
+			}
 		}
 	}
 
@@ -2014,10 +2041,6 @@ je_nc_high_point_furniture = {
 				}
 			}
 		}
-		custom_tooltip = {
-			text = je_nc_high_point_company_tt
-			has_company = company_type:company_high_point_furniture
-		}
 	}
 
 	on_complete = {
@@ -2043,7 +2066,7 @@ je_nc_high_point_furniture = {
 	}
 
 	weight = 85
-	should_be_pinned_by_default_uninvolved_or_context = yes
+	should_be_pinned_by_default_uninvolved_or_context = no
 }
 
 ########################################
@@ -2257,18 +2280,21 @@ je_nc_mill_village = {
 ########################################
 
 je_nc_carolina_brands = {
-	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
 	group = je_group_nc_flavor
 
 	is_shown_when_inactive = {
 		has_variable = nc_tar_heel_legacy_complete
 		NOT = { has_variable = nc_carolina_brands_complete }
+		has_technology_researched = corporate_charters
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
 		}
 	}
 
+	# Activates after Tar Heel + Corporate Charters so sponsors can run;
+	# companies remain the complete criteria (not the activation gate).
 	possible = {
 		has_variable = nc_tar_heel_legacy_complete
 		NOT = { has_variable = nc_carolina_brands_complete }
@@ -2339,7 +2365,7 @@ je_nc_carolina_brands = {
 	}
 
 	weight = 70
-	should_be_pinned_by_default_uninvolved_or_context = yes
+	should_be_pinned_by_default_uninvolved_or_context = no
 }
 
 ########################################
@@ -2453,18 +2479,21 @@ je_nc_naval_stores = {
 ########################################
 
 je_nc_tobacco_belt = {
-	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
 	group = je_group_nc_flavor
 
 	is_shown_when_inactive = {
 		has_variable = nc_tar_heel_legacy_complete
 		NOT = { has_variable = nc_tobacco_belt_complete }
+		has_technology_researched = corporate_charters
 		any_scope_state = {
 			state_region = s:STATE_NORTH_CAROLINA
 			owner = ROOT
 		}
 	}
 
+	# Activates after Tar Heel + Corporate Charters so sponsors can run;
+	# companies + plantations remain the complete criteria.
 	possible = {
 		has_variable = nc_tar_heel_legacy_complete
 		NOT = { has_variable = nc_tobacco_belt_complete }
@@ -2482,7 +2511,12 @@ je_nc_tobacco_belt = {
 				save_scope_as = nc_state_scope
 			}
 		}
-		trigger_event = { id = nc_flavor_events.52 popup = yes }
+		if = {
+			limit = {
+				NOT = { has_variable = nc_tobacco_belt_fired }
+			}
+			trigger_event = { id = nc_flavor_events.52 popup = yes }
+		}
 	}
 
 	status_desc = {
@@ -2542,7 +2576,7 @@ je_nc_tobacco_belt = {
 	}
 
 	weight = 78
-	should_be_pinned_by_default_uninvolved_or_context = yes
+	should_be_pinned_by_default_uninvolved_or_context = no
 }
 
 ########################################

@@ -2,6 +2,8 @@
 
 North Carolina flavor for Victoria 3 (`1.13.*`): journal chains, decisions, unique buildings, companies, characters, and state traits centered on North Carolina — without a full USA overhaul.
 
+This is **not** a strict history simulator. It borrows Tar Heel history for immersion and pacing, then bends timelines so content fits Victoria 3 systems and stays fun.
+
 ## Install
 
 1. Place this folder in your Victoria 3 `mod/` directory (Paradox Interactive path), or subscribe via the Paradox Mods / Steam Workshop page when published.
@@ -34,6 +36,8 @@ Current release: **1.3.0** (see `.metadata/metadata.json`). Supported game versi
 - New content prefers timed modifiers and decisions over new laws or country tags.
 - Character portraits are placeholders (no custom DNA yet).
 - Davidson, Shaw, Elon, and Johnson C. Smith remain as **legacy-only** campus buildings (old saves / prestige count); they are not charterable in 1.3.
+- Research Triangle unlocks after **Tar Heel Legacy** (early pacing, not a calendar lock).
+- Education prestige scales with campuses but is **capped** so a full system stays strong without runaway stacking.
 - Deferred backlog (not in 1.3): Jewish merchant towns, Valdese-scale migrant colonies (too small for Vic3 state impact), late-game pulse events, custom portraits, Oak Island, languages / 3D assets.
 - Workshop packaging: keep `gfx/interface/icons/building_icons/_preview/` out of published zips (gitignored source PNGs only).
 
@@ -43,8 +47,8 @@ After changes, in-game check:
 
 1. Start buildings: UNC, Wake Forest, starting lighthouses, gold mines; NC state traits present
 2. Mid-game: university / lighthouse charter recovery still works (cancel mid-build frees the slot without soft-lock); finished lights also credit if the build JE missed them
-3. Industry JEs: Carolina Brands, naval stores, mill village, Tobacco Belt — decisions appear and company unlocks remain attainable (NCR after Piedmont trunk; sponsors note remaining building levels)
+3. Industry JEs: Carolina Brands, naval stores, mill village, Tobacco Belt — decisions appear and company unlocks remain attainable (NCR after Piedmont trunk; sponsors note remaining building levels; Burlington at mills 5 with Cannon/Cone)
 4. History arcs (1.2): Cape Fear ports, Wright brothers (from 1896 / flight 1903), Reconstruction→New South (from 1866)
-5. Systems (1.3): company founding / Triangle / Biltmore / Wright spawn characters; education prestige scales with campuses (innovation + migration pull); after lights complete, Outer Banks storm JE pulses and Coastal Reconstruction decision clears damage
+5. Systems (1.3): company founding / Triangle (after Tar Heel) / Biltmore / Wright spawn characters; education prestige scales with campuses (capped); after lights complete, Outer Banks storm JE pulses and Coastal Reconstruction decision clears damage
 6. With Charters of Commerce: flavored company prestige goods appear; without CoC, no script errors
 7. Error log clean on load (no missing loc / icons)

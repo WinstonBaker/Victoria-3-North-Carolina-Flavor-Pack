@@ -57,6 +57,22 @@ nc_flavor_on_game_started = {
 }
 
 on_monthly_pulse_country = {
+	on_actions = {
+		nc_flavor_monthly_pulse
+		# Company / mint / Wright stories — only evaluated for NC owners
+		nc_flavor_monthly_nc_owner_events
+	}
+}
+
+# Mint, Wright, and company-story events. Scoped so non-NC countries
+# skip the whole list instead of evaluating 15 triggers every month.
+nc_flavor_monthly_nc_owner_events = {
+	trigger = {
+		any_scope_state = {
+			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
+		}
+	}
 	events = {
 		nc_flavor_events.7	# Charlotte Mint — July 27, 1837
 		nc_flavor_events.22	# Wright Brothers — December 17, 1903
@@ -73,9 +89,6 @@ on_monthly_pulse_country = {
 		nc_flavor_events.60	# Mill town prosperity
 		nc_flavor_events.76	# High Point Furniture company story
 		nc_flavor_events.77	# Duke Power company story
-	}
-	on_actions = {
-		nc_flavor_monthly_pulse
 	}
 }
 

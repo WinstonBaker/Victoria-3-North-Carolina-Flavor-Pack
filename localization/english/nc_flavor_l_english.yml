@@ -42,7 +42,7 @@
 
  je_nc_carolina_brands: "Carolina Brands"
  je_nc_carolina_brands_desc: "North Carolina's factories and pharmacies are ready to become household names. Charter Pepsi-Cola, Vick Chemical, Hanes, and the North Carolina Railroad Company — use Decisions to sponsor New Bern soft drinks, a Greensboro pharmacy, or Winston hosiery while you grow the industries they need. The railroad company unlocks after the Piedmont NCR trunk is finished."
- je_nc_carolina_brands_reason: "Unlocks after Tar Heel Legacy with Corporate Charters. Establish four signature Carolina companies."
+ je_nc_carolina_brands_reason: "Shown after Tar Heel Legacy with Corporate Charters. Activates so you can sponsor brands; completes when Pepsi-Cola, Vick Chemical, Hanes, and the NC Railroad Company are all founded."
  je_nc_carolina_brands_hanes_tt: "Hanes has been established as a company"
  je_nc_carolina_brands_ncr_tt: "The North Carolina Railroad Company has been established (unlocks after the Piedmont NCR trunk JE)"
  je_nc_carolina_brands_pepsi_tt: "Pepsi-Cola has been established as a company"
@@ -50,12 +50,13 @@
  je_nc_carolina_brands_vicks_tt: "Vick Chemical has been established as a company"
 
  je_nc_duke_power: "Light the Piedmont"
- je_nc_duke_power_desc: "James B. Duke's Southern Power Company aims to dam the Catawba and electrify the mill belt. Raise power plants, feed industry, and charter Duke Power until the Piedmont runs on hydroelectric current."
- je_nc_duke_power_reason: "Unlocks after completing Tar Heel Legacy. Hydroelectric power on the Catawba can turn Carolina mills into an electrified New South workshop — if the grid is built."
+ je_nc_duke_power_desc: "James B. Duke's Southern Power Company aims to dam the Catawba and electrify the mill belt. Raise power plants and feed Piedmont industry until the grid runs on hydroelectric current. Chartering Duke Power remains optional."
+ je_nc_duke_power_reason: "Shown after Tar Heel Legacy with Electrical Generation. Activates once North Carolina has a power plant — finish the grid with plants and industry."
  je_nc_duke_power_industry_tt: "North Carolina has substantial textile mills or furniture manufactories"
  je_nc_duke_power_plants_tt: "North Carolina has at least 5 levels of Power Plants"
  je_nc_duke_power_company_tt: "Duke Power has been established as a company"
- je_nc_duke_power_progress_status_loc: "Build power plants, keep Piedmont industry humming, and charter Duke Power."
+ je_nc_duke_power_start_tt: "North Carolina has at least 1 level of Power Plants"
+ je_nc_duke_power_progress_status_loc: "Build Power Plants to level 5 and keep Piedmont textile mills or furniture manufactories strong."
 
  je_nc_found_selected_app_state_status_loc: "Build #b Appalachian State University#! in North Carolina."
  je_nc_found_selected_asheville_status_loc: "Build #b UNC Asheville#! in North Carolina."
@@ -79,12 +80,13 @@
  je_nc_found_selected_wssu_status_loc: "Build #b Winston-Salem State University#! in North Carolina."
 
  je_nc_high_point_furniture: "Furniture Capital of the World"
- je_nc_high_point_furniture_desc: "High Point sits amid hardwood forests and rail sidings perfect for chairs, tables, and case goods. Build furniture manufactories and logging camps, then charter High Point Furniture until the world shops Carolina woodwork."
- je_nc_high_point_furniture_reason: "Unlocks after completing Tar Heel Legacy. Piedmont hardwood and skilled joiners can make High Point the furniture capital of the world — if the factories rise."
+ je_nc_high_point_furniture_desc: "High Point sits amid hardwood forests and rail sidings perfect for chairs, tables, and case goods. Build furniture manufactories and logging camps until the world shops Carolina woodwork. Chartering High Point Furniture remains optional."
+ je_nc_high_point_furniture_reason: "Shown after Tar Heel Legacy with Manufacturies. Activates once furniture factories are underway — finish with furniture and logging."
  je_nc_high_point_furniture_tt: "North Carolina has at least 5 levels of Furniture Manufactories"
  je_nc_high_point_logging_tt: "North Carolina has at least 5 levels of Logging Camps"
  je_nc_high_point_company_tt: "High Point Furniture has been established as a company"
- je_nc_high_point_progress_status_loc: "Expand furniture and logging, then charter High Point Furniture."
+ je_nc_high_point_start_tt: "North Carolina has at least 2 levels of Furniture Manufactories"
+ je_nc_high_point_progress_status_loc: "Expand Furniture Manufactories and Logging Camps to level 5."
 
  je_nc_light_bodie_tt: "Bodie Island Lighthouse has been founded"
 
@@ -141,15 +143,16 @@
  je_nc_outer_banks_program_progress_status_loc: "Fund the Lighthouse Board to begin choosing new Outer Banks lights."
 
  je_nc_piedmont_textiles: "Raise the Piedmont Mills"
- je_nc_piedmont_textiles_desc: "Along the fall line from Charlotte to Gastonia and Concord, water power and cheap cotton invite a New South experiment: mill villages spinning Southern fiber into cloth. Raise mills, secure cotton, and charter Cannon, Cone, and Burlington until the Piedmont hums with spindles."
- je_nc_piedmont_textiles_reason: "Unlocks after completing Tar Heel Legacy. The Piedmont fall line offers water power, cotton, and labor for a textile belt to rival New England — if mills and mill villages rise in earnest."
+ je_nc_piedmont_textiles_desc: "Along the fall line from Charlotte to Gastonia and Concord, water power and cheap cotton invite a New South experiment: mill villages spinning Southern fiber into cloth. Raise mills and secure cotton until the Piedmont hums with spindles. Chartering Cannon, Cone, or Burlington remains optional."
+ je_nc_piedmont_textiles_reason: "Shown after Tar Heel Legacy with Atmospheric Engine. Activates once textile mills are underway — finish with mills and cotton."
  je_nc_piedmont_textiles_cotton_tt: "North Carolina has at least 3 levels of Cotton Plantations"
- je_nc_piedmont_textiles_mills_status_loc: "The mills stand ready. Expand cotton and charter Cannon, Cone, and Burlington to finish the Piedmont textile belt."
+ je_nc_piedmont_textiles_mills_status_loc: "The mills stand ready. Expand cotton plantations to finish the Piedmont textile belt."
  je_nc_piedmont_textiles_mills_tt: "North Carolina has at least 5 levels of Textile Mills"
  je_nc_piedmont_textiles_cannon_tt: "Cannon Mills has been established as a company"
  je_nc_piedmont_textiles_cone_tt: "Cone Mills has been established as a company"
  je_nc_piedmont_textiles_burlington_tt: "Burlington Industries has been established as a company"
- je_nc_piedmont_textiles_progress_status_loc: "Raise textile mills, secure cotton, and charter Cannon, Cone, and Burlington."
+ je_nc_piedmont_textiles_start_tt: "North Carolina has at least 2 levels of Textile Mills"
+ je_nc_piedmont_textiles_progress_status_loc: "Raise Textile Mills to level 5 and Cotton Plantations to level 3."
 
  je_nc_raleigh_gaston: "Raleigh & Gaston Railroad"
  je_nc_raleigh_gaston_desc: "A shorter inland spur of about 85 miles from Gaston on the Roanoke to the capital at Raleigh. Charter it via #b Decisions#! or a charter event, then expand #b Railways#! in North Carolina to level 10."
@@ -161,7 +164,8 @@
 
  je_nc_research_triangle: "Found the Research Triangle"
  je_nc_research_triangle_desc: "With the University of North Carolina already standing at Chapel Hill, planners envision a triangle of learning linking Raleigh and Durham. Found NC State University and Duke University in North Carolina to bind the Piedmont into America's next great research hub — then choose which campus expands the system next."
- je_nc_research_triangle_reason: "Available from the start. Found NC State and Duke beside UNC to complete the Research Triangle."
+ je_nc_research_triangle_reason: "Unlocks after completing Tar Heel Legacy. Found NC State and Duke beside UNC to complete the Research Triangle."
+ je_nc_research_triangle_tar_heel_tt: "Completed Tar Heel Legacy"
  je_nc_research_triangle_complete_status_loc: "All three universities stand ready. The Research Triangle can now be formally united."
  je_nc_research_triangle_complete_tt: "NC State University and Duke University have been built in North Carolina."
  je_nc_research_triangle_duke_tt: "Duke University has been founded in North Carolina"
@@ -183,7 +187,7 @@
 
  je_nc_tobacco_belt: "Tobacco Belt"
  je_nc_tobacco_belt_desc: "Brightleaf cured in Durham and Winston has made North Carolina the cigarette capital of America. Charter W. Duke, Sons & Co., R.J. Reynolds, and Liggett & Myers — use Decisions to sponsor their factories while expanding tobacco plantations along the Durham–Winston corridor."
- je_nc_tobacco_belt_reason: "Unlocks after Tar Heel Legacy with Corporate Charters. Establish the three great tobacco houses and grow plantations to level 8."
+ je_nc_tobacco_belt_reason: "Shown after Tar Heel Legacy with Corporate Charters. Activates so you can sponsor leaf houses; completes when Duke, Reynolds, and Liggett are founded and Tobacco Plantations reach level 8."
  je_nc_tobacco_belt_duke_tt: "W. Duke, Sons & Co. has been established as a company"
  je_nc_tobacco_belt_liggett_tt: "Liggett & Myers Tobacco Company has been established as a company"
  je_nc_tobacco_belt_plantations_tt: "North Carolina has at least 8 levels of Tobacco Plantations"
@@ -377,16 +381,11 @@
  company_vick_chemical_desc: "Vick Chemical of Greensboro packaged mentholated remedies — most famously VapoRub — from pharmacy experiments into a national chemical brand rooted in Piedmont industry."
  company_w_duke_sons: "W. Duke, Sons & Co."
  company_w_duke_sons_desc: "Washington Duke's Durham firm grew from a small brightleaf packing shed into one of America's great tobacco houses. W. Duke, Sons & Co. dominates cigarette manufacture along the Durham–Winston corridor and ties Piedmont plantations to national markets."
- prestige_good_brightleaf_tobacco: "Brightleaf Tobacco"
- prestige_good_brightleaf_tobacco_desc: "Flue-cured brightleaf from the Carolina Tobacco Belt — prized for color, mildness, and export demand."
- prestige_good_burlington_cloth: "Burlington Cloth"
- prestige_good_burlington_cloth_desc: "Fine Piedmont textile cloth from Burlington's mills, carrying Carolina brands into national markets."
+ # Tobacco prestige goods use vanilla turkish/basma/cigars (cap full). Textile/other NC goods below.
  prestige_good_cannon_towels: "Cannon Towels"
  prestige_good_cannon_towels_desc: "Cannon Mills household textiles — towels and linens that made Kannapolis a mill-town name."
  prestige_good_cone_denim: "Cone Denim"
  prestige_good_cone_denim_desc: "Greensboro denim and work cloth from Cone Mills, built for durability and volume."
- prestige_good_durham_blend: "Durham Blend"
- prestige_good_durham_blend_desc: "Duke tobacco blends from Durham — packaged smoking tobacco that helped define the New South."
  prestige_good_hanes_knitwear: "Hanes Knitwear"
  prestige_good_hanes_knitwear_desc: "Winston-Salem knit goods from Hanes — underwear and hosiery for a growing mass market."
  prestige_good_high_point_furniture: "High Point Furniture"
@@ -395,8 +394,17 @@
  prestige_good_pepsi_cola_desc: "Caleb Bradham's New Bern soda fountain formula — a Carolina grocery brand with national reach."
  prestige_good_vicks_remedies: "Vicks Remedies"
  prestige_good_vicks_remedies_desc: "Greensboro chemical specialties from Vick Chemical — household remedies produced as industrial chemistry (Charters of Commerce prestige good)."
- prestige_good_winston_cigarettes: "Winston Cigarettes"
- prestige_good_winston_cigarettes_desc: "Reynolds cigarette brands from Winston — machine-made smokes for the tobacco age."
+
+ # === Character last names (historical templates) ===
+
+ Bradham:0 "Bradham"
+ Cannon:0 "Cannon"
+ Cone:0 "Cone"
+ Hanes:0 "Hanes"
+ Liggett:0 "Liggett"
+ Morehead:0 "Morehead"
+ Pleasant:0 "Pleasant"
+ Wrenn:0 "Wrenn"
 
  # === Production methods & groups ===
 
@@ -1237,9 +1245,9 @@
  nc_durham_tobacco_boom_desc: "State-backed brightleaf surge and cigarette-works throughput (food industry as packing proxy) centered on Durham."
 
  nc_education_prestige: "Carolina Campus Prestige"
- nc_education_prestige_desc: "Education access, qualifications, and migration pull from each active North Carolina university campus."
+ nc_education_prestige_desc: "Education access, qualifications, and migration pull from each active North Carolina university campus (scales with campus count, capped)."
  nc_education_prestige_country: "Carolina Campus Prestige"
- nc_education_prestige_country_desc: "Prestige and innovation scaled by the number of North Carolina university campuses."
+ nc_education_prestige_country_desc: "Prestige and innovation scaled by North Carolina university campuses (capped so a full system remains strong without runaway stacking)."
 
  nc_freedmen_schools: "Freedmen's Schools"
  nc_freedmen_schools_desc: "Education access from postwar school funding."
@@ -1468,9 +1476,6 @@
 
  # === Misc ===
 
- Bradham: "Bradham"
- Hanes: "Hanes"
- Pleasant: "Pleasant"
  bg_nc_flavor: "North Carolina Landmarks"
  bg_nc_flavor_desc: "Universities, lighthouses, and Carolina flavor monuments. Shown under the Special buildings lens."
 

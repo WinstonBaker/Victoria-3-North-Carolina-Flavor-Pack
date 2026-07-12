@@ -514,6 +514,7 @@ nc_flavor_events.9 = {
 		default_option = yes
 		trigger = {
 			NOT = { has_variable = nc_lighthouse_system_active }
+			gold_reserves >= 40000
 		}
 		add_treasury = -40000
 		set_variable = nc_lighthouse_system_active

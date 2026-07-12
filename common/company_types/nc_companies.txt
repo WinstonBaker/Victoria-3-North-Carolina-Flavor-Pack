@@ -16,7 +16,8 @@ company_w_duke_sons = {
 	}
 
 	possible_prestige_goods = {
-		prestige_good_brightleaf_tobacco
+		# tobacco prestige cap is full (vanilla turkish/basma/cigars)
+		prestige_good_turkish_tobacco
 	}
 
 	potential = {
@@ -78,7 +79,7 @@ company_rj_reynolds = {
 	}
 
 	possible_prestige_goods = {
-		prestige_good_winston_cigarettes
+		prestige_good_cigars
 	}
 
 	potential = {
@@ -195,7 +196,8 @@ company_burlington_industries = {
 	}
 
 	possible_prestige_goods = {
-		prestige_good_burlington_cloth
+		# clothes prestige cap is 3 (vanilla + Cannon + Cone); share Cone denim
+		prestige_good_cone_denim
 	}
 
 	potential = {
@@ -214,12 +216,13 @@ company_burlington_industries = {
 		has_technology_researched = corporate_charters
 		OR = {
 			has_variable = nc_piedmont_textiles_complete
+			# Match Cannon/Cone and je_nc_piedmont_textiles mill gate (level 5)
 			any_scope_state = {
 				state_region = s:STATE_NORTH_CAROLINA
 				is_incorporated = yes
 				any_scope_building = {
 					is_building_type = building_textile_mill
-					level >= 6
+					level >= 5
 				}
 			}
 		}
@@ -452,7 +455,7 @@ company_liggett_myers = {
 	}
 
 	possible_prestige_goods = {
-		prestige_good_durham_blend
+		prestige_good_basma_tobacco
 	}
 
 	potential = {

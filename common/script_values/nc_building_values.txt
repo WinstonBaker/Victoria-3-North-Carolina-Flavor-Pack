@@ -17,6 +17,7 @@ nc_university_campus_count = {
 	every_scope_state = {
 		limit = {
 			state_region = s:STATE_NORTH_CAROLINA
+			owner = ROOT
 		}
 		if = { limit = { has_building = building_unc_chapel_hill } add = 1 }
 		if = { limit = { has_building = building_wake_forest_college } add = 1 }
@@ -48,4 +49,10 @@ nc_university_campus_count = {
 nc_education_prestige_score = {
 	value = nc_university_campus_count
 	multiply = 2
+}
+
+# Cap education-prestige stacking so a full UNC System does not dominate USA tech/migration
+nc_education_prestige_multiplier = {
+	value = nc_university_campus_count
+	max = 12
 }

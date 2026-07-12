@@ -290,23 +290,6 @@ nc_recover_stale_university_charters = {
 		remove_variable = nc_uni_build_wssu
 		change_variable = { name = nc_uni_charter_count subtract = 1 }
 	}
-	# Legacy private-charter flags (older saves) — clear only; do not touch charter_count
-	if = {
-		limit = { has_variable = nc_uni_build_davidson }
-		remove_variable = nc_uni_build_davidson
-	}
-	if = {
-		limit = { has_variable = nc_uni_build_shaw }
-		remove_variable = nc_uni_build_shaw
-	}
-	if = {
-		limit = { has_variable = nc_uni_build_elon }
-		remove_variable = nc_uni_build_elon
-	}
-	if = {
-		limit = { has_variable = nc_uni_build_jcs }
-		remove_variable = nc_uni_build_jcs
-	}
 	nc_uni_clamp_charter_count = yes
 }
 

@@ -226,7 +226,7 @@ nc_spawn_wright_brothers = {
 }
 
 # Scale country + NC state education prestige from live campus count.
-# Unit modifiers are multiplied by nc_university_campus_count each month.
+# Unit modifiers are multiplied by nc_education_prestige_multiplier (capped).
 nc_refresh_education_prestige = {
 	if = {
 		limit = { has_modifier = nc_education_prestige_country }
@@ -249,7 +249,7 @@ nc_refresh_education_prestige = {
 		}
 		add_modifier = {
 			name = nc_education_prestige_country
-			multiplier = nc_university_campus_count
+			multiplier = nc_education_prestige_multiplier
 		}
 		every_scope_state = {
 			limit = {
@@ -258,7 +258,7 @@ nc_refresh_education_prestige = {
 			}
 			add_modifier = {
 				name = nc_education_prestige
-				multiplier = nc_university_campus_count
+				multiplier = nc_education_prestige_multiplier
 			}
 		}
 		set_variable = {

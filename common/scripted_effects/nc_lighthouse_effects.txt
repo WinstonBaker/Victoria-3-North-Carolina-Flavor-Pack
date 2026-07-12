@@ -84,8 +84,9 @@ nc_recover_stale_lighthouse_charters = {
 }
 
 # Credit finished lights when the build JE missed them (soft-lock fix).
-# Mirrors university nc_credit_finished_university_charters: if the light
-# stands, mark founded and clear pending so Choose Next is not blocked.
+# Mirrors university nc_credit_finished_university_charters: clear build
+# flags, set nc_light_just_credited, and let je_nc_build_selected_lighthouse
+# complete + fire choose-next (.33). Do NOT fire .33 here (avoids duplicates).
 nc_credit_finished_lighthouse_charters = {
 	if = {
 		limit = {
@@ -150,27 +151,6 @@ nc_credit_finished_lighthouse_charters = {
 			set_variable = nc_light_just_credited
 		}
 		set_variable = nc_light_founded_cape_fear
-	}
-
-	# Same follow-up as je_nc_build_selected_lighthouse on_complete
-	if = {
-		limit = {
-			has_variable = nc_light_just_credited
-		}
-		remove_variable = nc_light_just_credited
-		if = {
-			limit = {
-				NOT = {
-					AND = {
-						has_variable = nc_light_founded_lookout
-						has_variable = nc_light_founded_bodie
-						has_variable = nc_light_founded_currituck
-						has_variable = nc_light_founded_cape_fear
-					}
-				}
-			}
-			trigger_event = { id = nc_flavor_events.33 popup = yes }
-		}
 	}
 }
 

@@ -397,8 +397,8 @@ nc_biltmore_prestige = {
 
 nc_biltmore_attraction = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
-	state_migration_pull_mult = 0.25
-	state_migration_pull_add = 20
+	state_migration_pull_mult = 0.12
+	state_migration_pull_add = 10
 }
 
 # High-funding construction subsidy for Biltmore
@@ -850,14 +850,15 @@ nc_education_prestige = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	state_education_access_add = 0.005
 	state_pop_qualifications_mult = 0.008
-	state_migration_pull_mult = 0.02
-	state_migration_pull_add = 2
+	# Softened vs full campus stack; multiplier also capped (see nc_education_prestige_multiplier)
+	state_migration_pull_mult = 0.01
+	state_migration_pull_add = 1
 }
 
 nc_education_prestige_country = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
 	country_prestige_add = 2
-	# 1 × campus count — keep; pairs with OP campus PMs (see nc_universities_pm.txt)
+	# 1 × campus count (capped via nc_education_prestige_multiplier) — pairs with strong campus PMs
 	country_weekly_innovation_add = 1
 }
 

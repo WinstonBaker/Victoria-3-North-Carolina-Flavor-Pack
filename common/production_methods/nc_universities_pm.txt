@@ -10,7 +10,7 @@
 # Target bands (keep roughly here):
 #   regional ~2, mid-tier ~3–4, Triangle/flagships ~5–7 innovation.
 # Full system + nc_education_prestige_country stacking is meant to
-# be a dominant late-game USA education/tech package.
+# be a strong late-game USA education/tech package (campus multiplier capped).
 ########################################
 
 # --- Flagships / start campuses ---
