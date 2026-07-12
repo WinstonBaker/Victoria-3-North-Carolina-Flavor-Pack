@@ -1,0 +1,28 @@
+[h1]North Carolina Flavor Pack[/h1]
+Tar Heel flavor for Victoria 3 (1.13.*) — journal chains, decisions, unique buildings, companies, characters, and state traits, without a full USA overhaul.
+
+This is not a strict history simulator. It borrows North Carolina history for immersion and pacing, then bends timelines so content fits Victoria 3 systems and stays fun.
+
+[h2]Content[/h2]
+[list]
+[*][b]Universities[/b] — UNC System (Chapel Hill, Research Triangle, 14 regional charters), Wake Forest relocation, education prestige
+[*][b]Outer Banks[/b] — Lighthouse program, fuel PMs, storm/wreck pulses, coastal reconstruction
+[*][b]Rail[/b] — Wilmington & Weldon → Atlantic & NC → Western NC → Carolina Rail Network
+[*][b]Piedmont industry[/b] — Textile / power / furniture / brand companies, mill village, naval stores
+[*][b]Tobacco[/b] — Brightleaf companies (Duke / Reynolds / Liggett)
+[*][b]Coast & century[/b] — Cape Fear / Morehead ports, Wright brothers, Reconstruction → New South
+[*][b]Characters[/b] — Historical industrialists & builders (Duke, Reynolds, Bradham, Vanderbilt, Wrights, …)
+[*][b]Landmarks[/b] — State Capitol, Biltmore, state traits, Carolina gold belt
+[/list]
+
+[h2]Notes[/h2]
+[list]
+[*]Play as the USA (or any country that owns incorporated North Carolina) for the full journal tab.
+[*]Compatible with vanilla USA; no hard dependencies on other flavor mods.
+[*]Company [b]prestige goods[/b] require the Charters of Commerce DLC.
+[*]Character portraits are placeholders (no custom DNA yet).
+[*]Research Triangle unlocks after Tar Heel Legacy (pacing gate, not a calendar lock).
+[/list]
+
+[h2]Version[/h2]
+1.3.0 · Supported game version: 1.13.*

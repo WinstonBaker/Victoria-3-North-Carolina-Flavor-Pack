@@ -4,7 +4,7 @@
   "version": "1.3.0",
   "supported_game_version": "1.13.*",
 	"short_description": "Tar Heel flavor for Victoria 3: Outer Banks lighthouses & storms, universities & education prestige, Piedmont companies, tobacco houses, Cape Fear ports, Wright brothers, Reconstruction→New South, historical characters, naval stores, and landmarks.",
-  "tags": ["Flavor", "Historical", "United States", "1.13"],
+  "tags": ["Historical", "Journal Entries", "Economy And Buildings", "Events"],
   "relationships": [],
   "game_custom_data": {
     "multiplayer_synchronized": true
